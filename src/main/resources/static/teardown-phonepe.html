@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teardown: PhonePe Lending Marketplace — Krishnamurthi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F6F3;
+    --paper-alt:#EBECE5;
+    --ink:#1B2430;
+    --ink-soft:#5B6472;
+    --line:#D7D9D0;
+    --teal:#2F6F6B;
+    --teal-soft:#E4EDEC;
+    --amber:#C97D2E;
+    --amber-soft:#F5E7D6;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--teal); color:var(--paper);}
+  h1,h2,h3,.disp{font-family:'Space Grotesk', sans-serif; letter-spacing:-0.01em; margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.01em;}
+  a{color:var(--ink);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  .statusbar{border-bottom:1px solid var(--line); background:var(--paper-alt);}
+  .statusbar .wrap{display:flex; flex-wrap:wrap; gap:6px 22px; padding:9px 28px; font-size:12px; color:var(--ink-soft);}
+  .statusbar strong{color:var(--ink); font-weight:500;}
+
+  header.site{position:sticky; top:0; z-index:20; background:rgba(245,246,243,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 28px;}
+  .brand{font-size:18px; font-weight:600;}
+  .brand span{color:var(--teal);}
+  .back{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase;
+    letter-spacing:0.06em; text-decoration:none; color:var(--ink-soft);
+    border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s;
+  }
+  .back:hover{color:var(--ink); border-color:var(--ink);}
+
+  .doc-hero{padding:56px 0 20px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px;
+  }
+  .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--teal); display:inline-block;}
+  .doc-hero h1{font-size:clamp(28px,4.4vw,42px); line-height:1.14; font-weight:600;}
+  .doc-hero .sub{font-size:17px; color:var(--ink-soft); margin-top:14px; max-width:60ch;}
+
+  .sec{padding:40px 0; border-top:1px solid var(--line);}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:20px;}
+  .sec-num{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--teal);}
+  .sec-head h2{font-size:22px; font-weight:600;}
+  .sec p{margin:0 0 14px;}
+
+  .funnel{list-style:none; padding:0; margin:0; counter-reset:step;}
+  .funnel li{
+    counter-increment:step;
+    display:grid; grid-template-columns:34px 1fr; gap:14px;
+    padding:12px 0; border-bottom:1px dashed var(--line);
+  }
+  .funnel li:last-child{border-bottom:none;}
+  .funnel li::before{
+    content:counter(step);
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--teal);
+    width:26px; height:26px; border:1px solid var(--teal); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .funnel .t{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15.5px;}
+  .funnel .d{color:var(--ink-soft); font-size:14.5px; margin-top:2px;}
+  .funnel li.friction{
+    background:var(--amber-soft); margin:0 -14px; padding:12px 14px; border-radius:2px; border-bottom:none;
+  }
+  .funnel li.friction::before{border-color:var(--amber); color:var(--amber);}
+
+  .callout{
+    border-left:3px solid var(--amber);
+    background:var(--paper-alt);
+    padding:18px 20px;
+    margin:18px 0;
+  }
+  .callout .k{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase;
+    color:var(--amber); letter-spacing:0.06em; margin-bottom:8px; display:block;
+  }
+  .callout.fix{border-left-color:var(--teal);}
+  .callout.fix .k{color:var(--teal);}
+  .callout.metric{border-left-color:var(--ink);}
+  .callout.metric .k{color:var(--ink);}
+
+  .fields{margin-top:14px; display:grid; gap:10px;}
+  .field{display:grid; grid-template-columns:96px 1fr; gap:12px; align-items:baseline;}
+  .field .k{font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase; color:var(--ink-soft); letter-spacing:0.05em;}
+  .field .v{font-size:15.5px;}
+  @media(max-width:600px){ .field{grid-template-columns:1fr;} .field .k{margin-bottom:-4px;} }
+
+  .note{
+    font-size:14.5px; color:var(--ink-soft); font-style:italic; margin-top:24px;
+    border-left:2px solid var(--teal); padding-left:14px;
+  }
+
+  footer{border-top:1px solid var(--line); padding:44px 0; background:var(--paper-alt);}
+  .footlinks{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:0.05em;
+    text-decoration:none; padding:10px 16px; border:1px solid var(--ink); color:var(--ink);
+    display:inline-flex; align-items:center; gap:8px; transition:background .15s, color .15s;
+  }
+  .btn.primary{background:var(--ink); color:var(--paper);}
+  .btn.primary:hover{background:var(--teal); border-color:var(--teal);}
+  .btn:not(.primary):hover{background:var(--paper);}
+</style>
+</head>
+<body>
+
+
+<header class="site">
+  <nav class="wrap">
+    <div class="brand">Krishna<span>murthi</span></div>
+    <a class="back" href="/">← Back to portfolio</a>
+  </nav>
+</header>
+
+<section class="doc-hero wrap">
+  <div class="eyebrow">Product Teardown</div>
+  <h1>PhonePe — what breaks when lending is a marketplace, not a lender</h1>
+  <p class="sub">Same category as KreditBee, a different business model, and a genuinely different friction point — the hand-off, not the documents.</p>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">§T1</span><h2>Funnel, as it actually exists today</h2></div>
+  <ol class="funnel">
+    <li><div><div class="t">Discover</div><div class="d">User opens "Loans" / "Financial Services" inside the PhonePe app — already trusted, already has UPI history there.</div></div></li>
+    <li><div><div class="t">Choose offer</div><div class="d">Selects a loan type/amount from pre-approved offers, sourced from PhonePe's lending partners (e.g. DMI Finance and other RBI-registered NBFCs). PhonePe itself doesn't lend — it brokers.</div></div></li>
+    <li class="friction"><div><div class="t">Hand-off</div><div class="d">User is redirected to the partner lender's own application flow, inside or alongside the PhonePe shell.</div></div></li>
+    <li class="friction"><div><div class="t">Re-enter details</div><div class="d">Personal, income, and employment details, plus PAN — sometimes information PhonePe already has.</div></div></li>
+    <li><div><div class="t">KYC</div><div class="d">Mostly OTP-based e-KYC, minimal document upload.</div></div></li>
+    <li><div><div class="t">Review offer &amp; e-sign</div><div class="d">Loan agreement signed digitally.</div></div></li>
+    <li><div><div class="t">Disbursal</div><div class="d">Funds credited — within minutes to a few hours/days depending on partner.</div></div></li>
+    <li class="friction"><div><div class="t">Repayment setup</div><div class="d">Autopay must be set up separately, after disbursal — a second, distinct onboarding task.</div></div></li>
+  </ol>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">§T2</span><h2>Where the friction actually is</h2></div>
+  <p>KreditBee is a single-lender product, so its whole flow lives in one system with one voice. PhonePe's lending business is structurally different: it's a <strong>marketplace</strong>, brokering between the user and multiple partner NBFCs. That structural choice creates a friction type KreditBee doesn't have at all.</p>
+  <div class="callout">
+    <span class="k">Friction point</span>
+    The hand-off. The user starts inside an app they already trust — used daily for UPI — then gets routed into a partner lender's own application flow, in a different visual language, sometimes re-asking for information PhonePe already has. This isn't a documentation problem like KreditBee's; it's a continuity and trust problem. Every hand-off is a moment the user has to re-decide "do I trust this."
+  </div>
+  <p>A second, smaller friction point: <strong>Autopay setup is decoupled from loan approval.</strong> A user who's just been approved and is relieved to have funds is handed a second onboarding task rather than one continuous flow — exactly where a relieved, distracted user drops off and quietly creates a collections problem weeks later, not a UX metric today.</p>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">§T3</span><h2>The fix</h2></div>
+  <div class="callout fix">
+    <span class="k">Proposal 1 — highest leverage</span>
+    Keep the experience inside PhonePe's own native context, even when the underlying lender changes. An in-app AI agent that already has the user's PhonePe-known details (name, PAN if previously used, income if inferred from transaction history with consent) could carry that context across the hand-off — pre-filling and simply confirming rather than asking the user to retype.
+  </div>
+  <div class="callout fix">
+    <span class="k">Proposal 2</span>
+    Fold Autopay setup into the same approval flow, framed as the last step of getting the loan — "you're approved; here's your one remaining step before funds move" — instead of a disconnected follow-up.
+  </div>
+  <p class="note">This is close to exactly what Revrag's embedded, multilingual in-app agents are built to do for BFSI onboarding: absorb the partner-integration complexity so the user only ever experiences one continuous conversation, never a hand-off. I'm noting that directly rather than treating it as a coincidence.</p>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">§T4</span><h2>Metric that would prove it worked</h2></div>
+  <div class="callout metric">
+    <span class="k">Primary</span>
+    Hand-off completion rate — of users who select a loan offer, what fraction complete the partner application without abandoning at the redirect or the re-entry-of-details step. This is the metric KreditBee's funnel doesn't need but PhonePe's does, precisely because the marketplace model is the source of the friction.
+  </div>
+  <div class="fields">
+    <div class="field"><span class="k">Secondary</span><span class="v">Same-session Autopay setup rate — of users disbursed a loan, what fraction complete repayment mandate setup in the same session rather than days later, or never, until a missed EMI.</span></div>
+  </div>
+  <p class="note">Together with the KreditBee teardown, this shows the same category read two different ways depending on the underlying business model — not one insight copy-pasted onto two logos.</p>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2 style="font-size:22px;">Read the KreditBee teardown next →</h2>
+    <p style="color:var(--ink-soft); margin-top:10px;">Same category, single-lender model, a documentation-driven friction point instead.</p>
+    <div class="footlinks">
+      <a class="btn primary" href="/teardown-kreditbee.html">KreditBee teardown</a>
+      <a class="btn" href="/">Back to portfolio</a>
+    </div>
+    <div class="doc-status" style="display:flex; gap:16px; margin-top:30px; font-size:13px; color:var(--ink-soft); border-top:1px dashed var(--line); padding-top:16px; flex-wrap:wrap;">
+      <span><strong>Doc:</strong> Teardown — PhonePe</span>
+      <span><strong>Status:</strong> Published</span>
+      <span><strong>Category:</strong> BFSI lending · marketplace model</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

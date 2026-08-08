@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teardown: KreditBee Onboarding — Krishnamurthi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F6F3;
+    --paper-alt:#EBECE5;
+    --ink:#1B2430;
+    --ink-soft:#5B6472;
+    --line:#D7D9D0;
+    --teal:#2F6F6B;
+    --teal-soft:#E4EDEC;
+    --amber:#C97D2E;
+    --amber-soft:#F5E7D6;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--teal); color:var(--paper);}
+  h1,h2,h3,.disp{font-family:'Space Grotesk', sans-serif; letter-spacing:-0.01em; margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.01em;}
+  a{color:var(--ink);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  .statusbar{border-bottom:1px solid var(--line); background:var(--paper-alt);}
+  .statusbar .wrap{display:flex; flex-wrap:wrap; gap:6px 22px; padding:9px 28px; font-size:12px; color:var(--ink-soft);}
+  .statusbar strong{color:var(--ink); font-weight:500;}
+
+  header.site{position:sticky; top:0; z-index:20; background:rgba(245,246,243,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 28px;}
+  .brand{font-size:18px; font-weight:600;}
+  .brand span{color:var(--teal);}
+  .back{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase;
+    letter-spacing:0.06em; text-decoration:none; color:var(--ink-soft);
+    border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s;
+  }
+  .back:hover{color:var(--ink); border-color:var(--ink);}
+
+  .doc-hero{padding:56px 0 20px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px;
+  }
+  .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--teal); display:inline-block;}
+  .doc-hero h1{font-size:clamp(28px,4.4vw,42px); line-height:1.14; font-weight:600;}
+  .doc-hero .sub{font-size:17px; color:var(--ink-soft); margin-top:14px; max-width:60ch;}
+
+  .sec{padding:40px 0; border-top:1px solid var(--line);}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:20px;}
+  .sec-num{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--teal);}
+  .sec-head h2{font-size:22px; font-weight:600;}
+  .sec p{margin:0 0 14px;}
+
+  .funnel{list-style:none; padding:0; margin:0; counter-reset:step;}
+  .funnel li{
+    counter-increment:step;
+    display:grid; grid-template-columns:34px 1fr; gap:14px;
+    padding:12px 0; border-bottom:1px dashed var(--line);
+  }
+  .funnel li:last-child{border-bottom:none;}
+  .funnel li::before{
+    content:counter(step);
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--teal);
+    width:26px; height:26px; border:1px solid var(--teal); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .funnel .t{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15.5px;}
+  .funnel .d{color:var(--ink-soft); font-size:14.5px; margin-top:2px;}
+  .funnel li.friction{
+    background:var(--amber-soft); margin:0 -14px; padding:12px 14px; border-radius:2px; border-bottom:none;
+  }
+  .funnel li.friction::before{border-color:var(--amber); color:var(--amber);}
+
+  .callout{
+    border-left:3px solid var(--amber);
+    background:var(--paper-alt);
+    padding:18px 20px;
+    margin:18px 0;
+  }
+  .callout .k{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase;
+    color:var(--amber); letter-spacing:0.06em; margin-bottom:8px; display:block;
+  }
+  .callout.fix{border-left-color:var(--teal);}
+  .callout.fix .k{color:var(--teal);}
+  .callout.metric{border-left-color:var(--ink);}
+  .callout.metric .k{color:var(--ink);}
+
+  .fields{margin-top:14px; display:grid; gap:10px;}
+  .field{display:grid; grid-template-columns:96px 1fr; gap:12px; align-items:baseline;}
+  .field .k{font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase; color:var(--ink-soft); letter-spacing:0.05em;}
+  .field .v{font-size:15.5px;}
+  @media(max-width:600px){ .field{grid-template-columns:1fr;} .field .k{margin-bottom:-4px;} }
+
+  .note{
+    font-size:14.5px; color:var(--ink-soft); font-style:italic; margin-top:24px;
+    border-left:2px solid var(--teal); padding-left:14px;
+  }
+
+  footer{border-top:1px solid var(--line); padding:44px 0; background:var(--paper-alt);}
+  .footlinks{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:0.05em;
+    text-decoration:none; padding:10px 16px; border:1px solid var(--ink); color:var(--ink);
+    display:inline-flex; align-items:center; gap:8px; transition:background .15s, color .15s;
+  }
+  .btn.primary{background:var(--ink); color:var(--paper);}
+  .btn.primary:hover{background:var(--teal); border-color:var(--teal);}
+  .btn:not(.primary):hover{background:var(--paper);}
+</style>
+</head>
+<body>
+
+
+<header class="site">
+  <nav class="wrap">
+    <div class="brand">Krishna<span>murthi</span></div>
+    <a class="back" href="/">← Back to portfolio</a>
+  </nav>
+</header>
+
+<section class="doc-hero wrap">
+  <div class="eyebrow">Product Teardown</div>
+  <h1>KreditBee — the KYC stack nobody fixed, just made skippable</h1>
+  <p class="sub">A single-lender lending app's own product decisions reveal exactly where users give up — you just have to read the escape hatches they built.</p>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">§T1</span><h2>Funnel, as it actually exists today</h2></div>
+  <ol class="funnel">
+    <li><div><div class="t">Download &amp; sign up</div><div class="d">Mobile number + OTP verification.</div></div></li>
+    <li><div><div class="t">Eligibility check</div><div class="d">PAN, DOB, monthly salary, PIN code — a soft check, no documents yet.</div></div></li>
+    <li class="friction"><div><div class="t">KYC upload</div><div class="d">Aadhaar/Voter ID/Passport, address proof, marital status, selfie — several documents in one sitting.</div></div></li>
+    <li class="friction"><div><div class="t">Income verification</div><div class="d">Bank statement upload — explicitly optional, can be skipped and completed later.</div></div></li>
+    <li><div><div class="t">Profile verification</div><div class="d">Backend review of submitted documents.</div></div></li>
+    <li><div><div class="t">Loan offer</div><div class="d">Amount + tenure selection, EMI shown instantly.</div></div></li>
+    <li><div><div class="t">Bank details</div><div class="d">Entered for disbursal.</div></div></li>
+    <li><div><div class="t">Disbursal</div><div class="d">Funds in ~10–15 minutes once verified.</div></div></li>
+  </ol>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">§T2</span><h2>Where the friction actually is</h2></div>
+  <p>The single most telling detail in KreditBee's own flow is that <strong>income verification is explicitly optional and deferrable</strong> — the product team already knows this step causes drop-off, and instead of fixing it, they routed around it by making it skippable.</p>
+  <div class="callout">
+    <span class="k">Friction point</span>
+    Steps 3–4, the KYC + income-verification stack. A first-time borrower has to produce and correctly photograph 3–4 separate documents in one sitting, on a phone — often mid-emergency, since KreditBee's own reviews mention "medical emergency" and "needed money fast" as real use contexts. That's exactly the moment someone has the least patience for a multi-step document flow.
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">§T3</span><h2>The fix</h2></div>
+  <div class="callout fix">
+    <span class="k">Proposal</span>
+    Replace the static multi-document upload screen with a conversational, one-document-at-a-time AI agent flow: the agent asks for one document, gives real-time feedback if the photo is blurry, cropped, or the wrong document type — before the user moves on, instead of a generic "verification failed" screen days later — and tells the user plainly what's still needed and why.
+  </div>
+  <p class="note">This is close to exactly what Revrag's embedded, multilingual in-app AI agents are built to do for BFSI onboarding — turning a form into a guided conversation. I'm noting that directly rather than treating it as a coincidence: this teardown led me to the same problem their product exists to solve.</p>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">§T4</span><h2>Metric that would prove it worked</h2></div>
+  <div class="callout metric">
+    <span class="k">Primary</span>
+    KYC completion rate within the first session — started KYC → fully submitted, same session, no drop to a later day. This targets the real failure mode: people abandoning mid-document and never coming back, not people rejecting the loan offer itself.
+  </div>
+  <div class="fields">
+    <div class="field"><span class="k">Secondary</span><span class="v">Re-upload rate — how often a document gets rejected and needs resubmission. If the agent works, this should fall, since it catches bad photos before submission instead of after backend review.</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2 style="font-size:22px;">Read the PhonePe teardown next →</h2>
+    <p style="color:var(--ink-soft); margin-top:10px;">Same category, different business model, a genuinely different friction point.</p>
+    <div class="footlinks">
+      <a class="btn primary" href="teardown-phonepe.html">PhonePe teardown</a>
+      <a class="btn" href="/">Back to portfolio</a>
+    </div>
+    <div class="doc-status" style="display:flex; gap:16px; margin-top:30px; font-size:13px; color:var(--ink-soft); border-top:1px dashed var(--line); padding-top:16px; flex-wrap:wrap;">
+      <span><strong>Doc:</strong> Teardown — KreditBee</span>
+      <span><strong>Status:</strong> Published</span>
+      <span><strong>Category:</strong> BFSI onboarding · single-lender</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
