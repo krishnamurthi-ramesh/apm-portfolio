@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krishnamurthi — Product, shipped from spec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F5F6F3;
+      --paper-alt: #EBECE5;
+      --ink: #1B2430;
+      --ink-soft: #5B6472;
+      --line: #D7D9D0;
+      --teal: #2F6F6B;
+      --teal-soft: #E4EDEC;
+      --amber: #C97D2E;
+      --amber-soft: #F5E7D6;
+      --maxw: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--teal);
+      color: var(--paper);
+    }
+
+    h1,
+    h2,
+    h3,
+    .disp {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .mono {
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: var(--ink);
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ---------- doc status bar ---------- */
+    .statusbar {
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-alt);
+    }
+
+    .statusbar .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 22px;
+      padding: 9px 28px;
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    .statusbar strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ---------- nav ---------- */
+    header.site {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 246, 243, 0.92);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav.wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .brand span {
+      color: var(--teal);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 26px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .navlinks a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: color .15s, border-color .15s;
+    }
+
+    .navlinks a:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      padding: 76px 0 54px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.08;
+      font-weight: 600;
+      max-width: 12ch;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--teal);
+    }
+
+    .hero p.lede {
+      font-size: 19px;
+      color: var(--ink-soft);
+      max-width: 56ch;
+      margin-top: 22px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      padding: 10px 16px;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background .15s, color .15s;
+    }
+
+    .btn.primary {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .btn.primary:hover {
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+
+    .btn:not(.primary):hover {
+      background: var(--paper-alt);
+    }
+
+    /* ---------- spec header for sections ---------- */
+    .sec {
+      padding: 52px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .sec-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: var(--teal);
+    }
+
+    .sec-head h2 {
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    .lede-block {
+      max-width: 70ch;
+      color: var(--ink-soft);
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    /* ---------- reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* ---------- spec cards ---------- */
+    .card {
+      border: 1px solid var(--line);
+      background: var(--paper-alt);
+      padding: 22px 24px;
+      margin-bottom: 18px;
+      transition: border-color .2s;
+    }
+
+    .card:hover {
+      border-color: var(--ink-soft);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .card-meta {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin-top: 2px;
+    }
+
+    .tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 9px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .tag.shipped {
+      background: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    .tag.review {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .tag.research {
+      background: #E7E9F2;
+      color: #3E4C8C;
+    }
+
+    .fields {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .field {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .field .k {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      letter-spacing: 0.05em;
+    }
+
+    .field .v {
+      font-size: 15.5px;
+    }
+
+    .field .v b {
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    @media(max-width:600px) {
+      .field {
+        grid-template-columns: 1fr;
+      }
+
+      .field .k {
+        margin-bottom: -4px;
+      }
+    }
+
+    /* ---------- skills table ---------- */
+    .skillgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--line);
+    }
+
+    .skillcol {
+      padding: 20px 22px;
+      border-left: 1px solid var(--line);
+    }
+
+    .skillcol:first-child {
+      border-left: none;
+    }
+
+    .skillcol h3 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .skillcol ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 15px;
+      color: var(--ink-soft);
+    }
+
+    .skillcol li {
+      padding: 4px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .skillcol li:last-child {
+      border-bottom: none;
+    }
+
+    @media(max-width:680px) {
+      .skillgrid {
+        grid-template-columns: 1fr;
+      }
+
+      .skillcol {
+        border-left: none;
+        border-top: 1px solid var(--line);
+      }
+
+      .skillcol:first-child {
+        border-top: none;
+      }
+    }
+
+    /* ---------- education row ---------- */
+    .edurow {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .edurow:last-child {
+      border-bottom: none;
+    }
+
+    .edurow .school {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 16.5px;
+    }
+
+    .edurow .prog {
+      color: var(--ink-soft);
+      font-size: 14.5px;
+    }
+
+    .edurow .yr {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+
+    /* ---------- footer / contact ---------- */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 60px 0 40px;
+      background: var(--paper-alt);
+    }
+
+    footer h2 {
+      font-size: 28px;
+      max-width: 16ch;
+    }
+
+    footer p {
+      color: var(--ink-soft);
+      max-width: 50ch;
+      margin-top: 14px;
+    }
+
+    .footlinks {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .footbottom {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    .note {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      font-style: italic;
+      margin-top: 24px;
+      border-left: 2px solid var(--teal);
+      padding-left: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <header class="site">
+    <nav class="wrap">
+      <div class="brand">Krishna<span>murthi</span></div>
+      <div class="navlinks">
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#teardowns">Teardowns</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero wrap">
+    <div class="eyebrow">Aspiring Product Manager — AI &amp; Tech Products</div>
+    <h1>I turn ambiguous problems into <em>specs</em> — then ship them.</h1>
+    <p class="lede">Engineering graduate (IIITDM Kurnool) and PGPMCI candidate (IIM Visakhapatnam). I write the spec,
+      own the build, test against it, and check the metric after release — across AI features, data pipelines, and one
+      research paper that went through two rounds of external review.</p>
+    <div class="hero-links">
+      <a class="btn primary" href="mailto:kiccha1703@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/krishna9003762619murthi" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF) ↓</a>
+    </div>
+  </section>
+
+  <section class="sec wrap reveal" id="experience">
+    <div class="sec-head">
+      <span class="sec-num">§2.0</span>
+      <h2>Experience</h2>
+    </div>
+    <p class="lede-block">Two internships, both run the same way: understand the problem, write the spec, ship, then
+      check whether the metric moved.</p>
+
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Data Science Intern — Meraqui Ventures (karam.ai)</div>
+          <div class="card-meta">Pune, India · Apr 2025 – Jul 2025</div>
+        </div>
+        <span class="tag shipped">Shipped</span>
+      </div>
+      <div class="fields">
+        <div class="field"><span class="k">Problem</span><span class="v">AI candidate-matching feature needed a defined
+            success metric before anyone touched code.</span></div>
+        <div class="field"><span class="k">Shipped</span><span class="v">Owned requirements → spec → build → release;
+            wrote the ERP integration spec; shipped schema-validated ETL pipelines.</span></div>
+        <div class="field"><span class="k">Result</span><span class="v"><b>+15%</b> matching precision · <b>15%</b> less
+            manual data entry · <b>12–15%</b> fewer downstream data inconsistencies.</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Development Engineering Intern — Treacle Technologies</div>
+          <div class="card-meta">Incubated at IIT Kanpur · Jun 2024 – Aug 2024</div>
+        </div>
+        <span class="tag shipped">Shipped</span>
+      </div>
+      <div class="fields">
+        <div class="field"><span class="k">Problem</span><span class="v">Incidents were being caught too late; no
+            measurable reliability metric existed.</span></div>
+        <div class="field"><span class="k">Shipped</span><span class="v">Specified and built monitoring dashboards
+            (Grafana, Elasticsearch); scaled real-time pipelines; automated preprocessing across distributed
+            systems.</span></div>
+        <div class="field"><span class="k">Result</span><span class="v"><b>–40%</b> incident detection time ·
+            <b>100k+</b> logs/day processed · <b>80%</b> less manual ops effort.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap reveal" id="research">
+    <div class="sec-head">
+      <span class="sec-num">§3.0</span>
+      <h2>Independent Research</h2>
+    </div>
+    <p class="lede-block">Where I go when nobody hands me a spec — I have to find the problem first, then write it
+      myself.</p>
+
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Reliability Framework for Quantized Vision-Language Models</div>
+          <div class="card-meta">2026 · Advised by Dr. K. E. Srinivasa Desikan</div>
+        </div>
+        <span class="tag review">In review — IEEE</span>
+      </div>
+      <div class="fields">
+        <div class="field"><span class="k">Problem</span><span class="v">Quantized VLMs hallucinate more on edge
+            hardware — a real product risk with no scoped fix.</span></div>
+        <div class="field"><span class="k">Approach</span><span class="v">Non-parametric density-drift detector +
+            cost-aware two-tier inference cascade (GPU + CPU) — trading off latency, cost, and reliability, the same
+            triangle product teams navigate shipping AI features.</span></div>
+        <div class="field"><span class="k">Result</span><span class="v">Two rounds of external peer review completed;
+            framework revised against critical feedback ahead of resubmission.</span></div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Formalizing Classical Indian Logic (IKS Institutional Internship)</div>
+          <div class="card-meta">Navya-Nyāya systems for computer science</div>
+        </div>
+        <span class="tag research">Research</span>
+      </div>
+      <div class="fields">
+        <div class="field"><span class="k">Approach</span><span class="v">Formalized Navya-Nyāya epistemic structures —
+            including epistemic Hoare logic with Pramāṇa tags and Abhāva-constrained minimization — as verifiable
+            computational systems.</span></div>
+      </div>
+      <p class="note">The through-line here is the same one running under every project above: a reliability claim is
+        only as good as the framework you can check it against — whether that framework is 400 years old or was trained
+        last quarter.</p>
+    </div>
+  </section>
+
+  <section class="sec wrap reveal" id="teardowns">
+    <div class="sec-head">
+      <span class="sec-num">§4.0</span>
+      <h2>Product Teardowns</h2>
+    </div>
+    <p class="lede-block">Two BFSI lending flows, same category, two different business models — and two different
+      friction points. No primary research needed for either; both are read directly off the product.</p>
+
+    <a class="card" href="/teardown-kreditbee.html" style="display:block; text-decoration:none; color:inherit;">
+      <div class="card-top">
+        <div>
+          <div class="card-title">KreditBee — the KYC stack nobody fixed, just made skippable</div>
+          <div class="card-meta">Single-lender onboarding funnel</div>
+        </div>
+        <span class="tag research">Teardown</span>
+      </div>
+      <div class="fields">
+        <div class="field"><span class="k">Friction</span><span class="v">Income verification is explicitly optional and
+            deferrable — a tell that the company routed around a drop-off point instead of solving it.</span></div>
+        <div class="field"><span class="k">Read</span><span class="v">Full teardown → funnel, fix, and the metric that
+            would prove it worked.</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="/teardown-phonepe.html" style="display:block; text-decoration:none; color:inherit;">
+      <div class="card-top">
+        <div>
+          <div class="card-title">PhonePe — what breaks when lending is a marketplace, not a lender</div>
+          <div class="card-meta">Multi-partner lending marketplace funnel</div>
+        </div>
+        <span class="tag research">Teardown</span>
+      </div>
+      <div class="fields">
+        <div class="field"><span class="k">Friction</span><span class="v">The hand-off to a partner NBFC's own flow
+            breaks continuity and trust — a structural problem KreditBee's single-lender model doesn't have.</span>
+        </div>
+        <div class="field"><span class="k">Read</span><span class="v">Full teardown → funnel, fix, and the metric that
+            would prove it worked.</span></div>
+      </div>
+    </a>
+  </section>
+
+  <section class="sec wrap reveal" id="skills">
+    <div class="sec-head">
+      <span class="sec-num">§5.0</span>
+      <h2>Skills</h2>
+    </div>
+    <div class="skillgrid">
+      <div class="skillcol">
+        <h3>Product</h3>
+        <ul>
+          <li>Spec / PRD Writing</li>
+          <li>Roadmapping</li>
+          <li>Prioritization Frameworks</li>
+          <li>A/B Testing Fundamentals</li>
+          <li>Backlog Management</li>
+          <li>Stakeholder Management</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h3>Data &amp; Evaluation</h3>
+        <ul>
+          <li>SQL</li>
+          <li>Recall@K · NDCG · Precision</li>
+          <li>Latency Benchmarking</li>
+          <li>Ragas</li>
+          <li>Funnel &amp; Usage Analysis</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h3>Technical Fluency</h3>
+        <ul>
+          <li>Python · REST APIs · FastAPI</li>
+          <li>Docker · PostgreSQL · Git</li>
+          <li>LLMs · RAG · LangChain · FAISS</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap reveal" id="education">
+    <div class="sec-head">
+      <span class="sec-num">§6.0</span>
+      <h2>Education</h2>
+    </div>
+    <div class="edurow">
+      <div>
+        <div class="school">Indian Institute of Management Visakhapatnam</div>
+        <div class="prog">Post-Graduate Program in Management (PGPMCI)</div>
+      </div>
+      <div class="yr">2025 – 2027</div>
+    </div>
+    <div class="edurow">
+      <div>
+        <div class="school">IIITDM Kurnool</div>
+        <div class="prog">B.Tech, Computer Science and Engineering</div>
+      </div>
+      <div class="yr">2022 – 2026</div>
+    </div>
+    <p class="note" style="margin-top:20px;">
+      <a href="https://drive.google.com/file/d/1g6X2YPjZxRs4j8CIz_G60PFAHmy4-Fz5/view?usp=sharing" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Oracle Cloud Infrastructure 2024 Generative AI Certified</a> — 92.5% · 
+      <a href="https://drive.google.com/file/d/1dJh3mcSI-d8jB0FwPh_Xr4CJaXOgTMVW/view?usp=sharing" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">2nd, GDG Hackathon (AI/ML)</a>, Mar 2025 · 
+      <a href="https://drive.google.com/file/d/1Bh382QXGjgfG-9YE-FEQsPGda4oe3m92/view?usp=sharing" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">2nd, DataWorks Hackathon (LLM Apps)</a>, Apr 2025
+    </p>
+  </section>
+
+  <footer id="contact">
+    <div class="wrap">
+      <span class="sec-num">§7.0</span>
+      <h2 style="margin-top:10px;">Open to Associate Product Manager and Consulting roles in AI &amp; technology.</h2>
+      <p>If a problem needs someone to sit with the ambiguity, write the spec, and stay until the metric moves — that's
+        the work I want. Reach out directly, no gatekeeping.</p>
+      <div class="footlinks">
+        <a class="btn primary" href="mailto:kiccha1703@gmail.com">kiccha1703@gmail.com</a>
+        <a class="btn" href="tel:+919003762619">+91-90037-62619</a>
+        <a class="btn" href="https://www.linkedin.com/in/krishna9003762619murthi" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <div class="doc-status"
+        style="display:flex; gap:16px; margin-top:30px; font-size:13px; color:var(--ink-soft); border-top:1px dashed var(--line); padding-top:16px; flex-wrap:wrap;">
+        <span><strong>Doc:</strong> Portfolio v1.0</span>
+        <span><strong>Status:</strong> Actively shipping</span>
+        <span><strong>Last updated:</strong> Aug 2026</span>
+        <span><strong>Owner:</strong> Krishnamurthi</span>
+      </div>
+      <div class="footbottom">
+        <span>© 2026 Krishnamurthi</span>
+        <span>Built as a spec, shipped as a page.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+</body>
+
+</html>
