@@ -4,778 +4,641 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Krishnamurthi — Product, shipped from spec</title>
+  <title>Krishnamurthi — APM · AI Product · Technical PM</title>
+  <meta name="description" content="Krishnamurthi Ramesh — Associate Product Manager. CSE (IIITDM Kurnool) + MBA (IIM Visakhapatnam). I define success metrics, own the build, and validate outcomes. Seeking APM roles in AI, SaaS, and technology products.">
+  <meta name="keywords" content="APM, Associate Product Manager, AI PM, Technical Product Manager, IIM Visakhapatnam, IIITDM Kurnool, LLM, RAG, BFSI, Product Teardown">
+  <meta property="og:title" content="Krishnamurthi — APM · AI Product">
+  <meta property="og:description" content="I don't just take requirements. I interrogate them.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --paper: #F5F6F3;
-      --paper-alt: #EBECE5;
-      --ink: #1B2430;
-      --ink-soft: #5B6472;
-      --line: #D7D9D0;
-      --teal: #2F6F6B;
-      --teal-soft: #E4EDEC;
-      --amber: #C97D2E;
-      --amber-soft: #F5E7D6;
-      --maxw: 920px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 17px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    ::selection {
-      background: var(--teal);
-      color: var(--paper);
-    }
-
-    h1,
-    h2,
-    h3,
-    .disp {
-      font-family: 'Space Grotesk', sans-serif;
-      letter-spacing: -0.01em;
-      margin: 0;
-    }
-
-    .mono {
-      font-family: 'IBM Plex Mono', monospace;
-      letter-spacing: 0.01em;
-    }
-
-    a {
-      color: var(--ink);
-    }
-
-    .wrap {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 0 28px;
-    }
-
-    /* ---------- doc status bar ---------- */
-    .statusbar {
-      border-bottom: 1px solid var(--line);
-      background: var(--paper-alt);
-    }
-
-    .statusbar .wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 22px;
-      padding: 9px 28px;
-      font-size: 12px;
-      color: var(--ink-soft);
-    }
-
-    .statusbar strong {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    /* ---------- nav ---------- */
-    header.site {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(245, 246, 243, 0.92);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    nav.wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 28px;
-    }
-
-    .brand {
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .brand span {
-      color: var(--teal);
-    }
-
-    .navlinks {
-      display: flex;
-      gap: 26px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .navlinks a {
-      text-decoration: none;
-      color: var(--ink-soft);
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
-      transition: color .15s, border-color .15s;
-    }
-
-    .navlinks a:hover {
-      color: var(--ink);
-      border-color: var(--ink);
-    }
-
-    /* ---------- hero ---------- */
-    .hero {
-      padding: 76px 0 54px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12.5px;
-      color: var(--ink-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 18px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--teal);
-      display: inline-block;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1.08;
-      font-weight: 600;
-      max-width: 12ch;
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--teal);
-    }
-
-    .hero p.lede {
-      font-size: 19px;
-      color: var(--ink-soft);
-      max-width: 56ch;
-      margin-top: 22px;
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .btn {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      padding: 10px 16px;
-      border: 1px solid var(--ink);
-      color: var(--ink);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: background .15s, color .15s;
-    }
-
-    .btn.primary {
-      background: var(--ink);
-      color: var(--paper);
-    }
-
-    .btn.primary:hover {
-      background: var(--teal);
-      border-color: var(--teal);
-    }
-
-    .btn:not(.primary):hover {
-      background: var(--paper-alt);
-    }
-
-    /* ---------- spec header for sections ---------- */
-    .sec {
-      padding: 52px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .sec-head {
-      display: flex;
-      align-items: baseline;
-      gap: 14px;
-      margin-bottom: 30px;
-    }
-
-    .sec-num {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 13px;
-      color: var(--teal);
-    }
-
-    .sec-head h2 {
-      font-size: 26px;
-      font-weight: 600;
-    }
-
-    .lede-block {
-      max-width: 70ch;
-      color: var(--ink-soft);
-      font-size: 17px;
-      margin-bottom: 8px;
-    }
-
-    /* ---------- reveal ---------- */
-    .reveal {
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-
-    .reveal.in-view {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-
-      html {
-        scroll-behavior: auto;
-      }
-    }
-
-    /* ---------- spec cards ---------- */
-    .card {
-      border: 1px solid var(--line);
-      background: var(--paper-alt);
-      padding: 22px 24px;
-      margin-bottom: 18px;
-      transition: border-color .2s;
-    }
-
-    .card:hover {
-      border-color: var(--ink-soft);
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 6px;
-    }
-
-    .card-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 19px;
-      font-weight: 600;
-    }
-
-    .card-meta {
-      font-size: 14px;
-      color: var(--ink-soft);
-      margin-top: 2px;
-    }
-
-    .tag {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 4px 9px;
-      border-radius: 2px;
-      white-space: nowrap;
-    }
-
-    .tag.shipped {
-      background: var(--teal-soft);
-      color: var(--teal);
-    }
-
-    .tag.review {
-      background: var(--amber-soft);
-      color: var(--amber);
-    }
-
-    .tag.research {
-      background: #E7E9F2;
-      color: #3E4C8C;
-    }
-
-    .fields {
-      margin-top: 14px;
-      display: grid;
-      gap: 10px;
-    }
-
-    .field {
-      display: grid;
-      grid-template-columns: 88px 1fr;
-      gap: 12px;
-      align-items: baseline;
-    }
-
-    .field .k {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11.5px;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      letter-spacing: 0.05em;
-    }
-
-    .field .v {
-      font-size: 15.5px;
-    }
-
-    .field .v b {
-      color: var(--teal);
-      font-weight: 600;
-    }
-
-    @media(max-width:600px) {
-      .field {
-        grid-template-columns: 1fr;
-      }
-
-      .field .k {
-        margin-bottom: -4px;
-      }
-    }
-
-    /* ---------- skills table ---------- */
-    .skillgrid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 0;
-      border: 1px solid var(--line);
-    }
-
-    .skillcol {
-      padding: 20px 22px;
-      border-left: 1px solid var(--line);
-    }
-
-    .skillcol:first-child {
-      border-left: none;
-    }
-
-    .skillcol h3 {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--teal);
-      margin-bottom: 12px;
-    }
-
-    .skillcol ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 15px;
-      color: var(--ink-soft);
-    }
-
-    .skillcol li {
-      padding: 4px 0;
-      border-bottom: 1px dashed var(--line);
-    }
-
-    .skillcol li:last-child {
-      border-bottom: none;
-    }
-
-    @media(max-width:680px) {
-      .skillgrid {
-        grid-template-columns: 1fr;
-      }
-
-      .skillcol {
-        border-left: none;
-        border-top: 1px solid var(--line);
-      }
-
-      .skillcol:first-child {
-        border-top: none;
-      }
-    }
-
-    /* ---------- education row ---------- */
-    .edurow {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--line);
-      flex-wrap: wrap;
-    }
-
-    .edurow:last-child {
-      border-bottom: none;
-    }
-
-    .edurow .school {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 16.5px;
-    }
-
-    .edurow .prog {
-      color: var(--ink-soft);
-      font-size: 14.5px;
-    }
-
-    .edurow .yr {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 13px;
-      color: var(--ink-soft);
-      white-space: nowrap;
-    }
-
-    /* ---------- footer / contact ---------- */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 60px 0 40px;
-      background: var(--paper-alt);
-    }
-
-    footer h2 {
-      font-size: 28px;
-      max-width: 16ch;
-    }
-
-    footer p {
-      color: var(--ink-soft);
-      max-width: 50ch;
-      margin-top: 14px;
-    }
-
-    .footlinks {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 26px;
-    }
-
-    .footbottom {
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      color: var(--ink-soft);
-    }
-
-    .note {
-      font-size: 14.5px;
-      color: var(--ink-soft);
-      font-style: italic;
-      margin-top: 24px;
-      border-left: 2px solid var(--teal);
-      padding-left: 14px;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-
-  <header class="site">
-    <nav class="wrap">
-      <div class="brand">Krishna<span>murthi</span></div>
-      <div class="navlinks">
-        <a href="#experience">Experience</a>
-        <a href="#research">Research</a>
-        <a href="#teardowns">Teardowns</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
+  <!-- ═══ NAV ═══ -->
+  <header class="site-nav" id="top">
+    <div class="nav-inner">
+      <div class="brand">K<span class="brand-accent">.</span></div>
+      <nav class="nav-links" aria-label="Site navigation">
+        <a href="#think">Thinking</a>
+        <a href="#work">Teardowns</a>
+        <a href="#projects">Projects</a>
+        <a href="#simulator">PM Sim</a>
+        <a href="#believe">Beliefs</a>
         <a href="#contact">Contact</a>
-      </div>
-    </nav>
+      </nav>
+      <button class="nav-mobile-toggle" aria-label="Toggle navigation" id="mobileToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <section class="hero wrap">
-    <div class="eyebrow">Aspiring Product Manager — AI &amp; Tech Products</div>
-    <h1>I turn ambiguous problems into <em>specs</em> — then ship them.</h1>
-    <p class="lede">Engineering graduate (IIITDM Kurnool) and PGPMCI candidate (IIM Visakhapatnam). I write the spec,
-      own the build, test against it, and check the metric after release — across AI features, data pipelines, and one
-      research paper that went through two rounds of external review.</p>
-    <div class="hero-links">
-      <a class="btn primary" href="mailto:kiccha1703@gmail.com">Email me</a>
-      <a class="btn" href="https://www.linkedin.com/in/krishna9003762619murthi" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a class="btn" href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener">GitHub ↗</a>
-      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF) ↓</a>
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap">
+
+      <div class="hero-eyebrow reveal-up">
+        <span class="dot"></span>
+        Technical Product Management <span class="sep">×</span> AI &amp; LLMs
+      </div>
+
+      <h1 class="hero-title reveal-up delay-1">
+        I don't just take<br>requirements.
+        <span class="hero-accent"> I interrogate them.</span>
+      </h1>
+
+      <p class="hero-sub reveal-up delay-2">
+        Engineering graduate (IIITDM Kurnool) · MBA candidate (IIM Visakhapatnam)<br>
+        I own the full loop — problem scoping, spec, build, ship, and metric check.
+      </p>
+
+      <!-- Stat strip -->
+      <div class="hero-stats reveal-up delay-3">
+        <div class="stat">
+          <div class="stat-val">+15%</div>
+          <div class="stat-label">AI matching precision shipped</div>
+        </div>
+        <div class="stat-div" aria-hidden="true"></div>
+        <div class="stat">
+          <div class="stat-val">−40%</div>
+          <div class="stat-label">Incident detection time</div>
+        </div>
+        <div class="stat-div" aria-hidden="true"></div>
+        <div class="stat">
+          <div class="stat-val">100k+</div>
+          <div class="stat-label">Logs/day in production</div>
+        </div>
+        <div class="stat-div" aria-hidden="true"></div>
+        <div class="stat">
+          <div class="stat-val">2×</div>
+          <div class="stat-label">Hackathon 2nd places (AI/ML)</div>
+        </div>
+      </div>
+
+      <div class="hero-cta reveal-up delay-4">
+        <a href="#work" class="btn btn-primary" id="hero-work-btn">See Product Work</a>
+        <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost" id="hero-resume-btn">Résumé ↓</a>
+        <a href="https://www.linkedin.com/in/krishnamurthi-ramesh" target="_blank" rel="noopener" class="btn btn-ghost" id="hero-linkedin-btn">LinkedIn ↗</a>
+        <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="btn btn-ghost" id="hero-github-btn">GitHub ↗</a>
+      </div>
+
+      <p class="hero-hook reveal-up delay-4">
+        <span class="mono-tag">// </span>Seeking APM · Technical PM roles in AI, SaaS &amp; technology products.
+      </p>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <section class="sec wrap reveal" id="experience">
-    <div class="sec-head">
-      <span class="sec-num">§2.0</span>
-      <h2>Experience</h2>
-    </div>
-    <p class="lede-block">Two internships, both run the same way: understand the problem, write the spec, ship, then
-      check whether the metric moved.</p>
+  <!-- ═══ HOW I THINK ═══ -->
+  <section class="sec" id="think">
+    <div class="wrap">
+      <div class="sec-label reveal-up"><span class="mono-tag">01 /</span> How I Think</div>
+      <h2 class="sec-title reveal-up delay-1">Five principles I refuse<br>to stop believing.</h2>
+      <p class="sec-sub reveal-up delay-2">Hover any card to see the reasoning behind the belief.</p>
 
-    <div class="card">
-      <div class="card-top">
-        <div>
-          <div class="card-title">Data Science Intern — Meraqui Ventures (karam.ai)</div>
-          <div class="card-meta">Pune, India · Apr 2025 – Jul 2025</div>
+      <div class="think-grid">
+        <div class="think-card reveal-up delay-1" tabindex="0" id="think-card-1">
+          <div class="think-num mono-tag">01</div>
+          <div class="think-content">
+            <h3 class="think-h">Don't give me the solution.</h3>
+            <p class="think-sub">Give me the problem.</p>
+            <p class="think-expand">
+              "Users want a faster search" is a feature request.<br>
+              "Users give up before finding what they need" is a problem.<br>
+              Only the second one leads somewhere worth building.
+            </p>
+          </div>
         </div>
-        <span class="tag shipped">Shipped</span>
-      </div>
-      <div class="fields">
-        <div class="field"><span class="k">Problem</span><span class="v">AI candidate-matching feature needed a defined
-            success metric before anyone touched code.</span></div>
-        <div class="field"><span class="k">Shipped</span><span class="v">Owned requirements → spec → build → release;
-            wrote the ERP integration spec; shipped schema-validated ETL pipelines.</span></div>
-        <div class="field"><span class="k">Result</span><span class="v"><b>+15%</b> matching precision · <b>15%</b> less
-            manual data entry · <b>12–15%</b> fewer downstream data inconsistencies.</span></div>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-top">
-        <div>
-          <div class="card-title">Development Engineering Intern — Treacle Technologies</div>
-          <div class="card-meta">Incubated at IIT Kanpur · Jun 2024 – Aug 2024</div>
+        <div class="think-card reveal-up delay-2" tabindex="0" id="think-card-2">
+          <div class="think-num mono-tag">02</div>
+          <div class="think-content">
+            <h3 class="think-h">Challenge the obvious.</h3>
+            <p class="think-sub">"Users asked for it" is not evidence.</p>
+            <p class="think-expand">
+              Users describe symptoms. The PM diagnoses the disease.<br>
+              If you build what users ask for, you're a feature factory.<br>
+              If you build what they actually need, you're building a product.
+            </p>
+          </div>
         </div>
-        <span class="tag shipped">Shipped</span>
-      </div>
-      <div class="fields">
-        <div class="field"><span class="k">Problem</span><span class="v">Incidents were being caught too late; no
-            measurable reliability metric existed.</span></div>
-        <div class="field"><span class="k">Shipped</span><span class="v">Specified and built monitoring dashboards
-            (Grafana, Elasticsearch); scaled real-time pipelines; automated preprocessing across distributed
-            systems.</span></div>
-        <div class="field"><span class="k">Result</span><span class="v"><b>–40%</b> incident detection time ·
-            <b>100k+</b> logs/day processed · <b>80%</b> less manual ops effort.</span></div>
-      </div>
-    </div>
-  </section>
 
-  <section class="sec wrap reveal" id="research">
-    <div class="sec-head">
-      <span class="sec-num">§3.0</span>
-      <h2>Independent Research</h2>
-    </div>
-    <p class="lede-block">Where I go when nobody hands me a spec — I have to find the problem first, then write it
-      myself.</p>
-
-    <div class="card">
-      <div class="card-top">
-        <div>
-          <div class="card-title">Reliability Framework for Quantized Vision-Language Models</div>
-          <div class="card-meta">2026 · Advised by Dr. K. E. Srinivasa Desikan</div>
+        <div class="think-card reveal-up delay-3" tabindex="0" id="think-card-3">
+          <div class="think-num mono-tag">03</div>
+          <div class="think-content">
+            <h3 class="think-h">Name the trade-off.</h3>
+            <p class="think-sub">Speed vs quality. Growth vs retention. Accuracy vs latency.</p>
+            <p class="think-expand">
+              The worst decisions are where nobody said "we are choosing X over Y."<br>
+              In AI products: cost / latency / accuracy is the permanent triangle.<br>
+              Name it. Own it. Revisit it when the context changes.
+            </p>
+          </div>
         </div>
-        <span class="tag review">In review — IEEE</span>
-      </div>
-      <div class="fields">
-        <div class="field"><span class="k">Problem</span><span class="v">Quantized VLMs hallucinate more on edge
-            hardware — a real product risk with no scoped fix.</span></div>
-        <div class="field"><span class="k">Approach</span><span class="v">Non-parametric density-drift detector +
-            cost-aware two-tier inference cascade (GPU + CPU) — trading off latency, cost, and reliability, the same
-            triangle product teams navigate shipping AI features.</span></div>
-        <div class="field"><span class="k">Result</span><span class="v">Two rounds of external peer review completed;
-            framework revised against critical feedback ahead of resubmission.</span></div>
-      </div>
-    </div>
 
-
-    <div class="card">
-      <div class="card-top">
-        <div>
-          <div class="card-title">Formalizing Classical Indian Logic (IKS Institutional Internship)</div>
-          <div class="card-meta">Navya-Nyāya systems for computer science</div>
+        <div class="think-card reveal-up delay-1" tabindex="0" id="think-card-4">
+          <div class="think-num mono-tag">04</div>
+          <div class="think-content">
+            <h3 class="think-h">Ship something.</h3>
+            <p class="think-sub">A perfect PRD that never ships is beautifully formatted fiction.</p>
+            <p class="think-expand">
+              I'd rather own a shipped v1 with known limitations<br>
+              than a polished v0.9 that never left Notion.<br>
+              The product is the experiment. Ship it, measure it, iterate.
+            </p>
+          </div>
         </div>
-        <span class="tag research">Research</span>
-      </div>
-      <div class="fields">
-        <div class="field"><span class="k">Approach</span><span class="v">Formalized Navya-Nyāya epistemic structures —
-            including epistemic Hoare logic with Pramāṇa tags and Abhāva-constrained minimization — as verifiable
-            computational systems.</span></div>
-      </div>
-      <p class="note">The through-line here is the same one running under every project above: a reliability claim is
-        only as good as the framework you can check it against — whether that framework is 400 years old or was trained
-        last quarter.</p>
-    </div>
-  </section>
 
-  <section class="sec wrap reveal" id="teardowns">
-    <div class="sec-head">
-      <span class="sec-num">§4.0</span>
-      <h2>Product Teardowns</h2>
-    </div>
-    <p class="lede-block">Two BFSI lending flows, same category, two different business models — and two different
-      friction points. No primary research needed for either; both are read directly off the product.</p>
-
-    <a class="card" href="/teardown-kreditbee.html" style="display:block; text-decoration:none; color:inherit;">
-      <div class="card-top">
-        <div>
-          <div class="card-title">KreditBee — the KYC stack nobody fixed, just made skippable</div>
-          <div class="card-meta">Single-lender onboarding funnel</div>
+        <div class="think-card reveal-up delay-2" tabindex="0" id="think-card-5">
+          <div class="think-num mono-tag">05</div>
+          <div class="think-content">
+            <h3 class="think-h">Measure reality.</h3>
+            <p class="think-sub">If the metric didn't move, the idea didn't work.</p>
+            <p class="think-expand">
+              Not "we shipped it." Not "users liked it in testing."<br>
+              The metric. Did it move? By how much? Compared to what?<br>
+              That's how we know. Then we go again.
+            </p>
+          </div>
         </div>
-        <span class="tag research">Teardown</span>
-      </div>
-      <div class="fields">
-        <div class="field"><span class="k">Friction</span><span class="v">Income verification is explicitly optional and
-            deferrable — a tell that the company routed around a drop-off point instead of solving it.</span></div>
-        <div class="field"><span class="k">Read</span><span class="v">Full teardown → funnel, fix, and the metric that
-            would prove it worked.</span></div>
-      </div>
-    </a>
 
-    <a class="card" href="/teardown-phonepe.html" style="display:block; text-decoration:none; color:inherit;">
-      <div class="card-top">
-        <div>
-          <div class="card-title">PhonePe — what breaks when lending is a marketplace, not a lender</div>
-          <div class="card-meta">Multi-partner lending marketplace funnel</div>
-        </div>
-        <span class="tag research">Teardown</span>
-      </div>
-      <div class="fields">
-        <div class="field"><span class="k">Friction</span><span class="v">The hand-off to a partner NBFC's own flow
-            breaks continuity and trust — a structural problem KreditBee's single-lender model doesn't have.</span>
-        </div>
-        <div class="field"><span class="k">Read</span><span class="v">Full teardown → funnel, fix, and the metric that
-            would prove it worked.</span></div>
-      </div>
-    </a>
-  </section>
-
-  <section class="sec wrap reveal" id="skills">
-    <div class="sec-head">
-      <span class="sec-num">§5.0</span>
-      <h2>Skills</h2>
-    </div>
-    <div class="skillgrid">
-      <div class="skillcol">
-        <h3>Product</h3>
-        <ul>
-          <li>Spec / PRD Writing</li>
-          <li>Roadmapping</li>
-          <li>Prioritization Frameworks</li>
-          <li>A/B Testing Fundamentals</li>
-          <li>Backlog Management</li>
-          <li>Stakeholder Management</li>
-        </ul>
-      </div>
-      <div class="skillcol">
-        <h3>Data &amp; Evaluation</h3>
-        <ul>
-          <li>SQL</li>
-          <li>Recall@K · NDCG · Precision</li>
-          <li>Latency Benchmarking</li>
-          <li>Ragas</li>
-          <li>Funnel &amp; Usage Analysis</li>
-        </ul>
-      </div>
-      <div class="skillcol">
-        <h3>Technical Fluency</h3>
-        <ul>
-          <li>Python · REST APIs · FastAPI</li>
-          <li>Docker · PostgreSQL · Git</li>
-          <li>LLMs · RAG · LangChain · FAISS</li>
-        </ul>
       </div>
     </div>
   </section>
 
-  <section class="sec wrap reveal" id="education">
-    <div class="sec-head">
-      <span class="sec-num">§6.0</span>
-      <h2>Education</h2>
-    </div>
-    <div class="edurow">
-      <div>
-        <div class="school">Indian Institute of Management Visakhapatnam</div>
-        <div class="prog">Post-Graduate Program in Management (PGPMCI)</div>
+  <!-- ═══ PRODUCT TEARDOWNS ═══ -->
+  <section class="sec sec-alt" id="work">
+    <div class="wrap">
+      <div class="sec-label reveal-up"><span class="mono-tag">02 /</span> Product Teardowns — BFSI</div>
+      <h2 class="sec-title reveal-up delay-1">Same category.<br>Two broken things. Two different fixes.</h2>
+      <p class="sec-sub reveal-up delay-2">
+        Reverse-engineered two live lending funnels without any primary research — reading product intent directly off in-app decisions. Each teardown ends with an AI-agent fix and a primary success metric.
+      </p>
+
+      <div class="teardown-grid">
+
+        <!-- KreditBee -->
+        <a class="teardown-card reveal-up delay-1" href="/teardown-kreditbee.html" id="work-kreditbee">
+          <div class="tc-header">
+            <div>
+              <span class="tc-tag">Teardown</span>
+              <span class="tc-tag tc-tag-muted">Single-lender · Consumer Lending</span>
+            </div>
+            <div class="tc-arrow">↗</div>
+          </div>
+
+          <h3 class="tc-title">KreditBee</h3>
+          <p class="tc-subtitle">The KYC stack nobody fixed — just made skippable.</p>
+
+          <div class="tc-funnel">
+            <div class="funnel-step">App Open</div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">Phone OTP</div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">PAN + Aadhaar</div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step funnel-broken">Income (Optional) ⚠</div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">Offer</div>
+          </div>
+
+          <div class="tc-insights">
+            <div class="tc-insight">
+              <span class="tc-insight-label">Friction</span>
+              <span class="tc-insight-val">Income verification is explicitly deferrable — a tell that the team routed around a known drop-off instead of solving it.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">AI Fix</span>
+              <span class="tc-insight-val">Conversational AI agent: real-time document feedback before submission, bank-statement parsing for async income verification.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">Success Metric</span>
+              <span class="tc-insight-val">First-session KYC completion rate (primary) · document re-upload rate (secondary)</span>
+            </div>
+          </div>
+          <div class="tc-cta">Read full teardown <span class="tc-arr">→</span></div>
+        </a>
+
+        <!-- PhonePe -->
+        <a class="teardown-card reveal-up delay-2" href="/teardown-phonepe.html" id="work-phonepe">
+          <div class="tc-header">
+            <div>
+              <span class="tc-tag">Teardown</span>
+              <span class="tc-tag tc-tag-muted">Marketplace · Multi-partner NBFC</span>
+            </div>
+            <div class="tc-arrow">↗</div>
+          </div>
+
+          <h3 class="tc-title">PhonePe</h3>
+          <p class="tc-subtitle">What breaks when lending is a marketplace, not a lender.</p>
+
+          <div class="tc-funnel">
+            <div class="funnel-step">PhonePe App</div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">Loan Tab</div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step funnel-broken">NBFC Hand-off ⚠</div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">Partner KYC</div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">Offer</div>
+          </div>
+
+          <div class="tc-insights">
+            <div class="tc-insight">
+              <span class="tc-insight-label">Friction</span>
+              <span class="tc-insight-val">Hand-off to partner NBFC's own flow breaks continuity and trust — a structural problem single-lender models don't have.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">AI Fix</span>
+              <span class="tc-insight-val">Embedded partner flows within PhonePe's design shell + cross-partner context carry-over via AI agent at hand-off boundary.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">Success Metric</span>
+              <span class="tc-insight-val">Hand-off completion rate (primary) · partner NPS post-loan-disbursement (secondary)</span>
+            </div>
+          </div>
+          <div class="tc-cta">Read full teardown <span class="tc-arr">→</span></div>
+        </a>
+
       </div>
-      <div class="yr">2025 – 2027</div>
-    </div>
-    <div class="edurow">
-      <div>
-        <div class="school">IIITDM Kurnool</div>
-        <div class="prog">B.Tech, Computer Science and Engineering</div>
+
+      <div class="teardown-note reveal-up delay-3">
+        <span class="mono-tag">// </span>
+        No primary research was used in either teardown. Both diagnoses were read directly off the product — the same way a PM should be able to spot a structural problem during a competitor review.
       </div>
-      <div class="yr">2022 – 2026</div>
+
     </div>
-    <p class="note" style="margin-top:20px;">
-      <a href="https://drive.google.com/file/d/1g6X2YPjZxRs4j8CIz_G60PFAHmy4-Fz5/view?usp=sharing" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Oracle Cloud Infrastructure 2024 Generative AI Certified</a> — 92.5% · 
-      <a href="https://drive.google.com/file/d/1dJh3mcSI-d8jB0FwPh_Xr4CJaXOgTMVW/view?usp=sharing" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">2nd, GDG Hackathon (AI/ML)</a>, Mar 2025 · 
-      <a href="https://drive.google.com/file/d/1Bh382QXGjgfG-9YE-FEQsPGda4oe3m92/view?usp=sharing" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">2nd, DataWorks Hackathon (LLM Apps)</a>, Apr 2025
-    </p>
   </section>
 
+  <!-- ═══ PROJECTS ═══ -->
+  <section class="sec" id="projects">
+    <div class="wrap">
+      <div class="sec-label reveal-up"><span class="mono-tag">03 /</span> AI Projects &amp; Product-Relevant Work</div>
+      <h2 class="sec-title reveal-up delay-1">Built to understand<br>what I'll be shipping.</h2>
+      <p class="sec-sub reveal-up delay-2">
+        These aren't demos. They're experiments to understand trade-offs — the same ones that matter when you're deciding whether to ship an AI feature.
+      </p>
+
+      <div class="projects-grid">
+
+        <!-- Enterprise RAG -->
+        <div class="project-card reveal-up delay-1" id="project-rag">
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="proj-tag">AI Product</span>
+              <span class="proj-tag proj-tag-muted">RAG · LLM · Evaluation</span>
+            </div>
+            <div class="project-year mono-tag">Feb 2025</div>
+          </div>
+          <h3 class="project-title">Enterprise RAG System</h3>
+          <p class="project-desc">
+            Built a production-grade Retrieval-Augmented Generation pipeline — then designed a comprehensive evaluation framework to measure whether it actually worked.
+          </p>
+          <div class="project-pm-lens">
+            <div class="pm-lens-label mono-tag">PM Lens</div>
+            <p>The interesting problem wasn't building the RAG. It was deciding what "good" means. Designed the eval suite — Ragas, Recall@K, NDCG, latency — before shipping. If I can't measure it, I haven't shipped anything I can improve.</p>
+          </div>
+          <div class="project-metrics">
+            <div class="pm">
+              <span class="pm-k">Stack</span>
+              <span class="pm-v">Python · LangChain · FAISS · Ollama · Ragas · Docker · Streamlit</span>
+            </div>
+            <div class="pm">
+              <span class="pm-k">Key work</span>
+              <span class="pm-v">Hybrid retrieval design · hallucination reduction via prompt engineering · containerized REST API deployment</span>
+            </div>
+          </div>
+          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="project-link" id="proj-rag-link">View on GitHub ↗</a>
+        </div>
+
+        <!-- VLM Research -->
+        <div class="project-card reveal-up delay-2" id="project-vlm">
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="proj-tag proj-tag-ieee">In Review — IEEE</span>
+              <span class="proj-tag proj-tag-muted">AI Reliability · Research</span>
+            </div>
+            <div class="project-year mono-tag">2026</div>
+          </div>
+          <h3 class="project-title">Reliability Framework for Quantized VLMs</h3>
+          <p class="project-desc">
+            Identified a real product risk: quantized AI models (cheaper to run) hallucinate more on edge hardware. Scoped and built an original technical solution.
+          </p>
+          <div class="project-pm-lens">
+            <div class="pm-lens-label mono-tag">PM Lens</div>
+            <p>This is the cost / latency / accuracy triangle that every AI PM navigates when deciding which model to ship. I built a framework for making that decision defensible — with a non-parametric drift detector and a cost-aware two-tier inference cascade.</p>
+          </div>
+          <div class="project-metrics">
+            <div class="pm">
+              <span class="pm-k">Approach</span>
+              <span class="pm-v">Non-parametric density-drift detector + GPU/CPU inference cascade with conformal prediction thresholds</span>
+            </div>
+            <div class="pm">
+              <span class="pm-k">Status</span>
+              <span class="pm-v">Two rounds of external peer review completed · revision submitted to IEEE journal</span>
+            </div>
+          </div>
+          <div class="project-link" style="color: var(--text-dim); cursor: default;">Advised by Dr. K. E. Srinivasa Desikan</div>
+        </div>
+
+        <!-- Meraqui AI Matching -->
+        <div class="project-card reveal-up delay-3" id="project-meraqui">
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="proj-tag proj-tag-shipped">Shipped · Production</span>
+              <span class="proj-tag proj-tag-muted">karam.ai · Apr–Jul 2025</span>
+            </div>
+            <div class="project-year mono-tag">2025</div>
+          </div>
+          <h3 class="project-title">AI Candidate Matching Feature</h3>
+          <p class="project-desc">
+            Owned the full requirements-to-shipping loop for an AI-driven candidate matching system at Meraqui Ventures (karam.ai).
+          </p>
+          <div class="project-pm-lens">
+            <div class="pm-lens-label mono-tag">What I owned</div>
+            <p>Partnered with stakeholders to define success metrics before code was written. Drove feature engineering and LLM fine-tuning. Wrote ERP integration specs. Defined API contracts and test suites to de-risk production deployment.</p>
+          </div>
+          <div class="project-metrics">
+            <div class="pm pm-highlight">
+              <span class="pm-k">Impact</span>
+              <span class="pm-v"><strong>+15%</strong> matching precision · <strong>−15%</strong> manual data entry · <strong>−12–15%</strong> downstream data inconsistencies</span>
+            </div>
+            <div class="pm">
+              <span class="pm-k">Stack</span>
+              <span class="pm-v">LLM fine-tuning · feature engineering · REST APIs · ETL pipelines · schema validation</span>
+            </div>
+          </div>
+          <div class="project-link" style="color: var(--text-dim); cursor: default;">Pune, India · Production deployment</div>
+        </div>
+
+        <!-- Treacle Monitoring -->
+        <div class="project-card reveal-up delay-1" id="project-treacle">
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="proj-tag proj-tag-shipped">Shipped · Production</span>
+              <span class="proj-tag proj-tag-muted">IIT Kanpur incubated · Jun–Aug 2024</span>
+            </div>
+            <div class="project-year mono-tag">2024</div>
+          </div>
+          <h3 class="project-title">Reliability Monitoring System</h3>
+          <p class="project-desc">
+            Translated an operational pain point (incidents caught too late, no measurable reliability metric) into a monitoring system with defined success criteria.
+          </p>
+          <div class="project-pm-lens">
+            <div class="pm-lens-label mono-tag">What I owned</div>
+            <p>Started by scoping the problem: what metric would tell us reliability improved? Built dashboards (Grafana, Elasticsearch) as the solution — not the starting point. Scaled real-time pipelines to production load.</p>
+          </div>
+          <div class="project-metrics">
+            <div class="pm pm-highlight">
+              <span class="pm-k">Impact</span>
+              <span class="pm-v"><strong>−40%</strong> incident detection time · <strong>100k+</strong> logs/day · <strong>−80%</strong> manual ops effort</span>
+            </div>
+            <div class="pm">
+              <span class="pm-k">Stack</span>
+              <span class="pm-v">Grafana · Elasticsearch · distributed pipelines · custom evaluation metrics</span>
+            </div>
+          </div>
+          <div class="project-link" style="color: var(--text-dim); cursor: default;">Treacle Technologies · IIT Kanpur incubated</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PM SIMULATOR ═══ -->
+  <section class="sec sec-alt" id="simulator">
+    <div class="wrap">
+      <div class="sec-label reveal-up"><span class="mono-tag">04 /</span> PM Decision Simulator</div>
+      <h2 class="sec-title reveal-up delay-1">You're the PM.<br>What do you do?</h2>
+      <p class="sec-sub reveal-up delay-2">
+        A real scenario. Three choices. This is how I think through it.
+      </p>
+
+      <div class="simulator reveal-up delay-3" id="simulator-widget">
+        <div class="sim-scenario">
+          <div class="sim-badge mono-tag">Live Scenario</div>
+          <p class="sim-text">
+            Activation dropped <strong>12%</strong> this week. No code was shipped.<br>
+            Engineering wants to redesign onboarding.<br>
+            Marketing wants to increase top-of-funnel acquisition.<br>
+            Data shows: the drop only appears on <strong>Android</strong>.
+          </p>
+        </div>
+
+        <div class="sim-prompt">What do you investigate first?</div>
+
+        <div class="sim-options" id="simOptions">
+          <button class="sim-option" data-choice="onboarding" id="sim-opt-onboarding">
+            <span class="sim-opt-num">A</span>
+            <span class="sim-opt-text">Approve the onboarding redesign — activation is clearly broken and needs a UX fix.</span>
+          </button>
+          <button class="sim-option" data-choice="acquisition" id="sim-opt-acquisition">
+            <span class="sim-opt-num">B</span>
+            <span class="sim-opt-text">Push for a new acquisition campaign — more users at top of funnel will compensate.</span>
+          </button>
+          <button class="sim-option" data-choice="android" id="sim-opt-android">
+            <span class="sim-opt-num">C</span>
+            <span class="sim-opt-text">Deep-dive the Android funnel before shipping anything.</span>
+          </button>
+        </div>
+
+        <div class="sim-result hidden" id="simResult">
+          <div class="sim-result-inner" id="simResultInner"></div>
+          <button class="sim-reset" id="simReset">Try again →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ THINGS I BELIEVE ═══ -->
+  <section class="sec" id="believe">
+    <div class="wrap">
+      <div class="sec-label reveal-up"><span class="mono-tag">05 /</span> Things I Believe</div>
+      <h2 class="sec-title reveal-up delay-1">Product philosophy.<br>No fluff.</h2>
+
+      <div class="beliefs-grid">
+        <div class="belief reveal-up delay-1" id="belief-1">
+          <span class="belief-num mono-tag">—</span>
+          <p>"The user asked for a feature" is not a problem statement.</p>
+        </div>
+        <div class="belief reveal-up delay-2" id="belief-2">
+          <span class="belief-num mono-tag">—</span>
+          <p>More features ≠ better product. Fewer sharp ones, shipped well, do more.</p>
+        </div>
+        <div class="belief reveal-up delay-3" id="belief-3">
+          <span class="belief-num mono-tag">—</span>
+          <p>Data should challenge my opinion, not decorate my presentation.</p>
+        </div>
+        <div class="belief reveal-up delay-1" id="belief-4">
+          <span class="belief-num mono-tag">—</span>
+          <p>If I can't explain the product to a non-technical user, I probably don't understand it yet.</p>
+        </div>
+        <div class="belief reveal-up delay-2" id="belief-5">
+          <span class="belief-num mono-tag">—</span>
+          <p>A PRD isn't sacred. The problem statement is.</p>
+        </div>
+        <div class="belief reveal-up delay-3" id="belief-6">
+          <span class="belief-num mono-tag">—</span>
+          <p>In AI products: cost / latency / accuracy is a triangle, not a checklist. Pick two deliberately.</p>
+        </div>
+        <div class="belief reveal-up delay-1" id="belief-7">
+          <span class="belief-num mono-tag">—</span>
+          <p>Hallucination isn't an engineering problem. It's a product risk that needs a mitigation strategy at the spec stage.</p>
+        </div>
+        <div class="belief reveal-up delay-2" id="belief-8">
+          <span class="belief-num mono-tag">—</span>
+          <p>The metric that didn't move is the most important thing in the retrospective.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS ═══ -->
+  <section class="sec sec-alt" id="skills">
+    <div class="wrap">
+      <div class="sec-label reveal-up"><span class="mono-tag">06 /</span> Skills</div>
+      <h2 class="sec-title reveal-up delay-1">What I bring to the table.</h2>
+
+      <div class="skills-grid reveal-up delay-2">
+        <div class="skill-col" id="skills-ai-pm">
+          <h3 class="skill-col-title">AI / LLM Product</h3>
+          <ul class="skill-list">
+            <li>Prompt Design &amp; Evaluation</li>
+            <li>RAG System Design</li>
+            <li>Model Selection Trade-offs</li>
+            <li>Hallucination &amp; Risk Assessment</li>
+            <li>Human-in-the-Loop Design</li>
+            <li>LLM Fine-tuning Scoping</li>
+            <li>AI Reliability Frameworks</li>
+          </ul>
+        </div>
+        <div class="skill-col" id="skills-product">
+          <h3 class="skill-col-title">Core Product</h3>
+          <ul class="skill-list">
+            <li>PRD / Spec Writing</li>
+            <li>Roadmapping</li>
+            <li>RICE / Impact-Effort Prioritization</li>
+            <li>Funnel &amp; Friction Diagnosis</li>
+            <li>A/B Testing Design</li>
+            <li>Stakeholder Management</li>
+            <li>Go-to-Market Planning</li>
+          </ul>
+        </div>
+        <div class="skill-col" id="skills-data">
+          <h3 class="skill-col-title">Data &amp; Eval</h3>
+          <ul class="skill-list">
+            <li>SQL</li>
+            <li>Recall@K · NDCG · Precision</li>
+            <li>Ragas (LLM evaluation)</li>
+            <li>Latency Benchmarking</li>
+            <li>Funnel Analysis</li>
+            <li>A/B Statistical Analysis</li>
+          </ul>
+        </div>
+        <div class="skill-col" id="skills-tech">
+          <h3 class="skill-col-title">Technical Fluency</h3>
+          <ul class="skill-list">
+            <li>Python · FastAPI · REST APIs</li>
+            <li>LLMs · LangChain · Ollama</li>
+            <li>FAISS · Vector DBs · Embeddings</li>
+            <li>Docker · PostgreSQL · Git</li>
+            <li>Grafana · Elasticsearch · Kafka</li>
+            <li>PyTorch · HuggingFace · Scikit-learn</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MBA Coursework -->
+      <div class="coursework-block reveal-up delay-3">
+        <div class="cw-label mono-tag">IIM Visakhapatnam — MBA Coursework</div>
+        <div class="cw-tags">
+          <span class="cw-tag">Advanced Analytics</span>
+          <span class="cw-tag">Platform &amp; Ecosystem Strategy</span>
+          <span class="cw-tag">Automation for Managers</span>
+          <span class="cw-tag">Project Management</span>
+          <span class="cw-tag">International Business</span>
+          <span class="cw-tag">Entrepreneurial Finance</span>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="edu-block reveal-up delay-3" id="education">
+        <div class="sec-label" style="margin-top:3.5rem;"><span class="mono-tag">07 /</span> Education</div>
+        <div class="edu-rows">
+          <div class="edu-row">
+            <div class="edu-info">
+              <div class="edu-school">Indian Institute of Management Visakhapatnam</div>
+              <div class="edu-prog">Post-Graduate Program in Management (PGPMCI) · MBA</div>
+            </div>
+            <div class="edu-yr mono-tag">2025 – 2027</div>
+          </div>
+          <div class="edu-row">
+            <div class="edu-info">
+              <div class="edu-school">IIITDM Kurnool</div>
+              <div class="edu-prog">B.Tech, Computer Science &amp; Engineering</div>
+            </div>
+            <div class="edu-yr mono-tag">2022 – 2026</div>
+          </div>
+        </div>
+
+        <div class="certs">
+          <a href="https://drive.google.com/file/d/1g6X2YPjZxRs4j8CIz_G60PFAHmy4-Fz5/view?usp=sharing" target="_blank" rel="noopener" class="cert-tag" id="cert-oracle">🏅 Oracle Cloud AI Certified — 92.5%</a>
+          <a href="https://drive.google.com/file/d/1dJh3mcSI-d8jB0FwPh_Xr4CJaXOgTMVW/view?usp=sharing" target="_blank" rel="noopener" class="cert-tag" id="cert-gdg">🥈 2nd — GDG Hackathon (AI/ML)</a>
+          <a href="https://drive.google.com/file/d/1Bh382QXGjgfG-9YE-FEQsPGda4oe3m92/view?usp=sharing" target="_blank" rel="noopener" class="cert-tag" id="cert-dataworks">🥈 2nd — DataWorks Hackathon (LLM Apps)</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER / CTA ═══ -->
   <footer id="contact">
     <div class="wrap">
-      <span class="sec-num">§7.0</span>
-      <h2 style="margin-top:10px;">Open to Associate Product Manager and Consulting roles in AI &amp; technology.</h2>
-      <p>If a problem needs someone to sit with the ambiguity, write the spec, and stay until the metric moves — that's
-        the work I want. Reach out directly, no gatekeeping.</p>
-      <div class="footlinks">
-        <a class="btn primary" href="mailto:kiccha1703@gmail.com">kiccha1703@gmail.com</a>
-        <a class="btn" href="tel:+919003762619">+91-90037-62619</a>
-        <a class="btn" href="https://www.linkedin.com/in/krishna9003762619murthi" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a class="btn" href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener">GitHub ↗</a>
+      <div class="footer-main">
+        <div class="footer-headline reveal-up">
+          Got a messy product problem?
+        </div>
+        <p class="footer-sub reveal-up delay-1">
+          Let's figure out what's actually broken.
+        </p>
+        <p class="footer-tag reveal-up delay-2">
+          Currently seeking <strong>APM / Technical PM</strong> opportunities in AI, SaaS &amp; technology products.
+        </p>
+        <div class="footer-links reveal-up delay-3">
+          <a href="mailto:kiccha1703@gmail.com" class="btn btn-primary" id="footer-email-btn">kiccha1703@gmail.com</a>
+          <a href="tel:+919003762619" class="btn btn-ghost" id="footer-phone-btn">+91-90037-62619</a>
+          <a href="https://www.linkedin.com/in/krishnamurthi-ramesh" target="_blank" rel="noopener" class="btn btn-ghost" id="footer-linkedin-btn">LinkedIn ↗</a>
+          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="btn btn-ghost" id="footer-github-btn">GitHub ↗</a>
+        </div>
+        <p class="footer-resume reveal-up delay-4">
+          Full background and experience →
+          <a href="resume.pdf" target="_blank" rel="noopener" id="footer-resume-link">Résumé (PDF)</a>
+        </p>
       </div>
-      <div class="doc-status"
-        style="display:flex; gap:16px; margin-top:30px; font-size:13px; color:var(--ink-soft); border-top:1px dashed var(--line); padding-top:16px; flex-wrap:wrap;">
-        <span><strong>Doc:</strong> Portfolio v1.0</span>
-        <span><strong>Status:</strong> Actively shipping</span>
-        <span><strong>Last updated:</strong> Aug 2026</span>
-        <span><strong>Owner:</strong> Krishnamurthi</span>
-      </div>
-      <div class="footbottom">
-        <span>© 2026 Krishnamurthi</span>
-        <span>Built as a spec, shipped as a page.</span>
+
+      <div class="footer-bottom">
+        <div class="footer-research">
+          <span class="mono-tag" style="color:var(--text-dim);font-size:0.75rem;">Research</span>
+          <span>IEEE paper in review — Reliability Framework for Quantized Vision-Language Models (Advised: Dr. K.E. Srinivasa Desikan)</span>
+        </div>
+        <div class="footer-copy">
+          <span>© 2026 Krishnamurthi Ramesh</span>
+          <span class="mono-tag">Portfolio v2.0</span>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script>
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
-
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

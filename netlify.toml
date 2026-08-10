@@ -1,0 +1,19 @@
+[build]
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/teardown-kreditbee.html"
+  to = "/teardown-kreditbee.html"
+  status = 200
+
+[[redirects]]
+  from = "/teardown-phonepe.html"
+  to = "/teardown-phonepe.html"
+  status = 200
