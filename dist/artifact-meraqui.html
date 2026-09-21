@@ -152,13 +152,32 @@
     </div>
 
     <div class="doc-section reveal-up delay-3">
-      <h2 class="doc-h2">Outcomes (Shipped Reality)</h2>
-      <p class="doc-p">The feature was shipped and integrated via REST APIs to client ERP systems.</p>
-      <ul class="doc-ul">
-        <li><strong>Matching Precision:</strong> Improved by <strong>15%</strong> (Recruiters accepted the top 10 candidates 15% more often than the legacy system).</li>
-        <li><strong>Manual Effort:</strong> Cut manual data entry by <strong>15%</strong> through the automated API handshakes.</li>
-        <li><strong>Data Integrity:</strong> Schema-validated ETL pipelines reduced downstream data inconsistencies by <strong>12-15%</strong>.</li>
-      </ul>
+      <h2 class="doc-h2">Outcomes &amp; PM Reflection</h2>
+      
+      <div style="margin-bottom: 24px;">
+        <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span style="display:inline-block; width:6px; height:6px; background:var(--accent); border-radius:50%;"></span> What I actually did
+        </h3>
+        <ul class="doc-ul">
+          <li>Partnered with stakeholders to define success metrics (precision, manual entry reduction) before code was written.</li>
+          <li>Drove feature engineering and LLM fine-tuning to improve matching context.</li>
+          <li>Specified ERP integration endpoints, defined API contracts, and built testing suites for the deployment.</li>
+        </ul>
+        <p class="doc-p" style="margin-left:20px; font-weight:500; color:var(--text);">
+          Impact: <span style="color:var(--accent);">+15%</span> matching precision · <span style="color:var(--accent);">−15%</span> manual data entry · <span style="color:var(--accent);">−12–15%</span> downstream inconsistencies.
+        </p>
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span style="display:inline-block; width:6px; height:6px; background:var(--text-dim); border-radius:50%;"></span> PM Reflection: How I would improve it today
+        </h3>
+        <ul class="doc-ul">
+          <li><strong>Instrumentation:</strong> I'd add telemetry to track exactly <em>why</em> a recruiter rejected a highly-ranked candidate (e.g., "Overqualified" vs "Wrong domain") to feed back into the model evaluation.</li>
+          <li><strong>User Research:</strong> I'd shadow 3-4 recruiters using the new tool to see if the 2-sentence justification actually builds trust, or if they still open the full resume out of habit.</li>
+          <li><strong>Next Iteration:</strong> Move from batch API scoring to streaming responses so recruiters see top candidates populate instantly as the JD is typed.</li>
+        </ul>
+      </div>
     </div>
 
   </main>
