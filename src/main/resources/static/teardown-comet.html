@@ -27,7 +27,7 @@
 
 <section class="doc-hero wrap">
   <div class="eyebrow">Product Teardown</div>
-  <h1>Comet â€” From "Which Sneaker?" to "Which Comet Is Me?"</h1>
+  <h1>Comet — From "Which Sneaker?" to "Which Comet Is Me?"</h1>
   <p class="sub">A product discovery teardown: reducing decision friction without taking away the brand's sense of discovery.</p>
 </section>
 
@@ -38,43 +38,51 @@
 
 <section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">02</span><h2>What I observed</h2></div>
-  <ul class="check-list">
-    <li>Comet offers multiple silhouettes.</li>
-    <li>Its Silhouette Finder already compares cushioning, styling, weight and fit.</li>
-    <li>The site provides size selection and product-level information.</li>
-    <li>Customer testimonials repeatedly discuss comfort, fit and everyday use.</li>
+    <ul class="check-list">
+    <li><strong>Q1. What will you use them for?</strong> Everyday, Long walks/travel, Going out, Style-first.</li>
+    <li><strong>Q2. How do you like your fit?</strong> Roomy, Balanced, Snug.</li>
+    <li><strong>Q3. What's your style?</strong> Minimal, Street, Retro, Runner.</li>
+    <li><strong>Q4. What matters most?</strong> Comfort, Weight, Style, Versatility.</li>
   </ul>
+  
+  <div style="margin-top: 32px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-soft);">
+    <iframe src="https://relay-define-38337038.figma.site/" width="100%" height="650" style="border:none;"></iframe>
+  </div>
 </section>
 
 <section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">03</span><h2>Friction</h2></div>
   <div class="callout">
     <span class="k">Hypothesis</span>
-    Users are given product attributes, but the translation from attribute â†’ personal need â†’ product choice still requires cognitive work. First-time customers may still struggle to translate those attributes into a personal choice.
+    Users are given product attributes, but the translation from attribute → personal need → product choice still requires cognitive work. First-time customers may still struggle to translate those attributes into a personal choice.
   </div>
 </section>
 
 <section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">04</span><h2>Solution: Silhouette Finder 2.0</h2></div>
-  <p>A use-case-first Silhouette Finder: ask 3â€“4 high-signal questions, then return a ranked recommendation with a short â€œWhy this pairâ€ explanation.</p>
+  <p>A use-case-first Silhouette Finder: ask 3–4 high-signal questions, then return a ranked recommendation with a short "Why this pair" explanation.</p>
   
-  <ul class="check-list">
+    <ul class="check-list">
     <li><strong>Q1. What will you use them for?</strong> Everyday, Long walks/travel, Going out, Style-first.</li>
     <li><strong>Q2. How do you like your fit?</strong> Roomy, Balanced, Snug.</li>
     <li><strong>Q3. What's your style?</strong> Minimal, Street, Retro, Runner.</li>
     <li><strong>Q4. What matters most?</strong> Comfort, Weight, Style, Versatility.</li>
   </ul>
+  
+  <div style="margin-top: 32px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-soft);">
+    <iframe src="https://relay-define-38337038.figma.site/" width="100%" height="650" style="border:none;"></iframe>
+  </div>
 </section>
 
 <section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">05</span><h2>Recommendation &amp; Trade-off</h2></div>
-  <p>More guidance vs less discovery. Too much recommendation can make Comet feel like a generic footwear catalogue. Too little guidance creates decision friction. So, don't recommend one shoe immediately. Recommend 2â€“3 candidates and explain the trade-off.</p>
+  <p>More guidance vs less discovery. Too much recommendation can make Comet feel like a generic footwear catalogue. Too little guidance creates decision friction. So, don't recommend one shoe immediately. Recommend 2–3 candidates and explain the trade-off.</p>
   
   <div class="callout fix">
     <span class="k">Your Match</span>
-    <strong>1. X LOWS</strong> â€” Best for: Street + everyday wear, Roomier fit.<br>
-    <strong>2. AERES</strong> â€” Best for: Lightweight everyday wear, Narrower fit.<br>
-    <strong>3. APEX</strong> â€” Best for: More cushioning, Relaxed casual styling.
+    <strong>1. X LOWS</strong> — Best for: Street + everyday wear, Roomier fit.<br>
+    <strong>2. AERES</strong> — Best for: Lightweight everyday wear, Narrower fit.<br>
+    <strong>3. APEX</strong> — Best for: More cushioning, Relaxed casual styling.
   </div>
 </section>
 
@@ -85,7 +93,7 @@
     Finder-assisted add-to-cart rate
   </div>
   <div class="fields">
-    <div class="field"><span class="k">Secondary</span><span class="v">Finder completion rate, Recommendation â†’ PDP CTR, PDP â†’ cart conversion, Cart â†’ purchase conversion, Size/fit exchange rate, 30/90-day repeat purchase</span></div>
+    <div class="field"><span class="k">Secondary</span><span class="v">Finder completion rate, Recommendation → PDP CTR, PDP → cart conversion, Cart → purchase conversion, Size/fit exchange rate, 30/90-day repeat purchase</span></div>
     <div class="field"><span class="k">Guardrails</span><span class="v">Return rate, Customer support contacts, Recommendation abandonment</span></div>
   </div>
 </section>
@@ -93,11 +101,16 @@
 <section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">07</span><h2>Experiment</h2></div>
   <p><strong>A/B test:</strong></p>
-  <ul class="check-list">
-    <li><strong>Control:</strong> Current Find Your Silhouette.</li>
-    <li><strong>Variant:</strong> Use-case-first recommendation flow.</li>
-    <li><strong>Measure:</strong> Add-to-cart conversion among first-time users who interact with the tool.</li>
+    <ul class="check-list">
+    <li><strong>Q1. What will you use them for?</strong> Everyday, Long walks/travel, Going out, Style-first.</li>
+    <li><strong>Q2. How do you like your fit?</strong> Roomy, Balanced, Snug.</li>
+    <li><strong>Q3. What's your style?</strong> Minimal, Street, Retro, Runner.</li>
+    <li><strong>Q4. What matters most?</strong> Comfort, Weight, Style, Versatility.</li>
   </ul>
+  
+  <div style="margin-top: 32px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-soft);">
+    <iframe src="https://relay-define-38337038.figma.site/" width="100%" height="650" style="border:none;"></iframe>
+  </div>
   <p>Success would require a statistically credible improvement in the primary metric without deterioration in return/exchange rate. If users can translate their own needs into a recommended silhouette earlier, Comet may reduce decision friction and improve downstream conversion without changing the catalogue itself.</p>
 </section>
 

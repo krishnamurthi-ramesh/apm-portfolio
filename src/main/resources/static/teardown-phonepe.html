@@ -27,57 +27,57 @@
 
 <section class="doc-hero wrap">
   <div class="eyebrow">Product Teardown</div>
-  <h1>PhonePe â€” what breaks when lending is a marketplace, not a lender</h1>
-  <p class="sub">Same category as KreditBee, a different business model, and a genuinely different friction point â€” the hand-off, not the documents.</p>
+  <h1>PhonePe — what breaks when lending is a marketplace, not a lender</h1>
+  <p class="sub">Same category as KreditBee, a different business model, and a genuinely different friction point — the hand-off, not the documents.</p>
 </section>
 
 <section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">Â§T1</span><h2>Funnel, as it actually exists today</h2></div>
+  <div class="sec-head"><span class="sec-num">§T1</span><h2>Funnel, as it actually exists today</h2></div>
   <ol class="funnel">
-    <li><div><div class="t">Discover</div><div class="d">User opens "Loans" / "Financial Services" inside the PhonePe app â€” already trusted, already has UPI history there.</div></div></li>
-    <li><div><div class="t">Choose offer</div><div class="d">Selects a loan type/amount from pre-approved offers, sourced from PhonePe's lending partners (e.g. DMI Finance and other RBI-registered NBFCs). PhonePe itself doesn't lend â€” it brokers.</div></div></li>
+    <li><div><div class="t">Discover</div><div class="d">User opens "Loans" / "Financial Services" inside the PhonePe app — already trusted, already has UPI history there.</div></div></li>
+    <li><div><div class="t">Choose offer</div><div class="d">Selects a loan type/amount from pre-approved offers, sourced from PhonePe's lending partners (e.g. DMI Finance and other RBI-registered NBFCs). PhonePe itself doesn't lend — it brokers.</div></div></li>
     <li class="friction"><div><div class="t">Hand-off</div><div class="d">User is redirected to the partner lender's own application flow, inside or alongside the PhonePe shell.</div></div></li>
-    <li class="friction"><div><div class="t">Re-enter details</div><div class="d">Personal, income, and employment details, plus PAN â€” sometimes information PhonePe already has.</div></div></li>
+    <li class="friction"><div><div class="t">Re-enter details</div><div class="d">Personal, income, and employment details, plus PAN — sometimes information PhonePe already has.</div></div></li>
     <li><div><div class="t">KYC</div><div class="d">Mostly OTP-based e-KYC, minimal document upload.</div></div></li>
     <li><div><div class="t">Review offer &amp; e-sign</div><div class="d">Loan agreement signed digitally.</div></div></li>
-    <li><div><div class="t">Disbursal</div><div class="d">Funds credited â€” within minutes to a few hours/days depending on partner.</div></div></li>
-    <li class="friction"><div><div class="t">Repayment setup</div><div class="d">Autopay must be set up separately, after disbursal â€” a second, distinct onboarding task.</div></div></li>
+    <li><div><div class="t">Disbursal</div><div class="d">Funds credited — within minutes to a few hours/days depending on partner.</div></div></li>
+    <li class="friction"><div><div class="t">Repayment setup</div><div class="d">Autopay must be set up separately, after disbursal — a second, distinct onboarding task.</div></div></li>
   </ol>
 </section>
 
 <section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">Â§T2</span><h2>Where the friction actually is</h2></div>
+  <div class="sec-head"><span class="sec-num">§T2</span><h2>Where the friction actually is</h2></div>
   <p>KreditBee is a single-lender product, so its whole flow lives in one system with one voice. PhonePe's lending business is structurally different: it's a <strong>marketplace</strong>, brokering between the user and multiple partner NBFCs. That structural choice creates a friction type KreditBee doesn't have at all.</p>
   <div class="callout">
     <span class="k">Friction point</span>
-    The hand-off. The user starts inside an app they already trust â€” used daily for UPI â€” then gets routed into a partner lender's own application flow, in a different visual language, sometimes re-asking for information PhonePe already has. This isn't a documentation problem like KreditBee's; it's a continuity and trust problem. Every hand-off is a moment the user has to re-decide "do I trust this."
+    The hand-off. The user starts inside an app they already trust — used daily for UPI — then gets routed into a partner lender's own application flow, in a different visual language, sometimes re-asking for information PhonePe already has. This isn't a documentation problem like KreditBee's; it's a continuity and trust problem. Every hand-off is a moment the user has to re-decide "do I trust this."
   </div>
-  <p>A second, smaller friction point: <strong>Autopay setup is decoupled from loan approval.</strong> A user who's just been approved and is relieved to have funds is handed a second onboarding task rather than one continuous flow â€” exactly where a relieved, distracted user drops off and quietly creates a collections problem weeks later, not a UX metric today.</p>
+  <p>A second, smaller friction point: <strong>Autopay setup is decoupled from loan approval.</strong> A user who's just been approved and is relieved to have funds is handed a second onboarding task rather than one continuous flow — exactly where a relieved, distracted user drops off and quietly creates a collections problem weeks later, not a UX metric today.</p>
 </section>
 
 <section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">Â§T3</span><h2>The fix</h2></div>
+  <div class="sec-head"><span class="sec-num">§T3</span><h2>The fix</h2></div>
   <div class="callout fix">
-    <span class="k">Proposal 1 â€” highest leverage</span>
-    Keep the experience inside PhonePe's own native context, even when the underlying lender changes. An in-app AI agent that already has the user's PhonePe-known details (name, PAN if previously used, income if inferred from transaction history with consent) could carry that context across the hand-off â€” pre-filling and simply confirming rather than asking the user to retype.
+    <span class="k">Proposal 1 — highest leverage</span>
+    Keep the experience inside PhonePe's own native context, even when the underlying lender changes. An in-app AI agent that already has the user's PhonePe-known details (name, PAN if previously used, income if inferred from transaction history with consent) could carry that context across the hand-off — pre-filling and simply confirming rather than asking the user to retype.
   </div>
   <div class="callout fix">
     <span class="k">Proposal 2</span>
-    Fold Autopay setup into the same approval flow, framed as the last step of getting the loan â€” "you're approved; here's your one remaining step before funds move" â€” instead of a disconnected follow-up.
+    Fold Autopay setup into the same approval flow, framed as the last step of getting the loan — "you're approved; here's your one remaining step before funds move" — instead of a disconnected follow-up.
   </div>
   <p class="note">This is close to exactly what Revrag's embedded, multilingual in-app agents are built to do for BFSI onboarding: absorb the partner-integration complexity so the user only ever experiences one continuous conversation, never a hand-off. I'm noting that directly rather than treating it as a coincidence.</p>
 </section>
 
 <section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">Â§T4</span><h2>Metric that would prove it worked</h2></div>
+  <div class="sec-head"><span class="sec-num">§T4</span><h2>Metric that would prove it worked</h2></div>
   <div class="callout metric">
     <span class="k">Primary</span>
-    Hand-off completion rate â€” of users who select a loan offer, what fraction complete the partner application without abandoning at the redirect or the re-entry-of-details step. This is the metric KreditBee's funnel doesn't need but PhonePe's does, precisely because the marketplace model is the source of the friction.
+    Hand-off completion rate — of users who select a loan offer, what fraction complete the partner application without abandoning at the redirect or the re-entry-of-details step. This is the metric KreditBee's funnel doesn't need but PhonePe's does, precisely because the marketplace model is the source of the friction.
   </div>
   <div class="fields">
-    <div class="field"><span class="k">Secondary</span><span class="v">Same-session Autopay setup rate â€” of users disbursed a loan, what fraction complete repayment mandate setup in the same session rather than days later, or never, until a missed EMI.</span></div>
+    <div class="field"><span class="k">Secondary</span><span class="v">Same-session Autopay setup rate — of users disbursed a loan, what fraction complete repayment mandate setup in the same session rather than days later, or never, until a missed EMI.</span></div>
   </div>
-  <p class="note">Together with the KreditBee teardown, this shows the same category read two different ways depending on the underlying business model â€” not one insight copy-pasted onto two logos.</p>
+  <p class="note">Together with the KreditBee teardown, this shows the same category read two different ways depending on the underlying business model — not one insight copy-pasted onto two logos.</p>
 </section>
 
   <footer id="contact">
