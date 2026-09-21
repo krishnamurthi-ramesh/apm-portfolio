@@ -663,3 +663,90 @@ footer { background: var(--bg-surface); border-top: 1px solid var(--border); pad
   color: var(--text);
   margin-bottom: 12px;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   TEARDOWN & ARTIFACT SPECIFIC STYLES
+   ═══════════════════════════════════════════════════════════ */
+.doc-hero { padding: 96px 0 32px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;
+}
+.eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.doc-hero h1 { font-size: clamp(28px, 4.4vw, 42px); line-height: 1.14; font-weight: 600; margin-bottom: 14px; }
+.doc-hero .sub { font-size: 1.05rem; color: var(--text-muted); max-width: 60ch; }
+
+.sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 24px; }
+.sec-num { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); }
+.sec-head h2 { font-size: 1.4rem; font-weight: 600; }
+
+.funnel { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+.funnel li {
+  counter-increment: step;
+  display: grid; grid-template-columns: 34px 1fr; gap: 14px;
+  padding: 16px 0; border-bottom: 1px dashed var(--border);
+}
+.funnel li:last-child { border-bottom: none; }
+.funnel li::before {
+  content: counter(step);
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent);
+  width: 26px; height: 26px; border: 1px solid var(--accent); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.funnel .t { font-weight: 600; font-size: 1.05rem; }
+.funnel .d { color: var(--text-muted); font-size: 0.95rem; margin-top: 4px; }
+.funnel li.friction {
+  background: rgba(255, 107, 53, 0.08); margin: 0 -16px; padding: 16px; border-radius: var(--radius); border-bottom: none;
+}
+.funnel li.friction::before { border-color: var(--accent-warm); color: var(--accent-warm); }
+
+.callout {
+  border-left: 3px solid var(--accent-warm);
+  background: var(--bg-surface2);
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.callout .k {
+  font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase;
+  color: var(--accent-warm); letter-spacing: 0.06em; margin-bottom: 8px; display: block;
+}
+.callout.fix { border-left-color: var(--accent-blue); }
+.callout.fix .k { color: var(--accent-blue); }
+.callout.metric { border-left-color: var(--accent); }
+.callout.metric .k { color: var(--accent); }
+
+.fields { margin-top: 20px; display: grid; gap: 14px; }
+.field { display: grid; grid-template-columns: 140px 1fr; gap: 16px; align-items: baseline; }
+.field .k { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.05em; }
+.field .v { font-size: 0.95rem; color: var(--text-light); }
+@media(max-width: 600px) { .field { grid-template-columns: 1fr; gap: 4px; } }
+
+.note {
+  font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-top: 32px;
+  border-left: 2px solid var(--accent); padding-left: 16px;
+}
+
+ul.check-list, ul.cross-list { list-style: none; padding: 0; margin-bottom: 24px; }
+ul.check-list li, ul.cross-list li { position: relative; padding-left: 28px; margin-bottom: 12px; color: var(--text-light); }
+ul.check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+ul.cross-list li::before { content: "✕"; position: absolute; left: 0; color: var(--accent-warm); font-weight: bold; }
+
+/* Meraqui specific */
+.meta-block {
+  display: flex; flex-wrap: wrap; gap: 24px;
+  background: var(--bg-surface2); padding: 20px 24px; border-radius: var(--radius);
+  margin-bottom: 40px; border: 1px solid var(--border-soft);
+}
+.meta-item { display: flex; flex-direction: column; gap: 6px; }
+.meta-lbl { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+.meta-val { font-size: 0.95rem; font-weight: 500; }
+
+.spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+.spec-box { background: var(--bg-surface2); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border-soft); }
+.spec-box h3 { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+.spec-box p, .spec-box ul { margin: 0; font-size: 0.95rem; color: var(--text-muted); }
+.spec-box ul { padding-left: 20px; }
+.spec-box li { margin-bottom: 6px; }
+@media (max-width: 768px) { .spec-grid { grid-template-columns: 1fr; } }
