@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.18)  22 SEP 2026 02:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.18)  22 SEP 2026 02:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -409,7 +409,7 @@ t' has not changed.
 Here is how much of TeX's memory you used:
  9954 strings out of 467871
  156732 string characters out of 5413984
- 602308 words of memory out of 5000000
+ 602299 words of memory out of 5000000
  38751 multiletter control sequences out of 15000+600000
  629316 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -423,7 +423,7 @@ ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users
 r7.pfb><C:/Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb><C:/Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on R_Krishnamurthi_Product_Management_Resume.pdf (1 page, 115666
+Output written on R_Krishnamurthi_Product_Management_Resume.pdf (1 page, 115684
  bytes).
 PDF statistics:
  53 PDF objects out of 1000 (max. 8388607)
