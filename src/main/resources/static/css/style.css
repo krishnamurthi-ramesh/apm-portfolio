@@ -272,11 +272,11 @@ a { color: inherit; text-decoration: none; }
 /* ═══════════════════════════════════════════════════════════
    TEARDOWNS
    ═══════════════════════════════════════════════════════════ */
-.teardown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 0; }
+.teardown-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 0; }
 
 .teardown-card {
   display: block; background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: var(--radius-xl); padding: 32px; text-decoration: none; color: inherit;
+  border-radius: var(--radius-xl); padding: 24px; text-decoration: none; color: inherit;
   transition: all 0.3s var(--ease-out); position: relative; overflow: hidden;
 }
 .teardown-card::after {
@@ -321,8 +321,8 @@ a { color: inherit; text-decoration: none; }
 }
 .funnel-arrow { color: var(--text-dim); font-size: 0.75rem; flex-shrink: 0; }
 
-.tc-insights { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
-.tc-insight { display: grid; grid-template-columns: 88px 1fr; gap: 12px; font-size: 0.875rem; }
+.tc-insights { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+.tc-insight { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; }
 .tc-insight-label {
   font-family: 'JetBrains Mono', monospace; font-size: 0.67rem;
   text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); padding-top: 2px;
@@ -569,6 +569,7 @@ footer { background: var(--bg-surface); border-top: 1px solid var(--border); pad
    RESPONSIVE
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 1000px) {
+  .teardown-grid { grid-template-columns: 1fr 1fr; }
   .skills-grid { grid-template-columns: 1fr 1fr; }
   .skill-col:nth-child(2) { border-right: none; }
   .skill-col:nth-child(3) { border-right: 1px solid var(--border-soft); border-top: 1px solid var(--border-soft); }
@@ -581,7 +582,6 @@ footer { background: var(--bg-surface); border-top: 1px solid var(--border); pad
   .think-grid { grid-template-columns: 1fr; }
   .think-card:last-child:nth-child(odd) { grid-column: auto; border-right: none; }
   .think-card { border-right: none !important; }
-  .tc-insight { grid-template-columns: 72px 1fr; }
 }
 
 @media (max-width: 720px) {
