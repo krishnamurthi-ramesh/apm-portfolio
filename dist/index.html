@@ -51,7 +51,8 @@
       </h1>
 
       <p class="hero-sub reveal-up delay-2">
-        Engineering graduate · MBA candidate · AI/ML builder
+        Engineering graduate · MBA candidate · AI/ML builder<br>
+        <span style="display:inline-block; margin-top: 10px; color: var(--text); font-weight: 500;">I enjoy figuring out what should be built before figuring out how to build it.</span>
       </p>
 
       <!-- Stat strip -->
@@ -355,12 +356,11 @@
         <div class="think-card reveal-up delay-1" tabindex="0" id="think-card-1">
           <div class="think-num mono-tag">01</div>
           <div class="think-content">
-            <h3 class="think-h">Don't give me the solution.</h3>
-            <p class="think-sub">Give me the problem.</p>
+            <h3 class="think-h" style="font-size:1.3rem;">A technically impressive solution can still solve the wrong problem.</h3>
+            <p class="think-sub">Implementation isn't the hardest part.</p>
             <p class="think-expand">
-              "Users want a faster search" is a feature request.<br>
-              "Users give up before finding what they need" is a problem.<br>
-              Only the second one leads somewhere worth building.
+              I've repeatedly found that the hardest part isn't implementing the model.<br>
+              It's deciding what should actually be measured, and ensuring the technical effort aligns with a real user workflow.
             </p>
           </div>
         </div>
@@ -368,13 +368,11 @@
         <div class="think-card reveal-up delay-2" tabindex="0" id="think-card-2">
           <div class="think-num mono-tag">02</div>
           <div class="think-content">
-            <h3 class="think-h">Challenge the obvious.</h3>
-            <p class="think-sub">"Users asked for it" is not evidence.</p>
+            <h3 class="think-h" style="font-size:1.3rem;">I don't trust a metric without understanding what changed.</h3>
+            <p class="think-sub">Numbers need context.</p>
             <p class="think-expand">
-              Users describe symptoms. The PM investigates the underlying problem.<br>
-              If you build every request literally, you risk becoming a feature factory.<br>
-              If you build what they actually need, you're building a product.<br>
-              And if you can't explain it to a non-technical user, you probably don't understand it yet.
+              A +15% improvement sounds useful, but I'd still want to know what changed in the data, feature set, evaluation method and user workflow.<br>
+              Metrics are the start of the conversation, not the end.
             </p>
           </div>
         </div>
@@ -382,12 +380,11 @@
         <div class="think-card reveal-up delay-3" tabindex="0" id="think-card-3">
           <div class="think-num mono-tag">03</div>
           <div class="think-content">
-            <h3 class="think-h">Name the trade-off.</h3>
-            <p class="think-sub">Speed vs quality. Growth vs retention. Accuracy vs latency.</p>
+            <h3 class="think-h" style="font-size:1.3rem;">I prefer a testable hypothesis over a big feature.</h3>
+            <p class="think-sub">Validation over velocity.</p>
             <p class="think-expand">
-              The worst decisions are where nobody said "we are choosing X over Y."<br>
-              In AI products: cost / latency / accuracy is a permanent triangle — not a checklist. Pick two deliberately.<br>
-              Hallucination isn't just an engineering problem. It's a product risk that needs a mitigation strategy at the spec stage.
+              If I can test the assumption with a smaller experiment, I'd rather do that before committing engineering effort.<br>
+              The goal is to learn what works, not just ship what was planned.
             </p>
           </div>
         </div>
@@ -395,13 +392,12 @@
         <div class="think-card reveal-up delay-1" tabindex="0" id="think-card-4">
           <div class="think-num mono-tag">04</div>
           <div class="think-content">
-            <h3 class="think-h">Ship something.</h3>
-            <p class="think-sub">A perfect PRD that never ships is beautifully formatted fiction.</p>
+            <h3 class="think-h" style="font-size:1.3rem;">I don't assume every friction point deserves a feature.</h3>
+            <p class="think-sub">Context matters.</p>
             <p class="think-expand">
-              I'd rather own a shipped v1 with known limitations<br>
-              than a polished v0.9 that never left Notion.<br>
-              More features ≠ better product. Fewer sharp ones, shipped well, do more.<br>
-              The product is the experiment. Ship it, measure it, iterate.
+              Some friction is intentional. Some is caused by constraints.<br>
+              Some is actually useful friction (like adding a confirmation step to prevent data loss).<br>
+              Understanding the *why* prevents building the wrong *what*.
             </p>
           </div>
         </div>
@@ -409,13 +405,12 @@
         <div class="think-card reveal-up delay-2" tabindex="0" id="think-card-5">
           <div class="think-num mono-tag">05</div>
           <div class="think-content">
-            <h3 class="think-h">Measure reality.</h3>
-            <p class="think-sub">If the metric didn't move, the idea didn't work.</p>
+            <h3 class="think-h" style="font-size:1.3rem;">I want to know what happened after shipping.</h3>
+            <p class="think-sub">The PR merge is day zero.</p>
             <p class="think-expand">
-              Not "we shipped it." Not "users liked it in testing."<br>
-              The metric. Did it move? By how much? Compared to what?<br>
-              Data should challenge my opinion, not decorate my presentation.<br>
-              That's how we know. Then we go again.
+              A feature isn't finished when the PR is merged.<br>
+              The interesting part starts when real users interact with it.<br>
+              That's when we find out if our hypothesis was actually right.
             </p>
           </div>
         </div>
@@ -546,6 +541,44 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ═══ §07 WHAT I WOULDN'T CLAIM ═══ -->
+  <section class="sec" id="limitations">
+    <div class="wrap">
+      <div class="sec-label reveal-up"><span class="mono-tag">07 /</span> Limitations</div>
+      <h2 class="sec-title reveal-up delay-1">What I wouldn't claim.</h2>
+      <p class="sec-sub reveal-up delay-2">
+        Transparency over perfection. Here is what I don't have access to, and what I haven't done.
+      </p>
+
+      <div class="think-grid" style="margin-top:40px;">
+        <div class="think-card reveal-up delay-1" tabindex="0">
+          <div class="think-content">
+            <h3 class="think-h" style="font-size:1.1rem; color:var(--accent);">I don't have internal analytics.</h3>
+            <p class="think-expand" style="margin-top:10px;">
+              My teardowns of Comet, KreditBee, and PhonePe are based on observable product flows. My conclusions should be validated with real users and internal funnel data.
+            </p>
+          </div>
+        </div>
+        <div class="think-card reveal-up delay-2" tabindex="0">
+          <div class="think-content">
+            <h3 class="think-h" style="font-size:1.1rem; color:var(--accent);">I haven't run controlled experiments.</h3>
+            <p class="think-expand" style="margin-top:10px;">
+              The metrics shown in the public teardowns are proposed success metrics, not measured outcomes.
+            </p>
+          </div>
+        </div>
+        <div class="think-card reveal-up delay-3" tabindex="0">
+          <div class="think-content">
+            <h3 class="think-h" style="font-size:1.1rem; color:var(--accent);">I haven't treated AI as the default solution.</h3>
+            <p class="think-expand" style="margin-top:10px;">
+              Where a simpler rule-based or UX change could test the hypothesis faster, I would always start there before building an ML model.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

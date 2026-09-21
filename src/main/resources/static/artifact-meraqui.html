@@ -141,12 +141,21 @@
         </p>
       </div>
 
+      <div style="margin-bottom: 24px;">
+        <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span style="display:inline-block; width:6px; height:6px; background:var(--accent-warm); border-radius:50%;"></span> What was harder than it looked
+        </h3>
+        <p class="doc-p" style="margin-left:20px; margin-bottom:12px;">
+          The first version was not a clean "AI solves recruitment" problem. Matching candidates to jobs looked straightforward until we had to decide what a good match actually meant. A high-recall system could surface more candidates, but it also increased irrelevant matches. We had to balance matching quality with the practical effort recruiters would spend reviewing the results.
+        </p>
+      </div>
+
       <div style="margin-bottom: 16px;">
         <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-          <span style="display:inline-block; width:6px; height:6px; background:var(--text-dim); border-radius:50%;"></span> PM Reflection: How I would improve it today
+          <span style="display:inline-block; width:6px; height:6px; background:var(--text-dim); border-radius:50%;"></span> PM Reflection: What I would do differently today
         </h3>
         <ul class="doc-ul">
-          <li><strong>Instrumentation:</strong> I'd add telemetry to track exactly <em>why</em> a recruiter rejected a highly-ranked candidate (e.g., "Overqualified" vs "Wrong domain") to feed back into the model evaluation.</li>
+          <li><strong>Instrumentation:</strong> I would instrument rejection reasons from the beginning. Knowing why recruiters reject a recommended candidate would have helped separate model-quality problems from requirement-quality problems.</li>
           <li><strong>User Research:</strong> I'd shadow 3-4 recruiters using the new tool to see if the 2-sentence justification actually builds trust, or if they still open the full resume out of habit.</li>
           <li><strong>Next Iteration:</strong> Move from batch API scoring to streaming responses so recruiters see top candidates populate instantly as the JD is typed.</li>
         </ul>

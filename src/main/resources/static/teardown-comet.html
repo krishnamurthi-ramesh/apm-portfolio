@@ -113,17 +113,17 @@
 </section>
 
 <section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">08</span><h2>What I wouldn't build</h2></div>
-  <p>Because the first problem is decision clarity, not lack of AI. I would not start with an ML recommendation engine. The first version can be rule-based because the product catalogue already contains structured attributes.</p>
-  <ul class="cross-list">
-    <li>Build an LLM chatbot immediately</li>
-    <li>Build a computer-vision foot scanner immediately</li>
-    <li>Replace the existing catalogue</li>
-    <li>Recommend based only on purchase history</li>
-    <li>Optimize solely for conversion</li>
-  </ul>
+  <div class="sec-head"><span class="sec-num">08</span><h2>Limitations &amp; Next Steps</h2></div>
   
-  <div class="note">This is an independent product teardown based on publicly observable product flows. Internal funnel, conversion and return data were not available; proposed friction points are hypotheses to validate.</div>
+  <div style="margin-bottom: 24px;">
+    <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 8px;">What I couldn't know</h3>
+    <p>This is a public-product teardown, so I don't have access to Comet's internal conversion funnel, recommendation logic, or user research. The use-case-first recommendation is therefore a hypothesis, not a claim about what Comet should definitely build.</p>
+  </div>
+
+  <div>
+    <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 8px;">What I'd test first</h3>
+    <p>Before building an AI recommendation layer, I'd test a lightweight rule-based version with a small set of use cases and measure whether users actually engage with the recommendations.</p>
+  </div>
 </section>
 
   <footer id="contact">
