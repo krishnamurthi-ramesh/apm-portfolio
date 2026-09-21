@@ -23,10 +23,9 @@
       <div class="brand">K<span class="brand-accent">.</span></div>
       <nav class="nav-links" aria-label="Site navigation">
         <a href="#think">Thinking</a>
-        <a href="#work">Teardowns</a>
-        <a href="#projects">Projects</a>
+        <a href="#work">Work</a>
         <a href="#simulator">PM Sim</a>
-        <a href="#believe">Beliefs</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
       <button class="nav-mobile-toggle" aria-label="Toggle navigation" id="mobileToggle">
@@ -43,7 +42,7 @@
 
       <div class="hero-eyebrow reveal-up">
         <span class="dot"></span>
-        Technical Product Management <span class="sep">×</span> AI &amp; LLMs
+        Associate Product Management <span class="sep">×</span> AI &amp; LLMs
       </div>
 
       <h1 class="hero-title reveal-up delay-1">
@@ -53,7 +52,7 @@
 
       <p class="hero-sub reveal-up delay-2">
         Engineering graduate (IIITDM Kurnool) · MBA candidate (IIM Visakhapatnam)<br>
-        I own the full loop — problem scoping, spec, build, ship, and metric check.
+        I work across the full product loop — problem scoping, specification, build, launch, and measurement.
       </p>
 
       <!-- Stat strip -->
@@ -97,12 +96,12 @@
     </div>
   </section>
 
-  <!-- ═══ HOW I THINK ═══ -->
+  <!-- ═══ §01 HOW I THINK ABOUT PRODUCTS ═══ -->
   <section class="sec" id="think">
     <div class="wrap">
       <div class="sec-label reveal-up"><span class="mono-tag">01 /</span> How I Think</div>
-      <h2 class="sec-title reveal-up delay-1">Five principles I refuse<br>to stop believing.</h2>
-      <p class="sec-sub reveal-up delay-2">Hover any card to see the reasoning behind the belief.</p>
+      <h2 class="sec-title reveal-up delay-1">How I Think<br>About Products</h2>
+      <p class="sec-sub reveal-up delay-2">Hover any card to see the reasoning behind the principle.</p>
 
       <div class="think-grid">
         <div class="think-card reveal-up delay-1" tabindex="0" id="think-card-1">
@@ -126,7 +125,8 @@
             <p class="think-expand">
               Users describe symptoms. The PM diagnoses the disease.<br>
               If you build what users ask for, you're a feature factory.<br>
-              If you build what they actually need, you're building a product.
+              If you build what they actually need, you're building a product.<br>
+              And if you can't explain it to a non-technical user, you probably don't understand it yet.
             </p>
           </div>
         </div>
@@ -138,8 +138,8 @@
             <p class="think-sub">Speed vs quality. Growth vs retention. Accuracy vs latency.</p>
             <p class="think-expand">
               The worst decisions are where nobody said "we are choosing X over Y."<br>
-              In AI products: cost / latency / accuracy is the permanent triangle.<br>
-              Name it. Own it. Revisit it when the context changes.
+              In AI products: cost / latency / accuracy is a permanent triangle — not a checklist. Pick two deliberately.<br>
+              Hallucination isn't just an engineering problem. It's a product risk that needs a mitigation strategy at the spec stage.
             </p>
           </div>
         </div>
@@ -152,6 +152,7 @@
             <p class="think-expand">
               I'd rather own a shipped v1 with known limitations<br>
               than a polished v0.9 that never left Notion.<br>
+              More features ≠ better product. Fewer sharp ones, shipped well, do more.<br>
               The product is the experiment. Ship it, measure it, iterate.
             </p>
           </div>
@@ -165,6 +166,7 @@
             <p class="think-expand">
               Not "we shipped it." Not "users liked it in testing."<br>
               The metric. Did it move? By how much? Compared to what?<br>
+              Data should challenge my opinion, not decorate my presentation.<br>
               That's how we know. Then we go again.
             </p>
           </div>
@@ -174,14 +176,87 @@
     </div>
   </section>
 
-  <!-- ═══ PRODUCT TEARDOWNS ═══ -->
+  <!-- ═══ §02 SELECTED PRODUCT WORK ═══ -->
   <section class="sec sec-alt" id="work">
     <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">02 /</span> Product Teardowns — BFSI</div>
-      <h2 class="sec-title reveal-up delay-1">Same category.<br>Two broken things. Two different fixes.</h2>
+      <div class="sec-label reveal-up"><span class="mono-tag">02 /</span> Selected Product Work</div>
+      <h2 class="sec-title reveal-up delay-1">Built, shipped,<br>or broken down.</h2>
       <p class="sec-sub reveal-up delay-2">
-        Reverse-engineered two live lending funnels without any primary research — reading product intent directly off in-app decisions. Each teardown ends with an AI-agent fix and a primary success metric.
+        Each project follows the same loop: identify the problem, define what "good" means, build, and check whether the metric moved.
       </p>
+
+      <!-- ── Flagship: Shipped Production Work ── -->
+      <div class="projects-grid">
+
+        <!-- Meraqui AI Matching -->
+        <div class="project-card reveal-up delay-1" id="project-meraqui">
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="proj-tag proj-tag-shipped">Shipped · Production</span>
+              <span class="proj-tag proj-tag-muted">karam.ai · Apr–Jul 2025</span>
+            </div>
+            <div class="project-year mono-tag">2025</div>
+          </div>
+          <h3 class="project-title">AI Candidate Matching Feature</h3>
+          <p class="project-desc">
+            Owned the full requirements-to-shipping loop for an AI-driven candidate matching system at Meraqui Ventures (karam.ai).
+          </p>
+          <div class="project-pm-lens">
+            <div class="pm-lens-label mono-tag">What I owned</div>
+            <p>Partnered with stakeholders to define success metrics before code was written. Drove feature engineering and LLM fine-tuning. Wrote ERP integration specs. Defined API contracts and test suites to de-risk production deployment.</p>
+          </div>
+          <div class="project-metrics">
+            <div class="pm pm-highlight">
+              <span class="pm-k">Impact</span>
+              <span class="pm-v"><strong>+15%</strong> matching precision · <strong>−15%</strong> manual data entry · <strong>−12–15%</strong> downstream data inconsistencies</span>
+            </div>
+            <div class="pm">
+              <span class="pm-k">Stack</span>
+              <span class="pm-v">LLM fine-tuning · feature engineering · REST APIs · ETL pipelines · schema validation</span>
+            </div>
+          </div>
+          <a href="/artifact-meraqui.html" class="project-link" id="proj-meraqui-link" style="font-weight: 500; color: var(--accent);">View PM Artifact: Product Spec ↗</a>
+        </div>
+
+        <!-- Enterprise RAG -->
+        <div class="project-card reveal-up delay-2" id="project-rag">
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="proj-tag">AI Product</span>
+              <span class="proj-tag proj-tag-muted">RAG · LLM · Evaluation</span>
+            </div>
+            <div class="project-year mono-tag">Feb 2025</div>
+          </div>
+          <h3 class="project-title">Enterprise RAG System</h3>
+          <p class="project-desc">
+            Built a production-grade Retrieval-Augmented Generation pipeline — then designed a comprehensive evaluation framework to measure whether it actually worked.
+          </p>
+          <div class="project-pm-lens">
+            <div class="pm-lens-label mono-tag">PM Lens</div>
+            <p>The interesting problem wasn't building the RAG. It was deciding what "good" means. Designed the eval suite — Ragas, Recall@K, NDCG, latency — before shipping. If I can't measure it, I haven't shipped anything I can improve.</p>
+          </div>
+          <div class="project-metrics">
+            <div class="pm">
+              <span class="pm-k">Stack</span>
+              <span class="pm-v">Python · LangChain · FAISS · Ollama · Ragas · Docker · Streamlit</span>
+            </div>
+            <div class="pm">
+              <span class="pm-k">Key work</span>
+              <span class="pm-v">Hybrid retrieval design · hallucination reduction via prompt engineering · containerized REST API deployment</span>
+            </div>
+          </div>
+          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="project-link" id="proj-rag-link">View on GitHub ↗</a>
+        </div>
+
+      </div>
+
+      <!-- ── BFSI Product Teardowns ── -->
+      <div class="reveal-up" style="margin-top:3.5rem;">
+        <div class="sec-label"><span class="mono-tag">BFSI Teardowns</span></div>
+        <p class="sec-sub" style="margin-bottom:1.5rem;">
+          Reverse-engineered two live lending funnels without primary research, using observable product decisions to identify likely friction points and trade-offs. Each teardown ends with an AI-agent fix and a primary success metric.
+        </p>
+      </div>
 
       <div class="teardown-grid">
 
@@ -213,7 +288,7 @@
           <div class="tc-insights">
             <div class="tc-insight">
               <span class="tc-insight-label">Friction</span>
-              <span class="tc-insight-val">Income verification is explicitly deferrable — a tell that the team routed around a known drop-off instead of solving it.</span>
+              <span class="tc-insight-val">Income verification is explicitly deferrable — suggesting the flow may be designed to reduce friction at that step rather than require completion upfront.</span>
             </div>
             <div class="tc-insight">
               <span class="tc-insight-label">AI Fix</span>
@@ -255,7 +330,7 @@
           <div class="tc-insights">
             <div class="tc-insight">
               <span class="tc-insight-label">Friction</span>
-              <span class="tc-insight-val">Hand-off to partner NBFC's own flow breaks continuity and trust — a structural problem single-lender models don't have.</span>
+              <span class="tc-insight-val">The hand-off to a partner NBFC's own flow introduces a continuity and trust gap — a structural challenge that single-lender models avoid.</span>
             </div>
             <div class="tc-insight">
               <span class="tc-insight-label">AI Fix</span>
@@ -276,52 +351,11 @@
         No primary research was used in either teardown. Both diagnoses were read directly off the product — the same way a PM should be able to spot a structural problem during a competitor review.
       </div>
 
-    </div>
-  </section>
-
-  <!-- ═══ PROJECTS ═══ -->
-  <section class="sec" id="projects">
-    <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">03 /</span> AI Projects &amp; Product-Relevant Work</div>
-      <h2 class="sec-title reveal-up delay-1">Built to understand<br>what I'll be shipping.</h2>
-      <p class="sec-sub reveal-up delay-2">
-        These aren't demos. They're experiments to understand trade-offs — the same ones that matter when you're deciding whether to ship an AI feature.
-      </p>
-
-      <div class="projects-grid">
-
-        <!-- Enterprise RAG -->
-        <div class="project-card reveal-up delay-1" id="project-rag">
-          <div class="project-header">
-            <div class="project-tags">
-              <span class="proj-tag">AI Product</span>
-              <span class="proj-tag proj-tag-muted">RAG · LLM · Evaluation</span>
-            </div>
-            <div class="project-year mono-tag">Feb 2025</div>
-          </div>
-          <h3 class="project-title">Enterprise RAG System</h3>
-          <p class="project-desc">
-            Built a production-grade Retrieval-Augmented Generation pipeline — then designed a comprehensive evaluation framework to measure whether it actually worked.
-          </p>
-          <div class="project-pm-lens">
-            <div class="pm-lens-label mono-tag">PM Lens</div>
-            <p>The interesting problem wasn't building the RAG. It was deciding what "good" means. Designed the eval suite — Ragas, Recall@K, NDCG, latency — before shipping. If I can't measure it, I haven't shipped anything I can improve.</p>
-          </div>
-          <div class="project-metrics">
-            <div class="pm">
-              <span class="pm-k">Stack</span>
-              <span class="pm-v">Python · LangChain · FAISS · Ollama · Ragas · Docker · Streamlit</span>
-            </div>
-            <div class="pm">
-              <span class="pm-k">Key work</span>
-              <span class="pm-v">Hybrid retrieval design · hallucination reduction via prompt engineering · containerized REST API deployment</span>
-            </div>
-          </div>
-          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="project-link" id="proj-rag-link">View on GitHub ↗</a>
-        </div>
+      <!-- ── Supporting: Research & Systems Work ── -->
+      <div class="projects-grid" style="margin-top:3.5rem;">
 
         <!-- VLM Research -->
-        <div class="project-card reveal-up delay-2" id="project-vlm">
+        <div class="project-card reveal-up delay-1" id="project-vlm">
           <div class="project-header">
             <div class="project-tags">
               <span class="proj-tag proj-tag-ieee">In Review — IEEE</span>
@@ -350,38 +384,8 @@
           <div class="project-link" style="color: var(--text-dim); cursor: default;">Advised by Dr. K. E. Srinivasa Desikan</div>
         </div>
 
-        <!-- Meraqui AI Matching -->
-        <div class="project-card reveal-up delay-3" id="project-meraqui">
-          <div class="project-header">
-            <div class="project-tags">
-              <span class="proj-tag proj-tag-shipped">Shipped · Production</span>
-              <span class="proj-tag proj-tag-muted">karam.ai · Apr–Jul 2025</span>
-            </div>
-            <div class="project-year mono-tag">2025</div>
-          </div>
-          <h3 class="project-title">AI Candidate Matching Feature</h3>
-          <p class="project-desc">
-            Owned the full requirements-to-shipping loop for an AI-driven candidate matching system at Meraqui Ventures (karam.ai).
-          </p>
-          <div class="project-pm-lens">
-            <div class="pm-lens-label mono-tag">What I owned</div>
-            <p>Partnered with stakeholders to define success metrics before code was written. Drove feature engineering and LLM fine-tuning. Wrote ERP integration specs. Defined API contracts and test suites to de-risk production deployment.</p>
-          </div>
-          <div class="project-metrics">
-            <div class="pm pm-highlight">
-              <span class="pm-k">Impact</span>
-              <span class="pm-v"><strong>+15%</strong> matching precision · <strong>−15%</strong> manual data entry · <strong>−12–15%</strong> downstream data inconsistencies</span>
-            </div>
-            <div class="pm">
-              <span class="pm-k">Stack</span>
-              <span class="pm-v">LLM fine-tuning · feature engineering · REST APIs · ETL pipelines · schema validation</span>
-            </div>
-          </div>
-          <div class="project-link" style="color: var(--text-dim); cursor: default;">Pune, India · Production deployment</div>
-        </div>
-
         <!-- Treacle Monitoring -->
-        <div class="project-card reveal-up delay-1" id="project-treacle">
+        <div class="project-card reveal-up delay-2" id="project-treacle">
           <div class="project-header">
             <div class="project-tags">
               <span class="proj-tag proj-tag-shipped">Shipped · Production</span>
@@ -411,101 +415,44 @@
         </div>
 
       </div>
+
     </div>
   </section>
 
-  <!-- ═══ PM SIMULATOR ═══ -->
-  <section class="sec sec-alt" id="simulator">
+  <!-- ═══ §03 PM DECISION SIMULATOR ═══ -->
+  <section class="sec" id="simulator">
     <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">04 /</span> PM Decision Simulator</div>
+      <div class="sec-label reveal-up"><span class="mono-tag">03 /</span> PM Decision Simulator</div>
       <h2 class="sec-title reveal-up delay-1">You're the PM.<br>What do you do?</h2>
       <p class="sec-sub reveal-up delay-2">
-        A real scenario. Three choices. This is how I think through it.
+        Real scenarios. Real trade-offs. This is how I think through them.
       </p>
 
       <div class="simulator reveal-up delay-3" id="simulator-widget">
         <div class="sim-scenario">
-          <div class="sim-badge mono-tag">Live Scenario</div>
-          <p class="sim-text">
-            Activation dropped <strong>12%</strong> this week. No code was shipped.<br>
-            Engineering wants to redesign onboarding.<br>
-            Marketing wants to increase top-of-funnel acquisition.<br>
-            Data shows: the drop only appears on <strong>Android</strong>.
-          </p>
+          <div class="sim-badge mono-tag">Scenario <span id="simScenarioNum">1</span> of <span id="simScenarioTotal">3</span></div>
+          <p class="sim-text" id="simText"></p>
         </div>
 
-        <div class="sim-prompt">What do you investigate first?</div>
+        <div class="sim-prompt" id="simPrompt"></div>
 
-        <div class="sim-options" id="simOptions">
-          <button class="sim-option" data-choice="onboarding" id="sim-opt-onboarding">
-            <span class="sim-opt-num">A</span>
-            <span class="sim-opt-text">Approve the onboarding redesign — activation is clearly broken and needs a UX fix.</span>
-          </button>
-          <button class="sim-option" data-choice="acquisition" id="sim-opt-acquisition">
-            <span class="sim-opt-num">B</span>
-            <span class="sim-opt-text">Push for a new acquisition campaign — more users at top of funnel will compensate.</span>
-          </button>
-          <button class="sim-option" data-choice="android" id="sim-opt-android">
-            <span class="sim-opt-num">C</span>
-            <span class="sim-opt-text">Deep-dive the Android funnel before shipping anything.</span>
-          </button>
-        </div>
+        <div class="sim-options" id="simOptions"></div>
 
         <div class="sim-result hidden" id="simResult">
           <div class="sim-result-inner" id="simResultInner"></div>
-          <button class="sim-reset" id="simReset">Try again →</button>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;">
+            <button class="sim-reset" id="simReset">Try again →</button>
+            <button class="btn btn-primary" id="simNext" style="display:none;font-size:0.83rem;padding:9px 16px;">Next scenario →</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ THINGS I BELIEVE ═══ -->
-  <section class="sec" id="believe">
-    <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">05 /</span> Things I Believe</div>
-      <h2 class="sec-title reveal-up delay-1">Product philosophy.<br>No fluff.</h2>
-
-      <div class="beliefs-grid">
-        <div class="belief reveal-up delay-1" id="belief-1">
-          <span class="belief-num mono-tag">—</span>
-          <p>"The user asked for a feature" is not a problem statement.</p>
-        </div>
-        <div class="belief reveal-up delay-2" id="belief-2">
-          <span class="belief-num mono-tag">—</span>
-          <p>More features ≠ better product. Fewer sharp ones, shipped well, do more.</p>
-        </div>
-        <div class="belief reveal-up delay-3" id="belief-3">
-          <span class="belief-num mono-tag">—</span>
-          <p>Data should challenge my opinion, not decorate my presentation.</p>
-        </div>
-        <div class="belief reveal-up delay-1" id="belief-4">
-          <span class="belief-num mono-tag">—</span>
-          <p>If I can't explain the product to a non-technical user, I probably don't understand it yet.</p>
-        </div>
-        <div class="belief reveal-up delay-2" id="belief-5">
-          <span class="belief-num mono-tag">—</span>
-          <p>A PRD isn't sacred. The problem statement is.</p>
-        </div>
-        <div class="belief reveal-up delay-3" id="belief-6">
-          <span class="belief-num mono-tag">—</span>
-          <p>In AI products: cost / latency / accuracy is a triangle, not a checklist. Pick two deliberately.</p>
-        </div>
-        <div class="belief reveal-up delay-1" id="belief-7">
-          <span class="belief-num mono-tag">—</span>
-          <p>Hallucination isn't an engineering problem. It's a product risk that needs a mitigation strategy at the spec stage.</p>
-        </div>
-        <div class="belief reveal-up delay-2" id="belief-8">
-          <span class="belief-num mono-tag">—</span>
-          <p>The metric that didn't move is the most important thing in the retrospective.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SKILLS ═══ -->
+  <!-- ═══ §04 SKILLS & EDUCATION ═══ -->
   <section class="sec sec-alt" id="skills">
     <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">06 /</span> Skills</div>
+      <div class="sec-label reveal-up"><span class="mono-tag">04 /</span> Skills</div>
       <h2 class="sec-title reveal-up delay-1">What I bring to the table.</h2>
 
       <div class="skills-grid reveal-up delay-2">
@@ -541,13 +488,11 @@
             <li>Latency Benchmarking</li>
             <li>Ragas (LLM evaluation)</li>
             <li>Funnel Analysis</li>
-            <li>A/B Statistical Analysis</li>
           </ul>
         </div>
         <div class="skill-col" id="skills-tech">
           <h3 class="skill-col-title">Technical Fluency</h3>
           <ul class="skill-list">
-            <li>Figma</li>
             <li>Python · FastAPI · REST APIs</li>
             <li>LLMs · LangChain · Ollama</li>
             <li>FAISS · Vector DBs · Embeddings</li>
@@ -572,7 +517,7 @@
 
       <!-- Education -->
       <div class="edu-block reveal-up delay-3" id="education">
-        <div class="sec-label" style="margin-top:3.5rem;"><span class="mono-tag">07 /</span> Education</div>
+        <div class="sec-label" style="margin-top:3.5rem;"><span class="mono-tag">05 /</span> Education</div>
         <div class="edu-rows">
           <div class="edu-row">
             <div class="edu-info">
@@ -632,7 +577,7 @@
         </div>
         <div class="footer-copy">
           <span>© 2026 Krishnamurthi Ramesh</span>
-          <span class="mono-tag">Portfolio v2.0</span>
+          <span class="mono-tag">Portfolio v3.0</span>
         </div>
       </div>
     </div>
