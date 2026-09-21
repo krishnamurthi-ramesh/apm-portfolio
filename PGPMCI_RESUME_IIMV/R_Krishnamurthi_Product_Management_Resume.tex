@@ -1,0 +1,88 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in,top=0.2in,bottom=0.15in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\definecolor{accent}{HTML}{1A3E6F}
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent}
+\pagestyle{empty}
+\linespread{0.88}
+\titleformat{\section}{\normalsize\bfseries\color{accent}}{}{0em}{}[\vspace{0.5pt}\titlerule\vspace{1.5pt}]
+\titlespacing*{\section}{0pt}{2pt}{1pt}
+\setlist[itemize]{leftmargin=13pt, itemsep=0pt, topsep=0.5pt, parsep=0pt}
+\setlength{\parindent}{0pt}
+\newcommand{\role}[4]{%
+  \textbf{#1} \hfill #2\\
+  \textit{#3} \hfill \textit{#4}\\[1pt]
+}
+\begin{document}
+\begin{minipage}[c]{0.78\textwidth}
+{\LARGE \textbf{Krishnamurthi}}\\[3pt]
+\textit{Associate Product Manager $\times$ AI Products}\\[4pt]
+\href{mailto:kiccha1703@gmail.com}{kiccha1703@gmail.com} \quad $\vert$ \quad
+\href{https://github.com/krishnamurthi-ramesh}{github.com/krishnamurthi-ramesh} \quad $\vert$ \quad
++91-90037-62619\\[1pt]
+\href{https://linkedin.com/in/krishnamurthi-ramesh}{linkedin.com/in/krishnamurthi-ramesh} \quad $\vert$ \quad
+\href{https://apm-portf.netlify.app}{Portfolio \& PM Case Studies}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.13\textwidth}
+\raggedleft
+\includegraphics[width=0.85\linewidth]{iimv-logo.png}
+\end{minipage}
+\vspace{4pt}
+{\color{accent}\hrule height 0.8pt}
+\vspace{1pt}
+\section*{Profile}
+Engineering graduate (IIITDM) and PGPMCI candidate (IIMV) with experience shipping AI/ML features from requirements through production. At Meraqui, collaborated with stakeholders and engineering on AI candidate matching and success metrics. Complemented by self-initiated product teardowns (Comet, KreditBee, PhonePe) and an interactive PM Decision Simulator, focusing on funnel friction, trade-offs, and validation metrics.
+\section*{Education}
+\role{Indian Institute of Management Visakhapatnam}{2025 -- 2027}{Post-Graduate Program in Management (PGPMCI)}{}
+\role{IIITDM Kurnool}{2022 -- 2026}{B.Tech, Computer Science and Engineering}{}
+\section*{Experience}
+\role{Data Science Intern --- Meraqui Ventures Pvt. Ltd. (karam.ai)}{Apr 2025 -- Jul 2025}{Pune, India}{}
+\begin{itemize}
+\item Owned the requirements-to-shipping loop for an AI-driven candidate-matching feature, partnering with stakeholders to define success metrics and improving matching precision by \textbf{15\%} through feature engineering and LLM fine-tuning.
+\item Drove integration of the AI platform with client ERP systems via REST APIs, cutting manual data entry by \textbf{15\%} and improving customer-facing workflow adoption.
+\item Reduced downstream data inconsistencies by \textbf{12--15\%} by specifying and building schema-validated ETL pipelines, improving trust in product-facing outputs.
+\item Defined and executed test suites and API contracts with engineering to de-risk production AI deployments.
+\end{itemize}
+\vspace{1pt}
+\role{Development Engineering Intern --- Treacle Technologies (Incubated at IIT Kanpur)}{Jun 2024 -- Aug 2024}{Kanpur, India}{}
+\begin{itemize}
+\item Specified and built monitoring dashboards (Grafana, Elasticsearch) that cut incident detection time by \textbf{40\%}, translating an operational pain point into a measurable reliability metric.
+\item Scaled real-time data pipelines to process \textbf{100k+ logs/day}, automating preprocessing across distributed systems to remove \textbf{80\%} of manual operational effort.
+\end{itemize}
+\section*{Product Case Studies --- Self-Initiated Teardowns}
+\textbf{Comet (E-commerce AI Search) --- Teardown \& Friction Analysis} \hfill 2026
+\begin{itemize}
+\item Reverse-engineered Comet's AI ``Finder'' discovery flow to diagnose drop-off friction between recommendation generation and PDP conversion.
+\item Proposed a context-aware conversational memory solution to carry size/fit parameters across sessions to reduce cart abandonment, defining ``Finder-assisted add-to-cart rate'' as the validation metric.
+\end{itemize}
+\vspace{1pt}
+\textbf{KreditBee \& PhonePe Lending --- Same Category, Two Failure Modes} \hfill 2026
+\begin{itemize}
+\item Diagnosed structurally distinct friction points across two live lending funnels: a document-upload bottleneck (KreditBee) versus a marketplace trust-continuity break (PhonePe).
+\item Proposed conversational AI-agent solutions --- real-time document feedback and cross-partner context carry-over --- each paired with primary/secondary validation metrics (e.g., first-session KYC completion rate).
+\end{itemize}
+\section*{Independent Research --- Product-Relevant AI Systems Work}
+\textbf{Reliability Framework for Quantized Vision-Language Models} \hfill 2026
+\begin{itemize}
+\item Identified a real-world product risk --- hallucination in cost-optimized (quantized) AI models deployed on edge/on-device hardware --- and scoped an original technical solution to address it.
+\item Designed a non-parametric density-drift detector and a cost-aware two-tier inference cascade (GPU + CPU), directly trading off latency, cost, and reliability --- the same trade-off triangle product teams navigate when shipping AI features.
+\item Iterated the work through external peer review, incorporating critical feedback into a revised technical framework, ahead of submission to an IEEE journal.
+\end{itemize}
+\section*{Product \& Technical Skills}
+\textbf{Product:} Problem Framing, Product Discovery, Success Metrics, Funnel \& Friction Analysis, Prioritization, PRDs, Experimentation Fundamentals, Stakeholder Management \\
+\textbf{AI/LLM:} Prompt Design \& Evaluation, RAG, Model Selection, Cost / Latency / Accuracy Trade-offs, Hallucination \& Reliability Assessment \\
+\textbf{Data:} SQL, Precision, Recall@K, NDCG, Latency Benchmarking, Ragas \\
+\textbf{Technical:} Figma, Python, REST APIs, FastAPI, Docker, PostgreSQL, LLMs, LangChain, FAISS
+\section*{Business \& Management Coursework}
+Advanced Analytics, Platform \& Ecosystem Strategy, Automation for Managers, Project Management, International Business, Entrepreneurial Finance.
+\section*{Certifications \& Achievements}
+\begin{itemize}
+\item Oracle Cloud Infrastructure 2024 Generative AI Certified --- Score: 92.5\%
+\item 2\textsuperscript{nd}, GDG Hackathon (AI/ML) --- Mar 2025 \quad $\vert$ \quad 2\textsuperscript{nd}, DataWorks Hackathon (LLM Apps) --- Apr 2025
+\end{itemize}
+\end{document}
