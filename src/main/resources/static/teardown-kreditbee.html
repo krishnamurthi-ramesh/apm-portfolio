@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -27,50 +27,50 @@
 
 <section class="doc-hero wrap">
   <div class="eyebrow">Product Teardown</div>
-  <h1>KreditBee — the KYC stack nobody fixed, just made skippable</h1>
-  <p class="sub">A single-lender lending app's own product decisions reveal exactly where users give up — you just have to read the escape hatches they built.</p>
+  <h1>KreditBee â€” the KYC stack nobody fixed, just made skippable</h1>
+  <p class="sub">A single-lender lending app's own product decisions reveal exactly where users give up â€” you just have to read the escape hatches they built.</p>
 </section>
 
-<section class="sec wrap">
-  <div class="sec-head"><span class="sec-num">§T1</span><h2>Funnel, as it actually exists today</h2></div>
+<section class="doc-sec wrap">
+  <div class="sec-head"><span class="sec-num">Â§T1</span><h2>Funnel, as it actually exists today</h2></div>
   <ol class="funnel">
     <li><div><div class="t">Download &amp; sign up</div><div class="d">Mobile number + OTP verification.</div></div></li>
-    <li><div><div class="t">Eligibility check</div><div class="d">PAN, DOB, monthly salary, PIN code — a soft check, no documents yet.</div></div></li>
-    <li class="friction"><div><div class="t">KYC upload</div><div class="d">Aadhaar/Voter ID/Passport, address proof, marital status, selfie — several documents in one sitting.</div></div></li>
-    <li class="friction"><div><div class="t">Income verification</div><div class="d">Bank statement upload — explicitly optional, can be skipped and completed later.</div></div></li>
+    <li><div><div class="t">Eligibility check</div><div class="d">PAN, DOB, monthly salary, PIN code â€” a soft check, no documents yet.</div></div></li>
+    <li class="friction"><div><div class="t">KYC upload</div><div class="d">Aadhaar/Voter ID/Passport, address proof, marital status, selfie â€” several documents in one sitting.</div></div></li>
+    <li class="friction"><div><div class="t">Income verification</div><div class="d">Bank statement upload â€” explicitly optional, can be skipped and completed later.</div></div></li>
     <li><div><div class="t">Profile verification</div><div class="d">Backend review of submitted documents.</div></div></li>
     <li><div><div class="t">Loan offer</div><div class="d">Amount + tenure selection, EMI shown instantly.</div></div></li>
     <li><div><div class="t">Bank details</div><div class="d">Entered for disbursal.</div></div></li>
-    <li><div><div class="t">Disbursal</div><div class="d">Funds in ~10–15 minutes once verified.</div></div></li>
+    <li><div><div class="t">Disbursal</div><div class="d">Funds in ~10â€“15 minutes once verified.</div></div></li>
   </ol>
 </section>
 
-<section class="sec wrap">
-  <div class="sec-head"><span class="sec-num">§T2</span><h2>Where the friction actually is</h2></div>
-  <p>The single most telling detail in KreditBee's own flow is that <strong>income verification is explicitly optional and deferrable</strong> — suggesting the flow may be designed to reduce friction at that step rather than require completion upfront. The observable product decision suggests that the team may have prioritized reducing friction at this step rather than requiring completion upfront. The underlying reason for that decision cannot be established without primary research.</p>
+<section class="doc-sec wrap">
+  <div class="sec-head"><span class="sec-num">Â§T2</span><h2>Where the friction actually is</h2></div>
+  <p>The single most telling detail in KreditBee's own flow is that <strong>income verification is explicitly optional and deferrable</strong> â€” suggesting the flow may be designed to reduce friction at that step rather than require completion upfront. The observable product decision suggests that the team may have prioritized reducing friction at this step rather than requiring completion upfront. The underlying reason for that decision cannot be established without primary research.</p>
   <div class="callout">
     <span class="k">Friction point</span>
-    Steps 3–4, the KYC + income-verification stack. A first-time borrower has to produce and correctly photograph 3–4 separate documents in one sitting, on a phone — often mid-emergency, since KreditBee's own reviews mention "medical emergency" and "needed money fast" as real use contexts. That's exactly the moment someone has the least patience for a multi-step document flow.
+    Steps 3â€“4, the KYC + income-verification stack. A first-time borrower has to produce and correctly photograph 3â€“4 separate documents in one sitting, on a phone â€” often mid-emergency, since KreditBee's own reviews mention "medical emergency" and "needed money fast" as real use contexts. That's exactly the moment someone has the least patience for a multi-step document flow.
   </div>
 </section>
 
-<section class="sec wrap">
-  <div class="sec-head"><span class="sec-num">§T3</span><h2>The fix</h2></div>
+<section class="doc-sec wrap">
+  <div class="sec-head"><span class="sec-num">Â§T3</span><h2>The fix</h2></div>
   <div class="callout fix">
     <span class="k">Proposal</span>
-    Replace the static multi-document upload screen with a conversational, one-document-at-a-time AI agent flow: the agent asks for one document, gives real-time feedback if the photo is blurry, cropped, or the wrong document type — before the user moves on, instead of a generic "verification failed" screen days later — and tells the user plainly what's still needed and why.
+    Replace the static multi-document upload screen with a conversational, one-document-at-a-time AI agent flow: the agent asks for one document, gives real-time feedback if the photo is blurry, cropped, or the wrong document type â€” before the user moves on, instead of a generic "verification failed" screen days later â€” and tells the user plainly what's still needed and why.
   </div>
-  <p class="note">This is close to exactly what Revrag's embedded, multilingual in-app AI agents are built to do for BFSI onboarding — turning a form into a guided conversation. I'm noting that directly rather than treating it as a coincidence: this teardown led me to the same problem their product exists to solve.</p>
+  <p class="note">This is close to exactly what Revrag's embedded, multilingual in-app AI agents are built to do for BFSI onboarding â€” turning a form into a guided conversation. I'm noting that directly rather than treating it as a coincidence: this teardown led me to the same problem their product exists to solve.</p>
 </section>
 
-<section class="sec wrap">
-  <div class="sec-head"><span class="sec-num">§T4</span><h2>Metric that would prove it worked</h2></div>
+<section class="doc-sec wrap">
+  <div class="sec-head"><span class="sec-num">Â§T4</span><h2>Metric that would prove it worked</h2></div>
   <div class="callout metric">
     <span class="k">Primary</span>
-    KYC completion rate within the first session — started KYC → fully submitted, same session, no drop to a later day. This targets the real failure mode: people abandoning mid-document and never coming back, not people rejecting the loan offer itself.
+    KYC completion rate within the first session â€” started KYC â†’ fully submitted, same session, no drop to a later day. This targets the real failure mode: people abandoning mid-document and never coming back, not people rejecting the loan offer itself.
   </div>
   <div class="fields">
-    <div class="field"><span class="k">Secondary</span><span class="v">Re-upload rate — how often a document gets rejected and needs resubmission. If the agent works, this should fall, since it catches bad photos before submission instead of after backend review.</span></div>
+    <div class="field"><span class="k">Secondary</span><span class="v">Re-upload rate â€” how often a document gets rejected and needs resubmission. If the agent works, this should fall, since it catches bad photos before submission instead of after backend review.</span></div>
   </div>
 </section>
 

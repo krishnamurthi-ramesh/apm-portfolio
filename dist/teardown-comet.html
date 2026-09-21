@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -27,16 +27,16 @@
 
 <section class="doc-hero wrap">
   <div class="eyebrow">Product Teardown</div>
-  <h1>Comet — From "Which Sneaker?" to "Which Comet Is Me?"</h1>
+  <h1>Comet â€” From "Which Sneaker?" to "Which Comet Is Me?"</h1>
   <p class="sub">A product discovery teardown: reducing decision friction without taking away the brand's sense of discovery.</p>
 </section>
 
-<section class="sec wrap">
+<section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">01</span><h2>Problem: "Which sneaker is right for me?"</h2></div>
   <p>Comet already has a "Find Your Silhouette" experience covering X Lows, Aeres, Aeon v2, ASTRA, and Apex, with attributes such as cushioning, styling, weight, and fit. The foundation exists. Here's how I would make the discovery journey more decision-oriented.</p>
 </section>
 
-<section class="sec wrap">
+<section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">02</span><h2>What I observed</h2></div>
   <ul class="check-list">
     <li>Comet offers multiple silhouettes.</li>
@@ -46,17 +46,17 @@
   </ul>
 </section>
 
-<section class="sec wrap">
+<section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">03</span><h2>Friction</h2></div>
   <div class="callout">
     <span class="k">Hypothesis</span>
-    Users are given product attributes, but the translation from attribute → personal need → product choice still requires cognitive work. First-time customers may still struggle to translate those attributes into a personal choice.
+    Users are given product attributes, but the translation from attribute â†’ personal need â†’ product choice still requires cognitive work. First-time customers may still struggle to translate those attributes into a personal choice.
   </div>
 </section>
 
-<section class="sec wrap">
+<section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">04</span><h2>Solution: Silhouette Finder 2.0</h2></div>
-  <p>A use-case-first Silhouette Finder: ask 3–4 high-signal questions, then return a ranked recommendation with a short “Why this pair” explanation.</p>
+  <p>A use-case-first Silhouette Finder: ask 3â€“4 high-signal questions, then return a ranked recommendation with a short â€œWhy this pairâ€ explanation.</p>
   
   <ul class="check-list">
     <li><strong>Q1. What will you use them for?</strong> Everyday, Long walks/travel, Going out, Style-first.</li>
@@ -66,31 +66,31 @@
   </ul>
 </section>
 
-<section class="sec wrap">
+<section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">05</span><h2>Recommendation &amp; Trade-off</h2></div>
-  <p>More guidance vs less discovery. Too much recommendation can make Comet feel like a generic footwear catalogue. Too little guidance creates decision friction. So, don't recommend one shoe immediately. Recommend 2–3 candidates and explain the trade-off.</p>
+  <p>More guidance vs less discovery. Too much recommendation can make Comet feel like a generic footwear catalogue. Too little guidance creates decision friction. So, don't recommend one shoe immediately. Recommend 2â€“3 candidates and explain the trade-off.</p>
   
   <div class="callout fix">
     <span class="k">Your Match</span>
-    <strong>1. X LOWS</strong> — Best for: Street + everyday wear, Roomier fit.<br>
-    <strong>2. AERES</strong> — Best for: Lightweight everyday wear, Narrower fit.<br>
-    <strong>3. APEX</strong> — Best for: More cushioning, Relaxed casual styling.
+    <strong>1. X LOWS</strong> â€” Best for: Street + everyday wear, Roomier fit.<br>
+    <strong>2. AERES</strong> â€” Best for: Lightweight everyday wear, Narrower fit.<br>
+    <strong>3. APEX</strong> â€” Best for: More cushioning, Relaxed casual styling.
   </div>
 </section>
 
-<section class="sec wrap">
+<section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">06</span><h2>Metrics</h2></div>
   <div class="callout metric">
     <span class="k">North Star / Primary</span>
     Finder-assisted add-to-cart rate
   </div>
   <div class="fields">
-    <div class="field"><span class="k">Secondary</span><span class="v">Finder completion rate, Recommendation → PDP CTR, PDP → cart conversion, Cart → purchase conversion, Size/fit exchange rate, 30/90-day repeat purchase</span></div>
+    <div class="field"><span class="k">Secondary</span><span class="v">Finder completion rate, Recommendation â†’ PDP CTR, PDP â†’ cart conversion, Cart â†’ purchase conversion, Size/fit exchange rate, 30/90-day repeat purchase</span></div>
     <div class="field"><span class="k">Guardrails</span><span class="v">Return rate, Customer support contacts, Recommendation abandonment</span></div>
   </div>
 </section>
 
-<section class="sec wrap">
+<section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">07</span><h2>Experiment</h2></div>
   <p><strong>A/B test:</strong></p>
   <ul class="check-list">
@@ -101,7 +101,7 @@
   <p>Success would require a statistically credible improvement in the primary metric without deterioration in return/exchange rate. If users can translate their own needs into a recommended silhouette earlier, Comet may reduce decision friction and improve downstream conversion without changing the catalogue itself.</p>
 </section>
 
-<section class="sec wrap">
+<section class="doc-sec wrap">
   <div class="sec-head"><span class="sec-num">08</span><h2>What I wouldn't build</h2></div>
   <p>Because the first problem is decision clarity, not lack of AI. I would not start with an ML recommendation engine. The first version can be rule-based because the product catalogue already contains structured attributes.</p>
   <ul class="cross-list">

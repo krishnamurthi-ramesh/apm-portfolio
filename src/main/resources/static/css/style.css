@@ -668,6 +668,8 @@ footer { background: var(--bg-surface); border-top: 1px solid var(--border); pad
    TEARDOWN & ARTIFACT SPECIFIC STYLES
    ═══════════════════════════════════════════════════════════ */
 .doc-hero { padding: 96px 0 32px; }
+.doc-sec { padding: 40px 0; border-top: 1px solid var(--border-soft); }
+.doc-hero + .doc-sec { border-top: none; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);
