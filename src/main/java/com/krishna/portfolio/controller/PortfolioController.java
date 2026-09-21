@@ -44,8 +44,10 @@ public class PortfolioController {
 
     @PostMapping("/contact")
     public String submitContact(@ModelAttribute ContactMessage contactMessage, RedirectAttributes redirectAttributes) {
-        contactMessageRepository.save(contactMessage);
-        redirectAttributes.addFlashAttribute("successMessage", "Thank you for reaching out! I'll get back to you soon.");
+        if (contactMessage != null) {
+            contactMessageRepository.save(contactMessage);
+            redirectAttributes.addFlashAttribute("successMessage", "Thank you for reaching out! I'll get back to you soon.");
+        }
         return "redirect:/#contact";
     }
 }
