@@ -111,15 +111,20 @@
               <span style="font-size:1.1rem;">✓</span>
               <span style="font-weight:600;color:var(--accent);font-size:1rem;">That's the right call.</span>
             </div>
-            <p style="margin-bottom:12px;">
-              The Android-specific signal is the most important piece of information in this scenario.
-              If activation dropped <strong>only on Android</strong> with no code change, you have a 
-              platform-specific regression — not a general onboarding problem and not a top-of-funnel problem.
-            </p>
-            <p style="margin-bottom:12px;">
-              <span style="font-family:'JetBrains Mono',monospace;color:var(--accent);">Next steps:</span>
-              Segment the funnel by platform → identify which step the drop occurs on → check for 
-              OS version or device regressions → reproduce before escalating to engineering.
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">What I'd investigate</strong>
+              <ul style="margin:0;padding-left:18px;color:var(--text-muted);font-size:0.9rem;line-height:1.5;">
+                <li>Conversion impact of the 12% drop on overall revenue</li>
+                <li>Specific OS versions affected within Android</li>
+                <li>Recent backend or API changes that might selectively break Android</li>
+              </ul>
+            </div>
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">Why this is the trade-off</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">Speed vs confidence. You are trading the speed of an immediate "fix" (like a redesign) for the confidence of diagnosing the actual root cause.</span>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;padding:10px;background:var(--bg-surface2);border-radius:4px;border-left:2px solid var(--accent);">
+              <strong style="color:var(--text);">PM principle:</strong> Don't optimize a local metric or approve a solution without understanding the system impact and root cause.
             </p>`
         },
         onboarding: {
@@ -129,15 +134,12 @@
               <span style="font-size:1.1rem;">✗</span>
               <span style="font-weight:600;color:var(--accent-warm);font-size:1rem;">That's a trap.</span>
             </div>
-            <p style="margin-bottom:12px;">
-              Approving a redesign without understanding <em>why</em> the metric dropped is 
-              exactly the kind of decision that creates expensive, wrong solutions.
-              The Android-specific signal tells you this isn't a general UX problem — it's probably 
-              a platform regression. A redesign wouldn't fix a platform bug.
-            </p>
-            <p style="color:var(--text-dim);font-size:0.9rem;">
-              <span style="font-family:'JetBrains Mono',monospace;color:var(--accent);">Rule:</span>
-              Isolate before you ship. The Android funnel is your first investigation, not a redesign approval.
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">What I'd investigate instead</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">The platform-specific nature of the drop (Android only) strongly suggests a technical regression, not a UX failure. A redesign won't fix a broken API endpoint.</span>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;padding:10px;background:var(--bg-surface2);border-radius:4px;border-left:2px solid var(--accent-warm);">
+              <strong style="color:var(--text);">PM principle:</strong> Never prescribe a UX solution to a technical problem. Isolate the signal first.
             </p>`
         },
         acquisition: {
@@ -147,13 +149,12 @@
               <span style="font-size:1.1rem;">✗</span>
               <span style="font-weight:600;color:var(--accent-warm);font-size:1rem;">You're filling a leaking bucket.</span>
             </div>
-            <p style="margin-bottom:12px;">
-              Increasing acquisition when activation is broken is one of the most expensive mistakes 
-              in product. You'd be paying to bring more users into a funnel that's already losing them.
-            </p>
-            <p style="color:var(--text-dim);font-size:0.9rem;">
-              <span style="font-family:'JetBrains Mono',monospace;color:var(--accent);">Rule:</span>
-              Fix the leak before you fill the bucket. Investigate the Android funnel first.
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">Why this is the trade-off</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">Short-term metric padding vs long-term retention. Increasing acquisition masks the activation problem temporarily but destroys LTV and burns marketing budget.</span>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;padding:10px;background:var(--bg-surface2);border-radius:4px;border-left:2px solid var(--accent-warm);">
+              <strong style="color:var(--text);">PM principle:</strong> Fix the leak before you fill the bucket.
             </p>`
         }
       }
@@ -177,14 +178,20 @@
               <span style="font-size:1.1rem;">✓</span>
               <span style="font-weight:600;color:var(--accent);font-size:1rem;">That's the PM move.</span>
             </div>
-            <p style="margin-bottom:12px;">
-              This is the <strong>cost / latency / accuracy triangle</strong> in action. You don't pick one — you define acceptable boundaries for each.
-              Set a latency budget (e.g., p95 < 600ms). If the model can't meet it, fall back to the faster, slightly less accurate model.
-            </p>
-            <p style="color:var(--text-dim);font-size:0.9rem;">
-              <span style="font-family:'JetBrains Mono',monospace;color:var(--accent);">Key insight:</span>
-              "Beta users didn't complain" with a small sample is not evidence. At scale, 1.2s p95 will destroy retention.
-              Ship with guardrails, measure both accuracy AND latency in production, then optimize.
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">What I'd investigate</strong>
+              <ul style="margin:0;padding-left:18px;color:var(--text-muted);font-size:0.9rem;line-height:1.5;">
+                <li>Maximum acceptable latency before users abandon the search</li>
+                <li>Engineering effort required to implement a dynamic fallback</li>
+                <li>Impact of falling back on overall search conversion</li>
+              </ul>
+            </div>
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">Why this is the trade-off</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">User value (accuracy) vs business risk (latency abandonment). You accept a slight drop in accuracy at peak loads to guarantee a responsive user experience.</span>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;padding:10px;background:var(--bg-surface2);border-radius:4px;border-left:2px solid var(--accent);">
+              <strong style="color:var(--text);">PM principle:</strong> In AI products, cost, latency, and accuracy are a permanent triangle. Pick two deliberately and set guardrails for the third.
             </p>`
         },
         'ship-now': {
@@ -194,13 +201,12 @@
               <span style="font-size:1.1rem;">✗</span>
               <span style="font-weight:600;color:var(--accent-warm);font-size:1rem;">Small beta ≠ evidence.</span>
             </div>
-            <p style="margin-bottom:12px;">
-              "Beta users didn't complain" from a small sample is not the same as "latency is acceptable at scale."
-              A 6× latency increase (200ms → 1.2s) at p95 will compound under real production load and traffic patterns.
-            </p>
-            <p style="color:var(--text-dim);font-size:0.9rem;">
-              <span style="font-family:'JetBrains Mono',monospace;color:var(--accent);">Better:</span>
-              Set a latency budget. Ship with a fallback to the faster model above the threshold. Measure real-world impact.
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">Why this is the trade-off</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">You are trading long-term retention for short-term launch targets. A 6x latency increase will compound at scale and destroy retention, regardless of beta feedback.</span>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;padding:10px;background:var(--bg-surface2);border-radius:4px;border-left:2px solid var(--accent-warm);">
+              <strong style="color:var(--text);">PM principle:</strong> Never use a small, highly-tolerant beta sample to validate a severe performance degradation.
             </p>`
         },
         delay: {
@@ -210,13 +216,12 @@
               <span style="font-size:1.1rem;">✗</span>
               <span style="font-weight:600;color:var(--accent-warm);font-size:1rem;">Perfection kills momentum.</span>
             </div>
-            <p style="margin-bottom:12px;">
-              A 6-week delay doubles your time-to-launch. In product, you learn more from 3 weeks of real usage data
-              than 6 weeks of optimization in a vacuum. The key is to ship safely — not perfectly.
-            </p>
-            <p style="color:var(--text-dim);font-size:0.9rem;">
-              <span style="font-family:'JetBrains Mono',monospace;color:var(--accent);">Better:</span>
-              Define a latency budget. Use a two-tier approach: fast model as default, accurate model when latency allows. Ship on time. Optimize with real data.
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">Why this is the trade-off</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">Speed to market vs optimal performance. A 6-week delay doubles time-to-launch, preventing you from gathering real-world data to guide those optimizations.</span>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;padding:10px;background:var(--bg-surface2);border-radius:4px;border-left:2px solid var(--accent-warm);">
+              <strong style="color:var(--text);">PM principle:</strong> Ship safely, not perfectly. Implement a fallback guardrail instead of blocking the launch.
             </p>`
         }
       }
@@ -240,15 +245,20 @@
               <span style="font-size:1.1rem;">✓</span>
               <span style="font-weight:600;color:var(--accent);font-size:1rem;">Right. Understand the "why" first.</span>
             </div>
-            <p style="margin-bottom:12px;">
-              "Build me an export" is a feature request, not a problem statement. Why do they need the export?
-              If they're exporting to run analysis in Excel, the real problem might be that your dashboard lacks the right views.
-              If they're sharing reports with their leadership, the real solution might be a scheduled email report — not a CSV button.
-            </p>
-            <p style="color:var(--text-dim);font-size:0.9rem;">
-              <span style="font-family:'JetBrains Mono',monospace;color:var(--accent);">Key insight:</span>
-              3% dashboard usage combined with a "dealbreaker" export request means the client has a workflow your product doesn't serve.
-              Understand the workflow. Then decide what to build.
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">What I'd investigate</strong>
+              <ul style="margin:0;padding-left:18px;color:var(--text-muted);font-size:0.9rem;line-height:1.5;">
+                <li>What the client actually does with the exported CSV data</li>
+                <li>Whether the dashboard is missing critical views for enterprise workflows</li>
+                <li>If the client really needs a scheduled report instead of a manual export</li>
+              </ul>
+            </div>
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">Why this is the trade-off</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">Short-term appeasement vs long-term product value. Building an export button is fast, but it might distract from the fact that your core dashboard is failing 97% of users.</span>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;padding:10px;background:var(--bg-surface2);border-radius:4px;border-left:2px solid var(--accent);">
+              <strong style="color:var(--text);">PM principle:</strong> "Build me an export" is a feature request, not a problem statement. Always solve the underlying workflow problem.
             </p>`
         },
         build: {
@@ -258,14 +268,12 @@
               <span style="font-size:1.1rem;">✗</span>
               <span style="font-weight:600;color:var(--accent-warm);font-size:1rem;">Revenue pressure ≠ product strategy.</span>
             </div>
-            <p style="margin-bottom:12px;">
-              Building a feature because one client threatens churn sets a dangerous precedent.
-              If only 3% of users open the dashboard, the export feature will serve even fewer.
-              You'd be spending 3 weeks solving a symptom — not the underlying problem.
-            </p>
-            <p style="color:var(--text-dim);font-size:0.9rem;">
-              <span style="font-family:'JetBrains Mono',monospace;color:var(--accent);">Better:</span>
-              Ask: "What do you do with the data after you export it?" That conversation reveals the real need.
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">Why this is the trade-off</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">You are trading 3 weeks of engineering capacity to solve a symptom for one client, ignoring why 97% of your users abandon the dashboard in the first place.</span>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;padding:10px;background:var(--bg-surface2);border-radius:4px;border-left:2px solid var(--accent-warm);">
+              <strong style="color:var(--text);">PM principle:</strong> Don't let a single client hold your roadmap hostage without understanding their actual workflow.
             </p>`
         },
         decline: {
@@ -275,14 +283,12 @@
               <span style="font-size:1.1rem;">✗</span>
               <span style="font-weight:600;color:var(--accent-warm);font-size:1rem;">Don't dismiss — investigate.</span>
             </div>
-            <p style="margin-bottom:12px;">
-              Low dashboard usage doesn't automatically mean the export request is wrong.
-              It might mean the dashboard itself doesn't serve enterprise workflows — which is a <em>bigger</em> problem worth understanding.
-              Dismissing a $400k client's request without investigation is how you lose trust and revenue simultaneously.
-            </p>
-            <p style="color:var(--text-dim);font-size:0.9rem;">
-              <span style="font-family:'JetBrains Mono',monospace;color:var(--accent);">Better:</span>
-              Talk to the client. Understand their workflow. Then propose a solution that serves both their need and your product direction.
+            <div style="margin-bottom:12px;">
+              <strong style="color:var(--text);font-size:0.9rem;display:block;margin-bottom:4px;">Why this is the trade-off</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">Data purity vs customer empathy. Low usage means the feature is failing, but dismissing a $400k client without digging into *why* they need it damages trust and revenue.</span>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;padding:10px;background:var(--bg-surface2);border-radius:4px;border-left:2px solid var(--accent-warm);">
+              <strong style="color:var(--text);">PM principle:</strong> Data tells you *what* is happening (3% usage). It doesn't tell you *why*. Talk to the client before declining.
             </p>`
         }
       }
