@@ -96,10 +96,255 @@
     </div>
   </section>
 
-  <!-- ═══ §01 HOW I THINK ABOUT PRODUCTS ═══ -->
-  <section class="sec" id="think">
+  <!-- ═══ §01 PRODUCT WORK ═══ -->
+  <section class="sec" id="work">
     <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">01 /</span> How I Think</div>
+      <div class="sec-label reveal-up"><span class="mono-tag">01 /</span> Product Work</div>
+      <h2 class="sec-title reveal-up delay-1">Built, shipped,<br>or broken down.</h2>
+      
+      <div class="projects-grid" style="margin-top:2rem;">
+        <!-- Meraqui AI Matching -->
+        <div class="project-card reveal-up delay-1" id="project-meraqui">
+          <div class="evidence-badge">🟢 PRODUCTION EXPERIENCE</div>
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="proj-tag proj-tag-shipped">Production</span>
+              <span class="proj-tag proj-tag-muted">Meraqui Ventures</span>
+            </div>
+            <div class="project-year mono-tag">2025</div>
+          </div>
+          <h3 class="project-title">AI Candidate Matching — Product Spec</h3>
+          <p class="project-desc">
+            Problem → Requirements → Success Metrics → AI Trade-offs → Implementation → Testing → Result → PM Reflection.
+          </p>
+          <div class="project-pm-lens">
+            <div class="pm-lens-label mono-tag">What I owned</div>
+            <p>Partnered with stakeholders to define success metrics before code was written. Drove feature engineering and LLM fine-tuning. Wrote ERP integration specs. Defined API contracts and test suites to de-risk production deployment.</p>
+          </div>
+          <div class="project-metrics">
+            <div class="pm pm-highlight">
+              <span class="pm-k">Impact</span>
+              <span class="pm-v"><strong>+15%</strong> matching precision · <strong>−15%</strong> manual data entry · <strong>−12–15%</strong> downstream data inconsistencies</span>
+            </div>
+          </div>
+          <a href="/artifact-meraqui.html" class="project-link" id="proj-meraqui-link" style="font-weight: 500; color: var(--accent);">View PM Artifact: Product Spec ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §02 PRODUCT TEARDOWNS ═══ -->
+  <section class="sec sec-alt" id="teardowns">
+    <div class="wrap">
+      <div class="sec-label reveal-up"><span class="mono-tag">02 /</span> Product Teardowns</div>
+      <p class="sec-sub reveal-up delay-1" style="margin-bottom:1.5rem;">
+        Reverse-engineered live product funnels without primary research, using observable product decisions to identify friction points and structural challenges.
+      </p>
+
+      <div class="teardown-grid">
+
+        <!-- Comet -->
+        <a class="teardown-card reveal-up delay-1" href="/teardown-comet.html">
+          <div class="evidence-badge">🔵 PUBLIC PRODUCT TEARDOWN</div>
+          <div class="tc-header">
+            <div>
+              <span class="tc-tag">Teardown</span>
+              <span class="tc-tag tc-tag-muted">D2C · Sneaker Discovery</span>
+            </div>
+            <div class="tc-arrow">↗</div>
+          </div>
+          <h3 class="tc-title">Comet</h3>
+          <p class="tc-subtitle">Turning product comparison into confident choice.</p>
+          
+          <div class="tc-flow-box">
+            <div class="tc-flow-label">OBSERVED FLOW</div>
+            <div class="tc-flow-path">Discover → Silhouette Finder → Compare attributes → ? → Product → Purchase</div>
+          </div>
+
+          <div class="tc-insights">
+            <div class="tc-insight">
+              <span class="tc-insight-label">PROBLEM</span>
+              <span class="tc-insight-val">Comet already provides silhouette-level guidance, but customers still need to translate attributes such as fit, cushioning, weight and styling into their own use case.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">HYPOTHESIS</span>
+              <span class="tc-insight-val">First-time customers may benefit from a use-case-first recommendation flow that translates those attributes into 2–3 relevant choices.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">PRODUCT MOVE</span>
+              <span class="tc-insight-val">Use-case-first Silhouette Finder with explainable recommendations.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">PRIMARY METRIC</span>
+              <span class="tc-insight-val">Finder-assisted add-to-cart rate<br><span style="color:var(--text-dim);font-size:0.8rem;">GUARDRAIL: Return / exchange rate</span></span>
+            </div>
+          </div>
+          <div class="tc-cta">Read full teardown <span class="tc-arr">→</span></div>
+        </a>
+
+        <!-- KreditBee -->
+        <a class="teardown-card reveal-up delay-2" href="/teardown-kreditbee.html">
+          <div class="evidence-badge">🔵 PUBLIC PRODUCT TEARDOWN</div>
+          <div class="tc-header">
+            <div>
+              <span class="tc-tag">Teardown</span>
+              <span class="tc-tag tc-tag-muted">Single-lender · Consumer Lending</span>
+            </div>
+            <div class="tc-arrow">↗</div>
+          </div>
+          <h3 class="tc-title">KreditBee</h3>
+          <p class="tc-subtitle">The KYC stack nobody fixed — just made skippable.</p>
+
+          <div class="tc-flow-box">
+            <div class="tc-flow-label">OBSERVED FLOW</div>
+            <div class="tc-flow-path">App Open → Phone OTP → PAN + Aadhaar → Income ⚠ → Offer</div>
+          </div>
+
+          <div class="tc-insights">
+            <div class="tc-insight">
+              <span class="tc-insight-label">OBSERVATION</span>
+              <span class="tc-insight-val">Income verification is explicitly deferrable.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">HYPOTHESIS</span>
+              <span class="tc-insight-val">The flow may be designed to reduce friction at this stage rather than require completion upfront.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">PRODUCT OPPORTUNITY</span>
+              <span class="tc-insight-val">Conversational document feedback + bank-statement parsing to reduce re-upload and abandonment.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">PRIMARY METRIC</span>
+              <span class="tc-insight-val">First-session KYC completion rate<br><span style="color:var(--text-dim);font-size:0.8rem;">SECONDARY: Document re-upload rate</span></span>
+            </div>
+          </div>
+          <div class="tc-cta">Read full teardown <span class="tc-arr">→</span></div>
+        </a>
+
+        <!-- PhonePe -->
+        <a class="teardown-card reveal-up delay-3" href="/teardown-phonepe.html">
+          <div class="evidence-badge">🔵 PUBLIC PRODUCT TEARDOWN</div>
+          <div class="tc-header">
+            <div>
+              <span class="tc-tag">Teardown</span>
+              <span class="tc-tag tc-tag-muted">Marketplace · Multi-partner NBFC</span>
+            </div>
+            <div class="tc-arrow">↗</div>
+          </div>
+          <h3 class="tc-title">PhonePe</h3>
+          <p class="tc-subtitle">What breaks when lending is a marketplace, not a lender.</p>
+
+          <div class="tc-flow-box">
+            <div class="tc-flow-label">SYSTEM FLOW</div>
+            <div class="tc-flow-path">PhonePe → Loan marketplace → Partner NBFC → Partner KYC ⚠ → Offer</div>
+          </div>
+
+          <div class="tc-insights">
+            <div class="tc-insight">
+              <span class="tc-insight-label">PRODUCT PROBLEM</span>
+              <span class="tc-insight-val">The hand-off introduces continuity and trust challenges that don't exist in the same form within a single-lender flow.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">HYPOTHESIS</span>
+              <span class="tc-insight-val">Preserving relevant context across the hand-off could reduce repeated effort and improve completion.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">PRODUCT DESIGN</span>
+              <span class="tc-insight-val">Embedded partner flow + contextual hand-off.</span>
+            </div>
+            <div class="tc-insight">
+              <span class="tc-insight-label">PRIMARY METRIC</span>
+              <span class="tc-insight-val">Hand-off completion rate<br><span style="color:var(--text-dim);font-size:0.8rem;">GUARDRAIL: Partner KYC failure</span></span>
+            </div>
+          </div>
+          <div class="tc-cta">Read full teardown <span class="tc-arr">→</span></div>
+        </a>
+
+      </div>
+
+      <div class="teardown-note reveal-up delay-3" style="margin-top:20px;">
+        <span class="mono-tag">// </span>
+        This is an independent product teardown based on publicly observable product flows. Internal funnel, conversion and return data were not available; proposed friction points are hypotheses to validate.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ §03 AI PRODUCT WORK ═══ -->
+  <section class="sec" id="ai-work">
+    <div class="wrap">
+      <div class="sec-label reveal-up"><span class="mono-tag">03 /</span> AI Product Work</div>
+      
+      <div class="projects-grid" style="margin-top:2rem;">
+        <!-- Enterprise RAG -->
+        <div class="project-card reveal-up delay-1">
+          <div class="evidence-badge">🟣 INDEPENDENT PRODUCT PROJECT</div>
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="proj-tag">AI Product</span>
+              <span class="proj-tag proj-tag-muted">RAG · LLM · Evaluation</span>
+            </div>
+            <div class="project-year mono-tag">Feb 2025</div>
+          </div>
+          <h3 class="project-title">Enterprise RAG System</h3>
+          <p class="project-desc">
+            Built a production-grade Retrieval-Augmented Generation pipeline — then designed a comprehensive evaluation framework to measure whether it actually worked.
+          </p>
+          <div class="project-pm-lens">
+            <div class="pm-lens-label mono-tag">PM Lens</div>
+            <p>The interesting problem wasn't building the RAG. It was deciding what "good" means. Designed the eval suite — Ragas, Recall@K, NDCG, latency — before shipping. If I can't measure it, I haven't shipped anything I can improve.</p>
+          </div>
+          <div class="project-metrics">
+            <div class="pm">
+              <span class="pm-k">Stack</span>
+              <span class="pm-v">Python · LangChain · FAISS · Ollama · Ragas · Docker · Streamlit</span>
+            </div>
+            <div class="pm">
+              <span class="pm-k">Key work</span>
+              <span class="pm-v">Hybrid retrieval design · hallucination reduction via prompt engineering · containerized REST API deployment</span>
+            </div>
+          </div>
+          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>
+        </div>
+
+        <!-- VLM Research -->
+        <div class="project-card reveal-up delay-2">
+          <div class="evidence-badge">🟣 INDEPENDENT PRODUCT PROJECT</div>
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="proj-tag proj-tag-ieee">In Review — IEEE</span>
+              <span class="proj-tag proj-tag-muted">AI Reliability · Research</span>
+            </div>
+            <div class="project-year mono-tag">2026</div>
+          </div>
+          <h3 class="project-title">Reliability Framework for Quantized VLMs</h3>
+          <p class="project-desc">
+            Identified a real product risk: quantized AI models (cheaper to run) hallucinate more on edge hardware. Scoped and built an original technical solution.
+          </p>
+          <div class="project-pm-lens">
+            <div class="pm-lens-label mono-tag">PM Lens</div>
+            <p>This is the cost / latency / accuracy triangle that every AI PM navigates when deciding which model to ship. I built a framework for making that decision defensible — with a non-parametric drift detector and a cost-aware two-tier inference cascade.</p>
+          </div>
+          <div class="project-metrics">
+            <div class="pm">
+              <span class="pm-k">Approach</span>
+              <span class="pm-v">Non-parametric density-drift detector + GPU/CPU inference cascade with conformal prediction thresholds</span>
+            </div>
+            <div class="pm">
+              <span class="pm-k">Status</span>
+              <span class="pm-v">Two rounds of external peer review completed · revision submitted to IEEE journal</span>
+            </div>
+          </div>
+          <div class="project-link" style="color: var(--text-dim); cursor: default;">Advised by Dr. K. E. Srinivasa Desikan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §04 HOW I THINK ABOUT PRODUCTS ═══ -->
+  <section class="sec sec-alt" id="think">
+    <div class="wrap">
+      <div class="sec-label reveal-up"><span class="mono-tag">04 /</span> How I Think</div>
       <h2 class="sec-title reveal-up delay-1">How I Think<br>About Products</h2>
       <p class="sec-sub reveal-up delay-2">Hover any card to see the reasoning behind the principle.</p>
 
@@ -171,258 +416,14 @@
             </p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══ §02 SELECTED PRODUCT WORK ═══ -->
-  <section class="sec sec-alt" id="work">
-    <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">02 /</span> Selected Product Work</div>
-      <h2 class="sec-title reveal-up delay-1">Built, shipped,<br>or broken down.</h2>
-      <p class="sec-sub reveal-up delay-2">
-        Each project follows the same loop: identify the problem, define what "good" means, build, and check whether the metric moved.
-      </p>
-
-      <!-- ── Flagship: Shipped Production Work ── -->
-      <div class="projects-grid">
-
-        <!-- Meraqui AI Matching -->
-        <div class="project-card reveal-up delay-1" id="project-meraqui">
-          <div class="project-header">
-            <div class="project-tags">
-              <span class="proj-tag proj-tag-shipped">Production</span>
-              <span class="proj-tag proj-tag-muted">Meraqui Ventures</span>
-            </div>
-            <div class="project-year mono-tag">2025</div>
-          </div>
-          <h3 class="project-title">AI Candidate Matching — Product Spec</h3>
-          <p class="project-desc">
-            Problem → Users → Constraints → Success metrics → Solution → AI trade-offs → Risks → Launch → Measurement.
-          </p>
-          <div class="project-pm-lens">
-            <div class="pm-lens-label mono-tag">What I owned</div>
-            <p>Partnered with stakeholders to define success metrics before code was written. Drove feature engineering and LLM fine-tuning. Wrote ERP integration specs. Defined API contracts and test suites to de-risk production deployment.</p>
-          </div>
-          <div class="project-metrics">
-            <div class="pm pm-highlight">
-              <span class="pm-k">Impact</span>
-              <span class="pm-v"><strong>+15%</strong> matching precision · <strong>−15%</strong> manual data entry · <strong>−12–15%</strong> downstream data inconsistencies</span>
-            </div>
-            <div class="pm">
-              <span class="pm-k">Stack</span>
-              <span class="pm-v">LLM fine-tuning · feature engineering · REST APIs · ETL pipelines · schema validation</span>
-            </div>
-          </div>
-          <a href="/artifact-meraqui.html" class="project-link" id="proj-meraqui-link" style="font-weight: 500; color: var(--accent);">View PM Artifact: Product Spec ↗</a>
-        </div>
-
-        <!-- Enterprise RAG -->
-        <div class="project-card reveal-up delay-2" id="project-rag">
-          <div class="project-header">
-            <div class="project-tags">
-              <span class="proj-tag">AI Product</span>
-              <span class="proj-tag proj-tag-muted">RAG · LLM · Evaluation</span>
-            </div>
-            <div class="project-year mono-tag">Feb 2025</div>
-          </div>
-          <h3 class="project-title">Enterprise RAG System</h3>
-          <p class="project-desc">
-            Built a production-grade Retrieval-Augmented Generation pipeline — then designed a comprehensive evaluation framework to measure whether it actually worked.
-          </p>
-          <div class="project-pm-lens">
-            <div class="pm-lens-label mono-tag">PM Lens</div>
-            <p>The interesting problem wasn't building the RAG. It was deciding what "good" means. Designed the eval suite — Ragas, Recall@K, NDCG, latency — before shipping. If I can't measure it, I haven't shipped anything I can improve.</p>
-          </div>
-          <div class="project-metrics">
-            <div class="pm">
-              <span class="pm-k">Stack</span>
-              <span class="pm-v">Python · LangChain · FAISS · Ollama · Ragas · Docker · Streamlit</span>
-            </div>
-            <div class="pm">
-              <span class="pm-k">Key work</span>
-              <span class="pm-v">Hybrid retrieval design · hallucination reduction via prompt engineering · containerized REST API deployment</span>
-            </div>
-          </div>
-          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="project-link" id="proj-rag-link">View on GitHub ↗</a>
-        </div>
-
-      </div>
-
-      <!-- ── BFSI Product Teardowns ── -->
-      <div class="reveal-up" style="margin-top:3.5rem;">
-        <div class="sec-label"><span class="mono-tag">BFSI Teardowns</span></div>
-        <p class="sec-sub" style="margin-bottom:1.5rem;">
-          Reverse-engineered two live lending funnels without primary research, using observable product decisions to identify likely friction points and product trade-offs. Each teardown ends with an AI-agent fix and a primary success metric.
-        </p>
-      </div>
-
-      <div class="teardown-grid">
-
-        <!-- KreditBee -->
-        <a class="teardown-card reveal-up delay-1" href="/teardown-kreditbee.html" id="work-kreditbee">
-          <div class="tc-header">
-            <div>
-              <span class="tc-tag">Teardown</span>
-              <span class="tc-tag tc-tag-muted">Single-lender · Consumer Lending</span>
-            </div>
-            <div class="tc-arrow">↗</div>
-          </div>
-
-          <h3 class="tc-title">KreditBee</h3>
-          <p class="tc-subtitle">The KYC stack nobody fixed — just made skippable.</p>
-
-          <div class="tc-funnel">
-            <div class="funnel-step">App Open</div>
-            <div class="funnel-arrow">→</div>
-            <div class="funnel-step">Phone OTP</div>
-            <div class="funnel-arrow">→</div>
-            <div class="funnel-step">PAN + Aadhaar</div>
-            <div class="funnel-arrow">→</div>
-            <div class="funnel-step funnel-broken">Income (Optional) ⚠</div>
-            <div class="funnel-arrow">→</div>
-            <div class="funnel-step">Offer</div>
-          </div>
-
-          <div class="tc-insights">
-            <div class="tc-insight">
-              <span class="tc-insight-label">Friction</span>
-              <span class="tc-insight-val">Income verification is explicitly deferrable — suggesting the flow may be designed to reduce friction at that step rather than require completion upfront.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">AI Fix</span>
-              <span class="tc-insight-val">Conversational AI agent: real-time document feedback before submission, bank-statement parsing for async income verification.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">Success Metric</span>
-              <span class="tc-insight-val">First-session KYC completion rate (primary) · document re-upload rate (secondary)</span>
-            </div>
-          </div>
-          <div class="tc-cta">Read full teardown <span class="tc-arr">→</span></div>
-        </a>
-
-        <!-- PhonePe -->
-        <a class="teardown-card reveal-up delay-2" href="/teardown-phonepe.html" id="work-phonepe">
-          <div class="tc-header">
-            <div>
-              <span class="tc-tag">Teardown</span>
-              <span class="tc-tag tc-tag-muted">Marketplace · Multi-partner NBFC</span>
-            </div>
-            <div class="tc-arrow">↗</div>
-          </div>
-
-          <h3 class="tc-title">PhonePe</h3>
-          <p class="tc-subtitle">What breaks when lending is a marketplace, not a lender.</p>
-
-          <div class="tc-funnel">
-            <div class="funnel-step">PhonePe App</div>
-            <div class="funnel-arrow">→</div>
-            <div class="funnel-step">Loan Tab</div>
-            <div class="funnel-arrow">→</div>
-            <div class="funnel-step funnel-broken">NBFC Hand-off ⚠</div>
-            <div class="funnel-arrow">→</div>
-            <div class="funnel-step">Partner KYC</div>
-            <div class="funnel-arrow">→</div>
-            <div class="funnel-step">Offer</div>
-          </div>
-
-          <div class="tc-insights">
-            <div class="tc-insight">
-              <span class="tc-insight-label">Friction</span>
-              <span class="tc-insight-val">The hand-off to a partner NBFC's own flow introduces a continuity and trust gap — a structural challenge that single-lender models avoid.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">AI Fix</span>
-              <span class="tc-insight-val">Embedded partner flows within PhonePe's design shell + cross-partner context carry-over via AI agent at hand-off boundary.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">Success Metric</span>
-              <span class="tc-insight-val">Hand-off completion rate (primary) · partner NPS post-loan-disbursement (secondary)</span>
-            </div>
-          </div>
-          <div class="tc-cta">Read full teardown <span class="tc-arr">→</span></div>
-        </a>
-
-      </div>
-
-      <div class="teardown-note reveal-up delay-3">
-        <span class="mono-tag">// </span>
-        No primary research was used in either teardown. The diagnoses are hypotheses based on observable product behavior and should be validated through user research or funnel data.
-      </div>
-
-      <!-- ── Supporting: Research & Systems Work ── -->
-      <div class="projects-grid" style="margin-top:3.5rem;">
-
-        <!-- VLM Research -->
-        <div class="project-card reveal-up delay-1" id="project-vlm">
-          <div class="project-header">
-            <div class="project-tags">
-              <span class="proj-tag proj-tag-ieee">In Review — IEEE</span>
-              <span class="proj-tag proj-tag-muted">AI Reliability · Research</span>
-            </div>
-            <div class="project-year mono-tag">2026</div>
-          </div>
-          <h3 class="project-title">Reliability Framework for Quantized VLMs</h3>
-          <p class="project-desc">
-            Identified a real product risk: quantized AI models (cheaper to run) hallucinate more on edge hardware. Scoped and built an original technical solution.
-          </p>
-          <div class="project-pm-lens">
-            <div class="pm-lens-label mono-tag">PM Lens</div>
-            <p>This is the cost / latency / accuracy triangle that every AI PM navigates when deciding which model to ship. I built a framework for making that decision defensible — with a non-parametric drift detector and a cost-aware two-tier inference cascade.</p>
-          </div>
-          <div class="project-metrics">
-            <div class="pm">
-              <span class="pm-k">Approach</span>
-              <span class="pm-v">Non-parametric density-drift detector + GPU/CPU inference cascade with conformal prediction thresholds</span>
-            </div>
-            <div class="pm">
-              <span class="pm-k">Status</span>
-              <span class="pm-v">Two rounds of external peer review completed · revision submitted to IEEE journal</span>
-            </div>
-          </div>
-          <div class="project-link" style="color: var(--text-dim); cursor: default;">Advised by Dr. K. E. Srinivasa Desikan</div>
-        </div>
-
-        <!-- Treacle Monitoring -->
-        <div class="project-card reveal-up delay-2" id="project-treacle">
-          <div class="project-header">
-            <div class="project-tags">
-              <span class="proj-tag proj-tag-shipped">Shipped · Production</span>
-              <span class="proj-tag proj-tag-muted">IIT Kanpur incubated · Jun–Aug 2024</span>
-            </div>
-            <div class="project-year mono-tag">2024</div>
-          </div>
-          <h3 class="project-title">Reliability Monitoring System</h3>
-          <p class="project-desc">
-            Translated an operational pain point (incidents caught too late, no measurable reliability metric) into a monitoring system with defined success criteria.
-          </p>
-          <div class="project-pm-lens">
-            <div class="pm-lens-label mono-tag">What I owned</div>
-            <p>Started by scoping the problem: what metric would tell us reliability improved? Built dashboards (Grafana, Elasticsearch) as the solution — not the starting point. Scaled real-time pipelines to production load.</p>
-          </div>
-          <div class="project-metrics">
-            <div class="pm pm-highlight">
-              <span class="pm-k">Impact</span>
-              <span class="pm-v"><strong>−40%</strong> incident detection time · <strong>100k+</strong> logs/day · <strong>−80%</strong> manual ops effort</span>
-            </div>
-            <div class="pm">
-              <span class="pm-k">Stack</span>
-              <span class="pm-v">Grafana · Elasticsearch · distributed pipelines · custom evaluation metrics</span>
-            </div>
-          </div>
-          <div class="project-link" style="color: var(--text-dim); cursor: default;">Treacle Technologies · IIT Kanpur incubated</div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══ §03 PM DECISION SIMULATOR ═══ -->
+  <!-- ═══ §05 PM DECISION SIMULATOR ═══ -->
   <section class="sec" id="simulator">
     <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">03 /</span> PM Decision Simulator</div>
+      <div class="sec-label reveal-up"><span class="mono-tag">05 /</span> PM Decision Simulator</div>
       <h2 class="sec-title reveal-up delay-1">You're the PM.<br>What do you do?</h2>
       <p class="sec-sub reveal-up delay-2">
         Real scenarios. Real trade-offs. This is how I think through them.
@@ -449,10 +450,10 @@
     </div>
   </section>
 
-  <!-- ═══ §04 SKILLS & EDUCATION ═══ -->
+  <!-- ═══ §06 SKILLS & EDUCATION ═══ -->
   <section class="sec sec-alt" id="skills">
     <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">04 /</span> Skills</div>
+      <div class="sec-label reveal-up"><span class="mono-tag">06 /</span> Skills</div>
       <h2 class="sec-title reveal-up delay-1">What I bring to the table.</h2>
 
       <div class="skills-grid reveal-up delay-2">
@@ -517,7 +518,7 @@
 
       <!-- Education -->
       <div class="edu-block reveal-up delay-3" id="education">
-        <div class="sec-label" style="margin-top:3.5rem;"><span class="mono-tag">05 /</span> Education</div>
+        <div class="sec-label" style="margin-top:3.5rem;"><span class="mono-tag">07 /</span> Education</div>
         <div class="edu-rows">
           <div class="edu-row">
             <div class="edu-info">

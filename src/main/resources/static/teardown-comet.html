@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teardown: Comet Sneaker Discovery — Krishnamurthi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F6F3;
+    --paper-alt:#EBECE5;
+    --ink:#1B2430;
+    --ink-soft:#5B6472;
+    --line:#D7D9D0;
+    --teal:#2F6F6B;
+    --teal-soft:#E4EDEC;
+    --amber:#C97D2E;
+    --amber-soft:#F5E7D6;
+    --blue:#2E5A88;
+    --blue-soft:#E2EAF1;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--blue); color:var(--paper);}
+  h1,h2,h3,.disp{font-family:'Space Grotesk', sans-serif; letter-spacing:-0.01em; margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.01em;}
+  a{color:var(--ink);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  .statusbar{border-bottom:1px solid var(--line); background:var(--paper-alt);}
+  .statusbar .wrap{display:flex; flex-wrap:wrap; gap:6px 22px; padding:9px 28px; font-size:12px; color:var(--ink-soft);}
+  .statusbar strong{color:var(--ink); font-weight:500;}
+
+  header.site{position:sticky; top:0; z-index:20; background:rgba(245,246,243,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 28px;}
+  .brand{font-size:18px; font-weight:600;}
+  .brand span{color:var(--blue);}
+  .back{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase;
+    letter-spacing:0.06em; text-decoration:none; color:var(--ink-soft);
+    border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s;
+  }
+  .back:hover{color:var(--ink); border-color:var(--ink);}
+
+  .doc-hero{padding:56px 0 20px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px;
+  }
+  .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--blue); display:inline-block;}
+  .doc-hero h1{font-size:clamp(28px,4.4vw,42px); line-height:1.14; font-weight:600;}
+  .doc-hero .sub{font-size:17px; color:var(--ink-soft); margin-top:14px; max-width:60ch;}
+
+  .sec{padding:40px 0; border-top:1px solid var(--line);}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:20px;}
+  .sec-num{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--blue);}
+  .sec-head h2{font-size:22px; font-weight:600;}
+  .sec p{margin:0 0 14px;}
+
+  .funnel{list-style:none; padding:0; margin:0; counter-reset:step;}
+  .funnel li{
+    counter-increment:step;
+    display:grid; grid-template-columns:34px 1fr; gap:14px;
+    padding:12px 0; border-bottom:1px dashed var(--line);
+  }
+  .funnel li:last-child{border-bottom:none;}
+  .funnel li::before{
+    content:counter(step);
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--blue);
+    width:26px; height:26px; border:1px solid var(--blue); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .funnel .t{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15.5px;}
+  .funnel .d{color:var(--ink-soft); font-size:14.5px; margin-top:2px;}
+  .funnel li.friction{
+    background:var(--amber-soft); margin:0 -14px; padding:12px 14px; border-radius:2px; border-bottom:none;
+  }
+  .funnel li.friction::before{border-color:var(--amber); color:var(--amber);}
+
+  .callout{
+    border-left:3px solid var(--amber);
+    background:var(--paper-alt);
+    padding:18px 20px;
+    margin:18px 0;
+  }
+  .callout .k{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase;
+    color:var(--amber); letter-spacing:0.06em; margin-bottom:8px; display:block;
+  }
+  .callout.fix{border-left-color:var(--blue);}
+  .callout.fix .k{color:var(--blue);}
+  .callout.metric{border-left-color:var(--ink);}
+  .callout.metric .k{color:var(--ink);}
+
+  .fields{margin-top:14px; display:grid; gap:10px;}
+  .field{display:grid; grid-template-columns:120px 1fr; gap:12px; align-items:baseline;}
+  .field .k{font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase; color:var(--ink-soft); letter-spacing:0.05em;}
+  .field .v{font-size:15.5px;}
+  @media(max-width:600px){ .field{grid-template-columns:1fr;} .field .k{margin-bottom:-4px;} }
+
+  .note{
+    font-size:14.5px; color:var(--ink-soft); font-style:italic; margin-top:24px;
+    border-left:2px solid var(--blue); padding-left:14px;
+  }
+
+  ul.check-list {
+    list-style: none; padding: 0; margin-bottom: 24px;
+  }
+  ul.check-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+  }
+  ul.check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-weight: bold;
+  }
+  ul.cross-list {
+    list-style: none; padding: 0; margin-bottom: 24px;
+  }
+  ul.cross-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+  }
+  ul.cross-list li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    font-weight: bold;
+  }
+
+  footer{border-top:1px solid var(--line); padding:44px 0; background:var(--paper-alt);}
+  .footlinks{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:0.05em;
+    text-decoration:none; padding:10px 16px; border:1px solid var(--ink); color:var(--ink);
+    display:inline-flex; align-items:center; gap:8px; transition:background .15s, color .15s;
+  }
+  .btn.primary{background:var(--ink); color:var(--paper);}
+  .btn.primary:hover{background:var(--blue); border-color:var(--blue);}
+  .btn:not(.primary):hover{background:var(--paper);}
+</style>
+</head>
+<body>
+
+
+<header class="site">
+  <nav class="wrap">
+    <div class="brand">Krishna<span>murthi</span></div>
+    <a class="back" href="/">← Back to portfolio</a>
+  </nav>
+</header>
+
+<section class="doc-hero wrap">
+  <div class="eyebrow">Product Teardown</div>
+  <h1>Comet — From "Which Sneaker?" to "Which Comet Is Me?"</h1>
+  <p class="sub">A product discovery teardown: reducing decision friction without taking away the brand's sense of discovery.</p>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Problem: "Which sneaker is right for me?"</h2></div>
+  <p>Comet already has a "Find Your Silhouette" experience covering X Lows, Aeres, Aeon v2, ASTRA, and Apex, with attributes such as cushioning, styling, weight, and fit. The foundation exists. Here's how I would make the discovery journey more decision-oriented.</p>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">02</span><h2>What I observed</h2></div>
+  <ul class="check-list">
+    <li>Comet offers multiple silhouettes.</li>
+    <li>Its Silhouette Finder already compares cushioning, styling, weight and fit.</li>
+    <li>The site provides size selection and product-level information.</li>
+    <li>Customer testimonials repeatedly discuss comfort, fit and everyday use.</li>
+  </ul>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Friction</h2></div>
+  <div class="callout">
+    <span class="k">Hypothesis</span>
+    Users are given product attributes, but the translation from attribute → personal need → product choice still requires cognitive work. First-time customers may still struggle to translate those attributes into a personal choice.
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Solution: Silhouette Finder 2.0</h2></div>
+  <p>A use-case-first Silhouette Finder: ask 3–4 high-signal questions, then return a ranked recommendation with a short “Why this pair” explanation.</p>
+  
+  <ul class="check-list">
+    <li><strong>Q1. What will you use them for?</strong> Everyday, Long walks/travel, Going out, Style-first.</li>
+    <li><strong>Q2. How do you like your fit?</strong> Roomy, Balanced, Snug.</li>
+    <li><strong>Q3. What's your style?</strong> Minimal, Street, Retro, Runner.</li>
+    <li><strong>Q4. What matters most?</strong> Comfort, Weight, Style, Versatility.</li>
+  </ul>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Recommendation &amp; Trade-off</h2></div>
+  <p>More guidance vs less discovery. Too much recommendation can make Comet feel like a generic footwear catalogue. Too little guidance creates decision friction. So, don't recommend one shoe immediately. Recommend 2–3 candidates and explain the trade-off.</p>
+  
+  <div class="callout fix">
+    <span class="k">Your Match</span>
+    <strong>1. X LOWS</strong> — Best for: Street + everyday wear, Roomier fit.<br>
+    <strong>2. AERES</strong> — Best for: Lightweight everyday wear, Narrower fit.<br>
+    <strong>3. APEX</strong> — Best for: More cushioning, Relaxed casual styling.
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Metrics</h2></div>
+  <div class="callout metric">
+    <span class="k">North Star / Primary</span>
+    Finder-assisted add-to-cart rate
+  </div>
+  <div class="fields">
+    <div class="field"><span class="k">Secondary</span><span class="v">Finder completion rate, Recommendation → PDP CTR, PDP → cart conversion, Cart → purchase conversion, Size/fit exchange rate, 30/90-day repeat purchase</span></div>
+    <div class="field"><span class="k">Guardrails</span><span class="v">Return rate, Customer support contacts, Recommendation abandonment</span></div>
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">07</span><h2>Experiment</h2></div>
+  <p><strong>A/B test:</strong></p>
+  <ul class="check-list">
+    <li><strong>Control:</strong> Current Find Your Silhouette.</li>
+    <li><strong>Variant:</strong> Use-case-first recommendation flow.</li>
+    <li><strong>Measure:</strong> Add-to-cart conversion among first-time users who interact with the tool.</li>
+  </ul>
+  <p>Success would require a statistically credible improvement in the primary metric without deterioration in return/exchange rate. If users can translate their own needs into a recommended silhouette earlier, Comet may reduce decision friction and improve downstream conversion without changing the catalogue itself.</p>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><span class="sec-num">08</span><h2>What I wouldn't build</h2></div>
+  <p>Because the first problem is decision clarity, not lack of AI. I would not start with an ML recommendation engine. The first version can be rule-based because the product catalogue already contains structured attributes.</p>
+  <ul class="cross-list">
+    <li>Build an LLM chatbot immediately</li>
+    <li>Build a computer-vision foot scanner immediately</li>
+    <li>Replace the existing catalogue</li>
+    <li>Recommend based only on purchase history</li>
+    <li>Optimize solely for conversion</li>
+  </ul>
+  
+  <div class="note">This is an independent product teardown based on publicly observable product flows. Internal funnel, conversion and return data were not available; proposed friction points are hypotheses to validate.</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2 style="font-size:22px;">Read the KreditBee teardown next →</h2>
+    <div class="footlinks">
+      <a class="btn primary" href="teardown-kreditbee.html">KreditBee teardown</a>
+      <a class="btn" href="/">Back to portfolio</a>
+    </div>
+    <div class="doc-status" style="display:flex; gap:16px; margin-top:30px; font-size:13px; color:var(--ink-soft); border-top:1px dashed var(--line); padding-top:16px; flex-wrap:wrap;">
+      <span><strong>Doc:</strong> Teardown — Comet</span>
+      <span><strong>Status:</strong> Published</span>
+      <span><strong>Category:</strong> D2C · Sneaker Discovery</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
