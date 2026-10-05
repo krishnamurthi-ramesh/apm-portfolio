@@ -22,15 +22,14 @@
 <body>
 
   <!-- ═══ NAV ═══ -->
-  <header class="site-nav" id="top">
+    <header class="site-nav" id="top">
     <div class="nav-inner">
       <a href="/" class="brand" style="text-decoration:none;">Krishnamurthi<span class="brand-accent">.</span></a>
       <nav class="nav-links" aria-label="Site navigation">
-        <a href="#think">Thinking</a>
-        <a href="#work">Work</a>
-        <a href="#simulator">PM Sim</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+        <a href="/#work">Work</a>
+        <a href="/#simulator">Simulator</a>
+        <a href="/#skills">Skills</a>
+        <a href="/resume.pdf?v=3" target="_blank">R&eacute;sum&eacute;</a>
       </nav>
       <button class="nav-mobile-toggle" aria-label="Toggle navigation" id="mobileToggle">
         <span></span><span></span><span></span>
@@ -595,41 +594,26 @@
   
 
   <!-- ═══ FOOTER / CTA ═══ -->
-  <footer id="contact">
+    <footer id="contact" style="border-top: 1px solid var(--border-soft); margin-top: 80px; padding: 60px 0 40px; background: var(--bg-surface);">
     <div class="wrap">
-      <div class="footer-main">
-        <div class="footer-headline reveal-up">
-          Got a messy product problem?
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
+        <h2 style="font-size: 2rem; font-weight: 700; color: var(--text);">Let's Connect</h2>
+        <p style="color: var(--text-muted); max-width: 500px; font-size: 1.05rem;">
+          Currently seeking APM and Technical PM opportunities. Feel free to reach out to discuss product, AI, or potential roles.
+        </p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
+          <a href="mailto:kiccha1703@gmail.com" class="btn btn-primary">kiccha1703@gmail.com</a>
+          <a href="https://www.linkedin.com/in/krishna9003762619murthi/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn &nearr;</a>
+          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="btn btn-ghost">GitHub &nearr;</a>
         </div>
-        <p class="footer-sub reveal-up delay-1">
-          Let's figure out what's actually broken.
-        </p>
-        <p class="footer-tag reveal-up delay-2">
-          Currently seeking <strong>APM / Technical PM</strong> opportunities in AI, SaaS &amp; technology products.
-        </p>
-        <div class="footer-links reveal-up delay-3">
-          <a href="mailto:kiccha1703@gmail.com" class="btn btn-primary" id="footer-email-btn">kiccha1703@gmail.com</a>
-          <a href="tel:+919003762619" class="btn btn-ghost" id="footer-phone-btn">+91-90037-62619</a>
-          <a href="https://www.linkedin.com/in/krishna9003762619murthi/" target="_blank" rel="noopener"
-            class="btn btn-ghost" id="footer-linkedin-btn">LinkedIn ↗</a>
-          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="btn btn-ghost"
-            id="footer-github-btn">GitHub ↗</a>
-        </div>
-        <p class="footer-resume reveal-up delay-4">
-          Full background and experience →
-          <a href="resume.pdf?v=3" target="_blank" rel="noopener" id="footer-resume-link">Résumé (PDF)</a>
-        </p>
       </div>
-
-      <div class="footer-bottom">
-        <div class="footer-research">
-          <span class="mono-tag" style="color:var(--text-dim);font-size:0.75rem;">Research</span>
-          <span>IEEE paper in review — Reliability Framework for Quantized Vision-Language Models (Advised: Dr. K.E.
-            Srinivasa Desikan)</span>
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 16px; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;">
+        <div style="max-width: 600px;">
+          <span style="font-weight: 600; color: var(--text-muted);">Research</span> <br> IEEE paper in review &mdash; Reliability Framework for Quantized Vision-Language Models <br> (Advised: Dr. K.E. Srinivasa Desikan)
         </div>
-        <div class="footer-copy">
-          <span>© 2026 Krishnamurthi Ramesh</span>
-          <span class="mono-tag">Portfolio v3.0</span>
+        <div style="text-align: right;">
+          &copy; 2026 Krishnamurthi Ramesh <br> Portfolio v3.0
         </div>
       </div>
     </div>
