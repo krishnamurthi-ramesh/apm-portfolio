@@ -1,630 +1,1098 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_standard" name="shell-type">
+<title>Krishnamurthi | Associate Product Manager × AI Systems</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      main > :first-child {
+        margin-top: 0 !important;
+      }
+      main > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 34s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+    
+    
+    /* Mobile Drawer */
+    #mobile-menu {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    #mobile-menu.hidden {
+      display: none;
+      opacity: 0;
+      transform: translateY(-8px);
+    }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Krishnamurthi — APM · AI Product · Technical PM</title>
-  <meta name="description"
-    content="Krishnamurthi Ramesh — Associate Product Manager. CSE (IIITDM Kurnool) + MBA (IIM Visakhapatnam). I define success metrics, own the build, and validate outcomes. Seeking APM roles in AI, SaaS, and technology products.">
-  <meta name="keywords"
-    content="APM, Associate Product Manager, AI PM, Technical Product Manager, IIM Visakhapatnam, IIITDM Kurnool, LLM, RAG, BFSI, Product Teardown">
-  <meta property="og:title" content="Krishnamurthi — APM · AI Product">
-  <meta property="og:description" content="I don't just take requirements. I interrogate them.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+    /* Scroll Reveal & Motion System */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .animate-marquee {
+        animation: none !important;
+      }
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#f8faff",
+            "surface-dim": "#eff2fd",
+            "surface-bright": "#ffffff",
+            "surface-card": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f6f8fe",
+            "surface-container": "#eef2ff",
+            "surface-container-high": "#e0e7ff",
+            "surface-container-highest": "#c7d2fe",
+            "background": "#f8faff",
+            "on-background": "#0f172a",
+            "on-surface": "#0f172a",
+            "on-surface-variant": "#475569",
+            "primary": "#4f46e5",
+            "primary-container": "#4338ca",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#e0e7ff",
+            "secondary": "#6366f1",
+            "secondary-container": "#ede9fe",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#5b21b6",
+            "accent-violet": "#7c3aed",
+            "accent-cyan": "#0ea5e9",
+            "accent-teal": "#06b6d4",
+            "border-hairline": "#e2e8f0",
+            "border-prominent": "#cbd5e1",
+            "ink-dark": "#0f172a",
+            "ink-muted": "#64748b",
+            "ink-subtle": "#94a3b8",
+            "obsidian": "#090d16",
+            "error": "#ef4444",
+            "error-container": "#fee2e2"
+          },
+          borderRadius: {
+            "DEFAULT": "0.375rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.75rem",
+            "space-xl": "3rem",
+            "margin": "2.5rem",
+            "margin-mobile": "1.25rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem"
+          },
+          fontFamily: {
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "display-xl": ["Plus Jakarta Sans", "sans-serif"],
+            "display-xl-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-mono-tag": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            "label-mono-tag": ["11px", { lineHeight: "14px", letterSpacing: "0.06em", fontWeight: "600" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }],
+            "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "headline-md": ["26px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.025em", fontWeight: "700" }],
+            "headline-lg-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-xl": ["60px", { lineHeight: "68px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "display-xl-mobile": ["38px", { lineHeight: "46px", letterSpacing: "-0.025em", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
 </head>
+<body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary selection:text-white">
+<!-- ============================================================== -->
+<!-- 1. FLOATING CAPSULE / PILL NAVIGATION (Vibrant Frosted Pill)   -->
+<!-- ============================================================== -->
+<header class="fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+<div class="pointer-events-auto flex items-center justify-between gap-3 md:gap-5 px-4 md:px-6 py-2.5 rounded-full bg-white/90 backdrop-blur-xl border border-indigo-100/90 shadow-[0_8px_32px_rgba(79,70,229,0.08)] max-w-[860px] w-full transition-all hover:shadow-[0_12px_40px_rgba(79,70,229,0.14)]">
+<!-- Left Brand Mark: Krishnamurthi -->
+<a class="flex items-center gap-2 text-ink-dark hover:opacity-90 transition-opacity pl-1 group" href="#">
+<span class="font-headline-sm text-[18px] md:text-[20px] text-slate-900 font-bold tracking-tight">Krishnamurthi</span>
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(99,102,241,0.8)] group-hover:scale-125 transition-transform"></span>
+</a>
+<!-- Subtle Vertical Divider -->
+<div class="hidden sm:block h-4 w-[1px] bg-slate-200"></div>
+<!-- Center Navigation Links -->
+<nav class="hidden md:flex items-center gap-1 lg:gap-2">
+<a class="px-3 py-1.5 font-label-lg text-label-lg text-slate-600 hover:text-primary hover:bg-indigo-50/70 rounded-full transition-colors" href="#about">About</a>
+<a class="px-3 py-1.5 font-label-lg text-label-lg text-slate-600 hover:text-primary hover:bg-indigo-50/70 rounded-full transition-colors" href="#experience">Work &amp; Exp</a>
+<a class="px-3 py-1.5 font-label-lg text-label-lg text-slate-600 hover:text-primary hover:bg-indigo-50/70 rounded-full transition-colors" href="#stack">Tools &amp; Stack</a>
+<a class="px-3 py-1.5 font-label-lg text-label-lg text-slate-600 hover:text-primary hover:bg-indigo-50/70 rounded-full transition-colors" href="#how-i-think">How I Think</a>
+<a class="px-3 py-1.5 font-label-lg text-label-lg text-slate-600 hover:text-primary hover:bg-indigo-50/70 rounded-full transition-colors" href="#teardowns">Teardowns</a>
+<a class="px-3 py-1.5 font-label-lg text-label-lg text-slate-600 hover:text-primary hover:bg-indigo-50/70 rounded-full transition-colors" href="/resume.pdf?v=3" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute; &darr;</a>
+</nav>
+<!-- Right Slate CTA Pill -->
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center justify-center px-4 md:px-5 py-2 rounded-full bg-gradient-to-r from-secondary to-primary text-white font-label-lg text-label-lg hover:from-primary hover:to-accent-violet transition-all duration-300 shadow-[0_4px_14px_rgba(79,70,229,0.35)] hover:shadow-[0_6px_20px_rgba(79,70,229,0.5)] whitespace-nowrap" href="#contact">
+        Let’s Connect
+      </a>
+<button id="mobile-toggle" aria-label="Toggle navigation" class="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+  <span class="material-symbols-outlined text-[18px]">menu</span>
+</button>
+</div>
+</div>
+<!-- Mobile Dropdown Menu -->
+<div id="mobile-menu" class="hidden pointer-events-auto mt-2 w-full max-w-[860px] bg-white/95 backdrop-blur-xl border border-indigo-100 rounded-2xl shadow-xl p-4 flex flex-col gap-2">
+  <a class="px-3 py-2 text-slate-700 font-label-lg hover:text-primary hover:bg-indigo-50/70 rounded-xl transition-colors" href="#about" onclick="closeMobileMenu()">About</a>
+  <a class="px-3 py-2 text-slate-700 font-label-lg hover:text-primary hover:bg-indigo-50/70 rounded-xl transition-colors" href="#experience" onclick="closeMobileMenu()">Work &amp; Exp</a>
+  <a class="px-3 py-2 text-slate-700 font-label-lg hover:text-primary hover:bg-indigo-50/70 rounded-xl transition-colors" href="#stack" onclick="closeMobileMenu()">Tools &amp; Stack</a>
+  <a class="px-3 py-2 text-slate-700 font-label-lg hover:text-primary hover:bg-indigo-50/70 rounded-xl transition-colors" href="#how-i-think" onclick="closeMobileMenu()">How I Think</a>
+  <a class="px-3 py-2 text-slate-700 font-label-lg hover:text-primary hover:bg-indigo-50/70 rounded-xl transition-colors" href="#teardowns" onclick="closeMobileMenu()">Teardowns &amp; Simulator</a>
+  <a class="px-3 py-2 text-slate-700 font-label-lg hover:text-primary hover:bg-indigo-50/70 rounded-xl transition-colors" href="/resume.pdf?v=3" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute; (PDF) &nearr;</a>
+</div>
+</header>
+<!-- MAIN WRAPPER -->
+<main class="w-full bg-surface min-h-screen overflow-x-hidden pt-0">
+<div class="flex flex-col w-full">
+<!-- ============================================================== -->
+<!-- 2. SCENIC ILLUSTRATED CINEMATIC HERO                          -->
+<!-- ============================================================== -->
+<section class="relative w-full min-h-[620px] md:min-h-[720px] pt-28 pb-16 flex flex-col justify-between overflow-hidden bg-obsidian">
+<!-- Full-bleed Scenic Purple Atmospheric Landscape Backdrop -->
+<div class="absolute inset-0 z-0 pointer-events-none">
+<img alt="Retro sunset workspace aesthetic illustration" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARnsDHqQ-iU1eZNu2UGYum7r7DCvsSZp-KTbcc5dXePIPE6k0RGGMVMoI5Cg93rWXt5KyUVEkbW33hPMrl90Qe8tdCniCY7L2irBDvHry_Wxtbv7HPnBqLaMTixf3eDbCWVKX7MDLwevi2Jm2NZVMSGD5D-hjg_spz8xO-B-xAiKzlxZFnIU6QzlTkmjzPRg1JzHqKrKTYzctJsDt9hLdLAtbdQe70RA-S2i44gFUAxxfFRxbCgWtC">
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-slate-950/70"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/30 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full max-w-[1240px] mx-auto px-margin-mobile lg:px-margin my-auto py-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<!-- Left: Bold Atmospheric Typography & Floating Badges -->
+<div class="lg:col-span-7 flex flex-col justify-center space-y-4 pt-4 lg:pt-8">
+<!-- Top Badges -->
+<div class="flex flex-wrap items-center gap-2">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-indigo-500/30 shadow-lg text-white">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
+<span class="font-label-mono-tag text-label-mono-tag uppercase tracking-wider text-slate-200">Available for APM / PM Roles</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-label-mono-tag text-label-mono-tag">
+<span class="material-symbols-outlined text-[15px] text-cyan-300">school</span>
+<span class="font-semibold tracking-wide uppercase">MBA × Engineering</span>
+<span class="text-indigo-200 text-xs hidden sm:inline">(IIMV × IIITDM)</span>
+</div>
+</div>
+<!-- Monograph Intro & Massive Title -->
+<div class="space-y-1">
+<p class="font-label-mono-tag text-label-mono-tag uppercase tracking-widest text-cyan-300 font-semibold">Hey, I'm an</p>
+<h1 class="font-display-xl text-[44px] sm:text-[64px] lg:text-[76px] font-extrabold leading-[1.05] tracking-tight text-white drop-shadow-md">
+            Product<br>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-white to-cyan-200">Manager</span>
+</h1>
+</div>
+<!-- Supporting Narrative -->
+<p class="font-body-lg text-indigo-100/90 max-w-xl text-[16px] md:text-[18px] leading-relaxed pt-1 drop-shadow">
+          Engineering graduate <span class="text-white font-semibold">(IIITDM Kurnool)</span> × MBA candidate <span class="text-white font-semibold">(IIM Visakhapatnam)</span>. Shipping AI systems with metric rigor, defensible unit economics, and formal verification.
+        </p>
+<!-- Action Links & Floating Chips -->
+<div class="flex flex-wrap items-center gap-3 pt-3">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-secondary to-primary text-white font-label-lg text-label-lg hover:from-primary hover:to-accent-violet shadow-[0_4px_20px_rgba(79,70,229,0.5)] transition-all" href="#experience">
+<span class="material-symbols-outlined text-[16px]">work</span>
+<span class="">Explore Experience</span>
+</a>
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900/90 text-white font-label-lg text-label-lg hover:bg-slate-800 border border-indigo-900/60 shadow-md transition-colors" href="#teardowns">
+<span class="material-symbols-outlined text-[16px] text-cyan-400">terminal</span>
+<span class="">PM Decision Simulator</span>
+</a>
+</div>
+</div>
+<!-- Right: Transparent Cutout Portrait of Krishnamurthi -->
+<div class="lg:col-span-5 relative flex justify-center lg:justify-end items-end h-[420px] sm:h-[480px] lg:h-[540px]">
+  <!-- Subtle ambient backlight glow -->
+  <div class="absolute w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-secondary/30 blur-3xl -z-10 pointer-events-none"></div>
 
-<body>
+  <!-- Transparent Cutout Portrait -->
+  <img src="/images/krishnamurthi-cutout.png" alt="Krishnamurthi" class="h-full max-h-[520px] object-contain object-bottom drop-shadow-[0_20px_40px_rgba(79,70,229,0.35)] z-10 relative pointer-events-none transition-transform duration-500 hover:scale-[1.02]">
 
-  <!-- ═══ NAV ═══ -->
-    <header class="site-nav" id="top">
-    <div class="nav-inner">
-      <a href="/" class="brand" style="text-decoration:none;">Krishnamurthi<span class="brand-accent">.</span></a>
-      <nav class="nav-links" aria-label="Site navigation">
-        <a href="/#work">Work</a>
-        <a href="/#simulator">Simulator</a>
-        <a href="/#skills">Skills</a>
-        <a href="/resume.pdf?v=3" target="_blank">R&eacute;sum&eacute;</a>
-      </nav>
-      <button class="nav-mobile-toggle" aria-label="Toggle navigation" id="mobileToggle">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+  <!-- Floating Context Tag over portrait base -->
+  <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-indigo-500/40 shadow-xl flex items-center gap-2">
+    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
+    <span class="font-label-mono-tag text-label-mono-tag text-white uppercase tracking-wider">AI PM &middot; Systems &amp; Telemetry</span>
+  </div>
+</div>
+</div>
+</div>
+<!-- Bottom Feature Bar / Metric Bridge -->
+<div class="relative z-10 w-full max-w-[1240px] mx-auto px-margin-mobile lg:px-margin pt-4">
 
-  <!-- ═══ HERO ═══ -->
-    <section class="hero" id="hero">
-    <div class="hero-bg-grid" aria-hidden="true"></div>
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+</div>
+</section>
+<!-- Monograph Running Banner -->
+<div class="w-full bg-gradient-to-r from-indigo-50/70 via-slate-50 to-indigo-50/70 overflow-hidden py-2.5 border-y border-indigo-100/70">
+<div class="animate-marquee whitespace-nowrap flex items-center gap-space-lg">
+<div class="flex items-center gap-space-md font-label-mono-tag text-label-mono-tag uppercase text-slate-500 tracking-wider">
+<span class="">Interrogate Requirements</span><span class="text-secondary">•</span>
+<span class="">AI/ML Rigor</span><span class="text-secondary">•</span>
+<span class="">MBA (IIMV) × CS (IIITDM)</span><span class="text-secondary">•</span>
+<span class="">Latency &amp; Accuracy Trade-offs</span><span class="text-secondary">•</span>
+<span class="">Production Telemetry &amp; Evals</span><span class="text-secondary">•</span>
+<span class="">Shipped Candidate Matching</span><span class="text-secondary">•</span>
+</div>
+<div class="flex items-center gap-space-md font-label-mono-tag text-label-mono-tag uppercase text-slate-500 tracking-wider">
+<span class="">Interrogate Requirements</span><span class="text-secondary">•</span>
+<span class="">AI/ML Rigor</span><span class="text-secondary">•</span>
+<span class="">MBA (IIMV) × CS (IIITDM)</span><span class="text-secondary">•</span>
+<span class="">Latency &amp; Accuracy Trade-offs</span><span class="text-secondary">•</span>
+<span class="">Production Telemetry &amp; Evals</span><span class="text-secondary">•</span>
+<span class="">Shipped Candidate Matching</span><span class="text-secondary">•</span>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 3. SECTION 01 — ABOUT ME & PHILOSOPHY      -->
+<!-- ========================================== -->
+<section class="w-full bg-white py-space-xl border-y border-indigo-100/70 reveal-on-scroll is-revealed" id="about">
+<div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+<!-- Left Portrait Card with Editorial Badge -->
+<div class="lg:col-span-5 relative">
+<div class="relative rounded-2xl overflow-hidden shadow-[0_12px_32px_rgba(79,70,229,0.1)] bg-white aspect-[4/5] flex items-center justify-center border border-indigo-100">
+<img alt="Krishnamurthi Portrait" class="w-full h-full object-cover" src="/images/about-me.png" onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCcXSMOj34mLYS7pZ7wIDfGL1Ib8t4fYY1PnoukaIB3cLsobN8qGiDKVcf-MYubek1SerPuCWMiImT3PbHJZtMem446iRmujq162eh1P9uYACWbLsXpnVPf5aBlrVWb7iCb3pAGnfbCbxXX3sYNMKcMlqjAoNcxFW1d1TYV2NUBrGvWhU019ncwZrpxm4zfq69unWm0c8OADJbWhaeJfTB1hc3r-Ej9PdQm4O-SjZQgagV0wFP3OdVivmNfvpTldYPk'">
+<div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-slate-900/90 backdrop-blur-md shadow-md flex items-center justify-between border border-indigo-900/50">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(99,102,241,0.8)] animate-pulse"></span>
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-white tracking-wide">Building with AI</span>
+</div>
+<span class="font-body-sm text-body-sm text-indigo-200">APM / Tech PM</span>
+</div>
+</div>
+</div>
+<!-- Right Narrative -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-bold tracking-widest">01 / About</span>
+</div>
+<h2 class="font-headline-md sm:text-[32px] text-slate-900 font-bold leading-tight tracking-tight mt-2">I don't just take requirements. I <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-violet font-extrabold underline decoration-indigo-300 underline-offset-4">interrogate</span> them.</h2>
+<div class="space-y-space-sm font-body-md text-body-md text-slate-600 leading-relaxed">
+<p class="">
+                  I'm Krishnamurthi, an MBA candidate at <strong class="text-slate-900 font-semibold">IIM Visakhapatnam (2025–2027)</strong> with a Computer Science Engineering background from <strong class="text-slate-900 font-semibold">IIITDM Kurnool (2022–2026)</strong>. I bridge the widening gap between raw model outputs and defensible unit economics.
+                <br><br></p>
+</div>
+<!-- Quick Pedigree Matrix -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-2">
+</div>
+<div class="pt-2 flex items-center gap-space-md">
+<a class="font-label-lg text-label-lg text-primary hover:text-accent-violet transition-colors inline-flex items-center gap-1 font-semibold underline underline-offset-4" href="https://www.linkedin.com/in/krishnamurthi-ramesh" rel="noopener noreferrer" target="_blank">
+<span class="">LinkedIn Profile</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+<a class="font-label-lg text-label-lg text-slate-700 hover:text-primary transition-colors inline-flex items-center gap-1 underline underline-offset-4" href="https://github.com/krishnamurthi-ramesh" rel="noopener noreferrer" target="_blank">
+<span class="">GitHub Systems</span>
+<span class="material-symbols-outlined text-[14px]">code</span>
+</a>
+<a class="font-label-lg text-label-lg text-slate-700 hover:text-primary transition-colors inline-flex items-center gap-1 underline underline-offset-4" href="tel:+919003762619">
+<span class="">+91 90037-62619</span>
+<span class="material-symbols-outlined text-[14px]">call</span>
+</a>
+<a class="font-label-lg text-label-lg text-slate-700 hover:text-primary transition-colors inline-flex items-center gap-1 underline underline-offset-4" href="/resume.pdf?v=3" target="_blank" rel="noopener noreferrer">
+<span class="">R&eacute;sum&eacute; (PDF)</span>
+<span class="material-symbols-outlined text-[14px]">description</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 4. SECTION 02 — WORK & EXPERIENCE SO FAR   -->
+<!-- ========================================== -->
+<section class="w-full max-w-[1200px] mx-auto px-margin-mobile lg:px-margin py-space-xl reveal-on-scroll is-revealed" id="experience">
+<div class="flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-bold tracking-widest block mb-1">02 / Work Experience &amp; Chronology</span>
+<h2 class="font-headline-lg text-headline-lg text-slate-900 tracking-tight">Experience &amp; milestones so far.</h2>
+</div>
+<p class="font-body-sm text-body-sm text-slate-500 max-w-md">
+              From shipping production candidate matching to real-time telemetry scaling and formal research in Nyaya logic verification.
+            </p>
+</div>
+<!-- Chronological Timeline Cards -->
+<div class="space-y-space-md">
+<!-- a) Meraqui Ventures -->
+<div class="p-space-lg rounded-2xl bg-white border border-indigo-100/90 shadow-[0_4px_20px_rgba(79,70,229,0.04)] hover:shadow-[0_8px_30px_rgba(79,70,229,0.08)] transition-all">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-sm pb-space-sm border-b border-indigo-50">
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-900 text-white font-label-mono-tag text-label-mono-tag uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Production Shipped
+                    </span>
+<span class="font-headline-sm text-headline-sm text-slate-900">Data Science Intern — Meraqui Ventures Pvt. Ltd. (karam.ai)</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">Pune, India • Apr 2025 – Jul 2025</p>
+</div>
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-50/70 text-primary font-label-mono-tag text-label-mono-tag border border-indigo-100 hover:bg-indigo-100 hover:text-accent-violet transition-colors" href="/artifact-meraqui.html">
+<span class="">View Product Spec &nearr;</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-sm">
+<div class="space-y-1">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary block font-semibold">01 / Matching Precision</span>
+<p class="font-body-sm text-body-sm text-slate-600">Owned end-to-end requirements-to-shipping loop for candidate matching, delivering a <strong class="text-emerald-600 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded">+15% precision lift</strong> across high-volume staffing.</p>
+</div>
+<div class="space-y-1">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary block font-semibold">02 / ERP Integration</span>
+<p class="font-body-sm text-body-sm text-slate-600">Defined REST API contracts integrating candidate data with enterprise ERP, cutting repetitive manual recruiter entry by <strong class="text-slate-900 font-semibold">15%</strong>.</p>
+</div>
+<div class="space-y-1">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary block font-semibold">03 / Data Integrity</span>
+<p class="font-body-sm text-body-sm text-slate-600">Shipped schema-validated ETL pipelines with Pydantic contracts, eliminating downstream discrepancy rates by <strong class="text-slate-900 font-semibold">12–15%</strong>.</p>
+</div>
+</div>
+<div class="mt-4 flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">Fine-Tuning Scope</span>
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">REST API Contracts</span>
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">Pydantic</span>
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">ERP Schema</span>
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">Precision/Recall Trade-offs</span>
+</div>
+</div>
+<!-- b) Treacle Technologies -->
+<div class="p-space-lg rounded-2xl bg-white border border-indigo-100/90 shadow-[0_4px_20px_rgba(79,70,229,0.04)] hover:shadow-[0_8px_30px_rgba(79,70,229,0.08)] transition-all">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-sm pb-space-sm border-b border-indigo-50">
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-indigo-50 text-primary border border-indigo-200 font-label-mono-tag text-label-mono-tag uppercase">
+                      Telemetry &amp; Observability
+                    </span>
+<span class="font-headline-sm text-headline-sm text-slate-900">Development Engineering Intern — Treacle Technologies</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">Incubated at IIT Kanpur • Jun 2024 – Aug 2024</p>
+</div>
+<span class="font-label-mono-tag text-label-mono-tag text-primary bg-indigo-50/80 px-3 py-1 rounded-full border border-indigo-100 font-semibold">IIT Kanpur Incubation</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-sm">
+<div class="space-y-1">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary block font-semibold">01 / Incident Latency</span>
+<p class="font-body-sm text-body-sm text-slate-600">Architected Grafana &amp; Elasticsearch telemetry dashboards that slashed engineering incident triage time by <strong class="text-emerald-600 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded">40%</strong>.</p>
+</div>
+<div class="space-y-1">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary block font-semibold">02 / Scaled Pipeline</span>
+<p class="font-body-sm text-body-sm text-slate-600">Scaled real-time telemetry streaming processing <strong class="text-slate-900 font-semibold">100k+ logs/day</strong> with low ingestion lag and high uptime.</p>
+</div>
+<div class="space-y-1">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary block font-semibold">03 / Automation Loop</span>
+<p class="font-body-sm text-body-sm text-slate-600">Built automated log preprocessing jobs that eradicated <strong class="text-slate-900 font-semibold">80%</strong> of manual parsing and triage efforts.</p>
+</div>
+</div>
+<div class="mt-4 flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">Grafana</span>
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">Elasticsearch</span>
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">Log Pipelines</span>
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">P95/P99 Monitoring</span>
+</div>
+</div>
+<!-- c) Research Intern & IEEE -->
+<div class="p-space-lg rounded-2xl bg-white border border-indigo-100/90 shadow-[0_4px_20px_rgba(79,70,229,0.04)] hover:shadow-[0_8px_30px_rgba(79,70,229,0.08)] transition-all">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-sm pb-space-sm border-b border-indigo-50">
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-900 text-white font-label-mono-tag text-label-mono-tag uppercase">
+                      Formal Research
+                    </span>
+<span class="font-headline-sm text-headline-sm text-slate-900">Research Intern — IIITDM Kurnool</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">Jan 2026 – Jul 2026 • Advisor: Dr. K. E. Srinivasa Desikan</p>
+</div>
+<span class="font-label-mono-tag text-label-mono-tag text-accent-violet bg-purple-50 px-3 py-1 rounded-full border border-purple-200 font-semibold">IEEE In-Review</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-sm">
+<div class="space-y-1">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-slate-800 block font-semibold">Project: Nyaya Shastra for Computer Science</span>
+<p class="font-body-sm text-body-sm text-slate-600">Explored classical Indian Nyaya epistemic reasoning models to formulate structured proof invariants and formal verification heuristics in computer systems.</p>
+</div>
+<div class="space-y-1">
+</div>
+</div>
+<div class="mt-4 flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">Formal Logic</span>
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">Nyaya Epistemology</span>
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">Conformal Prediction</span>
+<span class="px-2.5 py-0.5 rounded-md bg-indigo-50/70 text-indigo-900 font-label-mono-tag text-label-mono-tag">VLM Drift Telemetry</span>
+</div>
+</div>
+<!-- d) Dual Education Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-2">
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100 shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-semibold">Post-Graduate Management</span>
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">2025 – 2027</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-slate-900">Indian Institute of Management Visakhapatnam</h4>
+<p class="font-body-sm text-body-sm text-primary font-medium mt-0.5">Post-Graduate Program in Management (PGPMCI) • MBA</p>
+<p class="font-body-sm text-body-sm text-slate-600 mt-2">
+                  Key Coursework: Platform &amp; Ecosystem Strategy, Advanced Analytics &amp; Decision Science, Automation for Managers, Financial Unit Modeling.
+                </p>
+</div>
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100 shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-semibold">Undergraduate Engineering</span>
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">2022 – 2026</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-slate-900">IIITDM Kurnool</h4>
+<p class="font-body-sm text-body-sm text-primary font-medium mt-0.5">B.Tech, Computer Science &amp; Engineering</p>
+<p class="font-body-sm text-body-sm text-slate-600 mt-2">
+                  Key Coursework: Data Structures &amp; Algorithms, Distributed Systems, Database Management Systems, Machine Learning, Operating Systems.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 5. SECTION 03 — TOOLS, FRAMEWORKS & STACK   -->
+<!-- ========================================== -->
+<section class="w-full bg-gradient-to-b from-surface via-indigo-50/30 to-surface py-space-xl border-y border-indigo-100/70 reveal-on-scroll is-revealed" id="stack">
+<div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin">
+<div class="flex flex-col gap-space-lg">
+<div class="space-y-space-xs">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-bold tracking-widest">03 / Competencies &amp; Technical Fluency</span>
+<h2 class="font-headline-lg text-headline-lg text-slate-900 tracking-tight">Tools, Frameworks &amp; Technical Stack</h2>
+<p class="font-body-md text-body-md text-slate-600 max-w-2xl">
+                Bridging product discovery with low-level AI system mechanics and verifiable statistical telemetry.
+              </p>
+</div>
+<!-- Categorized Interactive Cards Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Category 1: Product Strategy -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100 shadow-sm hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-2 border-b border-indigo-50">
+<span class="font-headline-sm text-headline-sm text-slate-900">Product Strategy &amp; Discovery</span>
+<span class="material-symbols-outlined text-primary text-[20px]">explore</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-500 my-3">
+                    Structuring ambiguous user friction into prioritized features with clear unit economics.
+                  </p>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Problem Framing</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">PRD &amp; Spec Writing</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Metric Trees (NSM)</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Funnel Diagnostics</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">RICE / MoSCoW</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">A/B Testing</span>
+</div>
+</div>
+<div class="pt-4 mt-2 border-t border-slate-100">
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">Core Artifact: Spec Contracts</span>
+</div>
+</div>
+<!-- Category 2: AI Systems & Evaluation -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-200/80 shadow-sm hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all flex flex-col justify-between ring-1 ring-indigo-50">
+<div>
+<div class="flex items-center justify-between pb-2 border-b border-indigo-50">
+<span class="font-headline-sm text-headline-sm text-slate-900">AI Systems &amp; Evals</span>
+<span class="material-symbols-outlined text-primary text-[20px]">psychology</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-500 my-3">
+                    Evaluating hallucinations, retrieval quality, and deterministic boundaries for LLMs.
+                  </p>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded-md bg-indigo-50 text-primary font-label-mono-tag text-label-mono-tag">RAG Architecture</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50 text-primary font-label-mono-tag text-label-mono-tag">Ragas Benchmark</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50 text-primary font-label-mono-tag text-label-mono-tag">DeepEval &amp; LangSmith</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50 text-primary font-label-mono-tag text-label-mono-tag">Bi/Cross-Encoders</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50 text-primary font-label-mono-tag text-label-mono-tag">Conformal Pred</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50 text-primary font-label-mono-tag text-label-mono-tag">Guardrail Pipelines</span>
+</div>
+</div>
+<div class="pt-4 mt-2 border-t border-slate-100">
+<span class="font-label-mono-tag text-label-mono-tag text-primary font-semibold">Focus: Grounding &amp; Cost</span>
+</div>
+</div>
+<!-- Category 3: Data & Infrastructure -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100 shadow-sm hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-2 border-b border-indigo-50">
+<span class="font-headline-sm text-headline-sm text-slate-900">Data &amp; Infrastructure</span>
+<span class="material-symbols-outlined text-primary text-[20px]">database</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-500 my-3">
+                    Profiling vector latency, database indices, and event streaming metrics.
+                  </p>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Complex SQL</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Recall@K &amp; NDCG</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">P50 / P99 Latency</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">FAISS &amp; Vector DBs</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">PostgreSQL</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Docker &amp; Kafka</span>
+</div>
+</div>
+<div class="pt-4 mt-2 border-t border-slate-100">
+<span class="font-label-mono-tag text-label-mono-tag text-slate-600">Metric: Zero Ingestion Lag</span>
+</div>
+</div>
+<!-- Category 4: Technical Fluency -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100 shadow-sm hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-2 border-b border-indigo-50">
+<span class="font-headline-sm text-headline-sm text-slate-900">Technical Fluency</span>
+<span class="material-symbols-outlined text-primary text-[20px]">terminal</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-500 my-3">
+                    Writing clean prototypes, REST schemas, and monitoring dashboards.
+                  </p>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Python &amp; FastAPI</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">REST API Schemas</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Git &amp; CI/CD</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Streamlit</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Grafana</span>
+<span class="px-2.5 py-1 rounded-md bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Elasticsearch</span>
+</div>
+</div>
+<div class="pt-4 mt-2 border-t border-slate-100">
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">Proficiency: Code to Production</span>
+</div>
+</div>
+</div>
+<!-- Certifications & Honors Banner Strip -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-2">
+<a href="https://drive.google.com/file/d/1g6X2YPjZxRs4j8CIz_G60PFAHmy4-Fz5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="p-space-md rounded-xl bg-white border border-indigo-100 flex items-center justify-between shadow-sm hover:shadow-md hover:border-indigo-300 transition-all group">
+<div>
+<span class="font-headline-sm text-headline-sm text-slate-900 group-hover:text-primary transition-colors block">Oracle Cloud AI Certified &nearr;</span>
+<span class="font-body-sm text-body-sm text-slate-500">OCI 2024 Generative AI Professional</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-indigo-50 text-primary font-label-mono-tag text-label-mono-tag font-bold border border-indigo-100">92.5%</span>
+</a>
+<a href="https://drive.google.com/file/d/1dJh3mcSI-d8jB0FwPh_Xr4CJaXOgTMVW/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="p-space-md rounded-xl bg-white border border-indigo-100 flex items-center justify-between shadow-sm hover:shadow-md hover:border-indigo-300 transition-all group">
+<div>
+<span class="font-headline-sm text-headline-sm text-slate-900 group-hover:text-primary transition-colors block">2nd Place — GDG Hackathon &nearr;</span>
+<span class="font-body-sm text-body-sm text-slate-500">Google Developer Groups AI/ML Track</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-label-mono-tag text-label-mono-tag font-bold">Runner-Up</span>
+</a>
+<a href="https://drive.google.com/file/d/1Bh382QXGjgfG-9YE-FEQsPGda4oe3m92/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="p-space-md rounded-xl bg-white border border-indigo-100 flex items-center justify-between shadow-sm hover:shadow-md hover:border-indigo-300 transition-all group">
+<div>
+<span class="font-headline-sm text-headline-sm text-slate-900 group-hover:text-primary transition-colors block">2nd Place — DataWorks Hackathon &nearr;</span>
+<span class="font-body-sm text-body-sm text-slate-500">Autonomous LLM Agent Architecture</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-label-mono-tag text-label-mono-tag font-bold">Runner-Up</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 6. SECTION 04 — HOW I THINK ABOUT PRODUCTS -->
+<!-- ========================================== -->
+<section class="w-full max-w-[1200px] mx-auto px-margin-mobile lg:px-margin py-space-xl reveal-on-scroll is-revealed" id="how-i-think">
+<div class="flex flex-col gap-space-lg">
+<div class="space-y-space-xs">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-bold tracking-widest">04 / Mental Models</span>
+<h2 class="font-headline-lg text-headline-lg text-slate-900 tracking-tight">How I Think About Products</h2>
+<p class="font-body-md text-body-md text-slate-600 max-w-xl">
+              Five core operating heuristics honed through engineering and MBA product discovery. Click each card to reveal operational applications.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- Mental Model 1 -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100/90 shadow-sm hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all flex flex-col justify-between group cursor-pointer" id="model-card-1" onclick="toggleModel(1)">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-tag text-label-mono-tag text-primary uppercase font-semibold">01 / Problem Framing</span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-[20px]" id="model-icon-1">expand_more</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900">A technically impressive solution can still solve the wrong problem.</h3>
+<p class="font-body-sm text-body-sm text-slate-600">
+                  The hardest part isn't implementing vector search or fine-tuning models. It's verifying what should actually be measured and confirming the technical output directly empowers a high-frequency workflow.
+                </p>
+<div class="pt-2 text-[12px] text-primary font-medium hidden" id="model-detail-1">
+                  💡 In Practice: At Meraqui, we paused LLM fine-tuning until we verified recruiter bottlenecks were caused by ERP schema mismatches, not resume phrasing.
+                </div>
+</div>
+<div class="pt-4 border-t border-slate-100 mt-3">
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">Focus: Discovery &gt; Velocity</span>
+</div>
+</div>
+<!-- Mental Model 2 -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100/90 shadow-sm hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all flex flex-col justify-between group cursor-pointer" id="model-card-2" onclick="toggleModel(2)">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-tag text-label-mono-tag text-primary uppercase font-semibold">02 / Metric Rigor</span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-[20px]" id="model-icon-2">expand_more</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900">I don't trust a metric without understanding what changed.</h3>
+<p class="font-body-sm text-body-sm text-slate-600">
+                  A +15% improvement sounds great in a slide deck, but I interrogate what changed in underlying data distributions, eval methodology, and user workflows. Metrics start the investigation.
+                </p>
+<div class="pt-2 text-[12px] text-primary font-medium hidden" id="model-detail-2">
+                  💡 In Practice: Precision gains can mask severe drops in recall on edge candidates. Always evaluate Recall@K alongside customer contact rates.
+                </div>
+</div>
+<div class="pt-4 border-t border-slate-100 mt-3">
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">Focus: Causality &gt; Correlation</span>
+</div>
+</div>
+<!-- Mental Model 3 -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100/90 shadow-sm hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all flex flex-col justify-between group cursor-pointer" id="model-card-3" onclick="toggleModel(3)">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-tag text-label-mono-tag text-primary uppercase font-semibold">03 / Explicit Trade-offs</span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-[20px]" id="model-icon-3">expand_more</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900">What are we gaining, and what are we giving up?</h3>
+<p class="font-body-sm text-body-sm text-slate-600">
+                  If an assumption can be de-risked with a small experiment or proxy test, I advocate doing so before committing engineering cycles. Product excellence is resource allocation.
+                </p>
+<div class="pt-2 text-[12px] text-primary font-medium hidden" id="model-detail-3">
+                  💡 In Practice: Chasing 99% accuracy via agent chains inflates latency by 3x. For interactive UX, 98% with 400ms latency wins every single time.
+                </div>
+</div>
+<div class="pt-4 border-t border-slate-100 mt-3">
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">Focus: De-risking &gt; Overbuilding</span>
+</div>
+</div>
+<!-- Mental Model 4 -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100/90 shadow-sm hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all flex flex-col justify-between group cursor-pointer" id="model-card-4" onclick="toggleModel(4)">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-semibold">04 / Intentional Friction</span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-[20px]" id="model-icon-4">expand_more</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900">I don't assume every friction point deserves a feature.</h3>
+<p class="font-body-sm text-body-sm text-slate-600">
+                  Some friction is deliberate—like double confirmations that prevent catastrophic data loss or compliance guardrails that protect lending portfolios. Understand intent first.
+                </p>
+<div class="pt-2 text-[12px] text-primary font-medium hidden" id="model-detail-4">
+                  💡 In Practice: Skippable KYC in fintech creates phantom growth. Real-time document parsing prevents downstream loan default and partner rejection.
+                </div>
+</div>
+<div class="pt-4 border-t border-slate-100 mt-3">
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">Focus: Intentionality &gt; Pure Ease</span>
+</div>
+</div>
+<!-- Mental Model 5 -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100/90 shadow-sm hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all flex flex-col justify-between group cursor-pointer" id="model-card-5" onclick="toggleModel(5)">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-semibold">05 / The Lifecycle</span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-[20px]" id="model-icon-5">expand_more</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900">The PR merge is day zero. Real learning starts now.</h3>
+<p class="font-body-sm text-body-sm text-slate-600">
+                  Shipping code is the starting line. True validation only commences once live telemetry feeds in and edge-case behavior manifests in user sessions.
+                </p>
+<div class="pt-2 text-[12px] text-primary font-medium hidden" id="model-detail-5">
+                  💡 In Practice: Continuous drift monitoring and user feedback loops prevent catastrophic accuracy decay after production deploy.
+                </div>
+</div>
+<div class="pt-4 border-t border-slate-100 mt-3">
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">Focus: Feedback Loops &gt; Deployments</span>
+</div>
+</div>
+<!-- Summary Statement Card -->
+<div class="p-space-md rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white shadow-xl flex flex-col justify-between border border-indigo-900/60">
+<div class="space-y-space-sm">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-secondary font-bold">The Synthesis</span>
+<h3 class="font-headline-sm text-headline-sm text-white">MBA Strategy × Deep Engineering Grounding</h3>
+<p class="font-body-sm text-body-sm text-slate-300 leading-relaxed">
+                  Capable of writing the PRD, calculating unit economics, profiling vector latencies, and articulating executive trade-offs in one cohesive voice.
+                </p>
+</div>
+<div class="pt-4 mt-3">
+<a class="font-label-lg text-label-lg text-indigo-300 hover:text-white underline underline-offset-4 inline-flex items-center gap-1 font-semibold" href="mailto:kiccha1703@gmail.com">
+<span class="">Discuss an APM Role</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ============================================================== -->
+<!-- 7. SECTION 05 — PRODUCT TEARDOWNS & PM SIMULATOR              -->
+<!-- ============================================================== -->
+<section class="w-full bg-gradient-to-b from-surface via-indigo-50/20 to-surface py-space-xl border-y border-indigo-100/70 reveal-on-scroll is-revealed" id="teardowns">
+<div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin">
+<div class="flex flex-col gap-space-lg">
+<!-- Teardown Teasers -->
+<div class="space-y-space-xs">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-bold tracking-widest">05 / Reverse Engineering Live Products</span>
+<h2 class="font-headline-lg text-headline-lg text-slate-900 tracking-tight">Product Teardowns &amp; Funnel Friction</h2>
+<p class="font-body-md text-body-md text-slate-600 max-w-2xl">
+                Diagnosing structural friction points from observable product decisions without access to internal analytics.
+              </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Comet -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100 shadow-sm flex flex-col justify-between hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-semibold">D2C Sneaker Discovery</span>
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">Comet</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900">Turning product comparison into confident choice.</h3>
+<div class="py-2 px-3 rounded-lg bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">
+                    Discover → Silhouette Finder → Compare → Drop-off ⚠ → Purchase
+                  </div>
+<div class="space-y-1.5 pt-1 font-body-sm text-body-sm">
+<p class=""><strong class="text-slate-900">Friction:</strong> Users face cognitive fatigue translating shoe technical attributes into everyday wear scenarios.</p>
+<p class=""><strong class="text-primary">PM Opportunity:</strong> Introduce a use-case recommendation flow collapsing 8 specs into 2 tailored choices.</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between border-t border-slate-100 mt-3">
+<div>
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-slate-400 block">Target Metric</span>
+<span class="font-headline-sm text-headline-sm text-emerald-600 font-bold">+18% Add-to-Cart</span>
+</div>
+<span class="font-label-mono-tag text-label-mono-tag text-slate-500">Guardrail: Return Rate</span>
+</div>
+<div class="mt-3 pt-3 border-t border-slate-100">
+  <a href="/teardown-comet.html" class="inline-flex items-center gap-1 font-label-mono-tag text-label-mono-tag text-primary hover:text-accent-violet transition-colors font-semibold">
+    Read full teardown <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+  </a>
+</div>
+</div>
+<!-- KreditBee -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100 shadow-sm flex flex-col justify-between hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-semibold">Consumer Lending</span>
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">KreditBee</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900">The KYC stack nobody fixed — just made skippable.</h3>
+<div class="py-2 px-3 rounded-lg bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">
+                    Open → OTP → PAN/Aadhaar → Income Upload ⚠ → Sanction
+                  </div>
+<div class="space-y-1.5 pt-1 font-body-sm text-body-sm">
+<p class=""><strong class="text-slate-900">Friction:</strong> Income verification is deferrable to boost onboarding, but causes severe late-stage rejection cycles.</p>
+<p class=""><strong class="text-primary">PM Opportunity:</strong> Real-time conversational document parsing with instant OCR error feedback.</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between border-t border-slate-100 mt-3">
+<div>
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-slate-400 block">Target Metric</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">First-Session KYC</span>
+</div>
+<span class="font-label-mono-tag text-label-mono-tag text-slate-500">Secondary: -25% Re-upload</span>
+</div>
+<div class="mt-3 pt-3 border-t border-slate-100">
+  <a href="/teardown-kreditbee.html" class="inline-flex items-center gap-1 font-label-mono-tag text-label-mono-tag text-primary hover:text-accent-violet transition-colors font-semibold">
+    Read full teardown <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+  </a>
+</div>
+</div>
+<!-- PhonePe Lending -->
+<div class="p-space-md rounded-2xl bg-white border border-indigo-100 shadow-sm flex flex-col justify-between hover:shadow-[0_8px_24px_rgba(79,70,229,0.08)] transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-primary font-semibold">Fintech Marketplace</span>
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400">PhonePe</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900">What breaks when lending is a marketplace, not a lender.</h3>
+<div class="py-2 px-3 rounded-lg bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">
+                    Marketplace → Offer Select → NBFC Webview Hand-off ⚠ → Partner KYC
+                  </div>
+<div class="space-y-1.5 pt-1 font-body-sm text-body-sm">
+<p class=""><strong class="text-slate-900">Friction:</strong> External partner webview jumps break authentication context and cause trust abandonment.</p>
+<p class=""><strong class="text-primary">PM Opportunity:</strong> Headless partner API integration with persistent encrypted session state.</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between border-t border-slate-100 mt-3">
+<div>
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-slate-400 block">Target Metric</span>
+<span class="font-headline-sm text-headline-sm text-emerald-600 font-bold">+14% Hand-off Funnel</span>
+</div>
+<span class="font-label-mono-tag text-label-mono-tag text-slate-500">Guardrail: NBFC Drop</span>
+</div>
+<div class="mt-3 pt-3 border-t border-slate-100">
+  <a href="/teardown-phonepe.html" class="inline-flex items-center gap-1 font-label-mono-tag text-label-mono-tag text-primary hover:text-accent-violet transition-colors font-semibold">
+    Read full teardown <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+  </a>
+</div>
+</div>
+</div>
+<!-- INTERACTIVE PM DECISION SIMULATOR WIDGET -->
+<div class="mt-space-md p-space-lg rounded-2xl bg-white border border-indigo-100 shadow-[0_8px_32px_rgba(79,70,229,0.07)] flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-indigo-50">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2.5 py-1 rounded-full bg-slate-900 text-white font-label-mono-tag text-label-mono-tag uppercase">Interactive Simulator</span>
+<span class="font-headline-sm text-headline-sm text-slate-900">Scenario: LLM Hallucinations in High-Trust B2B Contract Search</span>
+</div>
+<span class="font-label-mono-tag text-label-mono-tag text-primary bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-200">Constraint: P99 Latency &lt; 800ms</span>
+</div>
+<p class="font-body-md text-body-md text-slate-700">
+                Your enterprise contract intelligence assistant generates 4% subtle factual hallucinations during clause extraction. Enterprise users churn if errors reach legal teams, but also reject latency spikes past 1 second. How do you resolve this architectural trade-off?
+              </p>
+<!-- Interactive Choice Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-1">
+<button class="text-left p-space-md rounded-xl bg-white border border-slate-200 shadow-sm transition-all focus:outline-none hover:shadow-md cursor-pointer" id="sim-option-a" onclick="selectSimOption('A')">
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-slate-900">Option A: Multi-Agent Consensus</span>
+<span class="w-5 h-5 rounded-full border border-slate-300 bg-slate-100 flex items-center justify-center transition-colors" id="badge-a"></span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-500">
+                    Deploy a secondary critique LLM to cross-verify all extracted assertions against the raw legal source document.
+                  </p>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 rounded bg-indigo-50/70 text-slate-800 font-label-mono-tag text-label-mono-tag">Accuracy: 99.2%</span>
+<span class="px-2 py-0.5 rounded bg-red-100 text-red-600 font-label-mono-tag text-label-mono-tag">Latency: 2,400ms ⚠</span>
+</div>
+</button>
+<button class="text-left p-space-md rounded-xl bg-indigo-50/50 border-2 border-primary shadow-sm transition-all focus:outline-none hover:shadow-md cursor-pointer" id="sim-option-b" onclick="selectSimOption('B')">
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-slate-900">Option B: Two-Tier Conformal Cascade</span>
+<span class="w-5 h-5 rounded-full border border-primary bg-white flex items-center justify-center transition-colors" id="badge-b">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-slate-500">
+                    Use fast local bi-encoder with logit confidence bounds. Escalate only uncertain chunks to high-parameter LLM with verbatim citations.
+                  </p>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 rounded bg-indigo-100 text-primary font-label-mono-tag text-label-mono-tag font-semibold">Accuracy: 98.7%</span>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 font-label-mono-tag text-label-mono-tag font-semibold">Latency: 480ms P99 ✓</span>
+</div>
+</button>
+</div>
+<!-- Recommendation Rationale Box (Midnight Obsidian Container) -->
+<div class="p-space-md rounded-xl bg-obsidian text-white shadow-xl border border-indigo-500/30" id="sim-analysis">
+<div class="flex items-center gap-space-xs mb-2">
+<span class="material-symbols-outlined text-cyan-400 text-[20px]">psychology</span>
+<span class="font-label-mono-tag text-label-mono-tag uppercase tracking-wider text-cyan-400">&nbsp;Recommendation</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-white" id="analysis-title">PM Verdict on Option B: The Pragmatic Win</h4>
+<p class="font-body-md text-body-md text-slate-300 mt-1 leading-relaxed" id="analysis-text">
+                  Option B balances the PM triangle: fast local classification handles 85% of queries in under 300ms. Only borderline confidence chunks route to high-parameter LLMs, staying well within our 800ms P99 constraint while curbing token spend by ~60%.
+                </p>
+<div class="mt-3 flex flex-wrap gap-space-sm pt-2" id="analysis-metrics">
+<span class="px-2.5 py-1 rounded-full bg-slate-900 text-slate-300 font-label-mono-tag text-label-mono-tag border border-indigo-900/60">Primary Metric: Search Completion Rate</span>
+<span class="px-2.5 py-1 rounded-full bg-slate-900 text-cyan-300 font-label-mono-tag text-label-mono-tag border border-indigo-900/60">Guardrail: Hallucination Rate &lt; 0.8%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 8. SECTION 06 — LET'S CONNECT & CONTACT    -->
+<!-- ========================================== -->
+<section class="w-full max-w-[1200px] mx-auto px-margin-mobile lg:px-margin py-space-xl reveal-on-scroll is-revealed" id="contact">
+<div class="p-space-xl rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-space-lg border border-indigo-900/50">
+<div class="space-y-space-sm max-w-xl z-10">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-cyan-400 tracking-widest block font-semibold">Reach Out Anytime</span>
+<h2 class="font-headline-lg text-headline-lg text-white tracking-tight">
+              Let's Stay <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent-violet font-bold">Connected</span>.
+            </h2>
+<p class="font-body-md text-body-md text-slate-300 leading-relaxed">
+              Currently seeking APM and Technical PM roles.</p>
+<div class="pt-2 flex flex-wrap items-center gap-space-sm">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-secondary to-primary text-white font-label-lg text-label-lg hover:from-primary hover:to-accent-violet transition-all shadow-[0_4px_16px_rgba(79,70,229,0.4)]" href="mailto:kiccha1703@gmail.com">
+<span class="material-symbols-outlined text-white text-[18px]">mail</span>
+<span class="">kiccha1703@gmail.com</span>
+</a>
+<a class="inline-flex items-center gap-1.5 px-5 py-3 rounded-full bg-slate-900/80 text-white font-label-lg text-label-lg hover:bg-slate-800 transition-colors border border-indigo-900/60" href="tel:+919003762619">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span class="">+91 90037-62619</span>
+</a>
+<a class="inline-flex items-center gap-1 px-5 py-3 rounded-full bg-slate-900/80 text-white font-label-lg text-label-lg hover:bg-slate-800 transition-colors border border-indigo-900/60" href="https://www.linkedin.com/in/krishnamurthi-ramesh" rel="noopener noreferrer" target="_blank">
+<span class="">LinkedIn Profile</span>
+<span class="material-symbols-outlined text-[16px]">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- ========================================== -->
+<!-- 9. FOOTER                                  -->
+<!-- ========================================== -->
+<footer class="w-full bg-white py-space-xl border-t border-indigo-100">
+<div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg mb-space-xl">
+<div class="md:col-span-6 flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-slate-900 tracking-tight font-bold">Krishnamurthi</span>
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(99,102,241,0.7)]"></span>
+</div>
+<p class="font-body-md text-body-md text-slate-600 max-w-md">
+              Associate Product Manager candidate specializing in AI Products, LLM system evaluation, and decision-driven product telemetry. Dual pedigree from IIM Visakhapatnam &amp; IIITDM Kurnool.
+            </p>
+</div>
+<div class="pt-space-md">
+<span class="font-label-mono-tag text-label-mono-tag uppercase text-slate-400 tracking-wider block mb-space-xs">Direct Inquiries</span>
+<a class="font-headline-sm text-headline-sm text-primary hover:text-accent-violet transition-colors underline underline-offset-4 decoration-indigo-300 font-semibold" href="mailto:kiccha1703@gmail.com">
+              kiccha1703@gmail.com
+            </a>
+</div>
+</div>
+<div class="md:col-span-3 space-y-space-sm">
+<div class="font-label-mono-tag text-label-mono-tag uppercase text-slate-400 tracking-wider">Architecture &amp; Thought</div>
+<ul class="space-y-space-xs font-body-md text-body-md">
+<li class=""><a class="text-slate-600 hover:text-primary transition-colors" href="#about">About &amp; Philosophy</a></li>
+<li class=""><a class="text-slate-600 hover:text-primary transition-colors" href="#experience">Work &amp; Experience</a></li>
+<li class=""><a class="text-slate-600 hover:text-primary transition-colors" href="#stack">Tools &amp; Frameworks</a></li>
+<li class=""><a class="text-slate-600 hover:text-primary transition-colors" href="#how-i-think">How I Think&nbsp;</a></li>
+<li class=""><a class="text-slate-600 hover:text-primary transition-colors" href="#teardowns">Teardowns &amp; Simulator</a></li>
+</ul>
+</div>
+<div class="md:col-span-3 space-y-space-sm">
+<div class="font-label-mono-tag text-label-mono-tag uppercase text-slate-400 tracking-wider">Connect &amp; Verification</div>
+<ul class="space-y-space-xs font-body-md text-body-md">
+<li class=""><a class="text-slate-600 hover:text-primary transition-colors inline-flex items-center gap-1" href="https://www.linkedin.com/in/krishnamurthi-ramesh" rel="noopener noreferrer" target="_blank"><span class="">LinkedIn</span><span class="material-symbols-outlined text-[14px]">open_in_new</span></a></li>
+<li class=""><a class="text-slate-600 hover:text-primary transition-colors inline-flex items-center gap-1" href="https://github.com/krishnamurthi-ramesh" rel="noopener noreferrer" target="_blank"><span class="">GitHub</span><span class="material-symbols-outlined text-[14px]">code</span></a></li>
+<li class=""><a class="text-slate-600 hover:text-primary transition-colors inline-flex items-center gap-1" href="/resume.pdf?v=3" target="_blank" rel="noopener noreferrer">Product Resume (PDF) <span class="material-symbols-outlined text-[14px]">open_in_new</span></a></li>
+<li class=""></li>
+</ul>
+</div>
+</div>
+<div class="pt-space-md border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<p class="font-body-sm text-body-sm text-slate-500">© 2025 Krishnamurthi. Designed with rigor &amp; discernment.</p>
+<div class="flex items-center gap-space-md">
+<span class="font-label-mono-tag text-label-mono-tag text-slate-400 uppercase tracking-widest">Executive Tech • Plus Jakarta Sans • Modern Tech Monograph</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- CLIENT SCRIPTS & SCROLL OBSERVER -->
+<script>
+    // 1. Scroll-Triggered Animation Observer
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
       
-      <div class="hero-left" style="flex: 1; min-width: 300px; max-width: 600px; text-align: left;">
-        <div class="hero-eyebrow reveal-up">
-          <span class="dot"></span>
-          Associate Product Manager <span class="sep">&times;</span> AI Products
-        </div>
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
 
-        <h1 class="hero-title reveal-up delay-1">
-          I don't just take<br>requirements.
-          <span class="hero-accent"> I interrogate them.</span>
-        </h1>
+      revealElements.forEach(el => observer.observe(el));
+    });
 
-        <p class="hero-sub reveal-up delay-2">
-          Engineering graduate &middot; MBA candidate &middot; AI/ML builder<br>
-          <span style="display:inline-block; margin-top: 10px; color: var(--text); font-weight: 500;">I enjoy figuring out what should be built before figuring out how to build it.</span>
-        </p>
+    // 2. Interactive PM Simulator Logic
+    function selectSimOption(option) {
+      const btnA = document.getElementById('sim-option-a');
+      const btnB = document.getElementById('sim-option-b');
+      const badgeA = document.getElementById('badge-a');
+      const badgeB = document.getElementById('badge-b');
+      const title = document.getElementById('analysis-title');
+      const text = document.getElementById('analysis-text');
 
-        <!-- Stat strip -->
-        <div class="hero-stats reveal-up delay-3" style="justify-content: flex-start; text-align: left;">
-          <div class="stat" style="text-align: left; padding: 0 20px 0 0;">
-            <div class="stat-val">+15%</div>
-            <div class="stat-label">AI matching precision shipped</div>
-          </div>
-          <div class="stat-div" aria-hidden="true"></div>
-          <div class="stat" style="text-align: left; padding: 0 20px;">
-            <div class="stat-val">-40%</div>
-            <div class="stat-label">Incident detection time</div>
-          </div>
-          <div class="stat-div" aria-hidden="true"></div>
-          <div class="stat" style="text-align: left; padding: 0 0 0 20px;">
-            <div class="stat-val">100k+</div>
-            <div class="stat-label">Logs/day in production</div>
-          </div>
-        </div>
+      if (option === 'A') {
+        btnA.classList.remove('border-slate-200', 'bg-white');
+        btnA.classList.add('border-2', 'border-primary', 'bg-indigo-50/50');
+        btnB.classList.remove('border-2', 'border-primary', 'bg-indigo-50/50');
+        btnB.classList.add('border-slate-200', 'bg-white');
 
-        <div class="hero-cta reveal-up delay-4" style="justify-content: flex-start;">
-          <a href="#work" class="btn btn-primary" id="hero-work-btn">See Product Work</a>
-          <a href="resume.pdf?v=3" target="_blank" rel="noopener" class="btn btn-ghost" id="hero-resume-btn">R&eacute;sum&eacute; &darr;</a>
-          <a href="https://www.linkedin.com/in/krishna9003762619murthi/" target="_blank" rel="noopener" class="btn btn-ghost" id="hero-linkedin-btn">LinkedIn &nearr;</a>
-          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="btn btn-ghost" id="hero-github-btn">GitHub &nearr;</a>
-        </div>
+        badgeA.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>';
+        badgeB.innerHTML = '';
 
-        <p class="hero-hook reveal-up delay-4">
-          <span class="mono-tag">// </span>Seeking APM &middot; Technical PM roles in AI, SaaS &amp; technology products.
-        </p>
-      </div>
+        title.textContent = "PM Verdict on Option A: Costly Overkill";
+        text.textContent = "While a multi-agent critique agent pushes accuracy to 99.2%, tripling the inference chain pushes P99 latency to 2.4 seconds and triples unit token cost. In real user studies, high-churn enterprise users abandon documents that take more than 1 second to parse.";
+      } else {
+        btnB.classList.remove('border-slate-200', 'bg-white');
+        btnB.classList.add('border-2', 'border-primary', 'bg-indigo-50/50');
+        btnA.classList.remove('border-2', 'border-primary', 'bg-indigo-50/50');
+        btnA.classList.add('border-slate-200', 'bg-white');
 
-      <div class="hero-right" style="flex: 1; min-width: 300px; height: 500px; display: flex; align-items: center; justify-content: center; position: relative;">
-        <script type="module" src="https://cdn.spline.design/@splinetool/viewer@2.0.70/build/spline-viewer.js"></script>
-        <spline-viewer style="mix-blend-mode: multiply; -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 70%); mask-image: radial-gradient(circle at center, black 35%, transparent 70%);" url="https://prod.spline.design/gKDNYJKuHa2zHnLy/scene.splinecode"></spline-viewer>
-      </div>
+        badgeB.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>';
+        badgeA.innerHTML = '';
 
-    </div>
+        title.textContent = "PM Verdict on Option B: The Pragmatic Win";
+        text.textContent = "Option B balances the PM triangle: fast local classification handles 85% of queries in under 300ms. Only borderline confidence chunks route to high-parameter LLMs, staying well within our 800ms P99 constraint while curbing token spend by ~60%.";
+      }
+    }
 
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ═══ §01 PRODUCT WORK ═══ -->
-  <section class="sec" id="work">
-    <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">01 /</span> Product Work</div>
-      <h2 class="sec-title reveal-up delay-1">Built, shipped,<br>or broken down.</h2>
-
-      <div class="projects-grid" style="margin-top:2rem;">
-        <!-- Meraqui AI Matching -->
-        <div class="project-card reveal-up delay-1" id="project-meraqui">
-          <div class="evidence-badge">🟢 PRODUCTION EXPERIENCE</div>
-          <div class="project-header">
-            <div class="project-tags">
-              <span class="proj-tag proj-tag-shipped">Production</span>
-              <span class="proj-tag proj-tag-muted">Meraqui Ventures</span>
-            </div>
-            <div class="project-year mono-tag">2025</div>
-          </div>
-          <h3 class="project-title">AI Candidate Matching — Product Spec</h3>
-          <p class="project-desc">
-            Problem → Requirements → Success Metrics → AI Trade-offs → Implementation → Testing → Result → PM
-            Reflection.
-          </p>
-          <div class="project-pm-lens">
-            <div class="pm-lens-label mono-tag">What I owned</div>
-            <p>Partnered with stakeholders to define success metrics before code was written. Drove feature engineering
-              and LLM fine-tuning. Wrote ERP integration specs. Defined API contracts and test suites to de-risk
-              production deployment.</p>
-          </div>
-          <div class="project-metrics">
-            <div class="pm pm-highlight">
-              <span class="pm-k">Impact</span>
-              <span class="pm-v"><strong>+15%</strong> matching precision · <strong>−15%</strong> manual data entry ·
-                <strong>−12–15%</strong> downstream data inconsistencies</span>
-            </div>
-          </div>
-          <a href="/artifact-meraqui.html" class="project-link" id="proj-meraqui-link"
-            style="font-weight: 500; color: var(--accent);">View PM Artifact: Product Spec ↗</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ §02 PRODUCT TEARDOWNS ═══ -->
-  <section class="sec sec-alt" id="teardowns">
-    <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">02 /</span> Product Teardowns</div>
-      <p class="sec-sub reveal-up delay-1" style="margin-bottom:1.5rem;">
-        Reverse-engineered live product funnels without primary research, using observable product decisions to identify
-        friction points and structural challenges.
-      </p>
-
-      <div class="teardown-grid">
-
-        <!-- Comet -->
-        <a class="teardown-card reveal-up delay-1" href="/teardown-comet.html">
-          <div class="evidence-badge">🔵 PUBLIC PRODUCT TEARDOWN</div>
-          <div class="tc-header">
-            <div>
-              <span class="tc-tag">Teardown</span>
-              <span class="tc-tag tc-tag-muted">D2C · Sneaker Discovery</span>
-            </div>
-            <div class="tc-arrow">↗</div>
-          </div>
-          <h3 class="tc-title">Comet</h3>
-          <p class="tc-subtitle">Turning product comparison into confident choice.</p>
-
-          <div class="tc-flow-box">
-            <div class="tc-flow-label">OBSERVED FLOW</div>
-            <div class="tc-flow-path">Discover → Silhouette Finder → Compare attributes → ? → Product → Purchase</div>
-          </div>
-
-          <div class="tc-insights">
-            <div class="tc-insight">
-              <span class="tc-insight-label">PROBLEM</span>
-              <span class="tc-insight-val">Comet already provides silhouette-level guidance, but customers still need to
-                translate attributes such as fit, cushioning, weight and styling into their own use case.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">HYPOTHESIS</span>
-              <span class="tc-insight-val">First-time customers may benefit from a use-case-first recommendation flow
-                that translates those attributes into 2–3 relevant choices.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">PRODUCT MOVE</span>
-              <span class="tc-insight-val">Use-case-first Silhouette Finder with explainable recommendations.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">PRIMARY METRIC</span>
-              <span class="tc-insight-val">Finder-assisted add-to-cart rate<br><span
-                  style="color:var(--text-dim);font-size:0.8rem;">GUARDRAIL: Return / exchange rate</span></span>
-            </div>
-          </div>
-          <div
-            style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-            <strong style="color: var(--accent); font-weight: 600;">PM capabilities demonstrated:</strong> Product
-            Discovery · User Problem Framing · Metrics
-          </div>
-          <div class="tc-cta">Read full teardown <span class="tc-arr">→</span></div>
-        </a>
-
-        <!-- KreditBee -->
-        <a class="teardown-card reveal-up delay-2" href="/teardown-kreditbee.html">
-          <div class="evidence-badge">🔵 PUBLIC PRODUCT TEARDOWN</div>
-          <div class="tc-header">
-            <div>
-              <span class="tc-tag">Teardown</span>
-              <span class="tc-tag tc-tag-muted">Single-lender · Consumer Lending</span>
-            </div>
-            <div class="tc-arrow">↗</div>
-          </div>
-          <h3 class="tc-title">KreditBee</h3>
-          <p class="tc-subtitle">The KYC stack nobody fixed — just made skippable.</p>
-
-          <div class="tc-flow-box">
-            <div class="tc-flow-label">OBSERVED FLOW</div>
-            <div class="tc-flow-path">App Open → Phone OTP → PAN + Aadhaar → Income ⚠ → Offer</div>
-          </div>
-
-          <div class="tc-insights">
-            <div class="tc-insight">
-              <span class="tc-insight-label">OBSERVATION</span>
-              <span class="tc-insight-val">Income verification is explicitly deferrable.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">HYPOTHESIS</span>
-              <span class="tc-insight-val">The flow may be designed to reduce friction at this stage rather than require
-                completion upfront.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">PRODUCT OPPORTUNITY</span>
-              <span class="tc-insight-val">Conversational document feedback + bank-statement parsing to reduce re-upload
-                and abandonment.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">PRIMARY METRIC</span>
-              <span class="tc-insight-val">First-session KYC completion rate<br><span
-                  style="color:var(--text-dim);font-size:0.8rem;">SECONDARY: Document re-upload rate</span></span>
-            </div>
-          </div>
-          <div
-            style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-            <strong style="color: var(--accent); font-weight: 600;">PM capabilities demonstrated:</strong> Funnel
-            Analysis · Friction Diagnosis · Experimentation
-          </div>
-          <div class="tc-cta">Read full teardown <span class="tc-arr">→</span></div>
-        </a>
-
-        <!-- PhonePe -->
-        <a class="teardown-card reveal-up delay-3" href="/teardown-phonepe.html">
-          <div class="evidence-badge">🔵 PUBLIC PRODUCT TEARDOWN</div>
-          <div class="tc-header">
-            <div>
-              <span class="tc-tag">Teardown</span>
-              <span class="tc-tag tc-tag-muted">Marketplace · Multi-partner NBFC</span>
-            </div>
-            <div class="tc-arrow">↗</div>
-          </div>
-          <h3 class="tc-title">PhonePe</h3>
-          <p class="tc-subtitle">What breaks when lending is a marketplace, not a lender.</p>
-
-          <div class="tc-flow-box">
-            <div class="tc-flow-label">SYSTEM FLOW</div>
-            <div class="tc-flow-path">PhonePe → Loan marketplace → Partner NBFC → Partner KYC ⚠ → Offer</div>
-          </div>
-
-          <div class="tc-insights">
-            <div class="tc-insight">
-              <span class="tc-insight-label">PRODUCT PROBLEM</span>
-              <span class="tc-insight-val">The hand-off introduces continuity and trust challenges that don't exist in
-                the same form within a single-lender flow.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">HYPOTHESIS</span>
-              <span class="tc-insight-val">Preserving relevant context across the hand-off could reduce repeated effort
-                and improve completion.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">PRODUCT DESIGN</span>
-              <span class="tc-insight-val">Embedded partner flow + contextual hand-off.</span>
-            </div>
-            <div class="tc-insight">
-              <span class="tc-insight-label">PRIMARY METRIC</span>
-              <span class="tc-insight-val">Hand-off completion rate<br><span
-                  style="color:var(--text-dim);font-size:0.8rem;">GUARDRAIL: Partner KYC failure</span></span>
-            </div>
-          </div>
-          <div
-            style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-            <strong style="color: var(--accent); font-weight: 600;">PM capabilities demonstrated:</strong> Systems
-            Thinking · Marketplace Design · Cross-functional Constraints
-          </div>
-          <div class="tc-cta">Read full teardown <span class="tc-arr">→</span></div>
-        </a>
-
-      </div>
-
-
-
-    </div>
-  </section>
-
-  <!-- ═══ §03 AI PRODUCT WORK ═══ -->
-  <section class="sec" id="ai-work">
-    <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">03 /</span> AI Product Work</div>
-
-      <div class="projects-grid" style="margin-top:2rem;">
-        <!-- Enterprise RAG -->
-        <div class="project-card reveal-up delay-1">
-          <div class="evidence-badge">🟣 INDEPENDENT PRODUCT PROJECT</div>
-          <div class="project-header">
-            <div class="project-tags">
-              <span class="proj-tag">AI Product</span>
-              <span class="proj-tag proj-tag-muted">RAG · LLM · Evaluation</span>
-            </div>
-            <div class="project-year mono-tag">Feb 2025</div>
-          </div>
-          <h3 class="project-title">Enterprise RAG System</h3>
-          <p class="project-desc">
-            Built a production-grade Retrieval-Augmented Generation pipeline — then designed a comprehensive evaluation
-            framework to measure whether it actually worked.
-          </p>
-          <div class="project-pm-lens">
-            <div class="pm-lens-label mono-tag">PM Lens</div>
-            <p>The interesting problem wasn't building the RAG. It was deciding what "good" means. Designed the eval
-              suite — Ragas, Recall@K, NDCG, latency — before shipping. I wanted the evaluation to tell me whether the
-              system actually improved — not just whether the pipeline worked.</p>
-          </div>
-          <div class="project-metrics">
-            <div class="pm">
-              <span class="pm-k">Stack</span>
-              <span class="pm-v">Python · LangChain · FAISS · Ollama · Ragas · Docker · Streamlit</span>
-            </div>
-            <div class="pm">
-              <span class="pm-k">Key work</span>
-              <span class="pm-v">Hybrid retrieval design · hallucination reduction via prompt engineering ·
-                containerized REST API deployment</span>
-            </div>
-          </div>
-          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="project-link">View on
-            GitHub ↗</a>
-        </div>
-
-        <!-- VLM Research -->
-        <div class="project-card reveal-up delay-2">
-          <div class="evidence-badge">🟣 INDEPENDENT PRODUCT PROJECT</div>
-          <div class="project-header">
-            <div class="project-tags">
-              <span class="proj-tag proj-tag-ieee">In Review — IEEE</span>
-              <span class="proj-tag proj-tag-muted">AI Reliability · Research</span>
-            </div>
-            <div class="project-year mono-tag">2026</div>
-          </div>
-          <h3 class="project-title">Reliability Framework for Quantized VLMs</h3>
-          <p class="project-desc">
-            Identified a real product risk: quantized AI models (cheaper to run) hallucinate more on edge hardware.
-            Scoped and built an original technical solution.
-          </p>
-          <div class="project-pm-lens">
-            <div class="pm-lens-label mono-tag">PM Lens</div>
-            <p>This is the cost / latency / accuracy triangle that every AI PM navigates when deciding which model to
-              ship. I built a framework for making that decision defensible — with a non-parametric drift detector and a
-              cost-aware two-tier inference cascade.</p>
-          </div>
-          <div class="project-metrics">
-            <div class="pm">
-              <span class="pm-k">Approach</span>
-              <span class="pm-v">Non-parametric density-drift detector + GPU/CPU inference cascade with conformal
-                prediction thresholds</span>
-            </div>
-            <div class="pm">
-              <span class="pm-k">Status</span>
-              <span class="pm-v">Two rounds of external peer review completed · revision submitted to IEEE
-                journal</span>
-            </div>
-          </div>
-          <div class="project-link" style="color: var(--text-dim); cursor: default;">Advised by Dr. K. E. Srinivasa
-            Desikan</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ §04 HOW I THINK ABOUT PRODUCTS ═══ -->
-  <section class="sec sec-alt" id="think">
-    <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">04 /</span> How I Think</div>
-      <h2 class="sec-title reveal-up delay-1">How I Think<br>About Products</h2>
-      <p class="sec-sub reveal-up delay-2">Hover any card to see the reasoning behind the principle.</p>
-
-      <div class="think-grid">
-        <div class="think-card reveal-up delay-1" tabindex="0" id="think-card-1">
-          <div class="think-num mono-tag">01</div>
-          <div class="think-content">
-            <h3 class="think-h" style="font-size:1.3rem;">A technically impressive solution can still solve the wrong
-              problem.</h3>
-            <p class="think-sub">Implementation isn't the hardest part.</p>
-            <p class="think-expand">
-              I've repeatedly found that the hardest part isn't implementing the model.<br>
-              It's deciding what should actually be measured, and ensuring the technical effort aligns with a real user
-              workflow.
-            </p>
-          </div>
-        </div>
-
-        <div class="think-card reveal-up delay-2" tabindex="0" id="think-card-2">
-          <div class="think-num mono-tag">02</div>
-          <div class="think-content">
-            <h3 class="think-h" style="font-size:1.3rem;">I don't trust a metric without understanding what changed.
-            </h3>
-            <p class="think-sub">Numbers need context.</p>
-            <p class="think-expand">
-              A +15% improvement sounds useful, but I'd still want to know what changed in the data, feature set,
-              evaluation method and user workflow.<br>
-              Metrics are the start of the conversation, not the end.
-            </p>
-          </div>
-        </div>
-
-        <div class="think-card reveal-up delay-3" tabindex="0" id="think-card-3">
-          <div class="think-num mono-tag">03</div>
-          <div class="think-content">
-            <h3 class="think-h" style="font-size:1.3rem;">I try to make the trade-off explicit: what are we gaining, and
-              what are we giving up?</h3>
-            <p class="think-sub">Validation over velocity.</p>
-            <p class="think-expand">
-              If I can test the assumption with a smaller experiment, I'd rather do that before committing engineering
-              effort.<br>
-              The goal is to learn what works, not just ship what was planned.
-            </p>
-          </div>
-        </div>
-
-        <div class="think-card reveal-up delay-1" tabindex="0" id="think-card-4">
-          <div class="think-num mono-tag">04</div>
-          <div class="think-content">
-            <h3 class="think-h" style="font-size:1.3rem;">I don't assume every friction point deserves a feature.</h3>
-            <p class="think-sub">Context matters.</p>
-            <p class="think-expand">
-              Some friction is intentional. Some is caused by constraints.<br>
-              Some is actually useful friction (like adding a confirmation step to prevent data loss).<br>
-              Understanding the *why* prevents building the wrong *what*.
-            </p>
-          </div>
-        </div>
-
-        <div class="think-card reveal-up delay-2" tabindex="0" id="think-card-5">
-          <div class="think-num mono-tag">05</div>
-          <div class="think-content">
-            <h3 class="think-h" style="font-size:1.3rem;">If the metric doesn't move, I want to understand why before
-              calling the idea successful.</h3>
-            <p class="think-sub">The PR merge is day zero.</p>
-            <p class="think-expand">
-              A feature isn't finished when the PR is merged.<br>
-              The interesting part starts when real users interact with it.<br>
-              That's when we find out if our hypothesis was actually right.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ §05 PM DECISION SIMULATOR ═══ -->
-  <section class="sec" id="simulator">
-    <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">05 /</span> PM Decision Simulator</div>
-      <h2 class="sec-title reveal-up delay-1">You're the PM.<br>What do you do?</h2>
-      <p class="sec-sub reveal-up delay-2">
-        Real scenarios. Real trade-offs. This is how I think through them.
-      </p>
-
-      <div class="simulator reveal-up delay-3" id="simulator-widget">
-        <div class="sim-scenario">
-          <div class="sim-badge mono-tag">Scenario <span id="simScenarioNum">1</span> of <span
-              id="simScenarioTotal">3</span></div>
-          <p class="sim-text" id="simText"></p>
-        </div>
-
-        <div class="sim-prompt" id="simPrompt"></div>
-
-        <div class="sim-options" id="simOptions"></div>
-
-        <div class="sim-result hidden" id="simResult">
-          <div class="sim-result-inner" id="simResultInner"></div>
-          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;">
-            <button class="sim-reset" id="simReset">Try again →</button>
-            <button class="btn btn-primary" id="simNext" style="display:none;font-size:0.83rem;padding:9px 16px;">Next
-              scenario →</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ §06 SKILLS & EDUCATION ═══ -->
-  <section class="sec sec-alt" id="skills">
-    <div class="wrap">
-      <div class="sec-label reveal-up"><span class="mono-tag">06 /</span> Skills</div>
-      <h2 class="sec-title reveal-up delay-1">What I bring to the table.</h2>
-
-      <div class="skills-grid reveal-up delay-2">
-        <div class="skill-col" id="skills-product">
-          <h3 class="skill-col-title">Product</h3>
-          <ul class="skill-list">
-            <li>Problem Framing</li>
-            <li>Product Discovery</li>
-            <li>Success Metrics</li>
-            <li>Funnel &amp; Friction Analysis</li>
-            <li>Prioritization</li>
-            <li>PRD / Spec Writing</li>
-            <li>Experiment Analysis Fundamentals</li>
-            <li>Stakeholder Management</li>
-          </ul>
-        </div>
-        <div class="skill-col" id="skills-ai-pm">
-          <h3 class="skill-col-title">AI / LLM</h3>
-          <ul class="skill-list">
-            <li>Prompt Design &amp; Evaluation</li>
-            <li>RAG System Design</li>
-            <li>Model Selection Trade-offs</li>
-            <li>Cost / Latency / Accuracy Trade-offs</li>
-            <li>Hallucination &amp; Reliability Assessment</li>
-            <li>LLM Fine-tuning Scoping</li>
-          </ul>
-        </div>
-        <div class="skill-col" id="skills-data">
-          <h3 class="skill-col-title">Data &amp; Eval</h3>
-          <ul class="skill-list">
-            <li>SQL</li>
-            <li>Precision · Recall@K · NDCG</li>
-            <li>Latency Benchmarking</li>
-            <li>Ragas (LLM evaluation)</li>
-            <li>Funnel Analysis</li>
-          </ul>
-        </div>
-        <div class="skill-col" id="skills-tech">
-          <h3 class="skill-col-title">Technical Fluency</h3>
-          <ul class="skill-list">
-            <li>Python · FastAPI · REST APIs</li>
-            <li>LLMs · LangChain · Ollama</li>
-            <li>FAISS · Vector DBs · Embeddings</li>
-            <li>Docker · PostgreSQL · Git</li>
-            <li>Grafana · Elasticsearch</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- MBA Coursework -->
-      <div class="coursework-block reveal-up delay-3">
-        <div class="cw-label mono-tag">IIM Visakhapatnam — MBA Coursework</div>
-        <div class="cw-tags">
-          <span class="cw-tag">Advanced Analytics</span>
-          <span class="cw-tag">Platform &amp; Ecosystem Strategy</span>
-          <span class="cw-tag">Automation for Managers</span>
-          <span class="cw-tag">Project Management</span>
-          <span class="cw-tag">International Business</span>
-          <span class="cw-tag">Entrepreneurial Finance</span>
-        </div>
-      </div>
-
-      <!-- Education -->
-      <div class="edu-block reveal-up delay-3" id="education">
-        <div class="sec-label" style="margin-top:3.5rem;"><span class="mono-tag">07 /</span> Education</div>
-        <div class="edu-rows">
-          <div class="edu-row">
-            <div class="edu-info">
-              <div class="edu-school">Indian Institute of Management Visakhapatnam</div>
-              <div class="edu-prog">Post-Graduate Program in Management (PGPMCI) · MBA</div>
-            </div>
-            <div class="edu-yr mono-tag">2025 – 2027</div>
-          </div>
-          <div class="edu-row">
-            <div class="edu-info">
-              <div class="edu-school">IIITDM Kurnool</div>
-              <div class="edu-prog">B.Tech, Computer Science &amp; Engineering</div>
-            </div>
-            <div class="edu-yr mono-tag">2022 – 2026</div>
-          </div>
-        </div>
-
-        <div class="certs">
-          <a href="https://drive.google.com/file/d/1g6X2YPjZxRs4j8CIz_G60PFAHmy4-Fz5/view?usp=sharing" target="_blank"
-            rel="noopener" class="cert-tag" id="cert-oracle">🏅 Oracle Cloud AI Certified — 92.5%</a>
-          <a href="https://drive.google.com/file/d/1dJh3mcSI-d8jB0FwPh_Xr4CJaXOgTMVW/view?usp=sharing" target="_blank"
-            rel="noopener" class="cert-tag" id="cert-gdg">🥈 2nd — GDG Hackathon (AI/ML)</a>
-          <a href="https://drive.google.com/file/d/1Bh382QXGjgfG-9YE-FEQsPGda4oe3m92/view?usp=sharing" target="_blank"
-            rel="noopener" class="cert-tag" id="cert-dataworks">🥈 2nd — DataWorks Hackathon (LLM Apps)</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
+    // 3. Mental Models Interactive Expand/Collapse
+    function toggleModel(id) {
+      const detail = document.getElementById(`model-detail-${id}`);
+      const icon = document.getElementById(`model-icon-${id}`);
+      
+      if (detail.classList.contains('hidden')) {
+        detail.classList.remove('hidden');
+        icon.textContent = 'expand_less';
+      } else {
+        detail.classList.add('hidden');
+        icon.textContent = 'expand_more';
+      }
+    }
   
+    // 4. Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+    function closeMobileMenu() {
+      if (mobileMenu) mobileMenu.classList.add('hidden');
+    }
 
-  <!-- ═══ FOOTER / CTA ═══ -->
-      <footer id="contact" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 80px; padding: 60px 0 40px; background: #2d1b54; color: #ffffff;">
-    <div class="wrap">
-      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
-        <h2 style="font-size: 2rem; font-weight: 700; color: #ffffff;">Let's Connect</h2>
-        <p style="color: rgba(255,255,255,0.8); max-width: 500px; font-size: 1.05rem;">
-          Currently seeking APM and Technical PM opportunities. Feel free to reach out to discuss product, AI, or potential roles.
-        </p>
-        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
-          <a href="mailto:kiccha1703@gmail.com" class="btn btn-primary" style="background: #ffffff; color: #2d1b54;">kiccha1703@gmail.com</a>
-          <a href="https://www.linkedin.com/in/krishna9003762619murthi/" target="_blank" rel="noopener" class="btn btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">LinkedIn &nearr;</a>
-          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="btn btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">GitHub &nearr;</a>
-        </div>
-      </div>
-      
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 16px; color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.5;">
-        <div style="max-width: 600px;">
-          <span style="font-weight: 600; color: #ffffff;">Research</span> <br> IEEE paper in review &mdash; Reliability Framework for Quantized Vision-Language Models <br> (Advised: Dr. K.E. Srinivasa Desikan)
-        </div>
-        <div style="text-align: right;">
-          &copy; 2026 Krishnamurthi Ramesh <br> Portfolio v3.0
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="/js/main.js"></script>
-</body>
-
-</html>
+  </script>
+</body></html>
