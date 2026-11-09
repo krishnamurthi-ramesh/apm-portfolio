@@ -379,84 +379,36 @@ export default function App() {
     let vh = window.innerHeight;
     let totalScroll = Math.max(1, document.documentElement.scrollHeight - vh);
 
-    interface CachedParallaxItem {
-      el: HTMLElement;
-      speed: number;
-      docTop: number;
-      height: number;
-    }
-
-    let parallaxItems: CachedParallaxItem[] = [];
-
-    const measureParallaxLayout = () => {
+    const measureLayout = () => {
       vh = window.innerHeight;
       totalScroll = Math.max(1, document.documentElement.scrollHeight - vh);
-      const currentScrollY = window.pageYOffset;
-      const nodes = Array.from(
-        document.querySelectorAll<HTMLElement>('[data-parallax-speed]')
-      );
-
-      // Reset transform temporarily to read accurate untransformed document offsets
-      for (let i = 0; i < nodes.length; i++) {
-        nodes[i].style.transform = 'translate3d(0, 0, 0)';
-      }
-
-      parallaxItems = nodes
-        .map((el) => {
-          const speed = parseFloat(el.dataset.parallaxSpeed || '0');
-          const rect = el.getBoundingClientRect();
-          return {
-            el,
-            speed,
-            docTop: rect.top + currentScrollY,
-            height: rect.height,
-          };
-        })
-        .filter((item) => item.speed !== 0);
     };
 
     const runParallaxFrame = () => {
       isTicking = false;
       const scrollY = window.pageYOffset;
 
-      // 1. Update Reading Progress Bar via GPU scaleX (zero React state re-renders)
+      // 1. Reading Progress Bar via GPU scaleX
       if (progressBarRef.current && totalScroll > 0) {
         const progress = Math.min(1, Math.max(0, scrollY / totalScroll));
         progressBarRef.current.style.transform = `scaleX(${progress.toFixed(4)})`;
       }
 
-      // 2. Update 4-Plane Hero Parallax when Hero is within view
+      // 2. Subtle 4-Plane Hero Atmosphere Parallax (active only in hero zone)
       if (scrollY <= vh * 1.25) {
         const { x, y } = mouseOffsetRef.current;
         if (parallaxBgRef.current) {
-          parallaxBgRef.current.style.transform = `translate3d(${(x * -18).toFixed(1)}px, ${(scrollY * 0.38 + y * -12).toFixed(1)}px, 0) scale(1.09)`;
+          parallaxBgRef.current.style.transform = `translate3d(${(x * -16).toFixed(1)}px, ${(scrollY * 0.32 + y * -10).toFixed(1)}px, 0) scale(1.08)`;
         }
         if (parallaxMidRef.current) {
-          parallaxMidRef.current.style.transform = `translate3d(${(x * -10).toFixed(1)}px, ${(scrollY * 0.2 + y * -6).toFixed(1)}px, 0)`;
+          parallaxMidRef.current.style.transform = `translate3d(${(x * -8).toFixed(1)}px, ${(scrollY * 0.16 + y * -5).toFixed(1)}px, 0)`;
         }
         if (parallaxTextRef.current) {
-          parallaxTextRef.current.style.transform = `translate3d(${(x * 7).toFixed(1)}px, ${(scrollY * -0.14 + y * 5).toFixed(1)}px, 0)`;
+          parallaxTextRef.current.style.transform = `translate3d(${(x * 6).toFixed(1)}px, ${(scrollY * -0.1 + y * 4).toFixed(1)}px, 0)`;
         }
         if (parallaxRightColRef.current) {
-          parallaxRightColRef.current.style.transform = `translate3d(${(x * 11).toFixed(1)}px, ${(scrollY * 0.09 + y * 8).toFixed(1)}px, 0)`;
+          parallaxRightColRef.current.style.transform = `translate3d(${(x * 8).toFixed(1)}px, ${(scrollY * 0.08 + y * 6).toFixed(1)}px, 0)`;
         }
-      }
-
-      // 3. Zero-Reflow Multi-Plane Parallax using Pre-Cached Document Metrics
-      const viewportCenter = vh * 0.5;
-      for (let i = 0; i < parallaxItems.length; i++) {
-        const item = parallaxItems[i];
-        const viewportTop = item.docTop - scrollY;
-        const viewportBottom = viewportTop + item.height;
-        if (viewportBottom < -260 || viewportTop > vh + 260) continue;
-
-        const elementCenter = viewportTop + item.height * 0.5;
-        const distanceFromCenter = elementCenter - viewportCenter;
-        const offsetY = Math.max(
-          -85,
-          Math.min(85, -distanceFromCenter * item.speed)
-        );
-        item.el.style.transform = `translate3d(0, ${offsetY.toFixed(1)}px, 0)`;
       }
     };
 
@@ -468,7 +420,7 @@ export default function App() {
     };
 
     const handleResize = () => {
-      measureParallaxLayout();
+      measureLayout();
       scheduleFrame();
     };
 
@@ -480,36 +432,26 @@ export default function App() {
       scheduleFrame();
     };
 
-    measureParallaxLayout();
+    measureLayout();
 
     window.addEventListener('scroll', scheduleFrame, { passive: true });
     window.addEventListener('resize', handleResize, { passive: true });
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
-    // Bidirectional Intersection Observer: smooth reveal on both Scroll Down and Scroll Up
+    // Smooth entrance reveal: once revealed, element stays solid and stable across upward/downward scrolling
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, obs) => {
         entries.forEach((entry) => {
-          const el = entry.target as HTMLElement;
           if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
             el.classList.add('is-revealed');
-          } else {
-            el.classList.remove('is-revealed');
-            if (entry.boundingClientRect.top < 0) {
-              // Element exited above viewport (scrolling down) -> next time it enters from top when scrolling up
-              el.classList.add('from-top');
-              el.classList.remove('from-bottom');
-            } else {
-              // Element exited below viewport (scrolling up) -> next time it enters from bottom when scrolling down
-              el.classList.add('from-bottom');
-              el.classList.remove('from-top');
-            }
+            obs.unobserve(el);
           }
         });
       },
       {
-        threshold: 0.06,
-        rootMargin: '0px 0px -28px 0px',
+        threshold: 0.05,
+        rootMargin: '0px 0px 48px 0px',
       }
     );
 
@@ -518,14 +460,11 @@ export default function App() {
     );
     revealElements.forEach((el) => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < vh - 28 && rect.bottom > 0) {
+      if (rect.top < vh + 50) {
         el.classList.add('is-revealed');
-      } else if (rect.bottom <= 0) {
-        el.classList.add('from-top');
       } else {
-        el.classList.add('from-bottom');
+        observer.observe(el);
       }
-      observer.observe(el);
     });
 
     // Initial synchronous frame
