@@ -697,6 +697,17 @@ export default function App() {
               ref={parallaxTextRef}
               className="parallax-item lg:col-span-5 flex flex-col justify-center items-start text-left lg:-mt-4"
             >
+              {/* Identity & Pedigree Pill */}
+              <div
+                style={{ '--entrance-delay': '0.04s' } as React.CSSProperties}
+                className="hero-entrance-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#faf7f2]/10 backdrop-blur-md border border-[#b88a3b]/40 text-[#f0c46c] text-[11px] font-mono tracking-wider font-semibold uppercase mb-3.5 shadow-[0_4px_16px_rgba(4,8,16,0.5)]"
+              >
+                <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
+                <span>APM × AI Systems</span>
+                <span className="text-[#b88a3b]/60">•</span>
+                <span className="text-[#faf7f2]/90">IIMV (MBA) × IIITDMK (CSE)</span>
+              </div>
+
               <h1
                 aria-label={`I turn fuzzy problems into ${HERO_ROTATING_WORDS[heroWordIndex]}`}
                 className="w-full text-5xl sm:text-6xl lg:text-[76px] xl:text-[86px] font-extrabold text-[#faf7f2] tracking-[-0.025em] leading-[1.16] font-[family-name:var(--font-editorial)] drop-shadow-[0_8px_32px_rgba(4,8,16,0.92)]"
@@ -748,6 +759,14 @@ export default function App() {
                   })}
                 </span>
               </h1>
+
+              {/* Sub-headline / Thesis Statement */}
+              <p
+                style={{ '--entrance-delay': '0.34s' } as React.CSSProperties}
+                className="hero-entrance-item mt-4 sm:mt-5 text-sm sm:text-base text-[#d4c8b6] leading-relaxed max-w-md drop-shadow-[0_2px_12px_rgba(4,8,16,0.85)]"
+              >
+                Bridging user friction, engineering feasibility, and unit economics to build products that ship and scale.
+              </p>
             </div>
 
             {/* RIGHT COLUMN (7 Cols): Original 4-Pillar PM Role Command Deck (2x2 Equal-Height Bento, Zero Touching) */}
