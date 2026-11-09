@@ -11,7 +11,9 @@ import { ResumeModal } from './components/ResumeModal';
 const HERO_BG_URL = '/assets/aistudio/image_9e64342e.png';
 
 const ABOUT_BEACH_LOCAL = '/assets/aistudio/image_b9a0e565.png';
-const RESUME_PDF_LOCAL = '/assets/aistudio/Krishnamurthi_Resume_PM_995bd473.pdf';
+const RESUME_PDF_LOCAL = '/resume.pdf';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/krishna9003762619murthi/';
+const GITHUB_URL = 'https://github.com/krishnamurthi-ramesh';
 
 const PM_MARQUEE_ITEMS = [
   'Associate Product Manager (APM)',
@@ -635,6 +637,16 @@ export default function App() {
                 </a>
               );
             })}
+
+            {/* Direct Resume Action in Navbar */}
+            <button
+              type="button"
+              data-cursor="View Resume"
+              onClick={() => setShowResumeModal(true)}
+              className="nav-link-animated text-[#554d42] hover:text-[#0e1828] transition-colors py-1 px-2 sm:px-2.5 rounded-full cursor-pointer font-medium"
+            >
+              Résumé
+            </button>
           </div>
 
           {/* Let's Connect CTA Button */}
@@ -1188,17 +1200,29 @@ export default function App() {
                 </div>
 
                 {/* CTAs */}
-                <div className="pt-1 flex flex-wrap items-center gap-4 text-xs sm:text-sm font-semibold">
+                <div className="pt-1 flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold">
                   <button
                     type="button"
                     data-cursor="View Resume"
                     onClick={() => setShowResumeModal(true)}
-                    className="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] transition-colors cursor-pointer border border-[#b88a3b]/40 shadow-sm"
+                    className="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] transition-colors cursor-pointer border border-[#b88a3b]/40 shadow-sm inline-flex items-center gap-1.5"
                   >
-                    View Full Resume
+                    <span>View Full Resume</span>
+                    <span className="material-symbols-outlined text-[14px]">visibility</span>
                   </button>
                   <a
-                    href="https://www.linkedin.com/in/krishnamurthi-ramesh"
+                    href={RESUME_PDF_LOCAL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download="Krishnamurthi_Resume_PM.pdf"
+                    data-cursor="Download PDF"
+                    className="px-4 py-2.5 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] transition-colors font-medium flex items-center gap-1"
+                  >
+                    <span>Download PDF</span>
+                    <span className="material-symbols-outlined text-[14px]">download</span>
+                  </a>
+                  <a
+                    href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cursor="Open LinkedIn"
@@ -1208,7 +1232,7 @@ export default function App() {
                     <span className="material-symbols-outlined text-[14px]">north_east</span>
                   </a>
                   <a
-                    href="https://github.com/krishnamurthi-ramesh"
+                    href={GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cursor="Open GitHub"
@@ -1705,6 +1729,7 @@ export default function App() {
                 href={RESUME_PDF_LOCAL}
                 target="_blank"
                 rel="noopener noreferrer"
+                download="Krishnamurthi_Resume_PM.pdf"
                 data-cursor="Download PDF"
                 className="btn-shimmer px-5 py-3.5 rounded-full bg-[#16243b] hover:bg-[#1f3252] text-[#faf7f2] border border-[#dfd6c6]/20 transition-all text-xs font-semibold flex items-center gap-1 hover:scale-105 active:scale-95"
               >
@@ -1717,7 +1742,7 @@ export default function App() {
             <div className="pt-3 flex flex-wrap items-center justify-center gap-8 text-sm font-medium text-[#c4b7a2]">
               <a
                 className="hover:text-[#faf7f2] transition-colors inline-flex items-center gap-1"
-                href="https://www.linkedin.com/in/krishnamurthi-ramesh"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor="Open LinkedIn"
@@ -1729,7 +1754,7 @@ export default function App() {
               </a>
               <a
                 className="hover:text-[#faf7f2] transition-colors inline-flex items-center gap-1"
-                href="https://github.com/krishnamurthi-ramesh"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor="Open GitHub"

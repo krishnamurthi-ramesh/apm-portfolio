@@ -8,7 +8,7 @@ interface ResumeModalProps {
 export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
   if (!isOpen) return null;
 
-  const pdfUrl = '/assets/aistudio/Krishnamurthi_Resume_PM_995bd473.pdf';
+  const pdfUrl = '/resume.pdf';
 
   return (
     <div
