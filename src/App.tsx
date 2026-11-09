@@ -8,7 +8,6 @@ import { CaseStudyKey } from './utils/portfolioLogic';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { ResumeModal } from './components/ResumeModal';
 import { GtmLaunchIntro } from './components/GtmLaunchIntro';
-import { AnimatedCounter } from './components/AnimatedCounter';
 
 const HERO_BG_URL = '/assets/aistudio/image_9e64342e.png';
 
@@ -656,15 +655,15 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-1.5 sm:gap-2">
-            {/* GTM Intro Replay Pill */}
+            {/* Welcome Intro Replay Pill */}
             <button
               type="button"
-              data-cursor="GTM Telemetry"
+              data-cursor="Play Welcome Intro"
               onClick={() => setShowGtmIntro(true)}
               className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] text-xs font-mono font-bold tracking-wider transition-all border border-[#dfd6c6] hover:border-[#b88a3b] cursor-pointer"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-ping" />
-              <span>GTM INTRO</span>
+              <span>WELCOME INTRO</span>
             </button>
 
             {/* Let's Connect CTA Button */}
@@ -779,37 +778,6 @@ export default function App() {
                   })}
                 </span>
               </h1>
-
-              {/* Real-time GTM Metrics Counter Strip with dynamic live easing */}
-              <div
-                style={{ '--entrance-delay': '0.36s' } as React.CSSProperties}
-                className="hero-entrance-item mt-5 sm:mt-6 w-full max-w-[430px] grid grid-cols-3 gap-2 p-2.5 sm:p-3 rounded-2xl bg-[#080e18]/85 backdrop-blur-md border border-[#b88a3b]/40 shadow-[0_8px_24px_rgba(4,8,16,0.6)]"
-              >
-                <div className="text-center sm:text-left pl-1">
-                  <div className="text-base sm:text-lg font-bold font-mono text-[#f0c46c]">
-                    <AnimatedCounter value={15} prefix="+" suffix="%" />
-                  </div>
-                  <div className="text-[9.5px] text-[#9ba8bc] uppercase tracking-wider font-semibold">
-                    Match Lift
-                  </div>
-                </div>
-                <div className="text-center sm:text-left border-x border-white/10 px-2">
-                  <div className="text-base sm:text-lg font-bold font-mono text-[#faf7f2]">
-                    <AnimatedCounter value={40} prefix="-" suffix="%" />
-                  </div>
-                  <div className="text-[9.5px] text-[#9ba8bc] uppercase tracking-wider font-semibold">
-                    Triage Time
-                  </div>
-                </div>
-                <div className="text-center sm:text-left pl-1">
-                  <div className="text-base sm:text-lg font-bold font-mono text-[#f0c46c]">
-                    <AnimatedCounter value={100} suffix="k+" />
-                  </div>
-                  <div className="text-[9.5px] text-[#9ba8bc] uppercase tracking-wider font-semibold">
-                    Logs / Day
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* RIGHT COLUMN (7 Cols): Original 4-Pillar PM Role Command Deck (2x2 Equal-Height Bento, Zero Touching) */}
@@ -1799,7 +1767,7 @@ export default function App() {
               <div className="flex items-center gap-5">
                 <button
                   type="button"
-                  data-cursor="Replay GTM Launch"
+                  data-cursor="Replay Welcome"
                   onClick={() => {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     setTimeout(() => setShowGtmIntro(true), 350);
@@ -1807,7 +1775,7 @@ export default function App() {
                   className="flex items-center gap-1.5 text-[#c4b7a2] hover:text-[#f0c46c] transition-colors cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-[14px]">replay</span>
-                  <span>Replay GTM Launch</span>
+                  <span>Replay Welcome</span>
                 </button>
                 <button
                   type="button"
