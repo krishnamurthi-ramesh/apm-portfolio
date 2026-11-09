@@ -328,6 +328,98 @@
   will-change: auto;
 }
 
+/* Multi-Directional PM Reveal Animations */
+.reveal-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-slide-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+  will-change: auto;
+}
+
+.reveal-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-slide-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+  will-change: auto;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1);
+  will-change: auto;
+}
+
+/* Expanding Gold Accent Line */
+.reveal-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.reveal-line.is-revealed {
+  transform: scaleX(1);
+  will-change: auto;
+}
+
+/* Subtle Glowing Border on Reveal */
+.reveal-glow {
+  transition: border-color 0.8s ease, box-shadow 0.8s ease;
+}
+.reveal-glow.is-revealed {
+  border-color: rgba(184, 138, 59, 0.45);
+  box-shadow: 0 12px 36px -8px rgba(184, 138, 59, 0.12);
+}
+
+/* Watermark floating layer */
+.parallax-watermark {
+  will-change: transform;
+  pointer-events: none;
+  user-select: none;
+  transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* GTM Launch Sequence Shutter & Orbital Radar Animations */
+@keyframes orbitalPulse {
+  0% { transform: scale(0.95); opacity: 0.35; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+  100% { transform: scale(0.95); opacity: 0.35; }
+}
+
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-orbital-pulse {
+  animation: orbitalPulse 3.2s ease-in-out infinite;
+}
+
+.animate-radar-sweep {
+  animation: radarSweep 6s linear infinite;
+}
+
 /* Staggered Children Reveal */
 .reveal-stagger > * {
   opacity: 0;
@@ -348,8 +440,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .animate-marquee, .animate-float-gentle, .hero-entrance-item, .pm-float-wrapper { animation: none !important; opacity: 1 !important; transform: none !important; translate: none !important; }
-  .parallax-item, [data-parallax-speed] { transform: none !important; transition: none !important; }
+  .animate-marquee, .animate-float-gentle, .hero-entrance-item, .pm-float-wrapper, .animate-orbital-pulse, .animate-radar-sweep { animation: none !important; opacity: 1 !important; transform: none !important; translate: none !important; }
+  .parallax-item, [data-parallax-speed], .parallax-watermark { transform: none !important; transition: none !important; }
   .tilt-card:hover, .project-card-interactive:hover, .think-card:hover { transform: none !important; }
-  .reveal-on-scroll, .reveal-showcase, .reveal-stagger > * { opacity: 1 !important; transform: none !important; translate: none !important; scale: none !important; transition: none !important; }
+  .reveal-on-scroll, .reveal-showcase, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-line, .reveal-stagger > * { opacity: 1 !important; transform: none !important; translate: none !important; scale: none !important; transition: none !important; }
 }

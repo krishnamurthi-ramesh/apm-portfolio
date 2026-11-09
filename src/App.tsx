@@ -7,6 +7,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { CaseStudyKey } from './utils/portfolioLogic';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { ResumeModal } from './components/ResumeModal';
+import { GtmLaunchIntro } from './components/GtmLaunchIntro';
+import { AnimatedCounter } from './components/AnimatedCounter';
 
 const HERO_BG_URL = '/assets/aistudio/image_9e64342e.png';
 
@@ -262,6 +264,23 @@ export default function App() {
   const [showResumeModal, setShowResumeModal] = useState(false);
   const [heroWordIndex, setHeroWordIndex] = useState(0);
 
+  // GTM Launch Sequence Intro State (plays on first visit or when replayed)
+  const [showGtmIntro, setShowGtmIntro] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    return !sessionStorage.getItem('has_seen_gtm_intro');
+  });
+
+  // Active section tracking for fixed navbar
+  const [activeSection, setActiveSection] = useState<string>('home');
+  const activeSectionRef = useRef<string>('home');
+
+  const handleGtmIntroComplete = () => {
+    setShowGtmIntro(false);
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('has_seen_gtm_intro', 'true');
+    }
+  };
+
   // Zero-re-render GPU Refs for Reading Progress, 4-Layer Hero Parallax & Custom See-Through Cursor
   const progressBarRef = useRef<HTMLDivElement | null>(null);
   const parallaxBgRef = useRef<HTMLDivElement | null>(null);
@@ -410,6 +429,36 @@ export default function App() {
           parallaxRightColRef.current.style.transform = `translate3d(${(x * 8).toFixed(1)}px, ${(scrollY * 0.08 + y * 6).toFixed(1)}px, 0)`;
         }
       }
+
+      // 3. Smooth Watermark Floating Parallax (decoupled decorative layer)
+      const watermarks = document.querySelectorAll<HTMLElement>('.parallax-watermark');
+      watermarks.forEach((wm) => {
+        const parent = wm.parentElement;
+        if (!parent) return;
+        const rect = parent.getBoundingClientRect();
+        if (rect.bottom > -80 && rect.top < vh + 80) {
+          const offset = -rect.top * 0.1;
+          wm.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+        }
+      });
+
+      // 4. Zero-re-render Active Section Spy for Navbar
+      const sectionIds = ['home', 'about', 'work', 'experience', 'tools', 'connect'];
+      const triggerLine = vh * 0.38;
+      let matched = 'home';
+      for (let i = 0; i < sectionIds.length; i++) {
+        const sec = document.getElementById(sectionIds[i]);
+        if (sec) {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= triggerLine) {
+            matched = sectionIds[i];
+          }
+        }
+      }
+      if (matched !== activeSectionRef.current) {
+        activeSectionRef.current = matched;
+        setActiveSection(matched);
+      }
     };
 
     const scheduleFrame = () => {
@@ -456,7 +505,7 @@ export default function App() {
     );
 
     const revealElements = document.querySelectorAll<HTMLElement>(
-      '.reveal-on-scroll, .reveal-showcase'
+      '.reveal-on-scroll, .reveal-showcase, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-line, .reveal-glow, .reveal-stagger'
     );
     revealElements.forEach((el) => {
       const rect = el.getBoundingClientRect();
@@ -494,6 +543,9 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#faf7f2] text-[#121820] font-sans overflow-x-hidden selection:bg-[#b88a3b] selection:text-[#faf7f2]">
+      {/* 0. Strategic GTM Strategy & AI Systems Launch Telemetry Intro */}
+      <GtmLaunchIntro isOpen={showGtmIntro} onComplete={handleGtmIntroComplete} />
+
       {/* Custom Rounded Dart Pointer Cursor (Portfolio Burnished Gold & Oxford Navy Palette) */}
       <div
         ref={cursorLensRef}
@@ -577,47 +629,54 @@ export default function App() {
             </span>
           </a>
 
-          {/* Navigation links with animated gold underline */}
-          <div className="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium">
-            <a
-              href="#about"
-              data-cursor="About Me"
-              className="nav-link-animated text-[#554d42] hover:text-[#0e1828] transition-colors py-0.5"
-            >
-              About
-            </a>
-            <a
-              href="#work"
-              data-cursor="Featured Work"
-              className="nav-link-animated text-[#554d42] hover:text-[#0e1828] transition-colors py-0.5"
-            >
-              Work
-            </a>
-            <a
-              href="#experience"
-              data-cursor="Track Record"
-              className="nav-link-animated text-[#554d42] hover:text-[#0e1828] transition-colors py-0.5"
-            >
-              Experience
-            </a>
-            <a
-              href="#tools"
-              data-cursor="PM Playbook"
-              className="nav-link-animated text-[#554d42] hover:text-[#0e1828] transition-colors py-0.5"
-            >
-              Toolbox
-            </a>
+          {/* Navigation links with dynamic active indicator */}
+          <div className="flex items-center gap-1.5 sm:gap-4 text-xs sm:text-sm font-medium">
+            {[
+              { href: '#about', id: 'about', label: 'About' },
+              { href: '#work', id: 'work', label: 'Work' },
+              { href: '#experience', id: 'experience', label: 'Experience' },
+              { href: '#tools', id: 'tools', label: 'Toolbox' },
+            ].map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <a
+                  key={link.id}
+                  href={link.href}
+                  data-cursor={link.label}
+                  className={`transition-all py-1 px-2.5 sm:px-3 rounded-full ${
+                    isActive
+                      ? 'bg-[#0e1828] text-[#faf7f2] font-semibold shadow-2xs'
+                      : 'nav-link-animated text-[#554d42] hover:text-[#0e1828]'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
 
-          {/* Let's Connect CTA Button */}
-          <a
-            href="#connect"
-            data-cursor="Let's Connect"
-            className="btn-shimmer ml-1 sm:ml-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] font-semibold text-xs transition-all shadow-sm flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95 border border-[#b88a3b]/30"
-          >
-            <span>Let&apos;s Connect</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#b88a3b]"></span>
-          </a>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {/* GTM Intro Replay Pill */}
+            <button
+              type="button"
+              data-cursor="GTM Telemetry"
+              onClick={() => setShowGtmIntro(true)}
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] text-xs font-mono font-bold tracking-wider transition-all border border-[#dfd6c6] hover:border-[#b88a3b] cursor-pointer"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-ping" />
+              <span>GTM INTRO</span>
+            </button>
+
+            {/* Let's Connect CTA Button */}
+            <a
+              href="#connect"
+              data-cursor="Let's Connect"
+              className="btn-shimmer ml-0.5 sm:ml-1 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] font-semibold text-xs transition-all shadow-sm flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95 border border-[#b88a3b]/30"
+            >
+              <span>Let&apos;s Connect</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#b88a3b]"></span>
+            </a>
+          </div>
         </nav>
       </header>
 
@@ -720,6 +779,37 @@ export default function App() {
                   })}
                 </span>
               </h1>
+
+              {/* Real-time GTM Metrics Counter Strip with dynamic live easing */}
+              <div
+                style={{ '--entrance-delay': '0.36s' } as React.CSSProperties}
+                className="hero-entrance-item mt-5 sm:mt-6 w-full max-w-[430px] grid grid-cols-3 gap-2 p-2.5 sm:p-3 rounded-2xl bg-[#080e18]/85 backdrop-blur-md border border-[#b88a3b]/40 shadow-[0_8px_24px_rgba(4,8,16,0.6)]"
+              >
+                <div className="text-center sm:text-left pl-1">
+                  <div className="text-base sm:text-lg font-bold font-mono text-[#f0c46c]">
+                    <AnimatedCounter value={15} prefix="+" suffix="%" />
+                  </div>
+                  <div className="text-[9.5px] text-[#9ba8bc] uppercase tracking-wider font-semibold">
+                    Match Lift
+                  </div>
+                </div>
+                <div className="text-center sm:text-left border-x border-white/10 px-2">
+                  <div className="text-base sm:text-lg font-bold font-mono text-[#faf7f2]">
+                    <AnimatedCounter value={40} prefix="-" suffix="%" />
+                  </div>
+                  <div className="text-[9.5px] text-[#9ba8bc] uppercase tracking-wider font-semibold">
+                    Triage Time
+                  </div>
+                </div>
+                <div className="text-center sm:text-left pl-1">
+                  <div className="text-base sm:text-lg font-bold font-mono text-[#f0c46c]">
+                    <AnimatedCounter value={100} suffix="k+" />
+                  </div>
+                  <div className="text-[9.5px] text-[#9ba8bc] uppercase tracking-wider font-semibold">
+                    Logs / Day
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* RIGHT COLUMN (7 Cols): Original 4-Pillar PM Role Command Deck (2x2 Equal-Height Bento, Zero Touching) */}
@@ -1062,18 +1152,16 @@ export default function App() {
         >
           {/* Deep Background Parallax Watermark */}
           <div
-            data-parallax-speed="-0.15"
             aria-hidden="true"
-            className="pointer-events-none select-none absolute -top-6 right-4 lg:right-10 text-[120px] sm:text-[170px] font-extrabold font-[family-name:var(--font-editorial)] text-[#0e1828]/[0.035] leading-none z-0"
+            className="parallax-watermark pointer-events-none select-none absolute -top-6 right-4 lg:right-10 text-[120px] sm:text-[170px] font-extrabold font-[family-name:var(--font-editorial)] text-[#0e1828]/[0.035] leading-none z-0"
           >
             01
           </div>
 
           <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Portrait Photo Showcase */}
-            <div className="lg:col-span-5 reveal-showcase">
+            {/* Portrait Photo Showcase (Enters smoothly from Left) */}
+            <div className="lg:col-span-5 reveal-slide-left">
               <div
-                data-parallax-speed="-0.065"
                 className="relative rounded-3xl overflow-hidden shadow-lg border border-[#dfd6c6] h-[360px] sm:h-[400px] lg:h-[420px] w-full bg-[#f0e8dc]"
               >
                 <img
@@ -1083,7 +1171,6 @@ export default function App() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0e1828]/65 via-transparent to-transparent pointer-events-none" />
                 <div
-                  data-parallax-speed="0.04"
                   className="absolute bottom-3.5 left-3.5 right-3.5 p-3.5 rounded-2xl bg-[#faf7f2]/95 backdrop-blur-md border border-[#dfd6c6] shadow-md"
                 >
                   <div className="flex items-center justify-between text-xs font-bold text-[#0e1828]">
@@ -1097,9 +1184,9 @@ export default function App() {
               </div>
             </div>
 
-            {/* Short, Crisp APM About Copy */}
-            <div className="lg:col-span-7 reveal-showcase">
-              <div data-parallax-speed="0.055" className="space-y-4">
+            {/* Short, Crisp APM About Copy (Enters smoothly from Right) */}
+            <div className="lg:col-span-7 reveal-slide-right">
+              <div className="space-y-4">
                 <div className="space-y-1.5">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#806b47] font-mono">
                     <span>01</span>
@@ -1114,6 +1201,8 @@ export default function App() {
                     </span>
                   </h2>
                 </div>
+
+                <div className="reveal-line h-[1.5px] w-full bg-gradient-to-r from-[#b88a3b] via-[#c99b4a] to-transparent my-2" />
 
                 <div className="space-y-3.5 text-sm sm:text-[15.5px] text-[#4a4235] leading-relaxed max-w-[620px]">
                   <p>
@@ -1184,9 +1273,8 @@ export default function App() {
         >
           {/* Deep Background Parallax Watermark */}
           <div
-            data-parallax-speed="-0.15"
             aria-hidden="true"
-            className="pointer-events-none select-none absolute top-6 right-4 lg:right-10 text-[130px] sm:text-[190px] font-extrabold font-[family-name:var(--font-editorial)] text-[#0e1828]/[0.035] leading-none z-0"
+            className="parallax-watermark pointer-events-none select-none absolute top-6 right-4 lg:right-10 text-[130px] sm:text-[190px] font-extrabold font-[family-name:var(--font-editorial)] text-[#0e1828]/[0.035] leading-none z-0"
           >
             02
           </div>
@@ -1194,7 +1282,6 @@ export default function App() {
           <div className="relative z-10 space-y-10">
             {/* Header and Filter Tabs */}
             <div
-              data-parallax-speed="-0.05"
               className="flex flex-col md:flex-row md:items-end justify-between gap-6"
             >
               <div className="space-y-2">
@@ -1264,22 +1351,20 @@ export default function App() {
               </div>
             </div>
 
-            {/* Project Showcases with Individual Scroll-Reveal & Multi-Plane Parallax */}
+            {/* Project Showcases with Scale & Glow Reveal */}
             <div className="space-y-10">
               {filteredProjects.map((item, idx) => (
                 <article
                   key={item.id}
                   data-cursor="View Project"
                   onClick={() => setActiveCaseStudy(item.id)}
-                  className="reveal-showcase project-card-interactive rounded-3xl bg-[#ffffff] border border-[#dfd6c6] shadow-[0_6px_28px_rgba(14,24,40,0.05)] overflow-hidden group"
+                  className="reveal-scale reveal-glow project-card-interactive rounded-3xl bg-[#ffffff] border border-[#dfd6c6] shadow-[0_6px_28px_rgba(14,24,40,0.05)] overflow-hidden group"
                 >
                   <div
-                    data-parallax-speed={idx % 2 === 0 ? '0.055' : '-0.05'}
                     className="p-7 sm:p-9 space-y-6"
                   >
                     {/* Card Header (Plane 1) */}
                     <div
-                      data-parallax-speed="-0.03"
                       className="flex flex-wrap items-center justify-between gap-3 border-b border-[#dfd6c6]/60 pb-4"
                     >
                       <div className="flex items-center gap-2.5">
@@ -1312,12 +1397,11 @@ export default function App() {
                       </p>
                     </div>
 
-                    {/* 3-Part Column Grid with Staggered Depth Parallax (Problem, Judgment Calls, Outcome) */}
+                    {/* 3-Part Column Grid (Problem from left, Outcome from right) */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
                       {/* Problem */}
                       <div
-                        data-parallax-speed="-0.04"
-                        className="p-5 rounded-2xl bg-[#faf7f2] border border-[#dfd6c6] space-y-2 group-hover:border-[#dfd6c6]/80 transition-colors"
+                        className="reveal-slide-left p-5 rounded-2xl bg-[#faf7f2] border border-[#dfd6c6] space-y-2 group-hover:border-[#dfd6c6]/80 transition-colors"
                       >
                         <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#806b47]">
                           Problem Framing
@@ -1329,8 +1413,7 @@ export default function App() {
 
                       {/* Judgment calls */}
                       <div
-                        data-parallax-speed="0.02"
-                        className="p-5 rounded-2xl bg-[#faf7f2] border border-[#dfd6c6] space-y-2 group-hover:border-[#dfd6c6]/80 transition-colors"
+                        className="reveal-on-scroll p-5 rounded-2xl bg-[#faf7f2] border border-[#dfd6c6] space-y-2 group-hover:border-[#dfd6c6]/80 transition-colors"
                       >
                         <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0e1828]">
                           PM Judgment Calls
@@ -1342,8 +1425,7 @@ export default function App() {
 
                       {/* Outcome */}
                       <div
-                        data-parallax-speed="0.065"
-                        className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-2 group-hover:border-[#b88a3b]/40 transition-colors"
+                        className="reveal-slide-right p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-2 group-hover:border-[#b88a3b]/40 transition-colors"
                       >
                         <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0e1828]">
                           Quantitative Outcome
@@ -1379,15 +1461,14 @@ export default function App() {
         >
           {/* Deep Background Parallax Watermark */}
           <div
-            data-parallax-speed="-0.15"
             aria-hidden="true"
-            className="pointer-events-none select-none absolute top-6 right-4 lg:right-10 text-[130px] sm:text-[190px] font-extrabold font-[family-name:var(--font-editorial)] text-[#0e1828]/[0.035] leading-none z-0"
+            className="parallax-watermark pointer-events-none select-none absolute top-6 right-4 lg:right-10 text-[130px] sm:text-[190px] font-extrabold font-[family-name:var(--font-editorial)] text-[#0e1828]/[0.035] leading-none z-0"
           >
             03
           </div>
 
           <div className="relative z-10 space-y-10">
-            <div data-parallax-speed="-0.05" className="space-y-2">
+            <div className="space-y-2">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#806b47] font-mono">
                 <span>03</span>
                 <span>/</span>
@@ -1402,20 +1483,16 @@ export default function App() {
               {EXPERIENCES.map((exp, idx) => (
                 <div
                   key={idx}
-                  className="reveal-showcase p-7 sm:p-8 rounded-3xl bg-[#ffffff] border border-[#dfd6c6] shadow-2xs hover:shadow-md hover:border-[#b88a3b]/50 transition-all duration-300 flex flex-col md:flex-row gap-6 md:gap-12 group"
+                  className={`reveal-scale reveal-glow p-7 sm:p-8 rounded-3xl bg-[#ffffff] border border-[#dfd6c6] shadow-2xs hover:shadow-md hover:border-[#b88a3b]/50 transition-all duration-300 flex flex-col md:flex-row gap-6 md:gap-12 group ${
+                    idx % 2 === 0 ? 'reveal-slide-left' : 'reveal-slide-right'
+                  }`}
                 >
-                  <div
-                    data-parallax-speed="-0.05"
-                    className="md:w-52 shrink-0"
-                  >
+                  <div className="md:w-52 shrink-0">
                     <span className="text-xs font-mono font-bold text-[#806b47] uppercase bg-[#f0e8dc] px-3.5 py-1.5 rounded-full inline-block group-hover:bg-[#0e1828] group-hover:text-[#faf7f2] transition-colors">
                       {exp.period}
                     </span>
                   </div>
-                  <div
-                    data-parallax-speed="0.05"
-                    className="space-y-2 flex-1"
-                  >
+                  <div className="space-y-2 flex-1">
                     <div>
                       <h3 className="text-xl font-bold text-[#0e1828] font-[family-name:var(--font-editorial)] group-hover:text-[#b88a3b] transition-colors">
                         {exp.role}
@@ -1441,9 +1518,8 @@ export default function App() {
         >
           {/* Deep Background Parallax Watermark */}
           <div
-            data-parallax-speed="-0.15"
             aria-hidden="true"
-            className="pointer-events-none select-none absolute top-6 right-4 lg:right-10 text-[130px] sm:text-[190px] font-extrabold font-[family-name:var(--font-editorial)] text-[#0e1828]/[0.035] leading-none z-0"
+            className="parallax-watermark pointer-events-none select-none absolute top-6 right-4 lg:right-10 text-[130px] sm:text-[190px] font-extrabold font-[family-name:var(--font-editorial)] text-[#0e1828]/[0.035] leading-none z-0"
           >
             04
           </div>
@@ -1451,7 +1527,6 @@ export default function App() {
           <div className="relative z-10 space-y-14">
             {/* Section Header */}
             <div
-              data-parallax-speed="-0.05"
               className="flex flex-col lg:flex-row lg:items-end justify-between gap-6"
             >
               <div className="space-y-2">
@@ -1470,14 +1545,12 @@ export default function App() {
             </div>
 
             {/* PART 1: 4-Stage End-to-End Product Execution Loop */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 reveal-stagger">
               {PRODUCT_EXECUTION_LOOP.map((item, idx) => {
-                const loopSpeeds = ['-0.06', '-0.02', '0.03', '0.07'];
                 return (
                   <div
                     key={item.step}
-                    data-parallax-speed={loopSpeeds[idx] || '0.03'}
-                    className="reveal-showcase think-card relative flex flex-col justify-between rounded-3xl bg-[#ffffff] border border-[#dfd6c6] p-6 shadow-2xs"
+                    className="reveal-scale think-card relative flex flex-col justify-between rounded-3xl bg-[#ffffff] border border-[#dfd6c6] p-6 shadow-2xs"
                   >
                     <div className="space-y-4">
                       <div className="flex items-center justify-between border-b border-[#efe7da] pb-3">
@@ -1723,17 +1796,31 @@ export default function App() {
               <p>
                 © 2026 Krishnamurthi. Dual Pedigree: IIM Visakhapatnam (MBA) × IIITDM Kurnool (B.Tech CSE).
               </p>
-              <button
-                type="button"
-                data-cursor="Back to Top"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="flex items-center gap-1 text-[#c4b7a2] hover:text-[#faf7f2] transition-colors cursor-pointer"
-              >
-                <span>Back to top</span>
-                <span className="material-symbols-outlined text-[14px]">
-                  arrow_upward
-                </span>
-              </button>
+              <div className="flex items-center gap-5">
+                <button
+                  type="button"
+                  data-cursor="Replay GTM Launch"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setTimeout(() => setShowGtmIntro(true), 350);
+                  }}
+                  className="flex items-center gap-1.5 text-[#c4b7a2] hover:text-[#f0c46c] transition-colors cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-[14px]">replay</span>
+                  <span>Replay GTM Launch</span>
+                </button>
+                <button
+                  type="button"
+                  data-cursor="Back to Top"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="flex items-center gap-1 text-[#c4b7a2] hover:text-[#faf7f2] transition-colors cursor-pointer"
+                >
+                  <span>Back to top</span>
+                  <span className="material-symbols-outlined text-[14px]">
+                    arrow_upward
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </footer>
