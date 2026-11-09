@@ -14,6 +14,12 @@ build/
 .env*
 !.env.example
 
-# Temporary and design scratch
+# Python cache & Vercel local
+__pycache__/
+*.pyc
+.vercel/
+
+# Standalone nested project repos
+PRojects/
 *.zip
 .vscode/
