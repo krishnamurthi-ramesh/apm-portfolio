@@ -140,6 +140,15 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               </div>
               <div className="pt-2 border-t border-[#dfd6c6]/60 text-[#554d42] flex flex-wrap gap-x-4 gap-y-1.5">
                 <a
+                  href="/nyaya-internship-certificate.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#0e1828] hover:underline transition-colors inline-flex items-center gap-1 font-medium text-[#806b47]"
+                >
+                  <span>✦ Nyaya Shastra Research Certificate (IIITDM Kurnool)</span>
+                  <span className="material-symbols-outlined text-[12px]">open_in_new</span>
+                </a>
+                <a
                   href="https://drive.google.com/file/d/1g6X2YPjZxRs4j8CIz_G60PFAHmy4-Fz5/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"

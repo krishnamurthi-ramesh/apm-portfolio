@@ -119,6 +119,8 @@ const EXPERIENCES = [
     institution: 'IIITDM Kurnool • Kurnool, India',
     description:
       '“Nyaya Shastra for Computer Science Engineers”: Applied classical Indian Nyaya dialectical reasoning and epistemology to modern computer science algorithms and formal system verification.',
+    certificateUrl: '/nyaya-internship-certificate.pdf',
+    certificateLabel: 'Verified Certificate',
   },
   {
     period: 'Apr 2025–Jul 2025',
@@ -1473,6 +1475,21 @@ export default function App() {
                     <p className="text-xs sm:text-sm text-[#4a4235] leading-relaxed pt-1">
                       {exp.description}
                     </p>
+                    {exp.certificateUrl && (
+                      <div className="pt-2">
+                        <a
+                          href={exp.certificateUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-cursor="Certificate"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#f0e8dc] hover:bg-[#0e1828] text-[#806b47] hover:text-[#faf7f2] transition-colors text-xs font-semibold border border-[#dfd6c6] shadow-2xs"
+                        >
+                          <span className="material-symbols-outlined text-[14px] text-[#b88a3b]">verified</span>
+                          <span>{exp.certificateLabel || 'View Certificate'}</span>
+                          <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
