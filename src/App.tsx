@@ -11,7 +11,6 @@ import { ResumeModal } from './components/ResumeModal';
 const HERO_BG_URL = '/assets/aistudio/image_9e64342e.png';
 
 const ABOUT_BEACH_LOCAL = '/assets/aistudio/image_b9a0e565.png';
-const RESUME_PDF_LOCAL = '/resume.pdf';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/krishna9003762619murthi/';
 const GITHUB_URL = 'https://github.com/krishnamurthi-ramesh';
 
@@ -1211,17 +1210,6 @@ export default function App() {
                     <span className="material-symbols-outlined text-[14px]">visibility</span>
                   </button>
                   <a
-                    href={RESUME_PDF_LOCAL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download="Krishnamurthi_Resume_PM.pdf"
-                    data-cursor="Download PDF"
-                    className="px-4 py-2.5 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] transition-colors font-medium flex items-center gap-1"
-                  >
-                    <span>Download PDF</span>
-                    <span className="material-symbols-outlined text-[14px]">download</span>
-                  </a>
-                  <a
                     href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -1724,18 +1712,6 @@ export default function App() {
                   north_east
                 </span>
               </button>
-
-              <a
-                href={RESUME_PDF_LOCAL}
-                target="_blank"
-                rel="noopener noreferrer"
-                download="Krishnamurthi_Resume_PM.pdf"
-                data-cursor="Download PDF"
-                className="btn-shimmer px-5 py-3.5 rounded-full bg-[#16243b] hover:bg-[#1f3252] text-[#faf7f2] border border-[#dfd6c6]/20 transition-all text-xs font-semibold flex items-center gap-1 hover:scale-105 active:scale-95"
-              >
-                <span>PDF Download</span>
-                <span className="material-symbols-outlined text-[14px]">download</span>
-              </a>
             </div>
 
             {/* Secondary links */}
