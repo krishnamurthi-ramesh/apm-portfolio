@@ -1,0 +1,11 @@
+{
+  "framework": "vite",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/teardown-comet.html", "destination": "/teardown-comet.html" },
+    { "source": "/teardown-kreditbee.html", "destination": "/teardown-kreditbee.html" },
+    { "source": "/teardown-phonepe.html", "destination": "/teardown-phonepe.html" },
+    { "source": "/artifact-meraqui.html", "destination": "/artifact-meraqui.html" },
+    { "source": "/resume.pdf", "destination": "/resume.pdf" }
+  ]
+}

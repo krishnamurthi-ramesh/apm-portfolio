@@ -1,0 +1,6 @@
+{
+  "name": "Kinetix Obsidian Cloud",
+  "description": "High-velocity cloud infrastructure, deployment pipelines, and telemetry platform built on the Kinetic Obsidian & Violet design system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

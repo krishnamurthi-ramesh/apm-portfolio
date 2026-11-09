@@ -1,33 +1,19 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Dependencies
+node_modules/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-
-/nbdist/
-/.nb-gradle/
+# Production Build Output
+dist/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
+# AI Studio local brain/scratch
+.aistudio/
+
+# Logs & Environment
+*.log
+.DS_Store
+.env*
+!.env.example
+
+# Temporary and design scratch
+*.zip
 .vscode/

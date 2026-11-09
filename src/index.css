@@ -1,0 +1,366 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #faf7f2;
+  --color-surface-dim: #f1eae0;
+  --color-surface-bright: #ffffff;
+  --color-primary: #0e1828;
+  --color-primary-container: #080f1a;
+  --color-secondary: #b88a3b;
+  --color-accent-gold: #c99b4a;
+  --color-accent-navy: #1a2942;
+  --color-accent-tweed: #2f4438;
+  --color-obsidian: #090e17;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-signature: "Cormorant Garamond", Georgia, serif;
+  --font-editorial: "Playfair Display", Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background-color: var(--color-surface);
+    color: #121820;
+  }
+  body {
+    overscroll-behavior-y: none;
+  }
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+.custom-modal-scroll::-webkit-scrollbar {
+  display: block;
+  width: 6px;
+}
+.custom-modal-scroll::-webkit-scrollbar-track {
+  background: #f1eae0;
+}
+.custom-modal-scroll::-webkit-scrollbar-thumb {
+  background: #d4c8b6;
+  border-radius: 9999px;
+}
+.custom-modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #b88a3b;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.parallax-item,
+[data-parallax-speed] {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Custom Rounded Dart Pointer Cursor (Portfolio Old Money Burnished Gold & Oxford Navy Palette) */
+@media (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor [role="button"],
+  body.has-custom-cursor article,
+  body.has-custom-cursor .project-card-interactive {
+    cursor: none !important;
+  }
+
+  .custom-cursor-dart {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    z-index: 10000;
+    will-change: transform, opacity;
+    transition: opacity 0.18s ease;
+  }
+
+  .custom-cursor-dart-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+    transform-origin: 5px 5px;
+    filter: drop-shadow(0 3px 7px rgba(14, 24, 40, 0.36));
+    transition:
+      transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.22s ease;
+  }
+
+  .custom-cursor-dart.is-active .custom-cursor-dart-svg {
+    transform: scale(1.16) rotate(-4deg);
+    filter: drop-shadow(0 5px 12px rgba(184, 138, 59, 0.48));
+  }
+
+  .custom-cursor-dart.is-pressed .custom-cursor-dart-svg {
+    transform: scale(0.9) rotate(-2deg);
+  }
+
+  .cursor-dart-path {
+    fill: url(#portfolio-cursor-gold);
+    stroke: #0e1828;
+    stroke-width: 1.25px;
+    transition: fill 0.2s ease, stroke 0.2s ease;
+  }
+
+  .custom-cursor-dart.is-active .cursor-dart-path {
+    fill: url(#portfolio-cursor-navy);
+    stroke: #f0c46c;
+    stroke-width: 1.5px;
+  }
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .custom-cursor-dart {
+    display: none !important;
+  }
+}
+
+.tilt-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+.tilt-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Enhanced interactive card hover */
+.project-card-interactive {
+  cursor: pointer;
+  position: relative;
+  transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+.project-card-interactive:hover {
+  border-color: rgba(184, 138, 59, 0.75);
+  box-shadow: 0 24px 52px -12px rgba(14, 24, 40, 0.16), 0 0 0 1px rgba(184, 138, 59, 0.35);
+}
+.project-card-interactive:hover .card-expand-badge {
+  background-color: #0e1828;
+  color: #faf7f2;
+  border-color: #0e1828;
+  transform: translateX(3px);
+}
+.project-card-interactive:hover .card-tech-tag {
+  background-color: #0e1828;
+  color: #faf7f2;
+}
+
+/* Button Shimmer Sweep Effect */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.btn-shimmer:hover::after {
+  transform: translateX(200%);
+}
+
+/* Navigation Animated Gold Underline */
+.nav-link-animated {
+  position: relative;
+}
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #b88a3b;
+  border-radius: 9999px;
+  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1), left 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link-animated:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Mental model card hover */
+.think-card {
+  transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+.think-card:hover {
+  border-color: rgba(184, 138, 59, 0.65);
+  box-shadow: 0 16px 34px -8px rgba(14, 24, 40, 0.11);
+}
+.think-card:hover .think-num {
+  background-color: #0e1828;
+  color: #b88a3b;
+  border-color: #b88a3b;
+  transform: scale(1.08);
+}
+
+/* Gentle float animation (subtle 3px amplitude so aligned cards never touch neighbors) */
+@keyframes floatGentle {
+  0%, 100% { translate: 0 0px; }
+  50% { translate: 0 -3px; }
+}
+.animate-float-gentle {
+  animation: floatGentle 5.4s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered Hero Fade-In-Up Entrance Animation */
+@keyframes heroFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.hero-entrance-item {
+  opacity: 0;
+  animation: heroFadeInUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--entrance-delay, 0s);
+  will-change: opacity, transform;
+}
+
+/* Hero PM Artifact Cards (staggered fade-in-up entrance + gentle float + 3D hover lift) */
+.pm-float-wrapper {
+  opacity: 0;
+  animation:
+    heroFadeInUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) var(--entrance-delay, 0.3s) forwards,
+    floatGentle var(--float-duration, 6s) ease-in-out calc(var(--entrance-delay, 0.3s) + 0.85s) infinite;
+  will-change: opacity, transform, translate;
+}
+.pm-float-wrapper:hover {
+  animation-play-state: running, paused;
+  z-index: 40 !important;
+}
+.pm-artifact-card {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+  will-change: transform, box-shadow;
+}
+.pm-float-wrapper:hover .pm-artifact-card {
+  transform: translate3d(0, -4px, 0) scale(1.015);
+  box-shadow: 0 22px 48px -12px rgba(4, 9, 18, 0.72), 0 0 0 1.5px rgba(224, 178, 92, 0.8);
+}
+
+/* Bidirectional (Scroll-Down & Scroll-Up) Section & Showcase Reveal Animations
+   Uses independent CSS `translate` & `scale` so 60fps parallax `transform` never collides! */
+.reveal-on-scroll {
+  opacity: 0;
+  translate: 0 30px;
+  transition:
+    opacity 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+    translate 0.58s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, translate;
+}
+.reveal-on-scroll.from-top {
+  translate: 0 -30px;
+}
+.reveal-on-scroll.from-bottom {
+  translate: 0 30px;
+}
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.reveal-showcase {
+  opacity: 0;
+  translate: 0 34px;
+  scale: 0.985;
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    translate 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    scale 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, translate, scale;
+}
+.reveal-showcase.from-top {
+  translate: 0 -34px;
+}
+.reveal-showcase.from-bottom {
+  translate: 0 34px;
+}
+.reveal-showcase.is-revealed {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+}
+
+/* Staggered Children Reveal */
+.reveal-stagger > * {
+  opacity: 0;
+  translate: 0 22px;
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    translate 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.is-revealed .reveal-stagger > *:nth-child(1) { transition-delay: 40ms; opacity: 1; translate: 0 0; }
+.is-revealed .reveal-stagger > *:nth-child(2) { transition-delay: 90ms; opacity: 1; translate: 0 0; }
+.is-revealed .reveal-stagger > *:nth-child(3) { transition-delay: 140ms; opacity: 1; translate: 0 0; }
+.is-revealed .reveal-stagger > *:nth-child(4) { transition-delay: 190ms; opacity: 1; translate: 0 0; }
+.is-revealed .reveal-stagger > *:nth-child(5) { transition-delay: 240ms; opacity: 1; translate: 0 0; }
+.is-revealed .reveal-stagger > *:nth-child(6) { transition-delay: 290ms; opacity: 1; translate: 0 0; }
+.is-revealed .reveal-stagger > *:nth-child(7) { transition-delay: 340ms; opacity: 1; translate: 0 0; }
+.is-revealed .reveal-stagger > *:nth-child(8) { transition-delay: 390ms; opacity: 1; translate: 0 0; }
+.is-revealed .reveal-stagger > *:nth-child(9) { transition-delay: 440ms; opacity: 1; translate: 0 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee, .animate-float-gentle, .hero-entrance-item, .pm-float-wrapper { animation: none !important; opacity: 1 !important; transform: none !important; translate: none !important; }
+  .parallax-item, [data-parallax-speed] { transform: none !important; transition: none !important; }
+  .tilt-card:hover, .project-card-interactive:hover, .think-card:hover { transform: none !important; }
+  .reveal-on-scroll, .reveal-showcase, .reveal-stagger > * { opacity: 1 !important; transform: none !important; translate: none !important; scale: none !important; transition: none !important; }
+}
