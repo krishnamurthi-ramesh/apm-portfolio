@@ -114,6 +114,13 @@ const EXPERIENCES = [
       'Specializing in Product Strategy, Technology Commercialization, Operations Analytics, and Quantitative Decision Sciences. Conducting case research on AI product telemetry and SaaS unit economics.',
   },
   {
+    period: 'Jan 2026–Jul 2026',
+    role: 'Research Intern — Classical Epistemology & Logic',
+    institution: 'IIITDM Kurnool • Kurnool, India',
+    description:
+      '“Nyaya Shastra for Computer Science Engineers”: Applied classical Indian Nyaya dialectical reasoning and epistemology to modern computer science algorithms and formal system verification.',
+  },
+  {
     period: 'Apr 2025–Jul 2025',
     role: 'Data Science & Technical Product Intern',
     institution: 'Meraqui Ventures Pvt. Ltd. (karam.ai) • Pune, India',
@@ -126,13 +133,6 @@ const EXPERIENCES = [
     institution: 'Treacle Technologies (Incubated at IIT Kanpur) • Kanpur, India',
     description:
       'Specified and built monitoring dashboards (Grafana, Elasticsearch) that cut incident detection time by 40%. Scaled real-time data pipelines processing 100k+ logs/day with custom evaluation metrics and automated Docker workflows.',
-  },
-  {
-    period: 'Jan 2026–Jul 2026',
-    role: 'Research Intern — Classical Epistemology & Logic',
-    institution: 'IIITDM Kurnool • Kurnool, India',
-    description:
-      '“Nyaya Shastra for Computer Science Engineers”: Applied classical Indian Nyaya dialectical reasoning and epistemology to modern computer science algorithms and formal system verification.',
   },
   {
     period: '2022–2026',
