@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KreditBee & PhonePe Lending Teardown | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-2">
+        <a href="/teardown-kreditbee.html" class="px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] text-xs font-semibold flex items-center gap-1 transition-all">
+          <span>KreditBee View</span>
+          <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+        </a>
+        <a href="/teardown-phonepe.html" class="px-3.5 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1 transition-all shadow-sm">
+          <span>PhonePe View</span>
+          <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        FINTECH COMPARATIVE FUNNEL TEARDOWN
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">2026 Analysis</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      KreditBee &amp; PhonePe Lending: Same Category, Two Failure Modes
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      Diagnosing structurally distinct friction points across two live digital lending funnels in the Indian fintech ecosystem.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi</div>
+      <div><span class="font-bold text-[#0e1828]">Methodology:</span> User Funnel Diagnostics &amp; Drop-off Tracing</div>
+      <div><span class="font-bold text-[#0e1828]">Primary Metric:</span> First-Session KYC Completion Rate</div>
+    </div>
+  </section>
+
+  <!-- Main Analysis -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Key Thesis Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">Diagnostic Summary</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        “Two products in the identical customer loan segment experience high drop-offs due to diametrically opposite funnel failure modes: technical friction (KreditBee) vs. institutional trust rupture (PhonePe).”
+      </h2>
+    </div>
+
+    <!-- Comparative Breakdown -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- KreditBee Card -->
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <div class="flex items-center justify-between pb-3 border-b border-[#dfd6c6]">
+          <h3 class="font-bold text-lg text-[#0e1828]">1. KreditBee: The Document Bottleneck</h3>
+          <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-800">EXECUTION FRICTION</span>
+        </div>
+        <div class="space-y-2 text-xs text-[#4a4235]">
+          <p><strong>Observed Failure:</strong> Users drop out during the mandatory Aadhaar/PAN upload and salary slip verification step due to client-side camera blur and delayed async OCR verification failures.</p>
+          <p><strong>Proposed Solution:</strong> On-device edge computer vision providing instant real-time document quality feedback before upload submission.</p>
+          <p><strong>Validation Metric:</strong> First-attempt document acceptance rate (+18% target).</p>
+        </div>
+        <a href="/teardown-kreditbee.html" class="inline-flex items-center gap-1 text-xs font-semibold text-[#806b47] hover:text-[#0e1828]">
+          <span>Read KreditBee Deep-Dive</span>
+          <span class="material-symbols-outlined text-[13px]">north_east</span>
+        </a>
+      </div>
+
+      <!-- PhonePe Card -->
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <div class="flex items-center justify-between pb-3 border-b border-[#dfd6c6]">
+          <h3 class="font-bold text-lg text-[#0e1828]">2. PhonePe: The Trust-Continuity Break</h3>
+          <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">TRUST RUPTURE</span>
+        </div>
+        <div class="space-y-2 text-xs text-[#4a4235]">
+          <p><strong>Observed Failure:</strong> High-intent users browse loan offers on PhonePe, but abandon upon sudden redirect to third-party lending partners (NBFCs) with foreign UI, unpopulated forms, and unexpected verification calls.</p>
+          <p><strong>Proposed Solution:</strong> Context carry-over SDK with persistent co-branded trust banner and zero-re-entry form pre-fill.</p>
+          <p><strong>Validation Metric:</strong> Cross-partner funnel completion velocity.</p>
+        </div>
+        <a href="/teardown-phonepe.html" class="inline-flex items-center gap-1 text-xs font-semibold text-[#806b47] hover:text-[#0e1828]">
+          <span>Read PhonePe Deep-Dive</span>
+          <span class="material-symbols-outlined text-[13px]">north_east</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom CTA Bar -->
+    <div class="pt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#806b47] hover:text-[#0e1828] transition-colors">
+        ← Return to Portfolio Overview
+      </a>
+      <div class="flex gap-3">
+        <a href="/teardown-kreditbee.html" class="px-4 py-2 rounded-full bg-[#f0e8dc] text-[#0e1828] text-xs font-semibold hover:bg-[#e6dcce] transition-colors">
+          KreditBee Interactive
+        </a>
+        <a href="/teardown-phonepe.html" class="px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] text-xs font-semibold hover:bg-[#1a2942] transition-colors shadow-sm">
+          PhonePe Interactive
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+

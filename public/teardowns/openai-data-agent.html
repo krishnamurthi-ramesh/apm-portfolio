@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI In-House Data Agent Case Study | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="/teardowns/openai-data-agent-case-study.pdf" download="OpenAI_Data_Agent_Case_Study.pdf" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>Download 13-Page PDF</span>
+          <span class="material-symbols-outlined text-[14px]">download</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        AI PRODUCT MANAGEMENT CASE STUDY
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">13 Pages • Jan 2026</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      Inside OpenAI’s In-House Data Agent
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      How a context-first design turns natural-language questions into trusted answers across 70,000 datasets and 600 petabytes.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi</div>
+      <div><span class="font-bold text-[#0e1828]">Primary Source:</span> openai.com/index/inside-our-in-house-data-agent</div>
+      <div><span class="font-bold text-[#0e1828]">Platform Scale:</span> 3,500+ Internal Users • 70,000 Datasets</div>
+    </div>
+  </section>
+
+  <!-- Executive Summary Grid -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Key Thesis Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">Central PM Thesis</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        “Context is the moat, not the model. The exact same LLM gives wildly different answers depending on what it knows about your schema, business semantics, and past corrections.”
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        The transferable proprietary asset in enterprise data agents is neither the model nor the chat window: it is the layered context pipeline and the continuous golden-question evaluation harness.
+      </p>
+    </div>
+
+    <!-- 6-Tier Context Pipeline -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">The 6-Layer Context Architecture</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Why raw schema retrieval fails and how OpenAI enriches table semantics before running SQL.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[#f0e8dc] text-[#806b47] font-mono font-bold text-xs flex items-center justify-center">1</span>
+            <h3 class="font-bold text-sm text-[#0e1828]">Table Usage Frequency</h3>
+          </div>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Mines historical query logs to identify which tables are trusted by data teams, preventing the agent from hallucinating against stale, abandoned staging replicas.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[#f0e8dc] text-[#806b47] font-mono font-bold text-xs flex items-center justify-center">2</span>
+            <h3 class="font-bold text-sm text-[#0e1828]">Human Documentation</h3>
+          </div>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Surfaces human-authored schema descriptions, column definitions, and business glossary metrics with freshness confidence scores.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[#f0e8dc] text-[#806b47] font-mono font-bold text-xs flex items-center justify-center">3</span>
+            <h3 class="font-bold text-sm text-[#0e1828]">Codex Codebase Crawling</h3>
+          </div>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            The secret weapon: The agent crawls Git repositories (dbt models, Airflow DAGs, SQL transforms) to understand what business logic built the table.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[#f0e8dc] text-[#806b47] font-mono font-bold text-xs flex items-center justify-center">4</span>
+            <h3 class="font-bold text-sm text-[#0e1828]">Institutional Memory</h3>
+          </div>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Searches Slack threads, Google Docs, and Notion spaces while strictly preserving user permissions (pass-through RBAC so the agent never leaks access).
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[#f0e8dc] text-[#806b47] font-mono font-bold text-xs flex items-center justify-center">5</span>
+            <h3 class="font-bold text-sm text-[#0e1828]">Memory &amp; Corrections</h3>
+          </div>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            When users correct an assumption, the correction is committed into agent memory. In OpenAI’s reported benchmark, this produced a <strong>17× query speedup</strong> on repeat workflows.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[#f0e8dc] text-[#806b47] font-mono font-bold text-xs flex items-center justify-center">6</span>
+            <h3 class="font-bold text-sm text-[#0e1828]">Runtime Context</h3>
+          </div>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Injects requester role, team boundaries, and active fiscal calendars into query prompts to resolve vague date windows automatically.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Execution Loop Flow -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">The 5-Stage Agent Execution Loop</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Autonomous plan formulation, self-correction, and human auditability.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <div class="flex items-start gap-4 pb-4 border-b border-[#dfd6c6]/60">
+          <span class="w-8 h-8 rounded-full bg-[#0e1828] text-[#f5d07f] font-mono font-bold text-xs flex items-center justify-center shrink-0">01</span>
+          <div>
+            <h4 class="font-bold text-sm text-[#0e1828]">Ambiguity Triage</h4>
+            <p class="text-xs text-[#4a4235] mt-0.5">If a question lacks parameters (e.g. "What were yesterday's signups?"), the agent clarifies timezones or applies smart team-level defaults instead of guessing.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 pb-4 border-b border-[#dfd6c6]/60">
+          <span class="w-8 h-8 rounded-full bg-[#0e1828] text-[#f5d07f] font-mono font-bold text-xs flex items-center justify-center shrink-0">02</span>
+          <div>
+            <h4 class="font-bold text-sm text-[#0e1828]">Context Retrieval</h4>
+            <p class="text-xs text-[#4a4235] mt-0.5">Searches schema vector index, queries codebase git history, and fetches relevant Slack discussions regarding metric definitions.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 pb-4 border-b border-[#dfd6c6]/60">
+          <span class="w-8 h-8 rounded-full bg-[#0e1828] text-[#f5d07f] font-mono font-bold text-xs flex items-center justify-center shrink-0">03</span>
+          <div>
+            <h4 class="font-bold text-sm text-[#0e1828]">Plan &amp; SQL Generation</h4>
+            <p class="text-xs text-[#4a4235] mt-0.5">Generates executable ANSI SQL with defensive joins and row-limit ceilings to prevent database cluster resource starvation.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 pb-4 border-b border-[#dfd6c6]/60">
+          <span class="w-8 h-8 rounded-full bg-[#0e1828] text-[#f5d07f] font-mono font-bold text-xs flex items-center justify-center shrink-0">04</span>
+          <div>
+            <h4 class="font-bold text-sm text-[#0e1828]">Self-Correction &amp; Verification</h4>
+            <p class="text-xs text-[#4a4235] mt-0.5">Executes query in a read-only sandbox. If a syntax error, zero-row anomaly, or cartesian explosion occurs, the error is fed back to the model for automatic query revision.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <span class="w-8 h-8 rounded-full bg-[#0e1828] text-[#f5d07f] font-mono font-bold text-xs flex items-center justify-center shrink-0">05</span>
+          <div>
+            <h4 class="font-bold text-sm text-[#0e1828]">Visible Assumptions &amp; Data Lineage</h4>
+            <p class="text-xs text-[#4a4235] mt-0.5">Delivers the final output accompanied by explicit assumptions, direct links to underlying datasets, and a 1-click option for data analysts to inspect the exact SQL.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transferable PM Takeaways -->
+    <section class="p-8 rounded-3xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-4">
+      <h3 class="text-xl font-bold font-serif text-[#0e1828]">5 Transferable Product Management Lessons</h3>
+      <ul class="space-y-3 text-xs sm:text-sm text-[#4a4235]">
+        <li class="flex items-start gap-2">
+          <span class="text-[#b88a3b] font-bold">✦</span>
+          <div><strong>Evaluation Harness is Product Infrastructure:</strong> A static benchmark of 200+ "golden questions" must run on every prompt or tool change to prevent silent performance regressions.</div>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#b88a3b] font-bold">✦</span>
+          <div><strong>Fewer, Consolidated Tools Beat Many Granular Tools:</strong> Consolidating 15 discrete API tools into 3 higher-level tools cut decision latency and tool-selection hallucinations by over 40%.</div>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#b88a3b] font-bold">✦</span>
+          <div><strong>Inherit, Do Not Reinvent, Permissions:</strong> Passing user tokens directly into downstream systems guarantees compliance without maintaining duplicate access control tables.</div>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#b88a3b] font-bold">✦</span>
+          <div><strong>Trust Requires Visible Assumptions:</strong> Displaying assumptions upfront turns a "black-box answer" into an auditable recommendation for stakeholders.</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Bottom CTA Bar -->
+    <div class="pt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#806b47] hover:text-[#0e1828] transition-colors">
+        ← Return to Portfolio Overview
+      </a>
+      <a href="/teardowns/openai-data-agent-case-study.pdf" download="OpenAI_Data_Agent_Case_Study.pdf" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+        <span>Download Complete 13-Page Case Study (PDF)</span>
+        <span class="material-symbols-outlined text-[14px]">download</span>
+      </a>
+    </div>
+  </main>
+</body>
+</html>
+

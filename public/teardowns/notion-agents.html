@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notion Agents Product Teardown | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="/teardowns/notion-agents-teardown.pdf" download="Notion_Agents_Teardown.pdf" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>Download 17-Page PDF</span>
+          <span class="material-symbols-outlined text-[14px]">download</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        AI ECONOMICS &amp; PRICING TEARDOWN
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">17 Pages • Nov 2026</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      Notion Agents: Doing More for Less
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      Pricing, routing, and cost control for long-running autonomous AI agents.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> Kris (Krishnamurthi)</div>
+      <div><span class="font-bold text-[#0e1828]">Primary Source:</span> Akshay Kothari announcement (Oct 19, 2026)</div>
+      <div><span class="font-bold text-[#0e1828]">Focus Area:</span> Multi-Model Routing • Credit Economics • Runaway Spend Safeguards</div>
+    </div>
+  </section>
+
+  <!-- Main Analysis -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Key Thesis Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">Central PM Thesis</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        “The October announcement is less a feature launch than an attempt to make autonomous work financeable. Efficiency is the precondition for autonomy.”
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        By routing tasks dynamically across frontier models (Claude 3.5 Sonnet) and cost-optimized models (Claude 3.5 Haiku / GPT-4o mini), Notion moves model selection from the end user to the platform vendor, capturing the margin spread while protecting users from runaway billing shocks.
+      </p>
+    </div>
+
+    <!-- The 3-Tier Rate Card -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">The 3-Tier Compute Rate Card</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">How Notion maps heterogeneous customer tasks into discrete credit costs ($10 per 1,000 credits).</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-3">
+          <div class="flex items-baseline justify-between">
+            <span class="text-2xl font-bold font-mono text-[#0e1828]">5 Credits</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#f0e8dc] text-[#806b47]">LIGHT</span>
+          </div>
+          <h3 class="font-bold text-sm text-[#0e1828]">Triage &amp; Single-Turn Synthesis</h3>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Summarizing short docs, classifying meeting action items, formatting markdown. Routed to Claude 3.5 Haiku or GPT-4o mini.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-3">
+          <div class="flex items-baseline justify-between">
+            <span class="text-2xl font-bold font-mono text-[#0e1828]">10 Credits</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#f0e8dc] text-[#806b47]">MEDIUM</span>
+          </div>
+          <h3 class="font-bold text-sm text-[#0e1828]">Multi-Page Extraction &amp; Database Sync</h3>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Parsing cross-linked tables, writing structured PRDs from raw notes, cross-referencing team updates.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-3">
+          <div class="flex items-baseline justify-between">
+            <span class="text-2xl font-bold font-mono text-[#0e1828]">20 Credits</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#0e1828] text-[#f5d07f]">HEAVY</span>
+          </div>
+          <h3 class="font-bold text-sm text-[#0e1828]">Multi-Step Reasoning &amp; Long Workflows</h3>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Complex code generation, deep research across workspace databases, iterative self-audits. Routed to Claude 3.5 Sonnet / OpenAI o1.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Critical Flaw & Proposal -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">The Critical Flaw Diagnosed &amp; Proposed Fix</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Why unattended autonomous agent runs break standard SaaS billing models.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <div class="p-4 rounded-xl bg-red-50/60 border border-red-200 space-y-1">
+          <span class="text-xs font-mono font-bold text-red-800 uppercase">IDENTIFIED VULNERABILITY</span>
+          <h4 class="font-bold text-sm text-red-900">Runaway Spend on Unattended 24-Hour Agents</h4>
+          <p class="text-xs text-red-800 leading-relaxed">
+            Today's pause semantics in Notion are agent-level (on/off), not run-level. If an autonomous agent enters an unconstrained retry loop or crawls an unexpectedly large database, it can exhaust monthly credit allocations overnight with zero outcome signal.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200 space-y-1">
+          <span class="text-xs font-mono font-bold text-emerald-800 uppercase">KRIS'S PRODUCT PROPOSAL</span>
+          <h4 class="font-bold text-sm text-emerald-900">Run-Level Budget Envelopes &amp; Pre-Flight Bounds</h4>
+          <p class="text-xs text-emerald-800 leading-relaxed">
+            1. Enforce a max-spend cap per single run (e.g., max 100 credits per invocation).<br/>
+            2. Introduce pre-flight token estimates before firing external tool calls.<br/>
+            3. Implement checkpoint pauses requiring human confirmation if an agent exceeds its estimated compute by 2×.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA Bar -->
+    <div class="pt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#806b47] hover:text-[#0e1828] transition-colors">
+        ← Return to Portfolio Overview
+      </a>
+      <a href="/teardowns/notion-agents-teardown.pdf" download="Notion_Agents_Teardown.pdf" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+        <span>Download Complete 17-Page Teardown (PDF)</span>
+        <span class="material-symbols-outlined text-[14px]">download</span>
+      </a>
+    </div>
+  </main>
+</body>
+</html>
+

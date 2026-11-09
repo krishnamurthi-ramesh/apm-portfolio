@@ -33,75 +33,86 @@ interface ProjectWorkItem {
   id: CaseStudyKey;
   tag: string;
   badge: string;
-  category: 'all' | 'teardown' | 'ai-systems' | 'research';
+  category: 'agents' | 'funnels';
   title: string;
   subtitle: string;
   problem: string;
   judgmentCalls: string;
   outcome: string;
   techTags: string[];
+  standaloneUrl: string;
+  pdfUrl?: string;
+  workspaceUrl?: string;
 }
 
 const PROJECTS_WORK: ProjectWorkItem[] = [
   {
+    id: 'openai',
+    tag: 'AI PRODUCT MANAGEMENT CASE STUDY',
+    badge: 'OPENAI IN-HOUSE DATA AGENT',
+    category: 'agents',
+    title: 'Inside OpenAI’s In-House Data Agent: Context-First Architecture Across 70,000 Datasets',
+    subtitle: 'Architectural teardown of how layered context pipelines and golden question eval harnesses turn natural language into trusted SQL insights across 3,500+ employees.',
+    problem:
+      'Raw LLM schemas fail in enterprise production because real table semantics live in codebase transformation pipelines (dbt/Airflow), Slack discussions, and human tribal knowledge, not static column names.',
+    judgmentCalls:
+      'Analyzed the 6-layer context pipeline (Git codebase crawling, Slack/Docs institutional memory, pass-through RBAC). Diagnosed their static 200+ golden question evaluation harness and tool consolidation.',
+    outcome:
+      'Achieved 17× query speedup through conversational memory caching; replaced fragile multi-agent tool fragmentation with unified goal-guided execution across 600 PB.',
+    techTags: ['Autonomous Agents', 'Context Engineering', 'Evaluation Harness', 'Golden Questions', 'Pass-Through RBAC', 'SQL Verification'],
+    standaloneUrl: '/teardowns/openai-data-agent.html',
+    pdfUrl: '/teardowns/openai-data-agent-case-study.pdf',
+  },
+  {
+    id: 'notion',
+    tag: 'AI PRICING & ROUTING TEARDOWN',
+    badge: 'NOTION AGENTS',
+    category: 'agents',
+    title: 'Notion Agents: Rebuilt to Do More for Less — Pricing, Routing & Cost Control',
+    subtitle: 'Deconstructing dynamic model routing, credit currency economics, and runaway cost risks on long-running autonomous AI agents.',
+    problem:
+      'Autonomous agents with multi-step tool calls create unpredictable compute bills. Fixed-seat SaaS pricing breaks when unattended 24-hour agent runs consume unbounded frontier LLM tokens.',
+    judgmentCalls:
+      'Evaluated Notion’s 3-tier task rate card (5/10/20 credits) and model degradation strategy (Claude 3.5 Sonnet to Haiku/GPT-4o mini). Diagnosed the critical vulnerability of agent-level pause controls and proposed run-level budget envelopes.',
+    outcome:
+      'Formulated a robust unit-economics model: pre-flight token estimations, run-level budget envelopes, and transparent routing telemetry to ensure autonomous work is financeable.',
+    techTags: ['Agent Unit Economics', 'Dynamic Model Routing', 'Credit Pricing', 'Runaway Cost Control', 'Claude 3.5 Sonnet', 'SaaS Packaging'],
+    standaloneUrl: '/teardowns/notion-agents.html',
+    pdfUrl: '/teardowns/notion-agents-teardown.pdf',
+  },
+  {
     id: 'comet',
-    tag: 'PRODUCT TEARDOWN',
+    tag: 'E-COMMERCE AI DISCOVERY',
     badge: 'COMET AI SEARCH',
-    category: 'teardown',
-    title: 'Comet E-Commerce AI Search: Teardown & Friction Analysis',
-    subtitle: 'Diagnosing drop-off between conversational recommendation generation and PDP cart conversion.',
+    category: 'funnels',
+    title: 'Comet (E-commerce AI Search) — Teardown & Friction Analysis',
+    subtitle: 'Reverse-engineering Comet’s conversational AI "Finder" discovery flow to diagnose drop-off friction between recommendation generation and PDP conversion.',
     problem:
       'Comet\'s conversational AI "Finder" suffered from stateless amnesia: refining a size or fit requirement wiped previous preferences, triggering a 42% drop-off before shoppers ever reached the Product Detail Page.',
     judgmentCalls:
-      'Reverse-engineered the discovery flow. Proposed a context-aware JSON memory layer carrying size and style attributes across sessions, defining "Finder-assisted add-to-cart rate" as the North Star validation metric.',
+      'Proposed a context-aware conversational memory solution to carry size/fit parameters across sessions to reduce cart abandonment, defining "Finder-assisted add-to-cart rate" as the validation metric.',
     outcome:
       'Projected +22% conversion lift and eliminated repetitive filter resets, bridging open-ended natural language directly into high-intent purchase checkout funnels.',
-    techTags: ['Product Discovery', 'Friction Analysis', 'Figma', 'Prompt Engineering', 'Conversion Metrics'],
+    techTags: ['Product Discovery', 'Friction Analysis', 'Figma', 'Prompt Engineering', 'Conversion Metrics', 'E-Commerce Funnels'],
+    standaloneUrl: '/teardowns/comet.html',
+    workspaceUrl: '/teardown-comet.html',
   },
   {
     id: 'lending',
-    tag: 'FINTECH DIAGNOSTICS',
+    tag: 'FINTECH COMPARATIVE TEARDOWN',
     badge: 'KREDITBEE × PHONEPE',
-    category: 'teardown',
-    title: 'Same Category, Two Failure Modes: Digital Lending Funnel Breakdown',
-    subtitle: 'Comparative analysis of conversion bottlenecks across Indian consumer credit platforms.',
+    category: 'funnels',
+    title: 'KreditBee & PhonePe Lending — Same Category, Two Failure Modes',
+    subtitle: 'Diagnosing structurally distinct friction points across two live digital lending funnels: document-upload bottleneck vs. marketplace trust-continuity break.',
     problem:
       'Digital lending funnels leak users at different stages: KreditBee suffered from asynchronous document-upload OCR failures, while PhonePe suffered from marketplace trust-continuity breaks during external NBFC handoffs.',
     judgmentCalls:
-      'Mapped both customer journeys from landing through disbursal. For KreditBee, scoped client-side instant document pre-check (<15s feedback on glare/crop). For PhonePe, designed a unified in-app co-branded verification bridge.',
+      'Proposed conversational AI-agent solutions — real-time document quality feedback and cross-partner context carry-over — each paired with primary/secondary validation metrics.',
     outcome:
-      'Targeted a 24% lift in first-session KYC completion and a 35% reduction in partner handoff drop-off, replacing multi-hour rejection cycles with instant user guidance.',
-    techTags: ['Funnel Optimization', 'KYC & OCR', 'AARRR Funnel', 'Fintech UX', 'User Friction'],
-  },
-  {
-    id: 'rag',
-    tag: 'FEATURED AI BUILD',
-    badge: 'AUTONOMOUS RAG',
-    category: 'ai-systems',
-    title: 'Enterprise RAG System with Quantitative Evaluation Harness',
-    subtitle: 'A production-grade local RAG pipeline with statistical evaluation harness and sub-second latency.',
-    problem:
-      'Enterprise documents contain confidential clauses and legal IP. Cloud-dependent APIs cause data leakage, unpredictable token costs, and black-box hallucinations with no measurable accuracy harness.',
-    judgmentCalls:
-      'Chose zero-leak local inference (Ollama + FAISS) in private Docker clusters over cloud APIs. Designed statistical eval suites (Context Precision, Recall@K, Ragas Faithfulness) and enforced source citation markers before generation.',
-    outcome:
-      'P99 inference latency of 380ms, 0.91 Ragas faithfulness score, and 0.88 recall@k, guaranteeing zero sensitive customer data ever leaves private network boundaries.',
-    techTags: ['FAISS', 'Ollama', 'Ragas', 'Docker', 'Statistical Evals', 'Python'],
-  },
-  {
-    id: 'vlm',
-    tag: 'INDEPENDENT RESEARCH',
-    badge: 'ACTIVE CONFORMAL CONTROL',
-    category: 'research',
-    title: 'Hardware-Aware Safety & Conformal Control for Edge Vision-Language Models',
-    subtitle: 'Scoping hallucination mitigation on cost-optimized edge hardware under formal statistical bounds.',
-    problem:
-      'Edge-quantized Vision-Language Models deployed on edge manufacturing lines experience subtle hallucination drift under distribution shifts, threatening operator safety and QC yield.',
-    judgmentCalls:
-      'Designed a non-parametric density-drift detector (ppDRE) and a two-tier GPU-student / CPU-teacher inference cascade with conformal prediction thresholds, balancing latency, accuracy, and unit cost.',
-    outcome:
-      'Achieved 94.2% structural defect precision at 480ms P99 latency while cutting cloud token spend by ~60%. Paper revised through external peer review ahead of IEEE publication.',
-    techTags: ['Vision Transformers', 'PyTorch', 'Conformal Prediction', 'Formal Verification', 'IEEE Review'],
+      'Targeted a 24% lift in first-session KYC completion and a 35% reduction in partner handoff drop-off with unified in-app verification continuity.',
+    techTags: ['Funnel Optimization', 'KYC & OCR', 'AARRR Funnel', 'Fintech UX', 'User Friction', 'Disbursal Velocity'],
+    standaloneUrl: '/teardowns/lending-funnels.html',
+    workspaceUrl: '/teardown-kreditbee.html',
   },
 ];
 
@@ -260,10 +271,24 @@ export default function App() {
   const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudyKey | null>(
     null
   );
-  const [activeFilter, setActiveFilter] = useState<'all' | 'teardown' | 'ai-systems' | 'research'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'agents' | 'funnels'>('all');
   const [showCopyToast, setShowCopyToast] = useState(false);
   const [showResumeModal, setShowResumeModal] = useState(false);
   const [heroWordIndex, setHeroWordIndex] = useState(0);
+
+  // Hash listener for direct teardown links (#openai, #notion, #comet, #lending)
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      if (hash === 'openai' || hash === 'teardown-openai') setActiveCaseStudy('openai');
+      else if (hash === 'notion' || hash === 'teardown-notion') setActiveCaseStudy('notion');
+      else if (hash === 'comet' || hash === 'teardown-comet') setActiveCaseStudy('comet');
+      else if (hash === 'lending' || hash === 'teardown-lending') setActiveCaseStudy('lending');
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   // Active section tracking for fixed navbar
   const [activeSection, setActiveSection] = useState<string>('home');
@@ -865,42 +890,42 @@ export default function App() {
               >
                 <button
                   type="button"
-                  data-cursor="View PRD Spec"
-                  onClick={() => setActiveCaseStudy('rag')}
+                  data-cursor="View Context Pipeline"
+                  onClick={() => setActiveCaseStudy('openai')}
                   className="pm-artifact-card w-full h-full flex flex-col justify-between text-left rounded-2xl bg-[#f4ede2] border border-[#d6c7b2] p-4 text-[#121820] shadow-[0_14px_32px_rgba(4,8,16,0.55)] cursor-pointer group"
                 >
                   <div className="flex items-center justify-between text-[8px] font-mono uppercase tracking-[0.13em] text-[#8a6829] font-bold pb-2 border-b border-[#dfd4c2]">
-                    <span>02 • PRD &amp; GUARDRAIL SPEC</span>
+                    <span>02 • OPENAI DATA AGENT</span>
                     <span className="text-[#6e6456] group-hover:text-[#0e1828] transition-colors">
-                      v2.4 Shipped ↗
+                      Case Study ↗
                     </span>
                   </div>
 
                   <div className="my-2.5 space-y-1.5 text-[9px] leading-tight">
                     <div className="grid grid-cols-12 gap-1.5 items-baseline">
                       <span className="col-span-4 font-mono uppercase text-[7.5px] tracking-wider text-[#8a6829] font-bold">
-                        NORTH STAR
+                        MOAT ARCH
                       </span>
                       <span className="col-span-8 text-[#0e1828] font-bold">
-                        Verified answer &amp; action in &lt;15s
+                        Context is the moat, not model
                       </span>
                     </div>
 
                     <div className="grid grid-cols-12 gap-1.5 items-baseline pt-1.5 border-t border-[#e5dccb]">
                       <span className="col-span-4 font-mono uppercase text-[7.5px] tracking-wider text-[#8a6829] font-bold">
-                        P0 SCOPE
+                        SCALE
                       </span>
                       <span className="col-span-8 text-[#1e2631] font-medium">
-                        Client-side OCR pre-check + cited retrieval
+                        70k datasets • 3.5k users • 600 PB
                       </span>
                     </div>
 
                     <div className="grid grid-cols-12 gap-1.5 items-baseline pt-1.5 border-t border-[#e5dccb]">
                       <span className="col-span-4 font-mono uppercase text-[7.5px] tracking-wider text-[#8a6829] font-bold">
-                        GUARDRAIL
+                        SPEEDUP
                       </span>
                       <span className="col-span-8 text-[#1e2631] font-medium">
-                        P99 &lt; 480ms • Zero false-positive auto-pass
+                        17× faster via memory feedback
                       </span>
                     </div>
 
@@ -1015,14 +1040,14 @@ export default function App() {
               >
                 <button
                   type="button"
-                  data-cursor="View Roadmap"
-                  onClick={() => setActiveCaseStudy('vlm')}
+                  data-cursor="View Pricing Teardown"
+                  onClick={() => setActiveCaseStudy('notion')}
                   className="pm-artifact-card w-full h-full flex flex-col justify-between text-left rounded-2xl bg-[#0e1624]/95 backdrop-blur-md border border-[#b88a3b]/45 p-4 shadow-[0_14px_32px_rgba(4,8,16,0.6)] cursor-pointer group"
                 >
                   <div className="flex items-center justify-between text-[8px] font-mono uppercase tracking-[0.13em] text-[#f0c46c] font-bold pb-2 border-b border-white/10">
-                    <span>04 • ROADMAP &amp; RICE BETS</span>
+                    <span>04 • NOTION AGENTS TEARDOWN</span>
                     <span className="text-[#9ba8bc] group-hover:text-[#faf7f2] transition-colors">
-                      Prioritization ↗
+                      Unit Economics ↗
                     </span>
                   </div>
 
@@ -1031,18 +1056,18 @@ export default function App() {
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
                           <span className="px-1.5 py-0.5 rounded bg-[#c99b4a] text-[#0e1828] font-mono font-bold text-[7px] uppercase">
-                            P0 • NOW
+                            DYNAMIC ROUTER
                           </span>
                           <span className="text-[10px] font-bold text-[#faf7f2] truncate">
-                            2-Tier Conformal Gate
+                            5 / 10 / 20 Rate Card
                           </span>
                         </div>
                         <p className="text-[8.5px] text-[#9ba8bc] mt-0.5 truncate">
-                          High impact • Low latency cost (480ms)
+                          Sonnet vs. Haiku margin optimization
                         </p>
                       </div>
                       <span className="font-mono text-[8.5px] font-bold text-[#f0c46c] shrink-0">
-                        RICE 9.4
+                        $10 / 1k
                       </span>
                     </div>
 
@@ -1050,26 +1075,26 @@ export default function App() {
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
                           <span className="px-1.5 py-0.5 rounded border border-[#c99b4a]/60 text-[#f0c46c] font-mono font-bold text-[7px] uppercase">
-                            P1 • NEXT
+                            PROPOSAL
                           </span>
                           <span className="text-[10px] font-bold text-[#faf7f2] truncate">
-                            Inline Citation Verifier
+                            Run-Level Budget Envelopes
                           </span>
                         </div>
                         <p className="text-[8.5px] text-[#9ba8bc] mt-0.5 truncate">
-                          Eliminates 4% legal clause hallucination
+                          Ceilings to prevent 24hr runaway loops
                         </p>
                       </div>
-                      <span className="font-mono text-[8.5px] font-bold text-[#cfd8e3] shrink-0">
-                        RICE 8.7
+                      <span className="font-mono text-[8.5px] font-bold text-[#b88a3b] shrink-0">
+                        P0 FIX
                       </span>
                     </div>
                   </div>
 
                   <div className="pt-1.5 border-t border-white/10 flex items-center justify-between text-[8px] font-mono text-[#9ba8bc]">
-                    <span>Sequenced by Impact / Effort</span>
+                    <span>17-Page Full Teardown</span>
                     <span className="text-[#f0c46c] font-semibold">
-                      Zero Scope Creep
+                      Akshay Kothari Post
                     </span>
                   </div>
                 </button>
@@ -1259,13 +1284,13 @@ export default function App() {
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#806b47] font-mono">
                   <span>02</span>
                   <span>/</span>
-                  <span>Featured Case Studies</span>
+                  <span>Product Teardowns &amp; Case Studies</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0e1828] tracking-tight font-[family-name:var(--font-editorial)]">
-                  Work &amp; Teardowns
+                  Teardowns &amp; Case Studies
                 </h2>
                 <p className="text-sm sm:text-base text-[#554d42] max-w-xl">
-                  Things I&apos;ve shipped, studied, and stress-tested — each structured by the core problem, the judgment calls made, and the quantifiable outcome.
+                  Deep reverse engineering, funnel friction diagnostics, and AI unit economics — structured by core problem framing, PM judgment calls, and measurable outcomes.
                 </p>
               </div>
 
@@ -1281,43 +1306,31 @@ export default function App() {
                       : 'text-[#554d42] hover:text-[#0e1828]'
                   }`}
                 >
-                  All ({PROJECTS_WORK.length})
+                  All Teardowns ({PROJECTS_WORK.length})
                 </button>
                 <button
                   type="button"
-                  data-cursor="Filter Teardowns"
-                  onClick={() => setActiveFilter('teardown')}
+                  data-cursor="Filter AI Agents"
+                  onClick={() => setActiveFilter('agents')}
                   className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
-                    activeFilter === 'teardown'
+                    activeFilter === 'agents'
                       ? 'bg-[#0e1828] text-[#faf7f2] shadow-xs'
                       : 'text-[#554d42] hover:text-[#0e1828]'
                   }`}
                 >
-                  Teardowns &amp; Funnels
+                  Autonomous AI &amp; Data Agents (2)
                 </button>
                 <button
                   type="button"
-                  data-cursor="Filter AI Systems"
-                  onClick={() => setActiveFilter('ai-systems')}
+                  data-cursor="Filter Funnels"
+                  onClick={() => setActiveFilter('funnels')}
                   className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
-                    activeFilter === 'ai-systems'
+                    activeFilter === 'funnels'
                       ? 'bg-[#0e1828] text-[#faf7f2] shadow-xs'
                       : 'text-[#554d42] hover:text-[#0e1828]'
                   }`}
                 >
-                  AI Systems &amp; RAG
-                </button>
-                <button
-                  type="button"
-                  data-cursor="Filter Research"
-                  onClick={() => setActiveFilter('research')}
-                  className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
-                    activeFilter === 'research'
-                      ? 'bg-[#0e1828] text-[#faf7f2] shadow-xs'
-                      : 'text-[#554d42] hover:text-[#0e1828]'
-                  }`}
-                >
-                  Research
+                  Fintech &amp; E-Commerce Funnels (2)
                 </button>
               </div>
             </div>
@@ -1350,11 +1363,20 @@ export default function App() {
                         </span>
                       </div>
 
-                      <div className="card-expand-badge flex items-center gap-1.5 px-3.5 py-1 rounded-full border border-[#dfd6c6] text-xs font-semibold text-[#554d42] transition-all">
-                        <span>View Case Study</span>
-                        <span className="material-symbols-outlined text-[15px] group-hover:translate-x-0.5 transition-transform">
-                          open_in_new
-                        </span>
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveCaseStudy(item.id);
+                          }}
+                          className="card-expand-badge flex items-center gap-1.5 px-3.5 py-1 rounded-full border border-[#dfd6c6] text-xs font-semibold text-[#554d42] hover:bg-[#0e1828] hover:text-[#faf7f2] transition-all cursor-pointer"
+                        >
+                          <span>Interactive Teardown</span>
+                          <span className="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">
+                            visibility
+                          </span>
+                        </button>
                       </div>
                     </div>
 
@@ -1407,16 +1429,65 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* Tech stack tags */}
-                    <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-[#dfd6c6]/40">
-                      {item.techTags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="card-tech-tag px-3 py-1 rounded-full bg-[#f0e8dc] text-[11px] font-semibold text-[#554d42] transition-colors duration-200"
+                    {/* Tech stack tags & Action Row */}
+                    <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-[#dfd6c6]/50">
+                      <div className="flex flex-wrap items-center gap-2">
+                        {item.techTags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="card-tech-tag px-3 py-1 rounded-full bg-[#f0e8dc] text-[11px] font-semibold text-[#554d42] transition-colors duration-200"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-2.5">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveCaseStudy(item.id);
+                          }}
+                          className="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold inline-flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer"
                         >
-                          {tag}
-                        </span>
-                      ))}
+                          <span>Interactive Breakdown</span>
+                          <span className="material-symbols-outlined text-[14px]">visibility</span>
+                        </button>
+                        <a
+                          href={item.standaloneUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors"
+                        >
+                          <span>Full Page</span>
+                          <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                        </a>
+                        {item.pdfUrl && (
+                          <a
+                            href={item.pdfUrl}
+                            download
+                            onClick={(e) => e.stopPropagation()}
+                            className="px-3.5 py-2 rounded-full bg-white hover:bg-[#f0e8dc] text-[#806b47] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
+                          >
+                            <span>Report PDF</span>
+                            <span className="material-symbols-outlined text-[13px]">download</span>
+                          </a>
+                        )}
+                        {item.workspaceUrl && (
+                          <a
+                            href={item.workspaceUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="px-3.5 py-2 rounded-full bg-white hover:bg-[#f0e8dc] text-[#806b47] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
+                          >
+                            <span>Interactive Workspace</span>
+                            <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </article>

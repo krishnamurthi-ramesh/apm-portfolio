@@ -1,4 +1,4 @@
-export type CaseStudyKey = 'comet' | 'lending' | 'rag' | 'vlm' | 'meraqui' | 'treacle';
+export type CaseStudyKey = 'openai' | 'notion' | 'comet' | 'lending';
 export type SimulatorOptionKey = 'A' | 'B';
 
 export interface CaseStudyMetric {
@@ -19,224 +19,150 @@ export interface CaseStudyRecord {
   domainSubtitle: string;
   headline: string;
   roleDescription: string;
-  category: 'teardown' | 'ai-systems' | 'research' | 'experience';
+  category: 'teardown';
+  standaloneUrl: string;
+  pdfUrl?: string;
   metrics: CaseStudyMetric[];
 }
 
-export interface SimulatorAnalysis {
-  option: SimulatorOptionKey;
-  statusTag: string;
-  title: string;
-  text: string;
-  accuracyPercent: number;
-  latencyMs: number;
-  meetsSla: boolean;
-}
-
-export const STUDY_KEYS: CaseStudyKey[] = ['comet', 'lending', 'rag', 'vlm', 'meraqui', 'treacle'];
+export const STUDY_KEYS: CaseStudyKey[] = ['openai', 'notion', 'comet', 'lending'];
 
 export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
-  comet: {
-    key: 'comet',
-    tag: '01 / E-Commerce AI Teardown',
-    meta: 'Discovery Teardown & Friction Analysis • 2026',
-    badgeText: 'Product Teardown',
-    badgeIcon: 'search_insights',
-    badgeTone: 'gold',
+  openai: {
+    key: 'openai',
+    tag: '01 / AI PRODUCT MANAGEMENT CASE STUDY',
+    meta: '13-Page Deep Dive • Jan 2026',
+    badgeText: 'OPENAI IN-HOUSE DATA AGENT',
+    badgeTone: 'navy',
     dateRange: '2026',
-    domainSubtitle: 'AI Conversational Search • Funnel Optimization',
-    headline: 'Comet (E-Commerce AI Search) — Teardown & Friction Analysis',
+    domainSubtitle: 'Enterprise Autonomous Data Agents',
+    headline: 'Inside OpenAI’s In-House Data Agent: Context-First Architecture Across 70,000 Datasets',
     roleDescription:
-      'Reverse-engineering Comet\'s AI "Finder" discovery flow to diagnose user drop-off between recommendation generation and PDP conversion.',
+      'Architectural teardown of how layered context pipelines (codebase Git crawler, Slack/Docs institutional memory, pass-through RBAC) turn vague natural-language questions into verifiable SQL insights for 3,500+ employees across 600 PB.',
     category: 'teardown',
+    standaloneUrl: '/teardowns/openai-data-agent.html',
+    pdfUrl: '/teardowns/openai-data-agent-case-study.pdf',
     metrics: [
       {
-        label: 'Finder-assisted Add-to-Cart',
-        value: '+22%',
-        description: 'Projected conversion lift by bridging conversational search directly into checkout intent.',
+        label: 'DATASET REACH',
+        value: '70,000+',
+        description: 'Tables queried with zero manual schema mapping',
         colorScheme: 'gold',
       },
       {
-        label: 'Context Memory Carry-over',
-        value: '100%',
-        description: 'Retained size, fit, and aesthetic constraints across browsing sessions without re-prompting.',
+        label: 'QUERY ACCELERATION',
+        value: '17×',
+        description: 'Faster execution via memory-cached corrections',
+        colorScheme: 'emerald',
+      },
+      {
+        label: 'PLATFORM SCALE',
+        value: '600 PB',
+        description: 'Internal data lake analyzed with strict pass-through RBAC',
+        colorScheme: 'navy',
+      },
+    ],
+  },
+  notion: {
+    key: 'notion',
+    tag: '02 / AI PRICING & ROUTING TEARDOWN',
+    meta: '17-Page Deep Dive • Nov 2026',
+    badgeText: 'NOTION AGENTS',
+    badgeTone: 'gold',
+    dateRange: '2026',
+    domainSubtitle: 'AI Economics & Multi-Model Routing',
+    headline: 'Notion Agents: Doing More for Less — Pricing, Routing & Cost Control',
+    roleDescription:
+      'Analysis of Notion’s dynamic model routing (Claude 3.5 Sonnet to Haiku/GPT-4o mini) and 3-tier compute credit rate card (5/10/20 credits). Diagnosed the critical vulnerability of runaway spend on unattended 24-hour agent runs and designed run-level budget envelopes.',
+    category: 'teardown',
+    standaloneUrl: '/teardowns/notion-agents.html',
+    pdfUrl: '/teardowns/notion-agents-teardown.pdf',
+    metrics: [
+      {
+        label: 'CREDIT CURRENCY',
+        value: '$10 / 1k',
+        description: 'Standardized unit compute token rate',
         colorScheme: 'navy',
       },
       {
-        label: 'PDP Drop-off Mitigation',
-        value: '-18%',
-        description: 'Reduced search friction and cart abandonment caused by stateless recommendation resets.',
+        label: 'ROUTING TIERS',
+        value: '5 / 10 / 20',
+        description: 'Discrete task costs across frontier models',
+        colorScheme: 'gold',
+      },
+      {
+        label: 'DIAGNOSED FLAW',
+        value: 'Open Flank',
+        description: 'Lack of run-level budget ceilings on 24hr agents',
+        colorScheme: 'amber',
+      },
+    ],
+  },
+  comet: {
+    key: 'comet',
+    tag: '03 / E-COMMERCE AI TEARDOWN',
+    meta: 'Discovery Teardown & Friction Analysis • 2026',
+    badgeText: 'COMET AI SEARCH',
+    badgeTone: 'emerald',
+    dateRange: '2026',
+    domainSubtitle: 'Conversational Commerce & PDP Conversion',
+    headline: 'Comet (E-commerce AI Search) — Teardown & Friction Analysis',
+    roleDescription:
+      'Reverse-engineered Comet’s conversational AI "Finder" discovery flow to diagnose drop-off friction between recommendation generation and PDP conversion. Proposed a context-aware conversational memory solution carrying size/fit parameters across sessions to reduce cart abandonment.',
+    category: 'teardown',
+    standaloneUrl: '/teardowns/comet.html',
+    metrics: [
+      {
+        label: 'TARGET LIFT',
+        value: '+22%',
+        description: 'Finder-assisted add-to-cart conversion rate',
         colorScheme: 'emerald',
+      },
+      {
+        label: 'DIAGNOSED DROP-OFF',
+        value: '42%',
+        description: 'Friction between AI chat and PDP variant selection',
+        colorScheme: 'amber',
+      },
+      {
+        label: 'USER EFFORT',
+        value: '-65%',
+        description: 'Eliminated redundant repetitive filter queries',
+        colorScheme: 'gold',
       },
     ],
   },
   lending: {
     key: 'lending',
-    tag: '02 / Fintech Funnel Diagnostics',
-    meta: 'Comparative Funnel Teardown • 2026',
-    badgeText: 'Fintech Teardown',
-    badgeIcon: 'account_balance',
-    badgeTone: 'navy',
+    tag: '04 / FINTECH COMPARATIVE TEARDOWN',
+    meta: 'Fintech Diagnostics & Funnel Breakdown • 2026',
+    badgeText: 'KREDITBEE × PHONEPE',
+    badgeTone: 'amber',
     dateRange: '2026',
-    domainSubtitle: 'KreditBee vs. PhonePe Lending • Two Failure Modes',
-    headline: 'Same Category, Two Failure Modes: Lending Funnel Diagnostics',
+    domainSubtitle: 'Digital Lending & KYC Funnels',
+    headline: 'KreditBee & PhonePe Lending: Same Category, Two Failure Modes',
     roleDescription:
-      'Diagnosing distinct operational friction points in two live lending funnels: document upload bottlenecks (KreditBee) vs. marketplace trust continuity breaks (PhonePe).',
+      'Comparative analysis of structurally distinct conversion bottlenecks across two live digital lending funnels: client-side document OCR failures on KreditBee vs. marketplace trust-continuity breaks during external NBFC partner handoffs on PhonePe.',
     category: 'teardown',
+    standaloneUrl: '/teardowns/lending-funnels.html',
     metrics: [
       {
-        label: 'First-Session KYC Completion',
+        label: 'KYC COMPLETION',
         value: '+24%',
-        description: 'Targeted lift using real-time AI computer vision document feedback for glare, crop, and OCR errors.',
-        colorScheme: 'gold',
+        description: 'Targeted lift in first-session document approval',
+        colorScheme: 'emerald',
       },
       {
-        label: 'Partner Handoff Churn',
+        label: 'PARTNER HANDOFF',
         value: '-35%',
-        description: 'Cut mid-funnel drop-off by maintaining unified loan state during third-party NBFC redirects.',
-        colorScheme: 'navy',
-      },
-      {
-        label: 'Instant Document Feedback',
-        value: '< 15s',
-        description: 'Pre-flight client-side inspection before submission preventing asynchronous loan application rejection.',
-        colorScheme: 'emerald',
-      },
-    ],
-  },
-  rag: {
-    key: 'rag',
-    tag: '03 / Production AI Architecture',
-    meta: 'Independent Systems Project • Feb 2025',
-    badgeText: 'Autonomous RAG',
-    badgeIcon: 'bolt',
-    badgeTone: 'gold',
-    dateRange: 'Feb 2025',
-    domainSubtitle: 'FAISS • Ollama • Ragas • Docker',
-    headline: 'Enterprise RAG System with Quantitative Evaluation Harness',
-    roleDescription:
-      'Production-grade Retrieval-Augmented Generation pipeline with a statistical evaluation harness, eliminating cloud data leakage and quantifying retrieval accuracy.',
-    category: 'ai-systems',
-    metrics: [
-      {
-        label: 'P99 Inference Latency',
-        value: '380ms',
-        description: 'Sub-second response guaranteed via local FAISS indexing and optimized embeddings in private Docker.',
-        colorScheme: 'navy',
-      },
-      {
-        label: 'Ragas Faithfulness',
-        value: '0.91',
-        description: 'Strict factual citation grounding with hallucination mitigation prompts and verbatim span checks.',
-        colorScheme: 'emerald',
-      },
-      {
-        label: 'Context Recall@K',
-        value: '0.88',
-        description: 'High-fidelity top-k chunk retrieval with hybrid keyword + dense semantic re-ranking.',
-        colorScheme: 'gold',
-      },
-    ],
-  },
-  vlm: {
-    key: 'vlm',
-    tag: '04 / Independent AI Research',
-    meta: 'IIITDM Kurnool • Advised by Dr. K. E. Srinivasa Desikan • Under IEEE Review',
-    badgeText: 'IEEE In-Review',
-    badgeIcon: 'verified',
-    badgeTone: 'navy',
-    dateRange: '2026',
-    domainSubtitle: 'Vision-Language Models • Conformal Inference',
-    headline: 'Reliability Framework for Quantized Vision-Language Models',
-    roleDescription:
-      'Active Conformal Control framework scoping hallucination mitigation on cost-optimized edge hardware via density-chasm detection and two-tier inference cascades.',
-    category: 'research',
-    metrics: [
-      {
-        label: 'Structural Defect Precision',
-        value: '94.2%',
-        description: 'Validated on edge assembly inspection benchmarks with rigorous non-parametric density bounds.',
+        description: 'Drop-off reduction via co-branded in-app bridge',
         colorScheme: 'gold',
       },
       {
-        label: 'Two-Tier Cascade Latency',
-        value: '480ms P99',
-        description: 'Fast local GPU student handles 85% of queries; escalates only ambiguous edge anomalies to CPU teacher.',
-        colorScheme: 'emerald',
-      },
-      {
-        label: 'Cloud Token Spend Reduction',
-        value: '~60%',
-        description: 'Optimal unit economics balancing accuracy, cost, and sub-second operational constraints.',
+        label: 'VERIFICATION TIME',
+        value: '<15s',
+        description: 'Instant client-side feedback on blur and glare',
         colorScheme: 'navy',
-      },
-    ],
-  },
-  meraqui: {
-    key: 'meraqui',
-    tag: '05 / Production AI Platform',
-    meta: 'Meraqui Ventures (karam.ai) • Pune, India',
-    badgeText: 'Production Shipped',
-    badgeIcon: 'rocket_launch',
-    badgeTone: 'emerald',
-    dateRange: 'Apr 2025 – Jul 2025',
-    domainSubtitle: 'High-Volume Staffing Platform',
-    headline: 'AI Candidate Matching Engine & ERP Automation Loop',
-    roleDescription:
-      'Data Science & Technical Product Intern at Meraqui Ventures Pvt. Ltd. (karam.ai). Owned requirements-to-shipping loop for candidate matching and ERP synchronization.',
-    category: 'experience',
-    metrics: [
-      {
-        label: 'Matching Precision',
-        value: '+15%',
-        description: 'Lift across high-volume staffing pools via structured embedding fine-tuning.',
-        colorScheme: 'emerald',
-      },
-      {
-        label: 'Manual Data Entry',
-        value: '-15%',
-        description: 'Hours eradicated weekly per recruiter through REST API ERP contracts.',
-        colorScheme: 'navy',
-      },
-      {
-        label: 'Schema Integrity',
-        value: '12–15%',
-        description: 'Drop in downstream ETL discrepancy rates with Pydantic contracts.',
-        colorScheme: 'gold',
-      },
-    ],
-  },
-  treacle: {
-    key: 'treacle',
-    tag: '06 / Observability & Telemetry',
-    meta: 'Treacle Technologies • Incubated at IIT Kanpur',
-    badgeText: 'IIT Kanpur Incubation',
-    badgeIcon: 'domain',
-    badgeTone: 'navy',
-    dateRange: 'Jun 2024 – Aug 2024',
-    domainSubtitle: 'Distributed Telemetry & Kafka Streaming',
-    headline: 'Real-Time Log Telemetry Engine & Incident Detection Dashboards',
-    roleDescription:
-      'Development Engineering Intern at Treacle Technologies. Scaling distributed telemetry across production cloud infrastructure processing 100k+ logs/day.',
-    category: 'experience',
-    metrics: [
-      {
-        label: 'Incident Detection Time',
-        value: '-40%',
-        description: 'Reduced mean time to detect (MTTD) for critical distributed systems incidents.',
-        colorScheme: 'emerald',
-      },
-      {
-        label: 'Stream Ingestion',
-        value: '100k+',
-        description: 'Processed logs/day with sub-second Elasticsearch indexing and low lag.',
-        colorScheme: 'navy',
-      },
-      {
-        label: 'Manual Triage Elimination',
-        value: '80%',
-        description: 'Automated log preprocessing pipelines cutting manual operator triage.',
-        colorScheme: 'gold',
       },
     ],
   },
@@ -251,40 +177,4 @@ export function getNextCaseStudyKey(
   const nextIndex =
     (currentIndex + direction + STUDY_KEYS.length) % STUDY_KEYS.length;
   return STUDY_KEYS[nextIndex];
-}
-
-export function evaluateSimulatorOption(
-  option: SimulatorOptionKey
-): SimulatorAnalysis {
-  if (option === 'A') {
-    return {
-      option: 'A',
-      statusTag: 'SLA Breached (2,400ms > 800ms)',
-      title: 'PM Verdict on Option A: Costly Overkill',
-      text: 'While a multi-agent critique agent pushes accuracy to 99.2%, tripling the inference chain pushes P99 latency to 2.4 seconds and triples unit token cost. In real user studies, high-churn enterprise users abandon documents that take more than 1 second to parse.',
-      accuracyPercent: 99.2,
-      latencyMs: 2400,
-      meetsSla: false,
-    };
-  }
-
-  return {
-    option: 'B',
-    statusTag: 'Optimal Unit Economics (Recommended)',
-    title: 'PM Verdict on Option B: The Pragmatic Win',
-    text: 'Option B balances the PM triangle: fast local classification handles 85% of queries in under 300ms. Only borderline confidence chunks route to high-parameter LLMs, staying well within our 800ms P99 constraint while curbing token spend by ~60%.',
-    accuracyPercent: 98.7,
-    latencyMs: 480,
-    meetsSla: true,
-  };
-}
-
-export function toggleMentalModelList(
-  expandedIds: number[],
-  targetId: number
-): number[] {
-  if (expandedIds.includes(targetId)) {
-    return expandedIds.filter((id) => id !== targetId);
-  }
-  return [...expandedIds, targetId];
 }

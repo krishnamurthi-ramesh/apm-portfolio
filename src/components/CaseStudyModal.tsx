@@ -40,6 +40,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
   if (!activeKey) return null;
 
   const study = CASE_STUDIES[activeKey];
+  if (!study) return null;
 
   return (
     <div
@@ -50,14 +51,14 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 md:p-6 bg-[#090e17]/80 backdrop-blur-md transition-opacity duration-250"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 md:p-6 bg-[#090e17]/85 backdrop-blur-md animate-fadeIn"
     >
       <div
         id="modal-card-container"
-        className="relative w-full max-w-4xl max-h-[90vh] bg-[#faf7f2] rounded-3xl shadow-[0_24px_70px_rgba(14,24,40,0.35)] border border-[#dfd6c6] flex flex-col overflow-hidden text-[#121820]"
+        className="relative w-full max-w-4xl max-h-[92vh] bg-[#faf7f2] rounded-3xl shadow-[0_24px_70px_rgba(14,24,40,0.35)] border border-[#dfd6c6] flex flex-col overflow-hidden text-[#121820]"
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[#f5eee3] via-[#faf7f2] to-[#f0e7db] border-b border-[#dfd6c6] z-20">
+        <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[#f5eee3] via-[#faf7f2] to-[#f0e7db] border-b border-[#dfd6c6] z-20 shrink-0">
           <div className="flex items-center gap-3">
             <span className="w-2.5 h-2.5 rounded-full bg-[#b88a3b] shadow-[0_0_8px_rgba(184,138,59,0.7)]"></span>
             <span
@@ -74,14 +75,26 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
               {study.meta}
             </span>
           </div>
-          <button
-            type="button"
-            aria-label="Close modal"
-            onClick={onClose}
-            className="w-9 h-9 rounded-full bg-[#eae1d2] hover:bg-[#0e1828] hover:text-[#faf7f2] text-[#554d42] flex items-center justify-center transition-colors cursor-pointer focus:outline-none"
-          >
-            <span className="material-symbols-outlined text-[20px]">close</span>
-          </button>
+
+          <div className="flex items-center gap-2">
+            <a
+              href={study.standaloneUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white hover:bg-[#0e1828] text-[#0e1828] hover:text-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors shadow-2xs"
+            >
+              <span>Full Page</span>
+              <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+            </a>
+            <button
+              type="button"
+              aria-label="Close modal"
+              onClick={onClose}
+              className="w-8 h-8 rounded-full bg-[#eae1d2] hover:bg-[#0e1828] hover:text-[#faf7f2] text-[#554d42] flex items-center justify-center transition-colors cursor-pointer focus:outline-none"
+            >
+              <span className="material-symbols-outlined text-[18px]">close</span>
+            </button>
+          </div>
         </div>
 
         {/* Modal Dynamic Content Body */}
@@ -133,7 +146,129 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             </div>
           </div>
 
-          {/* Deep-dive details per study */}
+          {/* OPENAI DATA AGENT DEEP DIVE */}
+          {activeKey === 'openai' && (
+            <div className="space-y-6 text-sm">
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  01 / The Core Moat: Context Over Model
+                </h3>
+                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
+                  <h4 className="font-bold text-[#0e1828] text-base">
+                    How OpenAI Replaces Brute-Force Prompts with a 6-Layer Context Pipeline
+                  </h4>
+                  <p className="text-[#554d42] leading-relaxed">
+                    Querying 70,000 datasets and 600 petabytes across 3,500 employees cannot succeed through raw schema dumps. The agent derives ground truth by combining Git codebase crawls (dbt models, Airflow DAGs) with institutional Slack/Docs memory and pass-through RBAC.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2 text-xs">
+                    <div className="p-3 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+                      <span className="font-bold text-[#0e1828] block mb-1">Codex Code Crawling</span>
+                      Inspects the transformation logic that generated the table to infer true business definitions.
+                    </div>
+                    <div className="p-3 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+                      <span className="font-bold text-[#0e1828] block mb-1">Memory &amp; Corrections</span>
+                      Caches user feedback directly into agent memory, driving a 17× query speedup on repeat tasks.
+                    </div>
+                    <div className="p-3 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+                      <span className="font-bold text-[#0e1828] block mb-1">Pass-Through RBAC</span>
+                      Agent inherits user credentials, guaranteeing zero enterprise permission widening.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  02 / Product Governance &amp; Evaluation
+                </h3>
+                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
+                  <p className="text-[#4a4235] leading-relaxed text-xs">
+                    OpenAI operates a static benchmark of 200+ &ldquo;golden questions&rdquo; that runs across every model release, tool consolidation, and prompt tweak to measure exact SQL precision before rolling out updates to internal teams.
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    <a
+                      href="/teardowns/openai-data-agent.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
+                    >
+                      <span>Open Dedicated Teardown Page</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                    </a>
+                    <a
+                      href="/teardowns/openai-data-agent-case-study.pdf"
+                      download="OpenAI_Data_Agent_Case_Study.pdf"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>Download 13-Page Case Study (PDF)</span>
+                      <span className="material-symbols-outlined text-[13px]">download</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* NOTION AGENTS DEEP DIVE */}
+          {activeKey === 'notion' && (
+            <div className="space-y-6 text-sm">
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  01 / Pricing &amp; Multi-Model Routing
+                </h3>
+                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
+                  <h4 className="font-bold text-[#0e1828] text-base">
+                    Making Autonomous Work Financeable: The 3-Tier Rate Card
+                  </h4>
+                  <p className="text-[#554d42] leading-relaxed">
+                    Notion unbundles compute into a credit currency ($10 per 1,000 credits) with a 3-tier task rate card (5 credits for single-turn, 10 for extraction, 20 for reasoning). Dynamically routing across Claude 3.5 Sonnet and cost-effective models (Haiku / GPT-4o mini) captures vendor margin while protecting users from runaway billing shocks.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                    <div className="p-3.5 rounded-xl bg-red-50/70 border border-red-200">
+                      <span className="font-bold text-red-900 block mb-1">Open Vulnerability Identified</span>
+                      Current pause semantics are agent-level, not run-level. Unattended 24hr agents can burn monthly allowances in loops with zero outcome signal.
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200">
+                      <span className="font-bold text-emerald-900 block mb-1">Kris’s Proposed Safeguard</span>
+                      Run-level budget envelopes, pre-flight token estimates, and checkpoint pauses requiring human confirmation when 2× compute is exceeded.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  02 / Complete Analysis Report
+                </h3>
+                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
+                  <p className="text-[#4a4235] leading-relaxed text-xs">
+                    The 17-page teardown covers credit pool boundaries, cross-vendor routing layers, customer outcome metrics, and unit cost elasticity models.
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    <a
+                      href="/teardowns/notion-agents.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
+                    >
+                      <span>Open Dedicated Teardown Page</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                    </a>
+                    <a
+                      href="/teardowns/notion-agents-teardown.pdf"
+                      download="Notion_Agents_Teardown.pdf"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>Download 17-Page Teardown (PDF)</span>
+                      <span className="material-symbols-outlined text-[13px]">download</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* COMET DEEP DIVE */}
           {activeKey === 'comet' && (
             <div className="space-y-6 text-sm">
               <div className="space-y-3">
@@ -172,15 +307,24 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <p className="text-[#554d42] leading-relaxed">
                     Instead of vanity metrics like &ldquo;average messages per conversational session&rdquo; (which actually indicated user frustration), defined <strong>Finder-assisted add-to-cart rate</strong> and <strong>zero-repeat-filter session percentage</strong> as the core validation KPIs.
                   </p>
-                  <div className="pt-2">
+                  <div className="flex flex-wrap gap-3 pt-1">
                     <a
-                      href="/teardown-comet.html"
+                      href="/teardowns/comet.html"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Read Full Comet Teardown</span>
-                      <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                      <span>Open Dedicated Teardown Page</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                    </a>
+                    <a
+                      href="/teardown-comet.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>Interactive Workspace</span>
+                      <span className="material-symbols-outlined text-[13px]">north_east</span>
                     </a>
                   </div>
                 </div>
@@ -188,6 +332,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             </div>
           )}
 
+          {/* LENDING FUNNELS DEEP DIVE */}
           {activeKey === 'lending' && (
             <div className="space-y-6 text-sm">
               <div className="space-y-3">
@@ -219,164 +364,81 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                         PhonePe: Marketplace Trust Continuity Break
                       </span>
                       <p className="text-[#554d42]">
-                        Users browsing credit on PhonePe felt high trust, but getting redirected to third-party NBFC webviews with unfamiliar UI triggered suspicion and 35% exit rates.
+                        Users abandoned upon sudden redirect to third-party lending partners (NBFCs) with foreign UI, unpopulated forms, and unexpected verification calls.
                       </p>
                       <span className="text-[#b88a3b] font-semibold block pt-1">
-                        Fix: In-app unified loan state bridge and co-branded verification.
+                        Fix: Co-branded in-app bridge with zero-re-entry form pre-fill.
                       </span>
                     </div>
                   </div>
-                  <div className="pt-3 flex flex-wrap gap-2.5">
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  02 / Detailed Interactive Views
+                </h3>
+                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
+                  <p className="text-[#4a4235] leading-relaxed text-xs">
+                    Targeted a 24% lift in first-session KYC completion and a 35% reduction in partner handoff drop-off with unified trust continuity.
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-1">
                     <a
-                      href="/teardown-kreditbee.html"
+                      href="/teardowns/lending-funnels.html"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>KreditBee Teardown Doc</span>
-                      <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                      <span>Open Dedicated Teardown Page</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                    </a>
+                    <a
+                      href="/teardown-kreditbee.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>KreditBee Workspace</span>
+                      <span className="material-symbols-outlined text-[13px]">north_east</span>
                     </a>
                     <a
                       href="/teardown-phonepe.html"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
                     >
-                      <span>PhonePe Teardown Doc</span>
-                      <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                      <span>PhonePe Workspace</span>
+                      <span className="material-symbols-outlined text-[13px]">north_east</span>
                     </a>
                   </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {activeKey === 'rag' && (
-            <div className="space-y-6 text-sm">
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
-                  01 / Problem &amp; Architecture
-                </h3>
-                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
-                  <h4 className="font-bold text-[#0e1828] text-base">
-                    Zero-Leak Local Inference with Strict Statistical Evaluation
-                  </h4>
-                  <p className="text-[#554d42] leading-relaxed">
-                    Enterprise legal and contract documents cannot touch commercial public cloud APIs. Built a fully containerized on-premise pipeline leveraging <strong>FAISS</strong> for dense vector search, <strong>Ollama</strong> for local LLM inference, and an automated <strong>Ragas</strong> evaluation suite.
-                  </p>
-                  <div className="p-3 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] text-xs space-y-1">
-                    <span className="font-bold text-[#0e1828] block">
-                      Quantitative Benchmark Results:
-                    </span>
-                    <p className="text-[#554d42]">
-                      ✦ P99 Inference Latency: 380ms &bull; ✦ Faithfulness: 0.91 &bull; ✦ Context Recall@K: 0.88 &bull; ✦ Zero egress byte leakage outside Docker virtual network.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {activeKey === 'vlm' && (
-            <div className="space-y-6 text-sm">
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
-                  01 / Research &amp; Formal Verification
-                </h3>
-                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
-                  <h4 className="font-bold text-[#0e1828] text-base">
-                    Active Conformal Control for Edge Vision-Language Models
-                  </h4>
-                  <p className="text-[#554d42] leading-relaxed">
-                    Quantized models running on edge devices suffer from latent distribution drift and hallucinated defect scoring. Designed a non-parametric density-drift detector and a two-tier GPU-student / CPU-teacher inference cascade with conformal prediction guarantees.
-                  </p>
-                  <p className="text-xs text-[#706657] italic">
-                    Paper currently under external peer review for IEEE publication. Advised by Dr. K. E. Srinivasa Desikan at IIITDM Kurnool.
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {activeKey === 'meraqui' && (
-            <div className="space-y-6 text-sm">
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
-                  01 / Requirements-to-Shipping Loop
-                </h3>
-                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
-                  <h4 className="font-bold text-[#0e1828] text-base">
-                    Replacing Chatbot Hype with Deterministic ERP Schema Contracts
-                  </h4>
-                  <p className="text-[#554d42] leading-relaxed">
-                    At Meraqui Ventures (karam.ai), initial proposals pushed for an open-ended conversational bot. By shadowing 6 senior recruiters across 18 hiring cycles, traced recruiter fatigue to manual re-keying into outdated ERP databases. Scoped deterministic REST API adapters with Pydantic validation, saving 15 hours weekly per recruiter.
-                  </p>
-                  <div className="pt-2">
-                    <a
-                      href="/artifact-meraqui.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
-                    >
-                      <span>View Full Meraqui Product Spec</span>
-                      <span className="material-symbols-outlined text-[14px]">open_in_new</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {activeKey === 'treacle' && (
-            <div className="space-y-6 text-sm">
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
-                  01 / Distributed Telemetry &amp; Reliability
-                </h3>
-                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
-                  <h4 className="font-bold text-[#0e1828] text-base">
-                    Kafka Log Streaming &amp; Incident Detection Dashboards
-                  </h4>
-                  <p className="text-[#554d42] leading-relaxed">
-                    Engineered real-time data pipelines at Treacle Technologies (incubated at IIT Kanpur) processing 100k+ logs/day. Built Grafana and Elasticsearch observability suites that cut mean time to detect (MTTD) by 40% and automated 80% of preprocessing toil.
-                  </p>
                 </div>
               </div>
             </div>
           )}
         </div>
 
-        {/* Modal Footer / Navigation */}
-        <div className="px-6 py-4 bg-[#f5eee3] border-t border-[#dfd6c6] flex flex-wrap items-center justify-between gap-3 text-xs text-[#706657]">
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => onSelectKey(getNextCaseStudyKey(activeKey, -1))}
-              className="px-3 py-1.5 rounded-full bg-white hover:bg-[#0e1828] hover:text-[#faf7f2] border border-[#dfd6c6] transition-colors cursor-pointer font-semibold flex items-center gap-1"
-            >
-              <span className="material-symbols-outlined text-[14px]">arrow_back</span>
-              <span>Previous</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => onSelectKey(getNextCaseStudyKey(activeKey, 1))}
-              className="px-3 py-1.5 rounded-full bg-white hover:bg-[#0e1828] hover:text-[#faf7f2] border border-[#dfd6c6] transition-colors cursor-pointer font-semibold flex items-center gap-1"
-            >
-              <span>Next</span>
-              <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
-            </button>
-          </div>
+        {/* Modal Footer Navigation */}
+        <div className="flex items-center justify-between px-6 py-4 bg-[#f5eee3] border-t border-[#dfd6c6] z-20 shrink-0">
+          <button
+            type="button"
+            onClick={() => onSelectKey(getNextCaseStudyKey(activeKey, -1))}
+            className="flex items-center gap-1.5 text-xs font-semibold text-[#554d42] hover:text-[#0e1828] transition-colors cursor-pointer"
+          >
+            <span className="material-symbols-outlined text-[16px]">arrow_back</span>
+            <span>Previous Teardown</span>
+          </button>
 
-          <span className="hidden sm:inline font-mono text-[11px]">
-            Use Arrow keys ← → to cycle case studies
+          <span className="text-xs text-[#7d7363] font-mono hidden sm:inline">
+            {STUDY_KEYS.indexOf(activeKey) + 1} of {STUDY_KEYS.length}
           </span>
 
           <button
             type="button"
-            onClick={onClose}
-            className="px-4 py-1.5 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] transition-colors font-semibold cursor-pointer"
+            onClick={() => onSelectKey(getNextCaseStudyKey(activeKey, 1))}
+            className="flex items-center gap-1.5 text-xs font-semibold text-[#554d42] hover:text-[#0e1828] transition-colors cursor-pointer"
           >
-            Close
+            <span>Next Teardown</span>
+            <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
           </button>
         </div>
       </div>
