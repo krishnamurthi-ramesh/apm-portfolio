@@ -7,7 +7,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { CaseStudyKey } from './utils/portfolioLogic';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { ResumeModal } from './components/ResumeModal';
-import { GtmLaunchIntro } from './components/GtmLaunchIntro';
 
 const HERO_BG_URL = '/assets/aistudio/image_9e64342e.png';
 
@@ -263,22 +262,9 @@ export default function App() {
   const [showResumeModal, setShowResumeModal] = useState(false);
   const [heroWordIndex, setHeroWordIndex] = useState(0);
 
-  // GTM Launch Sequence Intro State (plays on first visit or when replayed)
-  const [showGtmIntro, setShowGtmIntro] = useState<boolean>(() => {
-    if (typeof window === 'undefined') return false;
-    return !sessionStorage.getItem('has_seen_gtm_intro');
-  });
-
   // Active section tracking for fixed navbar
   const [activeSection, setActiveSection] = useState<string>('home');
   const activeSectionRef = useRef<string>('home');
-
-  const handleGtmIntroComplete = () => {
-    setShowGtmIntro(false);
-    if (typeof window !== 'undefined') {
-      sessionStorage.setItem('has_seen_gtm_intro', 'true');
-    }
-  };
 
   // Zero-re-render GPU Refs for Reading Progress, 4-Layer Hero Parallax & Custom See-Through Cursor
   const progressBarRef = useRef<HTMLDivElement | null>(null);
@@ -542,9 +528,6 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#faf7f2] text-[#121820] font-sans overflow-x-hidden selection:bg-[#b88a3b] selection:text-[#faf7f2]">
-      {/* 0. Strategic GTM Strategy & AI Systems Launch Telemetry Intro */}
-      <GtmLaunchIntro isOpen={showGtmIntro} onComplete={handleGtmIntroComplete} />
-
       {/* Custom Rounded Dart Pointer Cursor (Portfolio Burnished Gold & Oxford Navy Palette) */}
       <div
         ref={cursorLensRef}
@@ -654,28 +637,15 @@ export default function App() {
             })}
           </div>
 
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            {/* Welcome Intro Replay Pill */}
-            <button
-              type="button"
-              data-cursor="Play Welcome Intro"
-              onClick={() => setShowGtmIntro(true)}
-              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] text-xs font-mono font-bold tracking-wider transition-all border border-[#dfd6c6] hover:border-[#b88a3b] cursor-pointer"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-ping" />
-              <span>WELCOME INTRO</span>
-            </button>
-
-            {/* Let's Connect CTA Button */}
-            <a
-              href="#connect"
-              data-cursor="Let's Connect"
-              className="btn-shimmer ml-0.5 sm:ml-1 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] font-semibold text-xs transition-all shadow-sm flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95 border border-[#b88a3b]/30"
-            >
-              <span>Let&apos;s Connect</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#b88a3b]"></span>
-            </a>
-          </div>
+          {/* Let's Connect CTA Button */}
+          <a
+            href="#connect"
+            data-cursor="Let's Connect"
+            className="btn-shimmer ml-1 sm:ml-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] font-semibold text-xs transition-all shadow-sm flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95 border border-[#b88a3b]/30"
+          >
+            <span>Let&apos;s Connect</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#b88a3b]"></span>
+          </a>
         </nav>
       </header>
 
@@ -1764,31 +1734,17 @@ export default function App() {
               <p>
                 © 2026 Krishnamurthi. Dual Pedigree: IIM Visakhapatnam (MBA) × IIITDM Kurnool (B.Tech CSE).
               </p>
-              <div className="flex items-center gap-5">
-                <button
-                  type="button"
-                  data-cursor="Replay Welcome"
-                  onClick={() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    setTimeout(() => setShowGtmIntro(true), 350);
-                  }}
-                  className="flex items-center gap-1.5 text-[#c4b7a2] hover:text-[#f0c46c] transition-colors cursor-pointer"
-                >
-                  <span className="material-symbols-outlined text-[14px]">replay</span>
-                  <span>Replay Welcome</span>
-                </button>
-                <button
-                  type="button"
-                  data-cursor="Back to Top"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  className="flex items-center gap-1 text-[#c4b7a2] hover:text-[#faf7f2] transition-colors cursor-pointer"
-                >
-                  <span>Back to top</span>
-                  <span className="material-symbols-outlined text-[14px]">
-                    arrow_upward
-                  </span>
-                </button>
-              </div>
+              <button
+                type="button"
+                data-cursor="Back to Top"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="flex items-center gap-1 text-[#c4b7a2] hover:text-[#faf7f2] transition-colors cursor-pointer"
+              >
+                <span>Back to top</span>
+                <span className="material-symbols-outlined text-[14px]">
+                  arrow_upward
+                </span>
+              </button>
             </div>
           </div>
         </footer>
