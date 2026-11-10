@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Inference Unit Economics & Cascading Router | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://ai-cost-optimizer-iota.vercel.app" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1.5 transition-all">
+          <span>Live ROI Tool</span>
+          <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+        </a>
+        <a href="https://github.com/krishnamurthi-ramesh/AI-Cost-Optimizer" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>GitHub Repo</span>
+          <span class="material-symbols-outlined text-[14px]">code</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        AI INFERENCE UNIT ECONOMICS &amp; PRD MEMO
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">Validated Simulation • Nov 2026</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      AI Cost Optimizer: Semantic Cascading Router
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      Intelligent model tiering &amp; confidence-gated fallback architecture designed to protect SaaS gross margins from the variable token COGS trap.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> R. Krishnamurthi (AI PM)</div>
+      <div><span class="font-bold text-[#0e1828]">GitHub:</span> <a href="https://github.com/krishnamurthi-ramesh/AI-Cost-Optimizer" target="_blank" class="text-[#b88a3b] underline font-mono">AI-Cost-Optimizer</a></div>
+      <div><span class="font-bold text-[#0e1828]">Live Deployment:</span> <a href="https://ai-cost-optimizer-iota.vercel.app" target="_blank" class="text-[#b88a3b] underline font-mono">ai-cost-optimizer-iota.vercel.app</a></div>
+      <div><span class="font-bold text-[#0e1828]">Financial Impact:</span> +30.5% Gross Margin Expansion</div>
+    </div>
+  </section>
+
+  <!-- Main Content Body -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Executive Thesis Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">The SaaS Gross Margin Dilemma</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        “Routing 100% of user queries to frontier models is the fastest way to collapse a 85% software gross margin down to 54%. Semantic cascading is not just a cost-saving tactic; it is an architectural requirement for AI product solvency.”
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        At 100,000 DAU, a monolithic Claude 3.5 Sonnet / GPT-4o architecture consumes <strong>~$137,116/month</strong> in direct API token fees. Yet 78% of incoming prompts are low-to-medium complexity tasks where high-speed SLMs (Gemini 2.5 Flash, Llama 3.3 70B) achieve statistical parity at 1/10th the token cost.
+      </p>
+    </div>
+
+    <!-- Core Simulation Results -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Empirical Sensitivity Findings</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Validated via 32 parameter permutations in <code>cost_routing_simulator.py</code>.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-center">
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block">Monthly Savings</span>
+          <span class="text-2xl font-bold text-emerald-600 block mt-1">$91,564</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">-66.8% vs. Frontier</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block">Gross Margin</span>
+          <span class="text-2xl font-bold text-[#0e1828] block mt-1">84.8%</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">+30.5% Expansion</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block">Latency P95</span>
+          <span class="text-2xl font-bold text-emerald-600 block mt-1">1.20s</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">57.1% Faster</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block">Quality Retention</span>
+          <span class="text-2xl font-bold text-[#b88a3b] block mt-1">99.2%</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">93.4 / 100 Score</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Flow Diagram -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">System Architecture: The 4-Tier Routing Loop</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Zero code changes for upstream developers via standard OpenAI/Anthropic API drop-in proxy.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <div class="space-y-3 font-mono text-xs">
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <div class="flex items-center justify-between text-[#806b47] font-bold">
+              <span>TIER 01: REAL-TIME COMPLEXITY CLASSIFICATION</span>
+              <span>&lt;80ms LATENCY • $0.00003/Q</span>
+            </div>
+            <p class="font-sans text-xs text-[#4a4235] mt-1.5 leading-relaxed">
+              Incoming queries are scored across a normalized complexity scale (0.0 to 1.0) using lightweight token embeddings and task taxonomy rules (e.g. schema extraction vs. multi-step synthesis).
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <div class="flex items-center justify-between text-[#0e1828] font-bold">
+              <span>TIER 02: DYNAMIC ROUTING (SLM VS. FRONTIER)</span>
+              <span>78% SLM • 22% FRONTIER</span>
+            </div>
+            <p class="font-sans text-xs text-[#4a4235] mt-1.5 leading-relaxed">
+              Queries scoring &lt; 0.65 are dispatched to Gemini 2.5 Flash / Llama 3.3 70B ($0.00078/q). High-complexity queries (&ge; 0.65) route directly to Claude 3.5 Sonnet / GPT-4o ($0.00571/q).
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <div class="flex items-center justify-between text-emerald-700 font-bold">
+              <span>TIER 03: CONFIDENCE &amp; SCHEMA VERIFICATION</span>
+              <span>ENTROPY GATING • P99 SAFETY</span>
+            </div>
+            <p class="font-sans text-xs text-[#4a4235] mt-1.5 leading-relaxed">
+              SLM outputs are parsed for JSON schema conformity and token logprob entropy. If confidence drops below safety thresholds or output validation fails, the query escalates transparently to the frontier tier.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <div class="flex items-center justify-between text-[#b88a3b] font-bold">
+              <span>TIER 04: PROMPT PREFIX CACHING</span>
+              <span>50%–90% INPUT TOKEN REBATE</span>
+            </div>
+            <p class="font-sans text-xs text-[#4a4235] mt-1.5 leading-relaxed">
+              Static system prompts, RAG schemas, and few-shot examples are cached in provider GPU memory, saving 80% on repeated input prefix costs across user conversational sessions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scale Comparison Table -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Scale Comparison: Monolithic vs. Cascading Router</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Simulated at 8 queries/user/day, 650 in / 350 out tokens, 35% cache hit rate.</p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-[#dfd6c6] bg-white shadow-xs">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-[#f0e8dc] border-b border-[#dfd6c6] text-[#0e1828] font-mono uppercase text-[11px]">
+              <th class="p-3">Scale (DAU)</th>
+              <th class="p-3">Monthly Queries</th>
+              <th class="p-3">Pure Frontier (Sonnet)</th>
+              <th class="p-3">Cascading Router</th>
+              <th class="p-3">Net Savings ($)</th>
+              <th class="p-3">Margin (Strategy C)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#dfd6c6]/60 text-[#4a4235] font-mono">
+            <tr>
+              <td class="p-3 font-bold text-[#0e1828]">10k (Seed)</td>
+              <td class="p-3">2.4M</td>
+              <td class="p-3">$13,712</td>
+              <td class="p-3 font-bold text-[#0e1828]">$4,555</td>
+              <td class="p-3 text-emerald-600 font-bold">$9,157 (-66.8%)</td>
+              <td class="p-3 font-sans text-emerald-700 font-bold">84.8%</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-[#0e1828]">50k (Series A)</td>
+              <td class="p-3">12.0M</td>
+              <td class="p-3">$42,849</td>
+              <td class="p-3 font-bold text-[#0e1828]">$14,235</td>
+              <td class="p-3 text-emerald-600 font-bold">$28,614 (-66.8%)</td>
+              <td class="p-3 font-sans text-emerald-700 font-bold">84.8%</td>
+            </tr>
+            <tr class="bg-[#faf7f2]">
+              <td class="p-3 font-bold text-[#0e1828]">100k (Growth)</td>
+              <td class="p-3">24.0M</td>
+              <td class="p-3">$137,116</td>
+              <td class="p-3 font-bold text-[#0e1828]">$45,553</td>
+              <td class="p-3 text-emerald-600 font-bold">$91,564 (-66.8%)</td>
+              <td class="p-3 font-sans text-emerald-700 font-bold">84.8%</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-[#0e1828]">500k (Fleet)</td>
+              <td class="p-3">120.0M</td>
+              <td class="p-3">$685,583</td>
+              <td class="p-3 font-bold text-[#0e1828]">$227,763</td>
+              <td class="p-3 text-emerald-600 font-bold">$457,820 (-66.8%)</td>
+              <td class="p-3 font-sans text-emerald-700 font-bold">84.8%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[11px] text-[#6a6050] font-mono">
+        * Break-even sensitivity threshold: The router remains accretive vs. pure Frontier up to a 97.3% escalation rate.
+      </p>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#0e1828] hover:text-[#b88a3b] transition-colors">
+        ← Return to Portfolio Overview
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://ai-cost-optimizer-iota.vercel.app" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-bold inline-flex items-center gap-1.5 transition-all">
+          <span>Launch Interactive Tool</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
+        <a href="https://github.com/krishnamurthi-ramesh/AI-Cost-Optimizer" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+          <span>Explore GitHub Repo</span>
+          <span class="material-symbols-outlined text-[14px]">code</span>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+

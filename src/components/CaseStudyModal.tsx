@@ -415,6 +415,225 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
               </div>
             </div>
           )}
+
+          {/* SHOPIFY FLOWLENS DEEP DIVE */}
+          {activeKey === 'flowlens' && (
+            <div className="space-y-6 text-sm">
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  01 / System Architecture &amp; The Strategic Pivot
+                </h3>
+                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
+                  <h4 className="font-bold text-[#0e1828] text-base">
+                    Read-Only Preflight Analysis for Shopify .flow Definitions
+                  </h4>
+                  <p className="text-[#554d42] leading-relaxed">
+                    When Shopify disclosed that fine-tuned Qwen-32B workflow generation in Sidekick suffered a <strong>35% lower production activation rate</strong>, I diagnosed the root cause: merchants hesitate to activate automations due to silent data formatting mismatches and pre-Wait data loss hazards.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">5 Deterministic Linting Rules</span>
+                      <p className="text-[#554d42]">
+                        L-01 (ISO-2 country codes), L-02 (pre-Wait data discard warnings), L-03 (no-op audit), L-04 (Liquid syntax check), and L-05 (cycle prevention).
+                      </p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">API Boundary Pivot</span>
+                      <p className="text-[#554d42]">
+                        Live diagnostic monitoring is blocked by Shopify Admin API boundaries. Pivoted to offline preflight analysis of exported <code>.flow</code> JSON files with zero store mutations.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  02 / Interactive Artifacts &amp; Live Demos
+                </h3>
+                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
+                  <p className="text-[#4a4235] leading-relaxed text-xs">
+                    Explore the complete post-audit case study, launch the interactive prototype to upload <code>.flow</code> files and inspect synthetic order simulations, or view source code on GitHub.
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    <a
+                      href="/projects/shopify-flow-lens.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
+                    >
+                      <span>Open Dedicated Case Study Page</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                    </a>
+                    <a
+                      href="https://shopify-flowlens.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>Live Prototype</span>
+                      <span className="material-symbols-outlined text-[13px]">north_east</span>
+                    </a>
+                    <a
+                      href="https://github.com/krishnamurthi-ramesh/Shopify-Flow-Lens"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>GitHub Repository</span>
+                      <span className="material-symbols-outlined text-[13px]">code</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* AI COST OPTIMIZER DEEP DIVE */}
+          {activeKey === 'costoptimizer' && (
+            <div className="space-y-6 text-sm">
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  01 / The SaaS Gross Margin Trap
+                </h3>
+                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
+                  <h4 className="font-bold text-[#0e1828] text-base">
+                    Monolithic Frontier Routing vs. Cascading Architecture
+                  </h4>
+                  <p className="text-[#554d42] leading-relaxed">
+                    Software companies routing 100% of user queries to Claude 3.5 Sonnet or GPT-4o face severe unit-economic deterioration: at 100k DAU, token fees reach <strong>$137k/mo</strong>, collapsing gross margins from 85% to 54.3%.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">Asymmetric Entropy Distribution</span>
+                      <p className="text-[#554d42]">
+                        78% of incoming prompts are low-complexity queries routed to SLMs (Gemini 2.5 Flash / Llama 3.3 70B at $0.00078/q), reserving frontier models for reasoning.
+                      </p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">Validated Monte Carlo Simulation</span>
+                      <p className="text-[#554d42]">
+                        Tested across 32 parameter permutations: saves <strong>$91,564/mo (-66.8%)</strong>, halves P95 latency to 1.20s, and preserves 99.2% benchmark quality.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  02 / Interactive Simulator &amp; Codebase
+                </h3>
+                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
+                  <p className="text-[#4a4235] leading-relaxed text-xs">
+                    Interact directly with the live ROI tool to simulate user scale, escalation rates, and cache hit margins, or inspect the routing proxy implementation on GitHub.
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    <a
+                      href="/projects/ai-cost-optimizer.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
+                    >
+                      <span>Open Dedicated Case Study Page</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                    </a>
+                    <a
+                      href="https://ai-cost-optimizer-iota.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>Launch Interactive ROI Tool</span>
+                      <span className="material-symbols-outlined text-[13px]">north_east</span>
+                    </a>
+                    <a
+                      href="https://github.com/krishnamurthi-ramesh/AI-Cost-Optimizer"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>GitHub Repository</span>
+                      <span className="material-symbols-outlined text-[13px]">code</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* PERPLEXITY EVAL HARNESS DEEP DIVE */}
+          {activeKey === 'evalharness' && (
+            <div className="space-y-6 text-sm">
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  01 / 151-Benchmark Quality Audit
+                </h3>
+                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
+                  <h4 className="font-bold text-[#0e1828] text-base">
+                    Diagnosing the Citation Hallucination Paradox
+                  </h4>
+                  <p className="text-[#554d42] leading-relaxed">
+                    Audited 151 production queries comparing Perplexity Sonar vs. Sonar Pro. While format and safety scored &gt;4.7/5.0, <strong>26.2% of generated citations</strong> suffered from dead links (404s), generic domain redirects, or direct metric contradictions.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">7-Dimension Calibrated Rubric</span>
+                      <p className="text-[#554d42]">
+                        Factual Accuracy, Citation Validity, Freshness, Completeness, Harmlessness, Hedging, and Format with hard vetoes on safety and source fabrication.
+                      </p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">Product Grounding Roadmap</span>
+                      <p className="text-[#554d42]">
+                        Formulated P0 pre-render NLI entailment checks to cut citation errors to &lt;8%, plus automated PR CI/CD regression gates.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  02 / Live Tableau Public Dashboard &amp; Codebase
+                </h3>
+                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
+                  <p className="text-[#4a4235] leading-relaxed text-xs">
+                    Inspect the live 151-case evaluation dashboard on Tableau Public or explore the evaluation harness architecture and golden dataset on GitHub.
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    <a
+                      href="/projects/eval-harness.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
+                    >
+                      <span>Open Dedicated Case Study Page</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                    </a>
+                    <a
+                      href="https://public.tableau.com/views/PerplexityAIQualityEvaluationHarness/PerplexityAIQualityEvaluationHarness?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>Tableau Public Benchmark</span>
+                      <span className="material-symbols-outlined text-[13px]">north_east</span>
+                    </a>
+                    <a
+                      href="https://github.com/krishnamurthi-ramesh/AgentEval-Studio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>GitHub Repository</span>
+                      <span className="material-symbols-outlined text-[13px]">code</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Modal Footer Navigation */}
@@ -425,7 +644,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             className="flex items-center gap-1.5 text-xs font-semibold text-[#554d42] hover:text-[#0e1828] transition-colors cursor-pointer"
           >
             <span className="material-symbols-outlined text-[16px]">arrow_back</span>
-            <span>Previous Teardown</span>
+            <span>Previous {study.category === 'project' ? 'Project' : 'Teardown'}</span>
           </button>
 
           <span className="text-xs text-[#7d7363] font-mono hidden sm:inline">
@@ -437,7 +656,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             onClick={() => onSelectKey(getNextCaseStudyKey(activeKey, 1))}
             className="flex items-center gap-1.5 text-xs font-semibold text-[#554d42] hover:text-[#0e1828] transition-colors cursor-pointer"
           >
-            <span>Next Teardown</span>
+            <span>Next {study.category === 'project' ? 'Project' : 'Teardown'}</span>
             <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
           </button>
         </div>

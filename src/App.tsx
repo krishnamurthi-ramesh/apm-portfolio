@@ -33,7 +33,7 @@ interface ProjectWorkItem {
   id: CaseStudyKey;
   tag: string;
   badge: string;
-  category: 'agents' | 'funnels';
+  category: 'teardowns' | 'systems';
   title: string;
   subtitle: string;
   problem: string;
@@ -43,6 +43,8 @@ interface ProjectWorkItem {
   standaloneUrl: string;
   pdfUrl?: string;
   workspaceUrl?: string;
+  githubUrl?: string;
+  prototypeUrl?: string;
 }
 
 const PROJECTS_WORK: ProjectWorkItem[] = [
@@ -50,7 +52,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     id: 'openai',
     tag: 'AI PRODUCT MANAGEMENT CASE STUDY',
     badge: 'OPENAI IN-HOUSE DATA AGENT',
-    category: 'agents',
+    category: 'teardowns',
     title: 'Inside OpenAI’s In-House Data Agent: Context-First Architecture Across 70,000 Datasets',
     subtitle: 'Architectural teardown of how layered context pipelines and golden question eval harnesses turn natural language into trusted SQL insights across 3,500+ employees.',
     problem:
@@ -67,7 +69,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     id: 'notion',
     tag: 'AI PRICING & ROUTING TEARDOWN',
     badge: 'NOTION AGENTS',
-    category: 'agents',
+    category: 'teardowns',
     title: 'Notion Agents: Rebuilt to Do More for Less — Pricing, Routing & Cost Control',
     subtitle: 'Deconstructing dynamic model routing, credit currency economics, and runaway cost risks on long-running autonomous AI agents.',
     problem:
@@ -84,7 +86,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     id: 'comet',
     tag: 'E-COMMERCE AI DISCOVERY',
     badge: 'COMET AI SEARCH',
-    category: 'funnels',
+    category: 'teardowns',
     title: 'Comet (E-commerce AI Search) — Teardown & Friction Analysis',
     subtitle: 'Reverse-engineering Comet’s conversational AI "Finder" discovery flow to diagnose drop-off friction between recommendation generation and PDP conversion.',
     problem:
@@ -101,7 +103,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     id: 'lending',
     tag: 'FINTECH COMPARATIVE TEARDOWN',
     badge: 'KREDITBEE × PHONEPE',
-    category: 'funnels',
+    category: 'teardowns',
     title: 'KreditBee & PhonePe Lending — Same Category, Two Failure Modes',
     subtitle: 'Diagnosing structurally distinct friction points across two live digital lending funnels: document-upload bottleneck vs. marketplace trust-continuity break.',
     problem:
@@ -113,6 +115,60 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     techTags: ['Funnel Optimization', 'KYC & OCR', 'AARRR Funnel', 'Fintech UX', 'User Friction', 'Disbursal Velocity'],
     standaloneUrl: '/teardowns/lending-funnels.html',
     workspaceUrl: '/teardown-kreditbee.html',
+  },
+  {
+    id: 'flowlens',
+    tag: 'AI WORKFLOW ENGINE CASE STUDY',
+    badge: 'SHOPIFY FLOWLENS',
+    category: 'systems',
+    title: 'FlowLens: Preflight Workflow Validator & Simulation Engine for Shopify Flow',
+    subtitle: 'Read-only preflight analyzer inspecting .flow schemas to flag ISO-2 country code mismatches, pre-Wait data discards, and cycle hazards before workflows mutate orders.',
+    problem:
+      'Shopify disclosed fine-tuned Sidekick workflow generation had a 35% lower production activation rate due to condition schema mismatches (16%) and missing parameters (25%), causing silent automation failures.',
+    judgmentCalls:
+      'Pivoted from unreachable live execution trace API (Path A) to an offline read-only .flow JSON analyzer (Path B). Established 5 deterministic AST linting rules (L-01 to L-05) grounded in official Shopify docs.',
+    outcome:
+      '100% AST rule coverage on test benchmarks with <100ms client-side parse time; zero unauthorized store mutation with reviewable JSON remediation diffs.',
+    techTags: ['Shopify Flow', 'AST Static Analysis', 'GraphQL Schema', 'DAG Simulation', 'Deterministic Linter', 'Liquid Syntax'],
+    standaloneUrl: '/projects/shopify-flow-lens.html',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/Shopify-Flow-Lens',
+    prototypeUrl: 'https://shopify-flowlens.vercel.app',
+  },
+  {
+    id: 'costoptimizer',
+    tag: 'AI INFERENCE UNIT ECONOMICS & PRD MEMO',
+    badge: 'AI COST OPTIMIZER',
+    category: 'systems',
+    title: 'AI Cost Optimizer: Semantic Cascading Router & Dynamic Model Tiering',
+    subtitle: 'Intelligent inference proxy with confidence-gated fallback architecture protecting SaaS gross margins from the variable token COGS trap.',
+    problem:
+      'Monolithic frontier model routing (Claude 3.5 Sonnet / GPT-4o) degrades SaaS gross margins from 85% to 54.3% at 100k DAU ($137k/mo) despite 78% of queries being low-entropy tasks.',
+    judgmentCalls:
+      'Architected a drop-in OpenAI/Anthropic API proxy with <80ms semantic complexity classifier. Routed 78% of queries to SLMs ($0.00078/q) with token entropy fallback and 35% prompt prefix cache reuse.',
+    outcome:
+      'Validated across 32 Monte Carlo permutations: saves $91,564/month (-66.8% COGS), cuts P95 latency by 57.1% (1.20s), and expands gross margins from 54.3% to 84.8% at 99.2% quality parity.',
+    techTags: ['Unit Economics', 'Cascading Router', 'Gemini 2.5 Flash', 'Claude 3.5 Sonnet', 'Prompt Caching', 'Monte Carlo Sim'],
+    standaloneUrl: '/projects/ai-cost-optimizer.html',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/AI-Cost-Optimizer',
+    prototypeUrl: 'https://ai-cost-optimizer-iota.vercel.app',
+  },
+  {
+    id: 'evalharness',
+    tag: 'AI QUALITY BENCHMARK & EVAL HARNESS',
+    badge: 'PERPLEXITY EVAL HARNESS',
+    category: 'systems',
+    title: 'Perplexity AI Quality Eval Harness & Trust Guardrails',
+    subtitle: 'Systematic quality evaluation framework measuring 7 quality dimensions across 151 production queries, diagnosing citation hallucinations and establishing CI/CD regression gates.',
+    problem:
+      'Generative search retention suffers from authoritative hallucination: 26.2% of citations across complex queries return dead 404s, link to generic homepages, or contradict claimed metrics.',
+    judgmentCalls:
+      'Curated 151 golden test cases across 10 categories. Built a 7-dimension scoring rubric with hard veto on safety and source fabrication. Decoupled judge to prevent circular vendor evaluation bias.',
+    outcome:
+      'Deployed interactive public benchmark on Tableau Public; defined P0 pre-render citation verification to cut error rates to <8% and automated weekly PR regression gates.',
+    techTags: ['LLM Evaluation', 'Tableau Public', 'Citation Grounding', 'Golden Dataset', 'LLM-as-Judge', 'Regression Testing'],
+    standaloneUrl: '/projects/eval-harness.html',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/AgentEval-Studio',
+    prototypeUrl: 'https://public.tableau.com/views/PerplexityAIQualityEvaluationHarness/PerplexityAIQualityEvaluationHarness?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
   },
 ];
 
@@ -271,12 +327,12 @@ export default function App() {
   const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudyKey | null>(
     null
   );
-  const [activeFilter, setActiveFilter] = useState<'all' | 'agents' | 'funnels'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'teardowns' | 'systems'>('all');
   const [showCopyToast, setShowCopyToast] = useState(false);
   const [showResumeModal, setShowResumeModal] = useState(false);
   const [heroWordIndex, setHeroWordIndex] = useState(0);
 
-  // Hash listener for direct teardown links (#openai, #notion, #comet, #lending)
+  // Hash listener for direct teardown links (#openai, #notion, #comet, #lending, #flowlens, #costoptimizer, #evalharness)
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
@@ -284,6 +340,9 @@ export default function App() {
       else if (hash === 'notion' || hash === 'teardown-notion') setActiveCaseStudy('notion');
       else if (hash === 'comet' || hash === 'teardown-comet') setActiveCaseStudy('comet');
       else if (hash === 'lending' || hash === 'teardown-lending') setActiveCaseStudy('lending');
+      else if (hash === 'flowlens' || hash === 'shopify-flow-lens') setActiveCaseStudy('flowlens');
+      else if (hash === 'costoptimizer' || hash === 'ai-cost-optimizer') setActiveCaseStudy('costoptimizer');
+      else if (hash === 'evalharness' || hash === 'eval-harness') setActiveCaseStudy('evalharness');
     };
     handleHash();
     window.addEventListener('hashchange', handleHash);
@@ -1284,10 +1343,10 @@ export default function App() {
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#806b47] font-mono">
                   <span>02</span>
                   <span>/</span>
-                  <span>Product Teardowns &amp; Case Studies</span>
+                  <span>Product Teardowns &amp; AI Systems</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0e1828] tracking-tight font-[family-name:var(--font-editorial)]">
-                  Teardowns &amp; Case Studies
+                  Teardowns &amp; Flagship Projects
                 </h2>
                 <p className="text-sm sm:text-base text-[#554d42] max-w-xl">
                   Deep reverse engineering, funnel friction diagnostics, and AI unit economics — structured by core problem framing, PM judgment calls, and measurable outcomes.
@@ -1306,31 +1365,31 @@ export default function App() {
                       : 'text-[#554d42] hover:text-[#0e1828]'
                   }`}
                 >
-                  All Teardowns ({PROJECTS_WORK.length})
+                  All Work ({PROJECTS_WORK.length})
                 </button>
                 <button
                   type="button"
-                  data-cursor="Filter AI Agents"
-                  onClick={() => setActiveFilter('agents')}
+                  data-cursor="Filter Teardowns"
+                  onClick={() => setActiveFilter('teardowns')}
                   className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
-                    activeFilter === 'agents'
+                    activeFilter === 'teardowns'
                       ? 'bg-[#0e1828] text-[#faf7f2] shadow-xs'
                       : 'text-[#554d42] hover:text-[#0e1828]'
                   }`}
                 >
-                  Autonomous AI &amp; Data Agents (2)
+                  Product Teardowns (4)
                 </button>
                 <button
                   type="button"
-                  data-cursor="Filter Funnels"
-                  onClick={() => setActiveFilter('funnels')}
+                  data-cursor="Filter AI Systems"
+                  onClick={() => setActiveFilter('systems')}
                   className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
-                    activeFilter === 'funnels'
+                    activeFilter === 'systems'
                       ? 'bg-[#0e1828] text-[#faf7f2] shadow-xs'
                       : 'text-[#554d42] hover:text-[#0e1828]'
                   }`}
                 >
-                  Fintech &amp; E-Commerce Funnels (2)
+                  AI Product Systems &amp; Projects (3)
                 </button>
               </div>
             </div>
@@ -1464,6 +1523,30 @@ export default function App() {
                           <span>Full Page</span>
                           <span className="material-symbols-outlined text-[13px]">open_in_new</span>
                         </a>
+                        {item.prototypeUrl && (
+                          <a
+                            href={item.prototypeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="px-3.5 py-2 rounded-full bg-[#faf7f2] hover:bg-[#f0e8dc] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
+                          >
+                            <span>Live Tool</span>
+                            <span className="material-symbols-outlined text-[13px]">rocket_launch</span>
+                          </a>
+                        )}
+                        {item.githubUrl && (
+                          <a
+                            href={item.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="px-3.5 py-2 rounded-full bg-white hover:bg-[#0e1828] text-[#0e1828] hover:text-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
+                          >
+                            <span>GitHub</span>
+                            <span className="material-symbols-outlined text-[13px]">code</span>
+                          </a>
+                        )}
                         {item.pdfUrl && (
                           <a
                             href={item.pdfUrl}

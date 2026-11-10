@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopify FlowLens: Preflight Workflow Validator & Simulation Engine | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://shopify-flowlens.vercel.app" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1.5 transition-all">
+          <span>Live Demo</span>
+          <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+        </a>
+        <a href="https://github.com/krishnamurthi-ramesh/Shopify-Flow-Lens" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>GitHub Repo</span>
+          <span class="material-symbols-outlined text-[14px]">code</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        AI WORKFLOW ENGINE CASE STUDY
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">Audited Baseline • Nov 2026</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      Shopify FlowLens
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      Preflight Workflow Validator &amp; Simulation Engine for Shopify Flow — Static AST linting, pre-Wait data dependency tracking, and synthetic scenario execution for merchant automations.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> R. Krishnamurthi (AI PM)</div>
+      <div><span class="font-bold text-[#0e1828]">GitHub:</span> <a href="https://github.com/krishnamurthi-ramesh/Shopify-Flow-Lens" target="_blank" class="text-[#b88a3b] underline font-mono">Shopify-Flow-Lens</a></div>
+      <div><span class="font-bold text-[#0e1828]">Live Prototype:</span> <a href="https://shopify-flowlens.vercel.app" target="_blank" class="text-[#b88a3b] underline font-mono">shopify-flowlens.vercel.app</a></div>
+      <div><span class="font-bold text-[#0e1828]">Core Focus:</span> Pre-Activation Safety &amp; AST Linting</div>
+    </div>
+  </section>
+
+  <!-- Main Content Body -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Honest Executive Summary & Evidence Discipline -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">Honest Framing &amp; Evidence Audit</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        “Text-to-workflow generation is a solved baseline; the unsolved failure mode is ensuring generated automations match real-world store schemas before mutating customer orders.”
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        When Shopify Engineering published their research on fine-tuning Qwen-32B for Sidekick workflow generation, they disclosed that in a 1% live rollout, the fine-tuned model suffered a <strong>35% lower workflow activation rate</strong> than the prompt baseline. Top failure slices: email configurations (25%), diverse condition logic (16%), and integration schema boundaries.
+      </p>
+    </div>
+
+    <!-- The 3 Pillars of FlowLens -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Why FlowLens? The Problem Space</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Grounding the product in verifiable merchant pain points and Shopify platform constraints.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">01 • Silent Failures</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">Late Friction Detection</h3>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Non-developers write exact-match condition strings like <code>countryCode == "USA"</code>, unaware that Shopify GraphQL normalizes addresses to ISO alpha-2 (<code>"US"</code>). Workflows run silently without executing intended actions.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">02 • Pre-Wait Discards</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">Pre-Wait Data Loss</h3>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Shopify Flow automatically refreshes core store records after a Wait delay node, but <strong>discards temporary outputs from Get, Sum, or Count actions</strong> executed before the Wait, leading to broken downstream variable references.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">03 • Infinite Loops</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">Self-Triggering Cycles</h3>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Workflows triggered on <code>Order updated</code> that mutate orders without idempotency tags can cause cascade loops, exhausting rate limits and triggering merchant store API throttling.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Feasibility & The Strategic Pivot -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Technical Feasibility &amp; The Architecture Pivot</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Honest engineering boundary analysis across Shopify’s 4 platform surfaces.</p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-[#dfd6c6] bg-white shadow-xs">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-[#f0e8dc] border-b border-[#dfd6c6] text-[#0e1828] font-mono uppercase text-[11px]">
+              <th class="p-3.5">Surface</th>
+              <th class="p-3.5">Capabilities</th>
+              <th class="p-3.5">Public API Accessibility</th>
+              <th class="p-3.5">Product Feasibility Verdict</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#dfd6c6]/60 text-[#4a4235]">
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">1. Shopify Admin UI</td>
+              <td class="p-3.5">Renders step execution DAG &amp; 14-day execution logs server-side.</td>
+              <td class="p-3.5 text-red-600 font-mono font-bold">Zero Public API</td>
+              <td class="p-3.5">Live diagnostic monitoring (Path A) is technically blocked.</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">2. Public GraphQL API</td>
+              <td class="p-3.5">Exposes <code>flowTriggerReceive</code> to trigger events.</td>
+              <td class="p-3.5 text-amber-600 font-mono font-bold">Trigger Mutation Only</td>
+              <td class="p-3.5">Zero queries exist for historical step execution traces.</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">3. Exported .flow Files</td>
+              <td class="p-3.5">Shopify allows 1-click export and import of workflow JSON DAG schemas.</td>
+              <td class="p-3.5 text-emerald-600 font-mono font-bold">Fully Accessible</td>
+              <td class="p-3.5 font-semibold text-[#0e1828]">Path B Selected: Offline Preflight Static Analyzer.</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">4. Flow Extensions</td>
+              <td class="p-3.5">Supports <code>flow_action</code> &amp; <code>flow_trigger</code> app extensions.</td>
+              <td class="p-3.5 text-amber-600 font-mono font-bold">No Condition Extension</td>
+              <td class="p-3.5">Apps cannot inject native custom condition evaluators.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- The 5 Deterministic Linting Rules -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">The 5 Deterministic Linting Rules</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Defensive AST inspection rules executed pre-activation.</p>
+      </div>
+
+      <div class="space-y-3 font-mono text-xs">
+        <div class="p-4 rounded-xl bg-white border border-[#dfd6c6] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold mr-2">L-01 [WARNING]</span>
+            <span class="font-bold text-[#0e1828]">Schema-Aware Country Code Check</span>
+            <p class="text-[11px] text-[#6a6050] font-sans mt-1">Validates fields established as ISO alpha-2 (<code>shippingAddress.countryCode</code>) against non-compliant formats (e.g. <code>"USA"</code> vs <code>"US"</code>).</p>
+          </div>
+          <span class="text-[11px] text-[#b88a3b] font-bold shrink-0">Schema Guard</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white border border-[#dfd6c6] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="px-2 py-0.5 rounded bg-red-100 text-red-800 font-bold mr-2">L-02 [HIGH RISK]</span>
+            <span class="font-bold text-[#0e1828]">Pre-Wait Data Action Output Misuse</span>
+            <p class="text-[11px] text-[#6a6050] font-sans mt-1">Warns if a step following a <code>Wait</code> node relies on variables from pre-Wait <code>Get</code>, <code>Sum</code>, or <code>Count</code> actions that Shopify automatically discards.</p>
+          </div>
+          <span class="text-[11px] text-red-600 font-bold shrink-0">Fatal Drop Guard</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white border border-[#dfd6c6] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-bold mr-2">L-03 [INFO]</span>
+            <span class="font-bold text-[#0e1828]">Informational No-Action Branch Note</span>
+            <p class="text-[11px] text-[#6a6050] font-sans mt-1">Documents intentional termination branches when conditions are unmet, allowing merchants to verify whether a silent exit was intended.</p>
+          </div>
+          <span class="text-[11px] text-blue-600 font-bold shrink-0">Logic Audit</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white border border-[#dfd6c6] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold mr-2">L-04 [WARNING]</span>
+            <span class="font-bold text-[#0e1828]">Liquid Syntax &amp; Schema Validation</span>
+            <p class="text-[11px] text-[#6a6050] font-sans mt-1">Validates Liquid variable delimiters, missing closing brackets, and unmapped property references inside notification action templates.</p>
+          </div>
+          <span class="text-[11px] text-amber-700 font-bold shrink-0">Syntax Check</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white border border-[#dfd6c6] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="px-2 py-0.5 rounded bg-red-100 text-red-800 font-bold mr-2">L-05 [WARNING]</span>
+            <span class="font-bold text-[#0e1828]">Self-Triggering Cycle Detection</span>
+            <p class="text-[11px] text-[#6a6050] font-sans mt-1">Flags workflows triggered on <code>Order updated</code> that mutate the same order entity without an explicit idempotency guard tag.</p>
+          </div>
+          <span class="text-[11px] text-red-600 font-bold shrink-0">Loop Preventer</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Synthetic Scenario Simulation -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Interactive Prototype &amp; Scenario Simulator</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Validating edge-case payloads through synthetic execution.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <p class="text-xs sm:text-sm text-[#4a4235] leading-relaxed">
+          The interactive prototype (<a href="https://shopify-flowlens.vercel.app" target="_blank" class="text-[#b88a3b] underline font-bold">Live on Vercel</a>) allows merchants to upload any <code>.flow</code> file, inspect the rendered DAG, click through nominal and adversarial order payloads, and view suggested JSON remediation diffs.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] text-center">
+            <span class="block text-2xl font-bold text-[#0e1828] font-mono">100%</span>
+            <span class="text-[11px] text-[#6a6050] mt-1 block">AST Rule Coverage on Benchmark</span>
+          </div>
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] text-center">
+            <span class="block text-2xl font-bold text-[#0e1828] font-mono">&lt;100ms</span>
+            <span class="text-[11px] text-[#6a6050] mt-1 block">Client-Side Parse &amp; Validation</span>
+          </div>
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] text-center">
+            <span class="block text-2xl font-bold text-[#b88a3b] font-mono">Zero</span>
+            <span class="text-[11px] text-[#6a6050] mt-1 block">Production Store Mutation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#0e1828] hover:text-[#b88a3b] transition-colors">
+        ← Return to Portfolio Overview
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://shopify-flowlens.vercel.app" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-bold inline-flex items-center gap-1.5 transition-all">
+          <span>Open Interactive App</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
+        <a href="https://github.com/krishnamurthi-ramesh/Shopify-Flow-Lens" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+          <span>Explore GitHub Repo</span>
+          <span class="material-symbols-outlined text-[14px]">code</span>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+

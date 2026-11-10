@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perplexity AI Quality Eval Harness & Trust Guardrails | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://public.tableau.com/views/PerplexityAIQualityEvaluationHarness/PerplexityAIQualityEvaluationHarness?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1.5 transition-all">
+          <span>Tableau Public Benchmark</span>
+          <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+        </a>
+        <a href="https://github.com/krishnamurthi-ramesh/AgentEval-Studio" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>GitHub Repo</span>
+          <span class="material-symbols-outlined text-[14px]">code</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        AI EVALUATION HARNESS &amp; TRUST BENCHMARK
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">151 Curated Queries • Nov 2026</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      Perplexity AI Quality Eval Harness &amp; Trust Guardrails
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      A systematic quality evaluation system for generative search — catching citation hallucinations, source contradictions, and quality regressions before users do.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> R. Krishnamurthi (AI PM)</div>
+      <div><span class="font-bold text-[#0e1828]">GitHub:</span> <a href="https://github.com/krishnamurthi-ramesh/AgentEval-Studio" target="_blank" class="text-[#b88a3b] underline font-mono">AgentEval-Studio</a></div>
+      <div><span class="font-bold text-[#0e1828]">Live Benchmark:</span> <a href="https://public.tableau.com/views/PerplexityAIQualityEvaluationHarness/PerplexityAIQualityEvaluationHarness?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="text-[#b88a3b] underline font-mono">Tableau Public Dashboard</a></div>
+      <div><span class="font-bold text-[#0e1828]">Benchmark Scale:</span> 151 Golden Cases • 10 Categories</div>
+    </div>
+  </section>
+
+  <!-- Main Content Body -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Executive Summary Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">The Grounding &amp; Retention Crisis</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        “The biggest risk to generative search retention is not unreadable text: it is authoritative hallucination. When an AI outputs crisp citations that point to 404s or contradict claimed numbers, user trust permanently collapses.”
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        Across 151 audited production queries comparing Perplexity Sonar vs. Sonar Pro, <strong>26.2% of generated citations</strong> suffered from source mismatch, dead links, or ungrounded statistics. This evaluation harness establishes measurable, deterministic rubric gates to prevent model upgrades from shipping quality regressions.
+      </p>
+    </div>
+
+    <!-- North Star Metrics Grid -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Audit Findings: The 151 Benchmark Test</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Empirical audit results across 10 query categories.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-center">
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block">Composite Score</span>
+          <span class="text-2xl font-bold text-[#0e1828] block mt-1">3.84 / 5.0</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">Grade B (151 Cases)</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block">Production Pass</span>
+          <span class="text-2xl font-bold text-emerald-600 block mt-1">84.8%</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">Score &ge; 3.0 Threshold</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block">Citation Mismatch</span>
+          <span class="text-2xl font-bold text-red-600 block mt-1">26.2%</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">Broken or Contradictory</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block">Hard Fail Rate</span>
+          <span class="text-2xl font-bold text-amber-600 block mt-1">6.6%</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">10 Safety / Source Fails</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7-Dimension Scoring Rubric -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">7-Dimension Scoring Rubric &amp; Risk Levels</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Calibrated scoring protocol combining automated LLM-as-judge and human rater baselines.</p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-[#dfd6c6] bg-white shadow-xs">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-[#f0e8dc] border-b border-[#dfd6c6] text-[#0e1828] font-mono uppercase text-[11px]">
+              <th class="p-3.5">Dimension</th>
+              <th class="p-3.5">What is Evaluated</th>
+              <th class="p-3.5">Mean Score (1-5)</th>
+              <th class="p-3.5">Risk Level</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#dfd6c6]/60 text-[#4a4235]">
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">1. Format &amp; Usability</td>
+              <td class="p-3.5">Markdown structure, list readability, table rendering, prompt adherence.</td>
+              <td class="p-3.5 font-mono font-bold text-[#0e1828]">4.72</td>
+              <td class="p-3.5 font-bold text-emerald-600">Minimal Risk</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">2. Harmlessness &amp; Safety</td>
+              <td class="p-3.5">Jailbreak resistance, zero dangerous guidance, self-harm blocking.</td>
+              <td class="p-3.5 font-mono font-bold text-[#0e1828]">4.81</td>
+              <td class="p-3.5 font-bold text-emerald-600">Minimal Risk</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">3. Freshness (Recency)</td>
+              <td class="p-3.5">Accurate temporal indexing for events that occurred within the last 72 hours.</td>
+              <td class="p-3.5 font-mono font-bold text-[#0e1828]">4.18</td>
+              <td class="p-3.5 font-bold text-amber-600">Moderate Risk</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">4. Factual Accuracy</td>
+              <td class="p-3.5">Entity precision, mathematical calculation correctness, zero dates swapped.</td>
+              <td class="p-3.5 font-mono font-bold text-[#0e1828]">3.94</td>
+              <td class="p-3.5 font-bold text-amber-600">Moderate Risk</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">5. Completeness</td>
+              <td class="p-3.5">Addresses all explicit constraints and multi-part questions in the prompt.</td>
+              <td class="p-3.5 font-mono font-bold text-[#0e1828]">3.88</td>
+              <td class="p-3.5 font-bold text-amber-600">Moderate Risk</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">6. Hedging &amp; Calibration</td>
+              <td class="p-3.5">Appropriate epistemic humility when evidence is contested, incomplete, or sparse.</td>
+              <td class="p-3.5 font-mono font-bold text-[#0e1828]">3.71</td>
+              <td class="p-3.5 font-bold text-amber-700">High Risk</td>
+            </tr>
+            <tr class="bg-red-50/40">
+              <td class="p-3.5 font-bold text-red-900">7. Citation Validity</td>
+              <td class="p-3.5 text-red-900">URLs must be live (200 OK) and cited sentences must match page content directly.</td>
+              <td class="p-3.5 font-mono font-bold text-red-600">3.12</td>
+              <td class="p-3.5 font-bold text-red-600">Critical Risk (26.2% Flaw)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Category Vulnerability Heatmap -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Category Vulnerability Heatmap</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Where generative search succeeds vs. where it degrades.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-[#0e1828]">Historical Facts &amp; Biographies</span>
+            <span class="font-mono text-xs font-bold text-emerald-700">4.48 / 5.0</span>
+          </div>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            High stability. Broad consensus in underlying web indexes enables accurate, highly reliable answer generation with strong citation support.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-[#0e1828]">Technical Code &amp; Syntax</span>
+            <span class="font-mono text-xs font-bold text-emerald-700">4.35 / 5.0</span>
+          </div>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Code blocks are syntactically valid and well-annotated; occasional misses on framework API changes released within the last 30 days.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-[#0e1828]">Current Events &amp; Policy News</span>
+            <span class="font-mono text-xs font-bold text-amber-700">3.82 / 5.0</span>
+          </div>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Occasionally conflates dates from previous annual summits with breaking updates, resulting in outdated headline summaries.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2 border-red-200 bg-red-50/20">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-red-900">Adversarial &amp; False Premise</span>
+            <span class="font-mono text-xs font-bold text-red-600">2.95 / 5.0</span>
+          </div>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Fails negative constraint verification. When prompted with a fake paper title or fabricated historical event, it frequently hallucinates corroborating details.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PM Recommendations & Release Gating -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">PM Recommendations: The Grounding Roadmap</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Three actionable product initiatives to fix citation leaks and protect enterprise retention.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <div class="space-y-4">
+          <div class="pb-3 border-b border-[#dfd6c6]/60">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-red-100 text-red-800 text-[11px] font-mono font-bold">P0 FIX</span>
+              <h4 class="font-bold text-sm text-[#0e1828]">Pre-Render Citation Entailment Verification</h4>
+            </div>
+            <p class="text-xs text-[#4a4235] mt-1 leading-relaxed">
+              Execute a lightweight NLI (Natural Language Inference) entailment check between the generated sentence and the fetched chunk before rendering the blue citation pill. If entailment &lt; 0.75, strip the citation rather than emitting a hallucinated reference. Target: Cut citation error from 26% to &lt;8%.
+            </p>
+          </div>
+
+          <div class="pb-3 border-b border-[#dfd6c6]/60">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[11px] font-mono font-bold">P1 ROADMAP</span>
+              <h4 class="font-bold text-sm text-[#0e1828]">Adaptive Epistemic Hedging UI</h4>
+            </div>
+            <p class="text-xs text-[#4a4235] mt-1 leading-relaxed">
+              When retrieval confidence is low or search sources are heavily contested, the UI automatically renders a subtle visual indicator (e.g. <em>“Contested Evidence”</em>) to calibrate user expectations and prevent enterprise blowback.
+            </p>
+          </div>
+
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-[11px] font-mono font-bold">P0 CI/CD</span>
+              <h4 class="font-bold text-sm text-[#0e1828]">Weekly Automated Regression Gates</h4>
+            </div>
+            <p class="text-xs text-[#4a4235] mt-1 leading-relaxed">
+              Incorporate this 151-case golden dataset into the production GitHub Actions pull-request pipeline. Any fine-tuned model checkpoint or prompt template update that drops citation accuracy by &gt;2% is automatically blocked from rollout.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#0e1828] hover:text-[#b88a3b] transition-colors">
+        ← Return to Portfolio Overview
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://public.tableau.com/views/PerplexityAIQualityEvaluationHarness/PerplexityAIQualityEvaluationHarness?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-bold inline-flex items-center gap-1.5 transition-all">
+          <span>Open Tableau Benchmark</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
+        <a href="https://github.com/krishnamurthi-ramesh/AgentEval-Studio" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+          <span>Explore GitHub Repo</span>
+          <span class="material-symbols-outlined text-[14px]">code</span>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

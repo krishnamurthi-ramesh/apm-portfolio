@@ -19,7 +19,7 @@ __pycache__/
 *.pyc
 .vercel/
 
-# Standalone nested project repos
-PRojects/
+# Standalone nested project repos at repository root
+/PRojects/
 *.zip
 .vscode/

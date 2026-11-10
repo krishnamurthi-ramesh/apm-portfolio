@@ -1,4 +1,12 @@
-export type CaseStudyKey = 'openai' | 'notion' | 'comet' | 'lending';
+export type CaseStudyKey =
+  | 'openai'
+  | 'notion'
+  | 'comet'
+  | 'lending'
+  | 'flowlens'
+  | 'costoptimizer'
+  | 'evalharness';
+
 export type SimulatorOptionKey = 'A' | 'B';
 
 export interface CaseStudyMetric {
@@ -19,13 +27,23 @@ export interface CaseStudyRecord {
   domainSubtitle: string;
   headline: string;
   roleDescription: string;
-  category: 'teardown';
+  category: 'teardown' | 'project';
   standaloneUrl: string;
   pdfUrl?: string;
+  githubUrl?: string;
+  prototypeUrl?: string;
   metrics: CaseStudyMetric[];
 }
 
-export const STUDY_KEYS: CaseStudyKey[] = ['openai', 'notion', 'comet', 'lending'];
+export const STUDY_KEYS: CaseStudyKey[] = [
+  'openai',
+  'notion',
+  'comet',
+  'lending',
+  'flowlens',
+  'costoptimizer',
+  'evalharness',
+];
 
 export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
   openai: {
@@ -163,6 +181,115 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
         value: '<15s',
         description: 'Instant client-side feedback on blur and glare',
         colorScheme: 'navy',
+      },
+    ],
+  },
+  flowlens: {
+    key: 'flowlens',
+    tag: '05 / AI WORKFLOW ENGINE CASE STUDY',
+    meta: 'Preflight Validator & AST Engine • Nov 2026',
+    badgeText: 'SHOPIFY FLOWLENS',
+    badgeTone: 'emerald',
+    dateRange: '2026',
+    domainSubtitle: 'E-Commerce Automation Safety',
+    headline: 'FlowLens: Preflight Workflow Validator & Simulation Engine for Shopify Flow',
+    roleDescription:
+      'Read-only preflight analyzer inspecting .flow schemas to flag ISO-2 country code mismatches, pre-Wait data loss hazards, and self-triggering update loops before automations touch live customer orders.',
+    category: 'project',
+    standaloneUrl: '/projects/shopify-flow-lens.html',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/Shopify-Flow-Lens',
+    prototypeUrl: 'https://shopify-flowlens.vercel.app',
+    metrics: [
+      {
+        label: 'AST RULE COVERAGE',
+        value: '100%',
+        description: '5 core deterministic linting rules',
+        colorScheme: 'emerald',
+      },
+      {
+        label: 'ACTIVATION GAP',
+        value: '-35%',
+        description: 'Shopify Qwen-32B baseline failure diagnosed',
+        colorScheme: 'amber',
+      },
+      {
+        label: 'PARSE LATENCY',
+        value: '<100ms',
+        description: 'Client-side offline AST DAG analysis',
+        colorScheme: 'navy',
+      },
+    ],
+  },
+  costoptimizer: {
+    key: 'costoptimizer',
+    tag: '06 / AI INFERENCE UNIT ECONOMICS',
+    meta: 'PRD & Financial Architecture Memo • Nov 2026',
+    badgeText: 'AI COST OPTIMIZER',
+    badgeTone: 'navy',
+    dateRange: '2026',
+    domainSubtitle: 'Dynamic Model Routing & Margin Protection',
+    headline: 'AI Cost Optimizer: Semantic Cascading Router & Unit Economics',
+    roleDescription:
+      'Intelligent model tiering proxy (<80ms classifier) routing 78% of queries to SLMs and reserving frontier models for high-entropy multi-step reasoning, protecting SaaS margins from token COGS bleed.',
+    category: 'project',
+    standaloneUrl: '/projects/ai-cost-optimizer.html',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/AI-Cost-Optimizer',
+    prototypeUrl: 'https://ai-cost-optimizer-iota.vercel.app',
+    metrics: [
+      {
+        label: 'MONTHLY SAVINGS',
+        value: '$91,564',
+        description: '66.8% reduction vs. pure Frontier at 100k DAU',
+        colorScheme: 'emerald',
+      },
+      {
+        label: 'GROSS MARGIN',
+        value: '84.8%',
+        description: '+30.5% margin recovery vs. 54.3% pure Frontier',
+        colorScheme: 'gold',
+      },
+      {
+        label: 'LATENCY P95',
+        value: '1.20s',
+        description: '57.1% faster response time vs. Frontier',
+        colorScheme: 'navy',
+      },
+    ],
+  },
+  evalharness: {
+    key: 'evalharness',
+    tag: '07 / AI QUALITY BENCHMARK',
+    meta: '151-Case Quality Audit & Regression Gate • Nov 2026',
+    badgeText: 'PERPLEXITY EVAL HARNESS',
+    badgeTone: 'gold',
+    dateRange: '2026',
+    domainSubtitle: 'Automated Evaluation & Grounding Guardrails',
+    headline: 'Perplexity AI Quality Eval Harness & Trust Guardrails',
+    roleDescription:
+      'Systematic quality evaluation framework measuring 7 quality dimensions across 151 production queries, diagnosing a 26.2% citation hallucination flaw and implementing deterministic CI/CD regression gates.',
+    category: 'project',
+    standaloneUrl: '/projects/eval-harness.html',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/AgentEval-Studio',
+    prototypeUrl:
+      'https://public.tableau.com/views/PerplexityAIQualityEvaluationHarness/PerplexityAIQualityEvaluationHarness?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
+    metrics: [
+      {
+        label: 'BENCHMARK SUITE',
+        value: '151 Cases',
+        description: '10 diverse query categories evaluated',
+        colorScheme: 'gold',
+      },
+      {
+        label: 'CITATION FLAW',
+        value: '26.2%',
+        description: 'Broken links & hallucinated sources isolated',
+        colorScheme: 'amber',
+      },
+      {
+        label: 'CI/CD GATING',
+        value: 'P0 Gate',
+        description: 'Blocks deploys on >2% citation drop',
+        colorScheme: 'emerald',
       },
     ],
   },
