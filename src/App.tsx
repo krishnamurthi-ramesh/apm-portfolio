@@ -34,6 +34,7 @@ interface ProjectWorkItem {
   tag: string;
   badge: string;
   category: 'teardowns' | 'systems';
+  thumbnailUrl: string;
   title: string;
   subtitle: string;
   problem: string;
@@ -53,6 +54,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     tag: 'AI PRODUCT MANAGEMENT CASE STUDY',
     badge: 'OPENAI IN-HOUSE DATA AGENT',
     category: 'teardowns',
+    thumbnailUrl: '/assets/thumbnails/thumb-openai.jpg',
     title: 'Inside OpenAI’s In-House Data Agent: Context-First Architecture Across 70,000 Datasets',
     subtitle: 'Architectural teardown of how layered context pipelines and golden question eval harnesses turn natural language into trusted SQL insights across 3,500+ employees.',
     problem:
@@ -70,6 +72,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     tag: 'AI PRICING & ROUTING TEARDOWN',
     badge: 'NOTION AGENTS',
     category: 'teardowns',
+    thumbnailUrl: '/assets/thumbnails/thumb-notion.jpg',
     title: 'Notion Agents: Rebuilt to Do More for Less — Pricing, Routing & Cost Control',
     subtitle: 'Deconstructing dynamic model routing, credit currency economics, and runaway cost risks on long-running autonomous AI agents.',
     problem:
@@ -87,6 +90,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     tag: 'E-COMMERCE AI DISCOVERY',
     badge: 'COMET AI SEARCH',
     category: 'teardowns',
+    thumbnailUrl: '/assets/thumbnails/thumb-comet.jpg',
     title: 'Comet (E-commerce AI Search) — Teardown & Friction Analysis',
     subtitle: 'Reverse-engineering Comet’s conversational AI "Finder" discovery flow to diagnose drop-off friction between recommendation generation and PDP conversion.',
     problem:
@@ -105,6 +109,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     tag: 'FINTECH COMPARATIVE TEARDOWN',
     badge: 'KREDITBEE × PHONEPE',
     category: 'teardowns',
+    thumbnailUrl: '/assets/thumbnails/thumb-lending.jpg',
     title: 'KreditBee & PhonePe Lending — Same Category, Two Failure Modes',
     subtitle: 'Diagnosing structurally distinct friction points across two live digital lending funnels: document-upload bottleneck vs. marketplace trust-continuity break.',
     problem:
@@ -123,6 +128,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     tag: 'ENTERPRISE AI ARCHITECTURE',
     badge: 'SYSTEM ARCHITECTURE',
     category: 'systems',
+    thumbnailUrl: '/assets/thumbnails/thumb-rag.jpg',
     title: 'Enterprise RAG System with Quantitative Evaluation Harness',
     subtitle: 'Production-grade local RAG pipeline with statistical evaluation harness (Ragas, Recall@K, Context Precision) and sub-second P99 latency within containerized Docker clusters.',
     problem:
@@ -140,6 +146,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     tag: 'AI RESEARCH & STATISTICAL SAFETY',
     badge: 'IEEE RESEARCH PAPER',
     category: 'systems',
+    thumbnailUrl: '/assets/thumbnails/thumb-vlm.jpg',
     title: 'Hardware-Aware Safety & Conformal Control for Edge Vision-Language Models',
     subtitle: 'Non-parametric density-drift estimators (ppDRE) and two-tier student/teacher inference cascade with formal conformal prediction thresholds on edge hardware.',
     problem:
@@ -1409,243 +1416,15 @@ export default function App() {
                         onClick={() => setActiveCaseStudy(item.id)}
                         className="reveal-scale reveal-glow rounded-3xl bg-[#ffffff] border border-[#dfd6c6] shadow-[0_6px_28px_rgba(14,24,40,0.05)] overflow-hidden flex flex-col justify-between group hover:border-[#b88a3b]/50 hover:shadow-lg transition-all duration-300 cursor-pointer"
                       >
-                        {/* Visual Preview Header Banner (Device Mockup Style from Image 2) */}
-                        <div className="relative w-full rounded-2xl overflow-hidden bg-gradient-to-br from-[#0c1424] via-[#101b30] to-[#070c16] p-6 text-[#faf7f2] border-b border-[#dfd6c6]/60 flex flex-col justify-between min-h-[270px] sm:min-h-[300px]">
-                          {/* Background Lighting & Watermark */}
-                          <div className="absolute inset-0 bg-radial from-transparent to-black/50 pointer-events-none" />
-                          <div
-                            className={`absolute -top-12 -right-12 w-48 h-48 rounded-full blur-3xl pointer-events-none ${
-                              item.id === 'openai'
-                                ? 'bg-[#10b981]/20'
-                                : item.id === 'notion'
-                                ? 'bg-[#f59e0b]/20'
-                                : item.id === 'comet'
-                                ? 'bg-[#38bdf8]/20'
-                                : 'bg-[#b88a3b]/20'
-                            }`}
+                        {/* Visual Thumbnail Banner */}
+                        <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#0c1424] border-b border-[#dfd6c6]/60">
+                          <img
+                            src={item.thumbnailUrl}
+                            alt={item.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover object-center group-hover:scale-[1.025] transition-transform duration-500 ease-out"
                           />
-                          <span className="absolute top-4 right-6 text-3xl sm:text-4xl font-extrabold font-[family-name:var(--font-editorial)] text-white/[0.07] pointer-events-none select-none tracking-tight">
-                            {item.id === 'openai'
-                              ? 'OpenAI Agent'
-                              : item.id === 'notion'
-                              ? 'Notion Agents'
-                              : item.id === 'comet'
-                              ? 'Comet Search'
-                              : 'Lending Funnels'}
-                          </span>
-
-                          {/* Header Row: Badge & Meta */}
-                          <div className="relative z-10 flex items-center justify-between">
-                            <span
-                              className={`px-3 py-1 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-sm border ${
-                                item.id === 'openai'
-                                  ? 'bg-[#10b981]/20 border-[#10b981]/40 text-[#10b981]'
-                                  : item.id === 'notion'
-                                  ? 'bg-[#f59e0b]/20 border-[#f59e0b]/40 text-[#f5d07f]'
-                                  : item.id === 'comet'
-                                  ? 'bg-[#38bdf8]/20 border-[#38bdf8]/40 text-[#7dd3fc]'
-                                  : 'bg-[#b88a3b]/20 border-[#b88a3b]/40 text-[#f5d07f]'
-                              }`}
-                            >
-                              <span
-                                className={`w-1.5 h-1.5 rounded-full animate-pulse ${
-                                  item.id === 'openai'
-                                    ? 'bg-[#10b981]'
-                                    : item.id === 'notion'
-                                    ? 'bg-[#f59e0b]'
-                                    : item.id === 'comet'
-                                    ? 'bg-[#38bdf8]'
-                                    : 'bg-[#b88a3b]'
-                                }`}
-                              />
-                              {item.id === 'openai'
-                                ? 'CONTEXT ARCHITECTURE'
-                                : item.id === 'notion'
-                                ? 'AGENT UNIT ECONOMICS'
-                                : item.id === 'comet'
-                                ? 'AI PRODUCT DISCOVERY'
-                                : 'FINTECH FUNNEL COMPARATIVE'}
-                            </span>
-
-                            <span className="font-mono text-[10px] text-[#9ba8bc] tracking-wider uppercase">
-                              {item.id === 'openai'
-                                ? '70,000 DATASETS • 600 PB'
-                                : item.id === 'notion'
-                                ? 'SONNET VS. HAIKU • 2026'
-                                : item.id === 'comet'
-                                ? 'FINDER FLOW • PDP CONVERSION'
-                                : 'KREDITBEE × PHONEPE • 2026'}
-                            </span>
-                          </div>
-
-                          {/* Center System Window Mockup (Matching Phone Frame in Image 2) */}
-                          <div className="relative z-10 my-auto p-4 rounded-xl bg-white/[0.04] backdrop-blur-md border border-white/10 space-y-2.5 shadow-xl">
-                            <div className="flex items-center justify-between text-[9px] font-mono text-[#9ba8bc] pb-1.5 border-b border-white/10">
-                              <div className="flex items-center gap-1.5">
-                                <span className="w-2 h-2 rounded-full bg-[#ef4444]/80" />
-                                <span className="w-2 h-2 rounded-full bg-[#f59e0b]/80" />
-                                <span className="w-2 h-2 rounded-full bg-[#10b981]/80" />
-                                <span className="ml-1 text-white/80">
-                                  {item.id === 'openai'
-                                    ? 'openai://data-agent.internal/query'
-                                    : item.id === 'notion'
-                                    ? 'notion://credit-engine/routing'
-                                    : item.id === 'comet'
-                                    ? 'comet://finder.search/memory'
-                                    : 'fintech://lending-funnels/kyc'}
-                                </span>
-                              </div>
-                              <span
-                                className={`font-bold ${
-                                  item.id === 'openai'
-                                    ? 'text-[#10b981]'
-                                    : item.id === 'notion'
-                                    ? 'text-[#f5d07f]'
-                                    : item.id === 'comet'
-                                    ? 'text-[#7dd3fc]'
-                                    : 'text-[#f5d07f]'
-                                }`}
-                              >
-                                {item.id === 'openai'
-                                  ? '17× SPEEDUP'
-                                  : item.id === 'notion'
-                                  ? 'RATE CARD OPTIMIZED'
-                                  : item.id === 'comet'
-                                  ? 'STATEFUL CONVERSION'
-                                  : 'TWO FAILURE MODES'}
-                              </span>
-                            </div>
-
-                            {/* Benchmark KPIs Row */}
-                            <div className="grid grid-cols-3 gap-2 text-center py-1">
-                              {item.id === 'openai' && (
-                                <>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#faf7f2]">17×</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">QUERY SPEEDUP</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#f0c46c]">70k</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">DATASETS</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#10b981]">600 PB</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">SCALE GOVERNED</div>
-                                  </div>
-                                </>
-                              )}
-                              {item.id === 'notion' && (
-                                <>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#faf7f2]">5/10/20</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">RATE CARD</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#f0c46c]">66.8%</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">COGS SAVINGS</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#10b981]">P0 FIX</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">BUDGET CEILINGS</div>
-                                  </div>
-                                </>
-                              )}
-                              {item.id === 'comet' && (
-                                <>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#faf7f2]">+22%</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">CONVERSION LIFT</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#7dd3fc]">-42%</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">CART DROP-OFF</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#10b981]">0-RESET</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">FIT RETENTION</div>
-                                  </div>
-                                </>
-                              )}
-                              {item.id === 'lending' && (
-                                <>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#faf7f2]">+24%</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">1ST-SESSION KYC</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#f0c46c]">-35%</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">HANDOFF DROP</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#10b981]">2 MODES</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">OCR VS TRUST</div>
-                                  </div>
-                                </>
-                              )}
-                            </div>
-
-                            {/* Node pipeline flow */}
-                            <div className="text-[8.5px] font-mono text-[#d4c8b6] flex items-center justify-between pt-1 border-t border-white/5">
-                              {item.id === 'openai' && (
-                                <>
-                                  <span>User Question</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#f0c46c]">6-Layer Context</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#10b981]">Verified SQL</span>
-                                </>
-                              )}
-                              {item.id === 'notion' && (
-                                <>
-                                  <span>Agent Prompt</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#f0c46c]">Dynamic Router</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#10b981]">Budget Envelopes</span>
-                                </>
-                              )}
-                              {item.id === 'comet' && (
-                                <>
-                                  <span>Conversational Prompt</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#7dd3fc]">Session Memory</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#10b981]">PDP Conversion</span>
-                                </>
-                              )}
-                              {item.id === 'lending' && (
-                                <>
-                                  <span>Document Upload</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#f0c46c]">Real-Time OCR</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#10b981]">Partner Continuity</span>
-                                </>
-                              )}
-                            </div>
-                          </div>
-
-                          {/* Bottom Visual Tag */}
-                          <div className="relative z-10 flex items-center justify-between text-[9px] font-mono text-[#9ba8bc] pt-1">
-                            <span>
-                              {item.id === 'openai'
-                                ? 'Pass-Through RBAC Governance'
-                                : item.id === 'notion'
-                                ? '24hr Autonomous Compute Control'
-                                : item.id === 'comet'
-                                ? 'Context-Aware Finder Loop'
-                                : 'Disbursal Velocity Optimization'}
-                            </span>
-                            <span className="text-[#f5d07f]">
-                              {item.id === 'openai'
-                                ? '200+ Golden Question Eval'
-                                : item.id === 'notion'
-                                ? 'Runaway Risk Mitigation'
-                                : item.id === 'comet'
-                                ? '+22% Purchase Conversion'
-                                : 'Unified KYC Verification'}
-                            </span>
-                          </div>
+                          <div className="absolute inset-0 ring-1 ring-inset ring-black/10 pointer-events-none" />
                         </div>
 
                         {/* Card Content (Typography & Spec Breakdown) */}
@@ -1788,125 +1567,15 @@ export default function App() {
                         onClick={() => setActiveCaseStudy(item.id)}
                         className="reveal-scale reveal-glow rounded-3xl bg-[#ffffff] border border-[#dfd6c6] shadow-[0_6px_28px_rgba(14,24,40,0.05)] overflow-hidden flex flex-col justify-between group hover:border-[#b88a3b]/50 hover:shadow-lg transition-all duration-300 cursor-pointer"
                       >
-                        {/* Visual Preview Header Banner (Device Mockup Style from Image 2) */}
-                        <div className="relative w-full rounded-2xl overflow-hidden bg-gradient-to-br from-[#0c1424] via-[#101b30] to-[#070c16] p-6 text-[#faf7f2] border-b border-[#dfd6c6]/60 flex flex-col justify-between min-h-[270px] sm:min-h-[300px]">
-                          {/* Background Lighting & Watermark */}
-                          <div className="absolute inset-0 bg-radial from-transparent to-black/50 pointer-events-none" />
-                          <div
-                            className={`absolute -top-12 -right-12 w-48 h-48 rounded-full blur-3xl pointer-events-none ${
-                              item.id === 'rag' ? 'bg-[#10b981]/20' : 'bg-[#b88a3b]/20'
-                            }`}
+                        {/* Visual Thumbnail Banner */}
+                        <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#0c1424] border-b border-[#dfd6c6]/60">
+                          <img
+                            src={item.thumbnailUrl}
+                            alt={item.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover object-center group-hover:scale-[1.025] transition-transform duration-500 ease-out"
                           />
-                          <span className="absolute top-4 right-6 text-3xl sm:text-4xl font-extrabold font-[family-name:var(--font-editorial)] text-white/[0.07] pointer-events-none select-none tracking-tight">
-                            {item.id === 'rag' ? 'Enterprise RAG' : 'Conformal VLM'}
-                          </span>
-
-                          {/* Header Row: Badge & Meta */}
-                          <div className="relative z-10 flex items-center justify-between">
-                            <span
-                              className={`px-3 py-1 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-sm border ${
-                                item.id === 'rag'
-                                  ? 'bg-[#10b981]/20 border-[#10b981]/40 text-[#10b981]'
-                                  : 'bg-[#b88a3b]/20 border-[#b88a3b]/40 text-[#f5d07f]'
-                              }`}
-                            >
-                              <span
-                                className={`w-1.5 h-1.5 rounded-full animate-pulse ${
-                                  item.id === 'rag' ? 'bg-[#10b981]' : 'bg-[#b88a3b]'
-                                }`}
-                              />
-                              {item.id === 'rag' ? 'SYSTEM ARCHITECTURE' : 'IEEE RESEARCH PAPER'}
-                            </span>
-
-                            <span className="font-mono text-[10px] text-[#9ba8bc] tracking-wider uppercase">
-                              {item.id === 'rag' ? 'LOCAL DOCKER • ZERO LEAK' : 'IIITDM KURNOOL • 2026'}
-                            </span>
-                          </div>
-
-                          {/* Center System Window Mockup (Like phone screen in Image 2) */}
-                          <div className="relative z-10 my-auto p-4 rounded-xl bg-white/[0.04] backdrop-blur-md border border-white/10 space-y-2.5 shadow-xl">
-                            <div className="flex items-center justify-between text-[9px] font-mono text-[#9ba8bc] pb-1.5 border-b border-white/10">
-                              <div className="flex items-center gap-1.5">
-                                <span className="w-2 h-2 rounded-full bg-[#ef4444]/80" />
-                                <span className="w-2 h-2 rounded-full bg-[#f59e0b]/80" />
-                                <span className="w-2 h-2 rounded-full bg-[#10b981]/80" />
-                                <span className="ml-1 text-white/80">
-                                  {item.id === 'rag' ? 'docker://rag-local:8080' : 'edge://robotics-vlm:ppdre'}
-                                </span>
-                              </div>
-                              <span
-                                className={`font-bold ${
-                                  item.id === 'rag' ? 'text-[#10b981]' : 'text-[#f5d07f]'
-                                }`}
-                              >
-                                {item.id === 'rag' ? '100% AIR-GAPPED' : 'CONFORMAL BOUNDED'}
-                              </span>
-                            </div>
-
-                            {/* Benchmark KPIs Row */}
-                            <div className="grid grid-cols-3 gap-2 text-center py-1">
-                              {item.id === 'rag' ? (
-                                <>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#faf7f2]">380ms</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">P99 LATENCY</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#f0c46c]">0.91</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">RAGAS FAITH</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#10b981]">0.88</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">RECALL@5</div>
-                                  </div>
-                                </>
-                              ) : (
-                                <>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#faf7f2]">94.2%</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">DEFECT PRECISION</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#f0c46c]">480ms</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">EDGE P99</div>
-                                  </div>
-                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
-                                    <div className="text-[14px] font-extrabold text-[#10b981]">~60%</div>
-                                    <div className="text-[8px] font-mono text-[#9ba8bc]">TOKEN SAVINGS</div>
-                                  </div>
-                                </>
-                              )}
-                            </div>
-
-                            {/* Node pipeline flow */}
-                            <div className="text-[8.5px] font-mono text-[#d4c8b6] flex items-center justify-between pt-1 border-t border-white/5">
-                              {item.id === 'rag' ? (
-                                <>
-                                  <span>Private Docs</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#f0c46c]">FAISS Index</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#10b981]">Local Ollama</span>
-                                </>
-                              ) : (
-                                <>
-                                  <span>Camera Stream</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#f0c46c]">ppDRE Detector</span>
-                                  <span className="text-[#9ba8bc]">→</span>
-                                  <span className="text-[#10b981]">Student/Teacher</span>
-                                </>
-                              )}
-                            </div>
-                          </div>
-
-                          {/* Bottom Visual Tag */}
-                          <div className="relative z-10 flex items-center justify-between text-[9px] font-mono text-[#9ba8bc] pt-1">
-                            <span>{item.id === 'rag' ? 'Containerized Architecture' : 'Formal Epistemic Bounds'}</span>
-                            <span className="text-[#f5d07f]">
-                              {item.id === 'rag' ? 'Zero Cloud API Calls' : 'Risk-Calibrated Edge AI'}
-                            </span>
-                          </div>
+                          <div className="absolute inset-0 ring-1 ring-inset ring-black/10 pointer-events-none" />
                         </div>
 
                         {/* Card Content (Typography & Spec Breakdown) */}

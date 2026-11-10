@@ -32,6 +32,7 @@ export interface CaseStudyRecord {
   headline: string;
   roleDescription: string;
   category: 'teardown' | 'project';
+  thumbnailUrl?: string;
   standaloneUrl: string;
   pdfUrl?: string;
   githubUrl?: string;
@@ -61,6 +62,7 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
     roleDescription:
       'Architectural teardown of how layered context pipelines (codebase Git crawler, Slack/Docs institutional memory, pass-through RBAC) turn vague natural-language questions into verifiable SQL insights for 3,500+ employees across 600 PB.',
     category: 'teardown',
+    thumbnailUrl: '/assets/thumbnails/thumb-openai.jpg',
     standaloneUrl: '/teardowns/openai-data-agent.html',
     pdfUrl: '/teardowns/openai-data-agent-case-study.pdf',
     metrics: [
@@ -96,6 +98,7 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
     roleDescription:
       'Analysis of Notion’s dynamic model routing (Claude 3.5 Sonnet to Haiku/GPT-4o mini) and 3-tier compute credit rate card (5/10/20 credits). Diagnosed the critical vulnerability of runaway spend on unattended 24-hour agent runs and designed run-level budget envelopes.',
     category: 'teardown',
+    thumbnailUrl: '/assets/thumbnails/thumb-notion.jpg',
     standaloneUrl: '/teardowns/notion-agents.html',
     pdfUrl: '/teardowns/notion-agents-teardown.pdf',
     metrics: [
@@ -131,6 +134,7 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
     roleDescription:
       'Reverse-engineered Comet’s conversational AI "Finder" discovery flow to diagnose drop-off friction between recommendation generation and PDP conversion. Proposed a context-aware conversational memory solution carrying size/fit parameters across sessions to reduce cart abandonment.',
     category: 'teardown',
+    thumbnailUrl: '/assets/thumbnails/thumb-comet.jpg',
     standaloneUrl: '/teardowns/comet.html',
     prototypeUrl: 'https://relay-define-38337038.figma.site/',
     metrics: [
@@ -166,6 +170,7 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
     roleDescription:
       'Comparative analysis of structurally distinct conversion bottlenecks across two live digital lending funnels: client-side document OCR failures on KreditBee vs. marketplace trust-continuity breaks during external NBFC partner handoffs on PhonePe.',
     category: 'teardown',
+    thumbnailUrl: '/assets/thumbnails/thumb-lending.jpg',
     standaloneUrl: '/teardowns/lending-funnels.html',
     prototypeUrl: 'https://option-delete-93793571.figma.site/',
     metrics: [
@@ -310,6 +315,7 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
     roleDescription:
       'Production-grade local RAG pipeline with statistical evaluation harness (Ragas, Recall@K, Context Precision) and sub-second P99 latency within containerized Docker clusters, guaranteeing zero sensitive customer data leaves network boundaries.',
     category: 'project',
+    thumbnailUrl: '/assets/thumbnails/thumb-rag.jpg',
     standaloneUrl: '/projects/enterprise-rag.html',
     githubUrl: 'https://github.com/krishnamurthi-ramesh/enterprise-rag-system',
     metrics: [
@@ -345,6 +351,7 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
     roleDescription:
       'Designing non-parametric density-drift estimators (ppDRE) and a two-tier GPU-student / CPU-teacher inference cascade with formal conformal prediction thresholds, balancing latency, accuracy, and unit cost on edge hardware.',
     category: 'project',
+    thumbnailUrl: '/assets/thumbnails/thumb-vlm.jpg',
     standaloneUrl: '/projects/active-conformal-control.html',
     githubUrl:
       'https://github.com/krishnamurthi-ramesh/Active-Conformal-Control-Navigating-Density-Chasms-in-Quantized-Vision-Language-Systems',

@@ -111,6 +111,16 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
         >
           {/* Header section with title and metrics */}
           <div className="border-b border-[#dfd6c6] pb-6 space-y-4">
+            {study.thumbnailUrl && (
+              <div className="w-full aspect-[16/9] sm:aspect-[2.1/1] rounded-2xl overflow-hidden shadow-sm border border-[#dfd6c6] bg-[#0c1424]">
+                <img
+                  src={study.thumbnailUrl}
+                  alt={study.headline}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+
             <div className="flex flex-wrap items-center gap-2">
               <span className="px-3 py-1 rounded-full bg-[#0e1828] text-[#faf7f2] text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#b88a3b] animate-pulse"></span>
