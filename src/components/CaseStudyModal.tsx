@@ -31,6 +31,13 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
 
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
+
+    // Ensure modal body scrolls to top when opening or switching case studies
+    const modalBody = document.getElementById('modal-dynamic-body');
+    if (modalBody) {
+      modalBody.scrollTop = 0;
+    }
+
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
@@ -326,6 +333,15 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                       <span>Interactive Workspace</span>
                       <span className="material-symbols-outlined text-[13px]">north_east</span>
                     </a>
+                    <a
+                      href="https://relay-define-38337038.figma.site/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold transition-colors shadow-2xs"
+                    >
+                      <span>Launch Figma Prototype</span>
+                      <span className="material-symbols-outlined text-[13px]">rocket_launch</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -409,6 +425,24 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                     >
                       <span>PhonePe Workspace</span>
                       <span className="material-symbols-outlined text-[13px]">north_east</span>
+                    </a>
+                    <a
+                      href="https://option-delete-93793571.figma.site/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold transition-colors shadow-2xs"
+                    >
+                      <span>KreditBee Prototype</span>
+                      <span className="material-symbols-outlined text-[13px]">rocket_launch</span>
+                    </a>
+                    <a
+                      href="https://www.figma.com/community/file/1683941915370258862"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors shadow-2xs"
+                    >
+                      <span>PhonePe Figma File</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
                     </a>
                   </div>
                 </div>

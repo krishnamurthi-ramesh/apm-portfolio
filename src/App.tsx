@@ -98,6 +98,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     techTags: ['Product Discovery', 'Friction Analysis', 'Figma', 'Prompt Engineering', 'Conversion Metrics', 'E-Commerce Funnels'],
     standaloneUrl: '/teardowns/comet.html',
     workspaceUrl: '/teardown-comet.html',
+    prototypeUrl: 'https://relay-define-38337038.figma.site/',
   },
   {
     id: 'lending',
@@ -115,6 +116,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     techTags: ['Funnel Optimization', 'KYC & OCR', 'AARRR Funnel', 'Fintech UX', 'User Friction', 'Disbursal Velocity'],
     standaloneUrl: '/teardowns/lending-funnels.html',
     workspaceUrl: '/teardown-kreditbee.html',
+    prototypeUrl: 'https://option-delete-93793571.figma.site/',
   },
   {
     id: 'flowlens',
@@ -219,7 +221,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
       'Delivered +15% precision lift in candidate matching, saved 15 recruiter hours weekly, and reduced downstream ERP data inconsistencies by 12–15%.',
     techTags: ['B2B SaaS', 'API Contracts', 'Candidate Matching', 'ERP Sync', 'Recruiter Shadowing', 'Hybrid Search'],
     standaloneUrl: '/projects/meraqui-karam.html',
-    prototypeUrl: '/artifact-meraqui.html',
+    workspaceUrl: '/artifact-meraqui.html',
   },
   {
     id: 'treacle',
