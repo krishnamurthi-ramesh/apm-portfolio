@@ -119,63 +119,9 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     prototypeUrl: 'https://option-delete-93793571.figma.site/',
   },
   {
-    id: 'flowlens',
-    tag: 'AI WORKFLOW ENGINE CASE STUDY',
-    badge: 'SHOPIFY FLOWLENS',
-    category: 'systems',
-    title: 'FlowLens: Preflight Workflow Validator & Simulation Engine for Shopify Flow',
-    subtitle: 'Read-only preflight analyzer inspecting .flow schemas to flag ISO-2 country code mismatches, pre-Wait data discards, and cycle hazards before workflows mutate orders.',
-    problem:
-      'Shopify disclosed fine-tuned Sidekick workflow generation had a 35% lower production activation rate due to condition schema mismatches (16%) and missing parameters (25%), causing silent automation failures.',
-    judgmentCalls:
-      'Pivoted from unreachable live execution trace API (Path A) to an offline read-only .flow JSON analyzer (Path B). Established 5 deterministic AST linting rules (L-01 to L-05) grounded in official Shopify docs.',
-    outcome:
-      '100% AST rule coverage on test benchmarks with <100ms client-side parse time; zero unauthorized store mutation with reviewable JSON remediation diffs.',
-    techTags: ['Shopify Flow', 'AST Static Analysis', 'GraphQL Schema', 'DAG Simulation', 'Deterministic Linter', 'Liquid Syntax'],
-    standaloneUrl: '/projects/shopify-flow-lens.html',
-    githubUrl: 'https://github.com/krishnamurthi-ramesh/Shopify-Flow-Lens',
-    prototypeUrl: 'https://shopify-flowlens.vercel.app',
-  },
-  {
-    id: 'costoptimizer',
-    tag: 'AI INFERENCE UNIT ECONOMICS & PRD MEMO',
-    badge: 'AI COST OPTIMIZER',
-    category: 'systems',
-    title: 'AI Cost Optimizer: Semantic Cascading Router & Dynamic Model Tiering',
-    subtitle: 'Intelligent inference proxy with confidence-gated fallback architecture protecting SaaS gross margins from the variable token COGS trap.',
-    problem:
-      'Monolithic frontier model routing (Claude 3.5 Sonnet / GPT-4o) degrades SaaS gross margins from 85% to 54.3% at 100k DAU ($137k/mo) despite 78% of queries being low-entropy tasks.',
-    judgmentCalls:
-      'Architected a drop-in OpenAI/Anthropic API proxy with <80ms semantic complexity classifier. Routed 78% of queries to SLMs ($0.00078/q) with token entropy fallback and 35% prompt prefix cache reuse.',
-    outcome:
-      'Validated across 32 Monte Carlo permutations: saves $91,564/month (-66.8% COGS), cuts P95 latency by 57.1% (1.20s), and expands gross margins from 54.3% to 84.8% at 99.2% quality parity.',
-    techTags: ['Unit Economics', 'Cascading Router', 'Gemini 2.5 Flash', 'Claude 3.5 Sonnet', 'Prompt Caching', 'Monte Carlo Sim'],
-    standaloneUrl: '/projects/ai-cost-optimizer.html',
-    githubUrl: 'https://github.com/krishnamurthi-ramesh/AI-Cost-Optimizer',
-    prototypeUrl: 'https://ai-cost-optimizer-iota.vercel.app',
-  },
-  {
-    id: 'evalharness',
-    tag: 'AI QUALITY BENCHMARK & EVAL HARNESS',
-    badge: 'PERPLEXITY EVAL HARNESS',
-    category: 'systems',
-    title: 'Perplexity AI Quality Eval Harness & Trust Guardrails',
-    subtitle: 'Systematic quality evaluation framework measuring 7 quality dimensions across 151 production queries, diagnosing citation hallucinations and establishing CI/CD regression gates.',
-    problem:
-      'Generative search retention suffers from authoritative hallucination: 26.2% of citations across complex queries return dead 404s, link to generic homepages, or contradict claimed metrics.',
-    judgmentCalls:
-      'Curated 151 golden test cases across 10 categories. Built a 7-dimension scoring rubric with hard veto on safety and source fabrication. Decoupled judge to prevent circular vendor evaluation bias.',
-    outcome:
-      'Deployed interactive public benchmark on Tableau Public; defined P0 pre-render citation verification to cut error rates to <8% and automated weekly PR regression gates.',
-    techTags: ['LLM Evaluation', 'Tableau Public', 'Citation Grounding', 'Golden Dataset', 'LLM-as-Judge', 'Regression Testing'],
-    standaloneUrl: '/projects/eval-harness.html',
-    githubUrl: 'https://github.com/krishnamurthi-ramesh/AgentEval-Studio',
-    prototypeUrl: 'https://public.tableau.com/views/PerplexityAIQualityEvaluationHarness/PerplexityAIQualityEvaluationHarness?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
-  },
-  {
     id: 'rag',
     tag: 'ENTERPRISE AI ARCHITECTURE',
-    badge: 'ENTERPRISE RAG SYSTEM',
+    badge: 'SYSTEM ARCHITECTURE',
     category: 'systems',
     title: 'Enterprise RAG System with Quantitative Evaluation Harness',
     subtitle: 'Production-grade local RAG pipeline with statistical evaluation harness (Ragas, Recall@K, Context Precision) and sub-second P99 latency within containerized Docker clusters.',
@@ -192,7 +138,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
   {
     id: 'vlm',
     tag: 'AI RESEARCH & STATISTICAL SAFETY',
-    badge: 'ACTIVE CONFORMAL CONTROL',
+    badge: 'IEEE RESEARCH PAPER',
     category: 'systems',
     title: 'Hardware-Aware Safety & Conformal Control for Edge Vision-Language Models',
     subtitle: 'Non-parametric density-drift estimators (ppDRE) and two-tier student/teacher inference cascade with formal conformal prediction thresholds on edge hardware.',
@@ -205,39 +151,6 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     techTags: ['Conformal Prediction', 'Vision-Language Models', 'Density Ratio Estimation', 'Edge AI', 'Statistical Safety', 'IEEE Review'],
     standaloneUrl: '/projects/active-conformal-control.html',
     githubUrl: 'https://github.com/krishnamurthi-ramesh/Active-Conformal-Control-Navigating-Density-Chasms-in-Quantized-Vision-Language-Systems',
-  },
-  {
-    id: 'karam',
-    tag: 'B2B SAAS PRODUCT SPEC',
-    badge: 'MERAQUI (KARAM.AI)',
-    category: 'systems',
-    title: 'AI Candidate Matching Engine & Deterministic ERP Sync Contracts',
-    subtitle: 'Owned the requirements-to-shipping loop for candidate matching feature (+15% precision lift) and replaced conversational bot with deterministic REST API contracts for ERP sync.',
-    problem:
-      'Recruiters spent 15+ hours weekly dealing with asynchronous conversational bot drop-offs and manual candidate entry, causing high error rates and CRM sync inconsistencies.',
-    judgmentCalls:
-      'Shadowed 10+ enterprise recruiters to identify failure points. Replaced ambiguous conversational bot with deterministic REST API contracts with schema validation and hybrid vector-keyword candidate scoring.',
-    outcome:
-      'Delivered +15% precision lift in candidate matching, saved 15 recruiter hours weekly, and reduced downstream ERP data inconsistencies by 12–15%.',
-    techTags: ['B2B SaaS', 'API Contracts', 'Candidate Matching', 'ERP Sync', 'Recruiter Shadowing', 'Hybrid Search'],
-    standaloneUrl: '/projects/meraqui-karam.html',
-    workspaceUrl: '/artifact-meraqui.html',
-  },
-  {
-    id: 'treacle',
-    tag: 'DISTRIBUTED TELEMETRY & PIPELINES',
-    badge: 'TREACLE TECHNOLOGIES',
-    category: 'systems',
-    title: 'Distributed Incident Monitoring & Real-Time Log Pipeline',
-    subtitle: 'Specified and built monitoring dashboards (Grafana, Elasticsearch) that cut incident detection time by 40% and scaled data pipelines processing 100k+ logs/day.',
-    problem:
-      'Operations teams struggled with delayed incident detection and fragmented observability across microservices, averaging 45+ minutes to diagnose critical service disruptions.',
-    judgmentCalls:
-      'Consolidated log ingestion into automated Dockerized pipelines feeding an Elasticsearch cluster. Engineered Grafana dashboards with dynamic alerting thresholds based on moving average baselines.',
-    outcome:
-      'Cut incident detection time by 40%, supported 100k+ daily logs with zero pipeline backpressure, and achieved 99.9% telemetry uptime.',
-    techTags: ['Grafana', 'Elasticsearch', 'Docker', 'Log Pipelines', 'Incident Detection', 'Distributed Telemetry'],
-    standaloneUrl: '/projects/treacle-technologies.html',
   },
 ];
 
@@ -1462,193 +1375,386 @@ export default function App() {
                       : 'text-[#554d42] hover:text-[#0e1828]'
                   }`}
                 >
-                  AI Product Systems &amp; Projects ({PROJECTS_WORK.filter((p) => p.category === 'systems').length})
+                  AI Systems &amp; Research ({PROJECTS_WORK.filter((p) => p.category === 'systems').length})
                 </button>
               </div>
             </div>
 
-            {/* Project Showcases with Scale & Glow Reveal */}
-            <div className="space-y-10">
-              {filteredProjects.map((item, idx) => (
-                <article
-                  key={item.id}
-                  data-cursor="View Project"
-                  onClick={() => setActiveCaseStudy(item.id)}
-                  className="reveal-scale reveal-glow project-card-interactive rounded-3xl bg-[#ffffff] border border-[#dfd6c6] shadow-[0_6px_28px_rgba(14,24,40,0.05)] overflow-hidden group"
-                >
-                  <div
-                    className="p-7 sm:p-9 space-y-6"
-                  >
-                    {/* Card Header (Plane 1) */}
-                    <div
-                      className="flex flex-wrap items-center justify-between gap-3 border-b border-[#dfd6c6]/60 pb-4"
+            {/* Product Teardowns Showcase (Full-Width Cards without Interactive Teardown/Breakdown) */}
+            {(activeFilter === 'all' || activeFilter === 'teardowns') && (
+              <div className="space-y-10">
+                {filteredProjects
+                  .filter((p) => p.category === 'teardowns')
+                  .map((item, idx) => (
+                    <article
+                      key={item.id}
+                      data-cursor="View Teardown"
+                      onClick={() => setActiveCaseStudy(item.id)}
+                      className="reveal-scale reveal-glow project-card-interactive rounded-3xl bg-[#ffffff] border border-[#dfd6c6] shadow-[0_6px_28px_rgba(14,24,40,0.05)] overflow-hidden group cursor-pointer"
                     >
-                      <div className="flex items-center gap-2.5">
-                        <span className="font-mono text-xs font-bold text-[#b88a3b]">
-                          0{idx + 1}.
-                        </span>
-                        <span className="px-3 py-1 rounded-full bg-[#0e1828] text-[#faf7f2] font-mono text-[11px] font-bold tracking-wider uppercase group-hover:bg-[#b88a3b] group-hover:text-[#0e1828] transition-colors">
-                          {item.badge}
-                        </span>
-                        <span className="text-xs font-semibold uppercase tracking-wider text-[#806b47]">
-                          {item.tag}
-                        </span>
-                      </div>
+                      <div className="p-7 sm:p-9 space-y-6">
+                        {/* Card Header */}
+                        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#dfd6c6]/60 pb-4">
+                          <div className="flex items-center gap-2.5">
+                            <span className="font-mono text-xs font-bold text-[#b88a3b]">
+                              0{idx + 1}.
+                            </span>
+                            <span className="px-3 py-1 rounded-full bg-[#0e1828] text-[#faf7f2] font-mono text-[11px] font-bold tracking-wider uppercase group-hover:bg-[#b88a3b] group-hover:text-[#0e1828] transition-colors">
+                              {item.badge}
+                            </span>
+                            <span className="text-xs font-semibold uppercase tracking-wider text-[#806b47]">
+                              {item.tag}
+                            </span>
+                          </div>
+                        </div>
 
-                      <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setActiveCaseStudy(item.id);
-                          }}
-                          className="card-expand-badge flex items-center gap-1.5 px-3.5 py-1 rounded-full border border-[#dfd6c6] text-xs font-semibold text-[#554d42] hover:bg-[#0e1828] hover:text-[#faf7f2] transition-all cursor-pointer"
-                        >
-                          <span>Interactive Teardown</span>
-                          <span className="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">
-                            visibility
-                          </span>
-                        </button>
+                        {/* Title & Subtitle */}
+                        <div className="space-y-2">
+                          <h3 className="text-2xl sm:text-3xl font-bold text-[#0e1828] tracking-tight font-[family-name:var(--font-editorial)] group-hover:text-[#b88a3b] transition-colors">
+                            {item.title}
+                          </h3>
+                          <p className="text-sm sm:text-base text-[#554d42] leading-relaxed">
+                            {item.subtitle}
+                          </p>
+                        </div>
+
+                        {/* 3-Part Column Grid (Problem from left, Outcome from right) */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+                          {/* Problem */}
+                          <div className="reveal-slide-left p-5 rounded-2xl bg-[#faf7f2] border border-[#dfd6c6] space-y-2 group-hover:border-[#dfd6c6]/80 transition-colors">
+                            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#806b47]">
+                              Problem Framing
+                            </h4>
+                            <p className="text-xs sm:text-sm text-[#4a4235] leading-relaxed">
+                              {item.problem}
+                            </p>
+                          </div>
+
+                          {/* Judgment calls */}
+                          <div className="reveal-on-scroll p-5 rounded-2xl bg-[#faf7f2] border border-[#dfd6c6] space-y-2 group-hover:border-[#dfd6c6]/80 transition-colors">
+                            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0e1828]">
+                              PM Judgment Calls
+                            </h4>
+                            <p className="text-xs sm:text-sm text-[#4a4235] leading-relaxed">
+                              {item.judgmentCalls}
+                            </p>
+                          </div>
+
+                          {/* Outcome */}
+                          <div className="reveal-slide-right p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-2 group-hover:border-[#b88a3b]/40 transition-colors">
+                            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0e1828]">
+                              Quantitative Outcome
+                            </h4>
+                            <p className="text-xs sm:text-sm text-[#4a4235] leading-relaxed font-medium">
+                              {item.outcome}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Tech stack tags & Action Row */}
+                        <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-[#dfd6c6]/50">
+                          <div className="flex flex-wrap items-center gap-2">
+                            {item.techTags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="card-tech-tag px-3 py-1 rounded-full bg-[#f0e8dc] text-[11px] font-semibold text-[#554d42] transition-colors duration-200"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+
+                          <div className="flex flex-wrap items-center gap-2.5">
+                            <a
+                              href={item.standaloneUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold inline-flex items-center gap-1.5 transition-colors shadow-xs"
+                            >
+                              <span>Full Page</span>
+                              <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                            </a>
+                            {item.prototypeUrl && (
+                              <a
+                                href={item.prototypeUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="px-3.5 py-2 rounded-full bg-[#faf7f2] hover:bg-[#f0e8dc] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
+                              >
+                                <span>Interactive Prototype</span>
+                                <span className="material-symbols-outlined text-[13px]">rocket_launch</span>
+                              </a>
+                            )}
+                            {item.pdfUrl && (
+                              <a
+                                href={item.pdfUrl}
+                                download
+                                onClick={(e) => e.stopPropagation()}
+                                className="px-3.5 py-2 rounded-full bg-white hover:bg-[#f0e8dc] text-[#806b47] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
+                              >
+                                <span>Report PDF</span>
+                                <span className="material-symbols-outlined text-[13px]">download</span>
+                              </a>
+                            )}
+                            {item.workspaceUrl && (
+                              <a
+                                href={item.workspaceUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="px-3.5 py-2 rounded-full bg-white hover:bg-[#f0e8dc] text-[#806b47] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
+                              >
+                                <span>Interactive Workspace</span>
+                                <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                              </a>
+                            )}
+                          </div>
+                        </div>
                       </div>
+                    </article>
+                  ))}
+              </div>
+            )}
+
+            {/* AI Systems & Research Projects (Image 2 - 2-Column Visual Card Style) */}
+            {(activeFilter === 'all' || activeFilter === 'systems') && (
+              <div className="space-y-8 pt-6">
+                {activeFilter === 'all' && (
+                  <div className="pt-8 border-t border-[#dfd6c6] space-y-2">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#806b47] font-mono">
+                      <span>02.2</span>
+                      <span>/</span>
+                      <span>Flagship Systems &amp; AI Research</span>
                     </div>
-
-                    {/* Title & Subtitle */}
-                    <div className="space-y-2">
-                      <h3 className="text-2xl sm:text-3xl font-bold text-[#0e1828] tracking-tight font-[family-name:var(--font-editorial)] group-hover:text-[#b88a3b] transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm sm:text-base text-[#554d42] leading-relaxed">
-                        {item.subtitle}
-                      </p>
-                    </div>
-
-                    {/* 3-Part Column Grid (Problem from left, Outcome from right) */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-                      {/* Problem */}
-                      <div
-                        className="reveal-slide-left p-5 rounded-2xl bg-[#faf7f2] border border-[#dfd6c6] space-y-2 group-hover:border-[#dfd6c6]/80 transition-colors"
-                      >
-                        <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#806b47]">
-                          Problem Framing
-                        </h4>
-                        <p className="text-xs sm:text-sm text-[#4a4235] leading-relaxed">
-                          {item.problem}
-                        </p>
-                      </div>
-
-                      {/* Judgment calls */}
-                      <div
-                        className="reveal-on-scroll p-5 rounded-2xl bg-[#faf7f2] border border-[#dfd6c6] space-y-2 group-hover:border-[#dfd6c6]/80 transition-colors"
-                      >
-                        <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0e1828]">
-                          PM Judgment Calls
-                        </h4>
-                        <p className="text-xs sm:text-sm text-[#4a4235] leading-relaxed">
-                          {item.judgmentCalls}
-                        </p>
-                      </div>
-
-                      {/* Outcome */}
-                      <div
-                        className="reveal-slide-right p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-2 group-hover:border-[#b88a3b]/40 transition-colors"
-                      >
-                        <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0e1828]">
-                          Quantitative Outcome
-                        </h4>
-                        <p className="text-xs sm:text-sm text-[#4a4235] leading-relaxed font-medium">
-                          {item.outcome}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Tech stack tags & Action Row */}
-                    <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-[#dfd6c6]/50">
-                      <div className="flex flex-wrap items-center gap-2">
-                        {item.techTags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="card-tech-tag px-3 py-1 rounded-full bg-[#f0e8dc] text-[11px] font-semibold text-[#554d42] transition-colors duration-200"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="flex flex-wrap items-center gap-2.5">
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setActiveCaseStudy(item.id);
-                          }}
-                          className="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold inline-flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer"
-                        >
-                          <span>Interactive Breakdown</span>
-                          <span className="material-symbols-outlined text-[14px]">visibility</span>
-                        </button>
-                        <a
-                          href={item.standaloneUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors"
-                        >
-                          <span>Full Page</span>
-                          <span className="material-symbols-outlined text-[13px]">open_in_new</span>
-                        </a>
-                        {item.prototypeUrl && (
-                          <a
-                            href={item.prototypeUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="px-3.5 py-2 rounded-full bg-[#faf7f2] hover:bg-[#f0e8dc] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
-                          >
-                            <span>Live Tool</span>
-                            <span className="material-symbols-outlined text-[13px]">rocket_launch</span>
-                          </a>
-                        )}
-                        {item.githubUrl && (
-                          <a
-                            href={item.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="px-3.5 py-2 rounded-full bg-white hover:bg-[#0e1828] text-[#0e1828] hover:text-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
-                          >
-                            <span>GitHub</span>
-                            <span className="material-symbols-outlined text-[13px]">code</span>
-                          </a>
-                        )}
-                        {item.pdfUrl && (
-                          <a
-                            href={item.pdfUrl}
-                            download
-                            onClick={(e) => e.stopPropagation()}
-                            className="px-3.5 py-2 rounded-full bg-white hover:bg-[#f0e8dc] text-[#806b47] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
-                          >
-                            <span>Report PDF</span>
-                            <span className="material-symbols-outlined text-[13px]">download</span>
-                          </a>
-                        )}
-                        {item.workspaceUrl && (
-                          <a
-                            href={item.workspaceUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="px-3.5 py-2 rounded-full bg-white hover:bg-[#f0e8dc] text-[#806b47] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
-                          >
-                            <span>Interactive Workspace</span>
-                            <span className="material-symbols-outlined text-[13px]">open_in_new</span>
-                          </a>
-                        )}
-                      </div>
-                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0e1828] font-[family-name:var(--font-editorial)]">
+                      Architectural Systems &amp; Epistemic Research
+                    </h3>
+                    <p className="text-sm text-[#554d42] max-w-xl">
+                      Local containerized inference pipelines and formal statistical conformal prediction systems with reproducible benchmarks.
+                    </p>
                   </div>
-                </article>
-              ))}
-            </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-8 items-stretch">
+                  {filteredProjects
+                    .filter((p) => p.category === 'systems')
+                    .map((item) => (
+                      <article
+                        key={item.id}
+                        data-cursor="View Project"
+                        onClick={() => setActiveCaseStudy(item.id)}
+                        className="reveal-scale reveal-glow rounded-3xl bg-[#ffffff] border border-[#dfd6c6] shadow-[0_6px_28px_rgba(14,24,40,0.05)] overflow-hidden flex flex-col justify-between group hover:border-[#b88a3b]/50 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      >
+                        {/* Visual Preview Header Banner (Device Mockup Style from Image 2) */}
+                        <div className="relative w-full rounded-2xl overflow-hidden bg-gradient-to-br from-[#0c1424] via-[#101b30] to-[#070c16] p-6 text-[#faf7f2] border-b border-[#dfd6c6]/60 flex flex-col justify-between min-h-[270px] sm:min-h-[300px]">
+                          {/* Background Lighting & Watermark */}
+                          <div className="absolute inset-0 bg-radial from-transparent to-black/50 pointer-events-none" />
+                          <div
+                            className={`absolute -top-12 -right-12 w-48 h-48 rounded-full blur-3xl pointer-events-none ${
+                              item.id === 'rag' ? 'bg-[#10b981]/20' : 'bg-[#b88a3b]/20'
+                            }`}
+                          />
+                          <span className="absolute top-4 right-6 text-3xl sm:text-4xl font-extrabold font-[family-name:var(--font-editorial)] text-white/[0.07] pointer-events-none select-none tracking-tight">
+                            {item.id === 'rag' ? 'Enterprise RAG' : 'Conformal VLM'}
+                          </span>
+
+                          {/* Header Row: Badge & Meta */}
+                          <div className="relative z-10 flex items-center justify-between">
+                            <span
+                              className={`px-3 py-1 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-sm border ${
+                                item.id === 'rag'
+                                  ? 'bg-[#10b981]/20 border-[#10b981]/40 text-[#10b981]'
+                                  : 'bg-[#b88a3b]/20 border-[#b88a3b]/40 text-[#f5d07f]'
+                              }`}
+                            >
+                              <span
+                                className={`w-1.5 h-1.5 rounded-full animate-pulse ${
+                                  item.id === 'rag' ? 'bg-[#10b981]' : 'bg-[#b88a3b]'
+                                }`}
+                              />
+                              {item.id === 'rag' ? 'SYSTEM ARCHITECTURE' : 'IEEE RESEARCH PAPER'}
+                            </span>
+
+                            <span className="font-mono text-[10px] text-[#9ba8bc] tracking-wider uppercase">
+                              {item.id === 'rag' ? 'LOCAL DOCKER • ZERO LEAK' : 'IIITDM KURNOOL • 2026'}
+                            </span>
+                          </div>
+
+                          {/* Center System Window Mockup (Like phone screen in Image 2) */}
+                          <div className="relative z-10 my-auto p-4 rounded-xl bg-white/[0.04] backdrop-blur-md border border-white/10 space-y-2.5 shadow-xl">
+                            <div className="flex items-center justify-between text-[9px] font-mono text-[#9ba8bc] pb-1.5 border-b border-white/10">
+                              <div className="flex items-center gap-1.5">
+                                <span className="w-2 h-2 rounded-full bg-[#ef4444]/80" />
+                                <span className="w-2 h-2 rounded-full bg-[#f59e0b]/80" />
+                                <span className="w-2 h-2 rounded-full bg-[#10b981]/80" />
+                                <span className="ml-1 text-white/80">
+                                  {item.id === 'rag' ? 'docker://rag-local:8080' : 'edge://robotics-vlm:ppdre'}
+                                </span>
+                              </div>
+                              <span
+                                className={`font-bold ${
+                                  item.id === 'rag' ? 'text-[#10b981]' : 'text-[#f5d07f]'
+                                }`}
+                              >
+                                {item.id === 'rag' ? '100% AIR-GAPPED' : 'CONFORMAL BOUNDED'}
+                              </span>
+                            </div>
+
+                            {/* Benchmark KPIs Row */}
+                            <div className="grid grid-cols-3 gap-2 text-center py-1">
+                              {item.id === 'rag' ? (
+                                <>
+                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
+                                    <div className="text-[14px] font-extrabold text-[#faf7f2]">380ms</div>
+                                    <div className="text-[8px] font-mono text-[#9ba8bc]">P99 LATENCY</div>
+                                  </div>
+                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
+                                    <div className="text-[14px] font-extrabold text-[#f0c46c]">0.91</div>
+                                    <div className="text-[8px] font-mono text-[#9ba8bc]">RAGAS FAITH</div>
+                                  </div>
+                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
+                                    <div className="text-[14px] font-extrabold text-[#10b981]">0.88</div>
+                                    <div className="text-[8px] font-mono text-[#9ba8bc]">RECALL@5</div>
+                                  </div>
+                                </>
+                              ) : (
+                                <>
+                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
+                                    <div className="text-[14px] font-extrabold text-[#faf7f2]">94.2%</div>
+                                    <div className="text-[8px] font-mono text-[#9ba8bc]">DEFECT PRECISION</div>
+                                  </div>
+                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
+                                    <div className="text-[14px] font-extrabold text-[#f0c46c]">480ms</div>
+                                    <div className="text-[8px] font-mono text-[#9ba8bc]">EDGE P99</div>
+                                  </div>
+                                  <div className="p-1.5 rounded bg-white/[0.03] border border-white/5">
+                                    <div className="text-[14px] font-extrabold text-[#10b981]">~60%</div>
+                                    <div className="text-[8px] font-mono text-[#9ba8bc]">TOKEN SAVINGS</div>
+                                  </div>
+                                </>
+                              )}
+                            </div>
+
+                            {/* Node pipeline flow */}
+                            <div className="text-[8.5px] font-mono text-[#d4c8b6] flex items-center justify-between pt-1 border-t border-white/5">
+                              {item.id === 'rag' ? (
+                                <>
+                                  <span>Private Docs</span>
+                                  <span className="text-[#9ba8bc]">→</span>
+                                  <span className="text-[#f0c46c]">FAISS Index</span>
+                                  <span className="text-[#9ba8bc]">→</span>
+                                  <span className="text-[#10b981]">Local Ollama</span>
+                                </>
+                              ) : (
+                                <>
+                                  <span>Camera Stream</span>
+                                  <span className="text-[#9ba8bc]">→</span>
+                                  <span className="text-[#f0c46c]">ppDRE Detector</span>
+                                  <span className="text-[#9ba8bc]">→</span>
+                                  <span className="text-[#10b981]">Student/Teacher</span>
+                                </>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Bottom Visual Tag */}
+                          <div className="relative z-10 flex items-center justify-between text-[9px] font-mono text-[#9ba8bc] pt-1">
+                            <span>{item.id === 'rag' ? 'Containerized Architecture' : 'Formal Epistemic Bounds'}</span>
+                            <span className="text-[#f5d07f]">
+                              {item.id === 'rag' ? 'Zero Cloud API Calls' : 'Risk-Calibrated Edge AI'}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Card Content (Typography & Spec Breakdown) */}
+                        <div className="p-6 sm:p-8 space-y-5 flex-1 flex flex-col justify-between">
+                          <div className="space-y-4">
+                            <div className="space-y-1.5">
+                              <h3 className="text-2xl sm:text-[26px] font-bold text-[#0e1828] font-[family-name:var(--font-editorial)] tracking-tight group-hover:text-[#b88a3b] transition-colors leading-snug">
+                                {item.title}
+                              </h3>
+                              <p className="text-xs sm:text-sm text-[#554d42] leading-relaxed">
+                                {item.subtitle}
+                              </p>
+                            </div>
+
+                            {/* PROBLEM */}
+                            <div className="space-y-1 pt-1">
+                              <h4 className="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#806b47]">
+                                Problem
+                              </h4>
+                              <p className="text-xs sm:text-[13px] text-[#4a4235] leading-relaxed">
+                                {item.problem}
+                              </p>
+                            </div>
+
+                            {/* PM JUDGMENT CALLS & ARCHITECTURE */}
+                            <div className="space-y-1">
+                              <h4 className="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#0e1828]">
+                                PM Judgment &amp; Architecture
+                              </h4>
+                              <p className="text-xs sm:text-[13px] text-[#4a4235] leading-relaxed">
+                                {item.judgmentCalls}
+                              </p>
+                            </div>
+
+                            {/* QUANTITATIVE OUTCOME */}
+                            <div className="p-4 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-1">
+                              <h4 className="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#0e1828]">
+                                Quantitative Outcome
+                              </h4>
+                              <p className="text-xs sm:text-[13px] font-medium text-[#4a4235] leading-relaxed">
+                                {item.outcome}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Tech stack tags & Action Row */}
+                          <div className="space-y-4 pt-3 border-t border-[#dfd6c6]/50">
+                            <div className="flex flex-wrap items-center gap-1.5">
+                              {item.techTags.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="card-tech-tag px-2.5 py-0.5 rounded-full bg-[#f0e8dc] text-[10.5px] font-semibold text-[#554d42]"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+
+                            <div className="flex flex-wrap items-center gap-2.5">
+                              <a
+                                href={item.standaloneUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold inline-flex items-center gap-1.5 transition-colors shadow-xs"
+                              >
+                                <span>Full Page</span>
+                                <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                              </a>
+                              {item.githubUrl && (
+                                <a
+                                  href={item.githubUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="px-3.5 py-2 rounded-full bg-white hover:bg-[#0e1828] text-[#0e1828] hover:text-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
+                                >
+                                  <span>GitHub Repo</span>
+                                  <span className="material-symbols-outlined text-[13px]">code</span>
+                                </a>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 

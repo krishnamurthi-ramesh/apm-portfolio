@@ -44,13 +44,8 @@ export const STUDY_KEYS: CaseStudyKey[] = [
   'notion',
   'comet',
   'lending',
-  'flowlens',
-  'costoptimizer',
-  'evalharness',
   'rag',
   'vlm',
-  'karam',
-  'treacle',
 ];
 
 export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
