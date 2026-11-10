@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meraqui (karam.ai) AI Candidate Matching Spec | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>View Resume</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        B2B SAAS PRODUCT SPECIFICATION
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">Meraqui Ventures (karam.ai) • Pune</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      AI Candidate Matching &amp; ERP Integration
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      Recreating the requirements-to-shipping loop for karam.ai: problem framing, recruiter shadowing, model trade-offs, and deterministic ERP sync contracts.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi (Data Science &amp; Technical Product Intern)</div>
+      <div><span class="font-bold text-[#0e1828]">Target Product:</span> karam.ai Enterprise Recruitment Platform</div>
+      <div><span class="font-bold text-[#0e1828]">Measured Impact:</span> +15% Match Precision • 15h Saved/Recruiter/Wk</div>
+    </div>
+  </section>
+
+  <!-- Main Content Body -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Executive Problem Statement Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">The Production Problem Statement</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        “Recruiters at Meraqui lack a reliable, context-aware way to instantly identify top-fit candidates for a JD within the ERP workflow, leading to duplicated manual data entry and slow time-to-shortlist.”
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        Existing keyword-matching systems yielded high recall but extremely poor precision &mdash; forcing recruiters to manually read every single resume profile. Replacing unstructured bot answers with deterministic REST API contracts resolved data drift and saved 15 recruiter hours weekly.
+      </p>
+    </div>
+
+    <!-- User Journey Comparison -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Target Users &amp; Workflow Transformation</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">From tedious manual search to 1-click ranked approval.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-red-700 uppercase">Legacy Journey (Friction Heavy)</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">Manual Boolean Filter &amp; Export</h3>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Receive JD &rarr; Search ERP via boolean keywords &rarr; Export candidate spreadsheet &rarr; Manually read dozens of resumes &rarr; Manually re-enter shortlisted status back into ERP.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-emerald-700 uppercase">Proposed &amp; Shipped Journey</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">Context-Aware Auto-Shortlist</h3>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Upload JD to ERP &rarr; karam.ai surfaces top 10 ranked candidates with 2-sentence LLM-generated rationale referencing specific resume lines &rarr; Recruiter approves/rejects with 1 click.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Metrics Grid -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Success Metrics: How We Proved It Worked</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Pre-defined quantitative KPIs agreed with leadership before writing code.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-center">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Primary (Quality)</span>
+          <span class="text-2xl font-bold text-emerald-600 block mt-1">+15%</span>
+          <span class="text-[11px] text-[#6a6050] font-sans mt-0.5 block">Matching Precision@10</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Secondary (Effort)</span>
+          <span class="text-2xl font-bold text-[#0e1828] block mt-1">15 Hours</span>
+          <span class="text-[11px] text-[#6a6050] font-sans mt-0.5 block">Saved Weekly per Recruiter</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Counter (Risk)</span>
+          <span class="text-2xl font-bold text-emerald-600 block mt-1">-12% to -15%</span>
+          <span class="text-[11px] text-[#6a6050] font-sans mt-0.5 block">Downstream Inconsistencies</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Architecture Tradeoff Matrix -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Model Architecture Trade-offs</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Deciding which architecture serves operational constraints within budget.</p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-[#dfd6c6] bg-white shadow-xs">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-[#f0e8dc] border-b border-[#dfd6c6] text-[#0e1828] font-mono uppercase text-[11px]">
+              <th class="p-3.5">Approach</th>
+              <th class="p-3.5">Latency</th>
+              <th class="p-3.5">Cost</th>
+              <th class="p-3.5">Accuracy / Context</th>
+              <th class="p-3.5">Decision Verdict</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#dfd6c6]/60 text-[#4a4235]">
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">Zero-Shot Frontier API (GPT-4)</td>
+              <td class="p-3.5">High (2&ndash;4s per candidate)</td>
+              <td class="p-3.5">High ($$$ per batch)</td>
+              <td class="p-3.5">Good reasoning, but struggles with internal skill taxonomies.</td>
+              <td class="p-3.5 text-red-600 font-bold">Discard (Too slow &amp; costly)</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-[#0e1828]">Pure Semantic Search (Embeddings)</td>
+              <td class="p-3.5">Very Low (&lt;100ms)</td>
+              <td class="p-3.5">Negligible</td>
+              <td class="p-3.5">High recall, poor precision. Misses years-of-experience logic (5 vs 2 yrs).</td>
+              <td class="p-3.5 text-amber-700 font-bold">Discard as Standalone</td>
+            </tr>
+            <tr class="bg-emerald-50/40">
+              <td class="p-3.5 font-bold text-emerald-950">Fine-Tuned SLM + Hybrid Retrieval</td>
+              <td class="p-3.5 font-mono">~800ms Batch</td>
+              <td class="p-3.5">Low (In-house compute)</td>
+              <td class="p-3.5">High precision on specialized tech taxonomy; captures nuanced JD criteria.</td>
+              <td class="p-3.5 text-emerald-700 font-bold">Selected &amp; Deployed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Risk Mitigation & PM Retrospective -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Risk Mitigation &amp; PM Retrospective</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Honest evaluation of production challenges and future instrumentation.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <div class="space-y-3 text-xs leading-relaxed text-[#4a4235]">
+          <div class="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <span class="font-bold text-[#0e1828] block mb-1">Risk: Hallucinated Skills on Resumes</span>
+            <p>LLMs hallucinate that a candidate has coded in a technology simply because it appeared contextually (e.g., &ldquo;Company X used AWS&rdquo; vs &ldquo;I architected AWS&rdquo;). <strong>Mitigation:</strong> Enforced strict Pydantic schema validation in the ETL pipeline against a verified skill taxonomy database.</p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <span class="font-bold text-[#0e1828] block mb-1">Risk: Black-Box Rejections Damaging Trust</span>
+            <p>Recruiters distrust opaque matching numbers without evidence. <strong>Mitigation:</strong> Required the inference output to surface a 2-sentence rationale quoting the exact line in the resume justifying the high rank.</p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <span class="font-bold text-[#0e1828] block mb-1">PM Retrospective: What I Would Do Differently Today</span>
+            <p>Instrument candidate rejection reasons from Day 1 to differentiate between model accuracy errors vs. poor initial JD specifications. Move from batch scoring to streaming inference so candidates populate as the recruiter types.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#0e1828] hover:text-[#b88a3b] transition-colors">
+        ← Return to Portfolio Overview
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+          <span>View Verified Resume</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

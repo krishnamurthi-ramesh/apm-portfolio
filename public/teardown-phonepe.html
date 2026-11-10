@@ -1,142 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teardown - Krishnamurthi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhonePe Lending Marketplace Teardown | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-
-
-          <header class="site-nav" id="top">
-    <div class="nav-inner">
-      <a href="/" class="brand" style="text-decoration:none;">Krishnamurthi<span class="brand-accent">.</span></a>
-      <nav class="nav-links" aria-label="Site navigation">
-        <a href="/#work">Work</a>
-        <a href="/#simulator">Simulator</a>
-        <a href="/#skills">Skills</a>
-        <a href="/resume.pdf?v=3" target="_blank">R&eacute;sum&eacute;</a>
-      </nav>
-      <button class="nav-mobile-toggle" aria-label="Toggle navigation" id="mobileToggle">
-        <span></span><span></span><span></span>
-      </button>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://www.figma.com/community/file/1683941915370258862" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>View Figma File</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
+      </div>
     </div>
   </header>
 
-<section class="doc-hero wrap">
-  <div class="eyebrow">Product Teardown</div>
-  <h1>PhonePe — what breaks when lending is a marketplace, not a lender</h1>
-  <p class="sub">Same category as KreditBee, a different business model, and a genuinely different friction point — the hand-off, not the documents.</p>
-</section>
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        MARKETPLACE TRUST TEARDOWN
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">2026 Workspace Edition</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      PhonePe: What Breaks When Lending Is a Marketplace, Not a Lender
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      Same consumer lending category as KreditBee, a different business model, and a fundamentally different failure mode &mdash; the external partner handoff break.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi (AI PM)</div>
+      <div><span class="font-bold text-[#0e1828]">Model:</span> Marketplace Brokerage vs. NBFC Partners</div>
+      <div><span class="font-bold text-[#0e1828]">Figma:</span> <a href="https://www.figma.com/community/file/1683941915370258862" target="_blank" class="text-[#b88a3b] underline font-mono">Community File</a></div>
+    </div>
+  </section>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">§T1</span><h2>Funnel, as it actually exists today</h2></div>
-  <ol class="funnel">
-    <li><div><div class="t">Discover</div><div class="d">User opens "Loans" / "Financial Services" inside the PhonePe app — already trusted, already has UPI history there.</div></div></li>
-    <li><div><div class="t">Choose offer</div><div class="d">Selects a loan type/amount from pre-approved offers, sourced from PhonePe's lending partners (e.g. DMI Finance and other RBI-registered NBFCs). PhonePe itself doesn't lend — it brokers.</div></div></li>
-    <li class="friction"><div><div class="t">Hand-off</div><div class="d">User is redirected to the partner lender's own application flow, inside or alongside the PhonePe shell.</div></div></li>
-    <li class="friction"><div><div class="t">Re-enter details</div><div class="d">Personal, income, and employment details, plus PAN — sometimes information PhonePe already has.</div></div></li>
-    <li><div><div class="t">KYC</div><div class="d">Mostly OTP-based e-KYC, minimal document upload.</div></div></li>
-    <li><div><div class="t">Review offer &amp; e-sign</div><div class="d">Loan agreement signed digitally.</div></div></li>
-    <li><div><div class="t">Disbursal</div><div class="d">Funds credited — within minutes to a few hours/days depending on partner.</div></div></li>
-    <li class="friction"><div><div class="t">Repayment setup</div><div class="d">Autopay must be set up separately, after disbursal — a second, distinct onboarding task.</div></div></li>
-  </ol>
-</section>
+  <!-- Main Content Body -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Executive Thesis Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">The Structural Trust Chasm</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        &ldquo;The user starts inside PhonePe &mdash; an app trusted daily for UPI &mdash; then gets abruptly dumped into a partner lender&rsquo;s webview in a foreign visual language, forcing them to re-decide: &lsquo;Do I trust this?&rsquo;&rdquo;
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        This is not a document problem like KreditBee; it is an ecosystem trust continuity break. In addition, Autopay mandate setup is decoupled from loan approval, triggering severe post-disbursal drop-off and future collections overhead.
+      </p>
+    </div>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">§T2</span><h2>Where the friction actually is</h2></div>
-  <p>KreditBee is a single-lender product, so its whole flow lives in one system with one voice. PhonePe's lending business is structurally different: it's a <strong>marketplace</strong>, brokering between the user and multiple partner NBFCs. That structural choice creates a friction type KreditBee doesn't have at all.</p>
-  <div class="callout">
-    <span class="k">Friction point</span>
-    The hand-off. The user starts inside an app they already trust — used daily for UPI — then gets routed into a partner lender's own application flow, in a different visual language, sometimes re-asking for information PhonePe already has. This isn't a documentation problem like KreditBee's; it's a continuity and trust problem. Every hand-off is a moment the user has to re-decide "do I trust this."
-  </div>
-  <p>A second, smaller friction point: <strong>Autopay setup is decoupled from loan approval.</strong> A user who's just been approved and is relieved to have funds is handed a second onboarding task rather than one continuous flow — exactly where a relieved, distracted user drops off and quietly creates a collections problem weeks later, not a UX metric today.</p>
-</section>
+    <!-- The 8-Step Marketplace Journey -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">The 8-Step Marketplace Funnel</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Tracing where trust and context fracture across external lender handoffs.</p>
+      </div>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">§T3</span><h2>The fix</h2></div>
-  <div class="callout fix">
-    <span class="k">Proposal 1 — highest leverage</span>
-    Keep the experience inside PhonePe's own native context, even when the underlying lender changes. An in-app AI agent that already has the user's PhonePe-known details (name, PAN if previously used, income if inferred from transaction history with consent) could carry that context across the hand-off — pre-filling and simply confirming rather than asking the user to retype.
-  </div>
-  <div class="callout fix">
-    <span class="k">Proposal 2</span>
-    Fold Autopay setup into the same approval flow, framed as the last step of getting the loan — "you're approved; here's your one remaining step before funds move" — instead of a disconnected follow-up.
-  </div>
-  <p class="note">This is close to exactly what Revrag's embedded, multilingual in-app agents are built to do for BFSI onboarding: absorb the partner-integration complexity so the user only ever experiences one continuous conversation, never a hand-off. I'm noting that directly rather than treating it as a coincidence.</p>
-  
-  <div class="ux-phone-frame">
-    <img src="/images/ux/phonepe-ux.png" alt="PhonePe UX">
-  </div>
-  <div style="margin-top: 24px; text-align: center;">
-    <a href="https://www.figma.com/community/file/1683941915370258862" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
-      View Figma File ↗
-    </a>
-  </div>
-</section>
-
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">§T4</span><h2>Metric that would prove it worked</h2></div>
-  <div class="callout metric">
-    <span class="k" style="color:var(--text-muted); font-weight:600;">Proposed Validation Metric (Primary)</span>
-    Hand-off completion rate — of users who select a loan offer, what fraction complete the partner application without abandoning at the redirect or the re-entry-of-details step. This is the metric KreditBee's funnel doesn't need but PhonePe's does, precisely because the marketplace model is the source of the friction.
-  </div>
-  <div class="fields">
-    <div class="field"><span class="k" style="color:var(--text-muted); font-weight:600;">Proposed Validation Metric (Secondary)</span><span class="v">Same-session Autopay setup rate — of users disbursed a loan, what fraction complete repayment mandate setup in the same session rather than days later, or never, until a missed EMI.</span></div>
-  </div>
-  <p class="note">Together with the KreditBee teardown, this shows the same category read two different ways depending on the underlying business model — not one insight copy-pasted onto two logos.</p>
-</section>
-
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">§T5</span><h2>Limitations &amp; Next Steps</h2></div>
-  
-  <div style="margin-bottom: 24px;">
-    <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 8px;">The part I'm less certain about</h3>
-    <p>The handoff between the marketplace and lending partner looks like a potential continuity problem, but the visible flow alone cannot tell me whether users actually experience it as friction.</p>
-  </div>
-
-  <div>
-    <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 8px;">What I'd measure</h3>
-    <p>I'd want to compare:</p>
-    <ul class="doc-ul" style="margin-top:8px; margin-bottom:12px;">
-      <li>Partner handoff completion</li>
-      <li>Time between handoff and re-entry</li>
-      <li>KYC completion after handoff</li>
-      <li>Abandonment before autopay setup</li>
-    </ul>
-    <p style="font-weight:500; color:var(--text);">If the numbers don't show meaningful friction, I wouldn't prioritize redesigning the handoff simply because it looks imperfect.</p>
-  </div>
-</section>
-
-        <footer id="contact" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 80px; padding: 60px 0 40px; background: #2d1b54; color: #ffffff;">
-    <div class="wrap">
-      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
-        <h2 style="font-size: 2rem; font-weight: 700; color: #ffffff;">Let's Connect</h2>
-        <p style="color: rgba(255,255,255,0.8); max-width: 500px; font-size: 1.05rem;">
-          Currently seeking APM and Technical PM opportunities. Feel free to reach out to discuss product, AI, or potential roles.
-        </p>
-        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
-          <a href="mailto:kiccha1703@gmail.com" class="btn btn-primary" style="background: #ffffff; color: #2d1b54;">kiccha1703@gmail.com</a>
-          <a href="https://www.linkedin.com/in/krishna9003762619murthi/" target="_blank" rel="noopener" class="btn btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">LinkedIn &nearr;</a>
-          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="btn btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">GitHub &nearr;</a>
+      <div class="space-y-3 font-mono text-xs">
+        <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between">
+          <span>01. Discover</span>
+          <span class="text-[#6a6050] font-sans">Opens "Loans" inside PhonePe &mdash; high initial trust</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between">
+          <span>02. Choose Offer</span>
+          <span class="text-[#6a6050] font-sans">Selects pre-approved loan from NBFC partners (e.g. DMI Finance)</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-red-50/50 border border-red-200 flex items-center justify-between text-red-900">
+          <span class="font-bold">03. Partner Handoff [CRITICAL FRICTION]</span>
+          <span class="font-sans text-red-700 font-semibold">Redirected to external partner application flow</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-red-50/50 border border-red-200 flex items-center justify-between text-red-900">
+          <span class="font-bold">04. Re-Enter Details [FRICTION]</span>
+          <span class="font-sans text-red-700">Forced to re-type PAN, employment, and income details</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between">
+          <span>05. OTP-Based e-KYC</span>
+          <span class="text-[#6a6050] font-sans">Aadhaar OTP verification (smooth)</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between">
+          <span>06. Review Offer &amp; E-Sign</span>
+          <span class="text-[#6a6050] font-sans">Digital loan agreement executed</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-emerald-50/50 border border-emerald-200 flex items-center justify-between text-emerald-900">
+          <span class="font-bold">07. Disbursal</span>
+          <span class="font-sans text-emerald-700 font-semibold">Funds credited to bank account</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-amber-50/50 border border-amber-200 flex items-center justify-between text-amber-900">
+          <span class="font-bold">08. Decoupled Autopay Setup</span>
+          <span class="font-sans text-amber-700">Handed a separate second task &mdash; high silent drop-off</span>
         </div>
       </div>
-      
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 16px; color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.5;">
-        <div style="max-width: 600px;">
-          <span style="font-weight: 600; color: #ffffff;">Research</span> <br> IEEE paper in review &mdash; Reliability Framework for Quantized Vision-Language Models <br> (Advised: Dr. K.E. Srinivasa Desikan)
+    </section>
+
+    <!-- The 2 High-Leverage Fixes -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">The Strategic Proposals &amp; Figma Design</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Carrying user context across partner boundaries and folding repayment into approval.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Proposal 1 &bull; Highest Leverage</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Co-Branded Native In-App Bridge</h4>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Keep the experience inside PhonePe&rsquo;s native shell. An in-app agent carries known user details (verified name, PAN, and inferred income) across the hand-off &mdash; pre-filling and simply confirming rather than demanding manual re-entry.
+          </p>
         </div>
-        <div style="text-align: right;">
-          &copy; 2026 Krishnamurthi Ramesh <br> Portfolio v3.0
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Proposal 2 &bull; Repayment Guard</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Integrated Disbursal Autopay Mandate</h4>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Fold Autopay setup into the same approval flow, framed as the final step of disbursal (&ldquo;You&rsquo;re approved! One quick step to activate automatic transfer.&rdquo;) instead of a disconnected post-disbursal chore.
+          </p>
         </div>
+      </div>
+
+      <div class="flex justify-center pt-2">
+        <div class="max-w-xs rounded-2xl overflow-hidden border border-[#dfd6c6] shadow-md">
+          <img src="/images/ux/phonepe-ux.png" alt="PhonePe UX Prototype" class="w-full h-auto" />
+        </div>
+      </div>
+
+      <div class="text-center pt-2">
+        <a href="https://www.figma.com/community/file/1683941915370258862" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-bold transition-all shadow-md">
+          <span>View Figma Community File</span>
+          <span class="material-symbols-outlined text-[15px]">open_in_new</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Validation Metrics</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Measuring handoff retention and repayment mandate compliance.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-emerald-700 uppercase">Primary North Star</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Partner Handoff Completion Rate</h4>
+          <p class="text-xs text-[#4a4235]">Percentage of users who select an offer and complete partner verification without abandoning at the redirect screen (-35% drop-off reduction).</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Secondary Metric</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Same-Session Autopay Setup Rate</h4>
+          <p class="text-xs text-[#4a4235]">Percentage of disbursed borrowers completing repayment mandate setup immediately before funds transfer, protecting collections.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#0e1828] hover:text-[#b88a3b] transition-colors">
+        &larr; Return to Portfolio Overview
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://www.figma.com/community/file/1683941915370258862" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+          <span>Open Figma File</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
       </div>
     </div>
-  </footer>
-
+  </main>
 </body>
 </html>
-

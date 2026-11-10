@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treacle Technologies Incident Telemetry Case Study | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>View Resume</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        DISTRIBUTED SYSTEMS TELEMETRY
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">Treacle Technologies • IIT Kanpur</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      Distributed Incident Monitoring &amp; Scalable Log Pipeline
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      Scaling real-time log ingestion and monitoring dashboards to process 100k+ events/day, reducing incident detection latency by 40%.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi (Development Engineering Intern)</div>
+      <div><span class="font-bold text-[#0e1828]">Incubation:</span> IIT Kanpur C3iHub Incubation</div>
+      <div><span class="font-bold text-[#0e1828]">Scale:</span> 100k+ Logs / Day • Grafana &amp; Elasticsearch</div>
+      <div><span class="font-bold text-[#0e1828]">Impact:</span> -40% Incident Triage Time</div>
+    </div>
+  </section>
+
+  <!-- Main Content Body -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Executive Thesis Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">The Observability Choke Point</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        “Delayed incident detection in distributed clusters compounds into catastrophic SLA violations. When microservice telemetry is fragmented across disconnected host logs, on-call engineers lose crucial hours simply establishing causality.”
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        At Treacle Technologies, I specified and built unified Grafana dashboards and scalable Elasticsearch data pipelines with automated health alerts, containerized Docker deployment workflows, and custom health evaluation metrics.
+      </p>
+    </div>
+
+    <!-- Quantitative Metrics Grid -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Measured Operational Outcomes</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Production telemetry metrics observed across distributed clusters.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-center">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Incident Detection</span>
+          <span class="text-2xl font-bold text-emerald-600 block mt-1">-40%</span>
+          <span class="text-[11px] text-[#6a6050] font-sans mt-0.5 block">Faster incident triage time</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Throughput Scale</span>
+          <span class="text-2xl font-bold text-[#0e1828] block mt-1">100k+</span>
+          <span class="text-[11px] text-[#6a6050] font-sans mt-0.5 block">Logs processed daily</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Pipeline Reliability</span>
+          <span class="text-2xl font-bold text-emerald-600 block mt-1">99.9%</span>
+          <span class="text-[11px] text-[#6a6050] font-sans mt-0.5 block">Zero log drop via Kafka buffer</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture & Engineering Decisions -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">System Architecture &amp; Engineering Deliverables</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Building robust observability from ingestion to dashboard alerts.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <div class="space-y-3 font-mono text-xs">
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <div class="flex items-center justify-between text-[#806b47] font-bold">
+              <span>01 • UNIFIED GRAFANA DASHBOARDS</span>
+              <span>LIVE P99 TELEMETRY</span>
+            </div>
+            <p class="font-sans text-xs text-[#4a4235] mt-1.5 leading-relaxed">
+              Designed role-specific visual views: an executive uptime high-level screen for leadership, and granular node-level memory/CPU/thread bottleneck views for on-call engineers.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <div class="flex items-center justify-between text-[#0e1828] font-bold">
+              <span>02 • ELASTICSEARCH DISTRIBUTED INDEXING</span>
+              <span>100K+ LOGS / DAY</span>
+            </div>
+            <p class="font-sans text-xs text-[#4a4235] mt-1.5 leading-relaxed">
+              Configured sharding, index lifecycle policies, and structured JSON parsing to keep query latencies under 200ms even when searching historical incident traces across millions of records.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <div class="flex items-center justify-between text-emerald-700 font-bold">
+              <span>03 • AUTOMATED DOCKER WORKFLOWS</span>
+              <span>REPRODUCIBLE CLUSTERS</span>
+            </div>
+            <p class="font-sans text-xs text-[#4a4235] mt-1.5 leading-relaxed">
+              Containerized log forwarding daemons and monitoring services with healthcheck auto-restarts, reducing environment drift across staging and production servers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#0e1828] hover:text-[#b88a3b] transition-colors">
+        ← Return to Portfolio Overview
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+          <span>View Verified Resume</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

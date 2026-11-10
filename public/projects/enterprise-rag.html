@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enterprise RAG System with Quantitative Eval Harness | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/krishnamurthi-ramesh/enterprise-rag-system" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>GitHub Repo</span>
+          <span class="material-symbols-outlined text-[14px]">code</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        ENTERPRISE AI ARCHITECTURE
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">Statistical Eval Harness • 2026</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      Enterprise RAG System with Quantitative Evaluation Harness
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      A production-grade, privacy-first local RAG pipeline with statistical evaluation harness, sub-second latency, and zero data leakage.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi (AI PM)</div>
+      <div><span class="font-bold text-[#0e1828]">GitHub:</span> <a href="https://github.com/krishnamurthi-ramesh/enterprise-rag-system" target="_blank" class="text-[#b88a3b] underline font-mono">enterprise-rag-system</a></div>
+      <div><span class="font-bold text-[#0e1828]">Evaluation Stack:</span> Ragas • Recall@K • Context Precision</div>
+      <div><span class="font-bold text-[#0e1828]">P99 Latency:</span> 380ms (Local Docker Cluster)</div>
+    </div>
+  </section>
+
+  <!-- Main Content Body -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Executive Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">The Enterprise Privacy Problem</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        “Enterprise documents contain sensitive legal clauses and financial IP. Cloud-dependent APIs risk data leakage, unpredictable token fees, and uncalibrated hallucinations.”
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        Rather than relying on third-party SaaS wrappers, this system deploys zero-leak local inference (Ollama + FAISS) within containerized Docker clusters, paired with automated Ragas evaluation suites to turn qualitative text retrieval into deterministic quality metrics.
+      </p>
+    </div>
+
+    <!-- Core Performance Metrics -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Empirical Evaluation Metrics</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Benchmarked against enterprise internal knowledge corpora.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-center">
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">P99 Latency</span>
+          <span class="text-2xl font-bold text-emerald-600 block mt-1">380ms</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">Sub-second response</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Faithfulness</span>
+          <span class="text-2xl font-bold text-[#0e1828] block mt-1">0.91</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">Ragas ground truth match</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Recall@K</span>
+          <span class="text-2xl font-bold text-emerald-600 block mt-1">0.88</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">Top-5 relevant chunks</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Data Leakage</span>
+          <span class="text-2xl font-bold text-[#b88a3b] block mt-1">Zero</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">100% private network</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture & System Mechanics -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">System Architecture &amp; Pipeline Mechanics</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">End-to-end ingestion, vectorization, and statistical evaluation harness.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <div class="space-y-3 font-mono text-xs">
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <div class="flex items-center justify-between text-[#806b47] font-bold">
+              <span>01 • INGESTION &amp; SEMANTIC CHUNKING</span>
+              <span>SLIDING WINDOW (512 TOKENS)</span>
+            </div>
+            <p class="font-sans text-xs text-[#4a4235] mt-1.5 leading-relaxed">
+              Ingests unstructured enterprise documents (PDF, Markdown, HTML), parses tables and headings, and creates token-bounded overlapping chunks with metadata breadcrumbs.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <div class="flex items-center justify-between text-[#0e1828] font-bold">
+              <span>02 • DENSE VECTOR INDEXING</span>
+              <span>FAISS FLAT L2 &bull; EMBEDDING OPTIMIZATION</span>
+            </div>
+            <p class="font-sans text-xs text-[#4a4235] mt-1.5 leading-relaxed">
+              Embeds text into high-dimensional space stored in a local FAISS index, enabling ultra-fast nearest-neighbor search without requiring cloud vector databases.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <div class="flex items-center justify-between text-emerald-700 font-bold">
+              <span>03 • ZERO-LEAK LOCAL INFERENCE</span>
+              <span>OLLAMA DOCKER CLUSTER</span>
+            </div>
+            <p class="font-sans text-xs text-[#4a4235] mt-1.5 leading-relaxed">
+              Executes prompt synthesis entirely on private on-prem/VPC GPU instances using quantized open-weights models, guaranteeing that confidential customer IP never traverses public internet backbones.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <div class="flex items-center justify-between text-[#b88a3b] font-bold">
+              <span>04 • RAGAS STATISTICAL EVALUATION HARNESS</span>
+              <span>CONTINUOUS QUALITY BENCHMARK</span>
+            </div>
+            <p class="font-sans text-xs text-[#4a4235] mt-1.5 leading-relaxed">
+              Scores output generation against three quantitative dimensions: Context Precision (is the retrieved chunk truly relevant?), Context Recall (were any essential facts missed?), and Faithfulness (is every generated sentence strictly grounded in the cited source?).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#0e1828] hover:text-[#b88a3b] transition-colors">
+        ← Return to Portfolio Overview
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/krishnamurthi-ramesh/enterprise-rag-system" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+          <span>Explore GitHub Repo</span>
+          <span class="material-symbols-outlined text-[14px]">code</span>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -567,27 +567,27 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             <div className="space-y-6 text-sm">
               <div className="space-y-3">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
-                  01 / 151-Benchmark Quality Audit
+                  01 / Problem Statement &amp; Diagnostic Findings
                 </h3>
                 <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
                   <h4 className="font-bold text-[#0e1828] text-base">
-                    Diagnosing the Citation Hallucination Paradox
+                    The Citation Grounding Flaw in Generative Search
                   </h4>
                   <p className="text-[#554d42] leading-relaxed">
-                    Audited 151 production queries comparing Perplexity Sonar vs. Sonar Pro. While format and safety scored &gt;4.7/5.0, <strong>26.2% of generated citations</strong> suffered from dead links (404s), generic domain redirects, or direct metric contradictions.
+                    Evaluated 151 production queries across 10 diverse domains (Finance, Healthcare, Code, Legal, News, Science). Isolated a critical trust defect: 26.2% of citations across complex queries exhibited grounding failures—broken 404 links, redirects to generic domain roots, or cited pages contradicting claimed statistical numbers.
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
                     <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
-                      <span className="font-bold text-[#0e1828] block">7-Dimension Calibrated Rubric</span>
-                      <p className="text-[#554d42]">
-                        Factual Accuracy, Citation Validity, Freshness, Completeness, Harmlessness, Hedging, and Format with hard vetoes on safety and source fabrication.
-                      </p>
+                      <span className="font-mono text-[#b88a3b] font-bold">151 Golden Cases</span>
+                      <p className="text-[#554d42]">Spanning 10 distinct knowledge domains and query complexity tiers.</p>
                     </div>
                     <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
-                      <span className="font-bold text-[#0e1828] block">Product Grounding Roadmap</span>
-                      <p className="text-[#554d42]">
-                        Formulated P0 pre-render NLI entailment checks to cut citation errors to &lt;8%, plus automated PR CI/CD regression gates.
-                      </p>
+                      <span className="font-mono text-[#b88a3b] font-bold">7-Dimension Rubric</span>
+                      <p className="text-[#554d42]">Scored on Factual Accuracy, Citation Grounding, Coherence, Safety &amp; Completeness.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-mono text-[#b88a3b] font-bold">Decoupled LLM Judge</span>
+                      <p className="text-[#554d42]">Independent multi-model evaluator eliminating circular vendor bias.</p>
                     </div>
                   </div>
                 </div>
@@ -595,13 +595,22 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
 
               <div className="space-y-3">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
-                  02 / Live Tableau Public Dashboard &amp; Codebase
+                  02 / Product Intervention &amp; CI/CD Regression Gates
                 </h3>
-                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
-                  <p className="text-[#4a4235] leading-relaxed text-xs">
-                    Inspect the live 151-case evaluation dashboard on Tableau Public or explore the evaluation harness architecture and golden dataset on GitHub.
+                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+                  <h4 className="font-bold text-[#0e1828] text-base">
+                    Automated Pre-Render Grounding &amp; PR Gating
+                  </h4>
+                  <p className="text-[#554d42] leading-relaxed">
+                    Designed a pre-render citation verification filter that parses outgoing markdown citations, runs lightweight headless GET checks for HTTP 200/404, and verifies snippet semantic similarity before streaming to user clients.
                   </p>
-                  <div className="flex flex-wrap gap-3 pt-1">
+                  <div className="p-3.5 rounded-xl bg-[#f0e8dc] border border-[#dfd6c6] text-xs space-y-1">
+                    <span className="font-bold text-[#0e1828]">CI/CD Deployment Threshold:</span>
+                    <p className="text-[#554d42]">
+                      Automated weekly test suite gating all PRs. Any model update that drops Citation Grounding by &gt;2% or produces any hallucinated medical/financial citation triggers an immediate build block.
+                    </p>
+                  </div>
+                  <div className="pt-2 flex flex-wrap gap-2.5">
                     <a
                       href="/projects/eval-harness.html"
                       target="_blank"
@@ -617,7 +626,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
                     >
-                      <span>Tableau Public Benchmark</span>
+                      <span>Explore Live Tableau Dashboard</span>
                       <span className="material-symbols-outlined text-[13px]">north_east</span>
                     </a>
                     <a
@@ -628,6 +637,253 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                     >
                       <span>GitHub Repository</span>
                       <span className="material-symbols-outlined text-[13px]">code</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ENTERPRISE RAG SYSTEM DEEP DIVE */}
+          {activeKey === 'rag' && (
+            <div className="space-y-6 text-sm">
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  01 / System Architecture &amp; Privacy Boundaries
+                </h3>
+                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
+                  <h4 className="font-bold text-[#0e1828] text-base">
+                    Zero-Leak Local Inference with Statistical Quality Harness
+                  </h4>
+                  <p className="text-[#554d42] leading-relaxed">
+                    Enterprise legal and financial documents contain sensitive IP that cannot be exposed to third-party cloud APIs. Deployed a containerized local inference stack using Ollama + FAISS with strict sliding-window semantic chunking.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">Ragas Evaluation Suite</span>
+                      <p className="text-[#554d42]">
+                        Continuous statistical measurement of Context Precision, Recall@K (0.88), and Faithfulness (0.91) to guarantee generated answers are strictly grounded in retrieved source chunks.
+                      </p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">Private Docker Clusters</span>
+                      <p className="text-[#554d42]">
+                        Achieved 380ms P99 inference latency while guaranteeing zero sensitive customer data ever traverses public internet backbones.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  02 / Codebase &amp; Dedicated Case Study
+                </h3>
+                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
+                  <p className="text-[#4a4235] leading-relaxed text-xs">
+                    Inspect the complete evaluation pipeline and Docker deployment workflows on GitHub, or open the dedicated project breakdown page.
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    <a
+                      href="/projects/enterprise-rag.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
+                    >
+                      <span>Open Dedicated Project Page</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                    </a>
+                    <a
+                      href="https://github.com/krishnamurthi-ramesh/enterprise-rag-system"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>GitHub Repository</span>
+                      <span className="material-symbols-outlined text-[13px]">code</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ACTIVE CONFORMAL CONTROL DEEP DIVE */}
+          {activeKey === 'vlm' && (
+            <div className="space-y-6 text-sm">
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  01 / Research Methodology &amp; Mathematical Guarantees
+                </h3>
+                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
+                  <h4 className="font-bold text-[#0e1828] text-base">
+                    Conformal Safety Bounds for Quantized Vision-Language Models
+                  </h4>
+                  <p className="text-[#554d42] leading-relaxed">
+                    Edge manufacturing deployment of quantized VLMs suffers from silent hallucination drift when visual conditions change. Built a two-tier inference cascade balancing edge latency, accuracy, and unit economics.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">Non-Parametric ppDRE Detector</span>
+                      <p className="text-[#554d42]">
+                        Real-time tracking of input density shifts between edge camera frames and baseline calibration sets.
+                      </p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">Student-Teacher Cascade</span>
+                      <p className="text-[#554d42]">
+                        4-bit student model handles routine checks (480ms P99); routes to CPU/GPU teacher when uncertainty exceeds conformal threshold (1 - &alpha;).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  02 / IEEE Review &amp; Codebase
+                </h3>
+                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
+                  <p className="text-[#4a4235] leading-relaxed text-xs">
+                    Paper revised through external peer review ahead of IEEE publication. Explore the PyTorch implementation and conformal calibration harness on GitHub.
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    <a
+                      href="/projects/active-conformal-control.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
+                    >
+                      <span>Open Research Breakdown</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                    </a>
+                    <a
+                      href="https://github.com/krishnamurthi-ramesh/Active-Conformal-Control-Navigating-Density-Chasms-in-Quantized-Vision-Language-Systems"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>GitHub Repository</span>
+                      <span className="material-symbols-outlined text-[13px]">code</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* MERAQUI (KARAM.AI) DEEP DIVE */}
+          {activeKey === 'karam' && (
+            <div className="space-y-6 text-sm">
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  01 / Requirements-to-Shipping Loop
+                </h3>
+                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
+                  <h4 className="font-bold text-[#0e1828] text-base">
+                    Candidate-Matching Engine &amp; Deterministic ERP Integration
+                  </h4>
+                  <p className="text-[#554d42] leading-relaxed">
+                    Shadowed technical recruiters to identify why legacy keyword search failed: high recall but dismal precision forced recruiters to read every resume. Replaced conversational bot prototypes with deterministic REST API contracts.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">Hybrid Retrieval + Skill Taxonomy</span>
+                      <p className="text-[#554d42]">
+                        Combined dense embeddings with strict taxonomy validation, boosting Precision@10 by 15% and surfacing 2-sentence rationale pills.
+                      </p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">ERP Sync Contracts</span>
+                      <p className="text-[#554d42]">
+                        Eliminated 15 recruiter hours weekly in manual data entry and cut downstream schema inconsistencies by 12&ndash;15%.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  02 / Product Spec &amp; Production Metrics
+                </h3>
+                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
+                  <p className="text-[#4a4235] leading-relaxed text-xs">
+                    View the complete production specification covering problem statements, success guardrails, model tradeoffs, and risk mitigations.
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    <a
+                      href="/projects/meraqui-karam.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
+                    >
+                      <span>Open Dedicated Case Study Page</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                    </a>
+                    <a
+                      href="/artifact-meraqui.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>Product Spec Document</span>
+                      <span className="material-symbols-outlined text-[13px]">north_east</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TREACLE TECHNOLOGIES DEEP DIVE */}
+          {activeKey === 'treacle' && (
+            <div className="space-y-6 text-sm">
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  01 / High-Throughput Telemetry &amp; Log Pipelines
+                </h3>
+                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
+                  <h4 className="font-bold text-[#0e1828] text-base">
+                    Distributed Incident Monitoring Across 100k+ Events/Day
+                  </h4>
+                  <p className="text-[#554d42] leading-relaxed">
+                    Microservice logs scattered across distributed servers caused prolonged outage investigations. Built centralized monitoring and automated alerting to collapse incident triage time.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">Unified Grafana Telemetry</span>
+                      <p className="text-[#554d42]">
+                        Role-specific dashboards providing P99 latency alerts, thread bottlenecks, and server cluster health.
+                      </p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                      <span className="font-bold text-[#0e1828] block">Elasticsearch &amp; Docker Scale</span>
+                      <p className="text-[#554d42]">
+                        Indexed 100k+ logs/day with sub-200ms query performance and containerized auto-recovery daemons, reducing triage time by 40%.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  02 / Production Architecture
+                </h3>
+                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
+                  <p className="text-[#4a4235] leading-relaxed text-xs">
+                    Read the complete incident telemetry case study covering data pipelines, log sharding policies, and Docker workflows.
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    <a
+                      href="/projects/treacle-technologies.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
+                    >
+                      <span>Open Dedicated Case Study Page</span>
+                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
                     </a>
                   </div>
                 </div>

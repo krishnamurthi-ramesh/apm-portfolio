@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Active Conformal Control for Edge VLMs | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/krishnamurthi-ramesh/Active-Conformal-Control-Navigating-Density-Chasms-in-Quantized-Vision-Language-Systems" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>GitHub Repo</span>
+          <span class="material-symbols-outlined text-[14px]">code</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        AI SYSTEMS RESEARCH &bull; IEEE PAPER IN REVIEW
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">IIITDM Kurnool &bull; 2026</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      Hardware-Aware Safety &amp; Conformal Control for Edge Vision-Language Models
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      Navigating density chasms in quantized multimodal systems: non-parametric drift detection and two-tier inference cascading under formal statistical safety bounds.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Lead Author:</span> Krishnamurthi (Advised by Dr. K.E. Srinivasa Desikan)</div>
+      <div><span class="font-bold text-[#0e1828]">GitHub:</span> <a href="https://github.com/krishnamurthi-ramesh/Active-Conformal-Control-Navigating-Density-Chasms-in-Quantized-Vision-Language-Systems" target="_blank" class="text-[#b88a3b] underline font-mono">Active-Conformal-Control</a></div>
+      <div><span class="font-bold text-[#0e1828]">Paper Status:</span> Revised through external peer review for IEEE publication</div>
+      <div><span class="font-bold text-[#0e1828]">Hardware Target:</span> Resource-constrained edge compute</div>
+    </div>
+  </section>
+
+  <!-- Main Content Body -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Executive Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">The Edge AI Safety Problem</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        “Quantized Vision-Language Models deployed on edge manufacturing hardware experience catastrophic hallucination drift when factory visual distributions shift &mdash; threatening operator safety and QA yield.”
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        Full-precision models are too heavy and expensive for industrial edge nodes, while naive 4-bit/8-bit post-training quantization degrades out-of-distribution reliability. This research designed a two-tier GPU-student / CPU-teacher inference cascade bounded by formal conformal prediction guarantees.
+      </p>
+    </div>
+
+    <!-- Core Research Metrics -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Empirical Validation &amp; Benchmark Results</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Stress-tested on industrial visual defect inspection benchmarks under lighting and camera angle shifts.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-center">
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Defect Precision</span>
+          <span class="text-2xl font-bold text-emerald-600 block mt-1">94.2%</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">Structural precision</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">P99 Latency</span>
+          <span class="text-2xl font-bold text-[#0e1828] block mt-1">480ms</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">Edge inference cycle</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Cost Reduction</span>
+          <span class="text-2xl font-bold text-emerald-600 block mt-1">~60%</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">Less cloud token spend</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs">
+          <span class="text-xs text-[#806b47] uppercase font-bold block font-sans">Formal Safety</span>
+          <span class="text-2xl font-bold text-[#b88a3b] block mt-1">1 - &alpha;</span>
+          <span class="text-[10px] text-[#6a6050] font-sans mt-0.5 block">Conformal coverage bound</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Core Technical Innovations -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">The 3 Core Technical Contributions</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Bridging formal verification mathematics with real-world edge hardware constraints.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">01 &bull; Drift Detection</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">ppDRE Density Estimator</h3>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Constructed a non-parametric Projected Penalized Density Ratio Estimator (ppDRE) that continuously tracks distribution shifts between edge camera inputs and nominal calibration datasets in real time.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">02 &bull; Two-Tier Cascade</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">Student / Teacher Cascade</h3>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Routine visual verification runs on an ultra-lightweight 4-bit student model on the local edge accelerator. If density drift or entropy exceeds safety bounds, the system automatically routes to the full-precision teacher.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">03 &bull; Mathematical Bounds</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">Conformal Safety Guarantee</h3>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Guarantees that the true physical defect classification is contained within the model&rsquo;s predicted set with a user-specified probability (e.g., 95% or 99%), transforming black-box heuristic guesses into mathematically certified decisions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#0e1828] hover:text-[#b88a3b] transition-colors">
+        ← Return to Portfolio Overview
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/krishnamurthi-ramesh/Active-Conformal-Control-Navigating-Density-Chasms-in-Quantized-Vision-Language-Systems" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+          <span>Explore GitHub Repo</span>
+          <span class="material-symbols-outlined text-[14px]">code</span>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

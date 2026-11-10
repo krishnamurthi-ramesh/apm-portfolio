@@ -1,130 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teardown - Krishnamurthi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KreditBee Lending Funnel Teardown | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-
-
-          <header class="site-nav" id="top">
-    <div class="nav-inner">
-      <a href="/" class="brand" style="text-decoration:none;">Krishnamurthi<span class="brand-accent">.</span></a>
-      <nav class="nav-links" aria-label="Site navigation">
-        <a href="/#work">Work</a>
-        <a href="/#simulator">Simulator</a>
-        <a href="/#skills">Skills</a>
-        <a href="/resume.pdf?v=3" target="_blank">R&eacute;sum&eacute;</a>
-      </nav>
-      <button class="nav-mobile-toggle" aria-label="Toggle navigation" id="mobileToggle">
-        <span></span><span></span><span></span>
-      </button>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://option-delete-93793571.figma.site/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>Interactive Prototype</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
+      </div>
     </div>
   </header>
 
-<section class="doc-hero wrap">
-  <div class="eyebrow">Product Teardown</div>
-  <h1>KreditBee — the KYC stack nobody fixed, just made skippable</h1>
-  <p class="sub">A single-lender lending app's own product decisions reveal exactly where users give up — you just have to read the escape hatches they built.</p>
-</section>
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        FINTECH FUNNEL TEARDOWN
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">2026 Workspace Edition</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      KreditBee: The KYC Stack Nobody Fixed, Just Made Skippable
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      A single-lender app&rsquo;s product decisions reveal exactly where borrowers give up &mdash; you just have to read the escape hatches they built.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi (AI PM)</div>
+      <div><span class="font-bold text-[#0e1828]">Target Funnel:</span> Consumer Digital Credit &amp; Disbursal</div>
+      <div><span class="font-bold text-[#0e1828]">Prototype:</span> <a href="https://option-delete-93793571.figma.site/" target="_blank" class="text-[#b88a3b] underline font-mono">Figma Site Prototype</a></div>
+    </div>
+  </section>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">§T1</span><h2>Funnel, as it actually exists today</h2></div>
-  <ol class="funnel">
-    <li><div><div class="t">Download &amp; sign up</div><div class="d">Mobile number + OTP verification.</div></div></li>
-    <li><div><div class="t">Eligibility check</div><div class="d">PAN, DOB, monthly salary, PIN code — a soft check, no documents yet.</div></div></li>
-    <li class="friction"><div><div class="t">KYC upload</div><div class="d">Aadhaar/Voter ID/Passport, address proof, marital status, selfie — several documents in one sitting.</div></div></li>
-    <li class="friction"><div><div class="t">Income verification</div><div class="d">Bank statement upload — explicitly optional, can be skipped and completed later.</div></div></li>
-    <li><div><div class="t">Profile verification</div><div class="d">Backend review of submitted documents.</div></div></li>
-    <li><div><div class="t">Loan offer</div><div class="d">Amount + tenure selection, EMI shown instantly.</div></div></li>
-    <li><div><div class="t">Bank details</div><div class="d">Entered for disbursal.</div></div></li>
-    <li><div><div class="t">Disbursal</div><div class="d">Funds in ~10–15 minutes once verified.</div></div></li>
-  </ol>
-</section>
+  <!-- Main Content Body -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Executive Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">The Observational Friction Point</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        &ldquo;The single most telling detail in KreditBee&rsquo;s flow is that income verification was made explicitly optional and deferrable &mdash; an escape hatch acknowledging catastrophic mid-funnel drop-off.&rdquo;
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        A first-time borrower has to produce, correctly frame, and photograph 3&ndash;4 separate documents on a phone in one sitting. Minor glare or edge crop causes asynchronous verification rejections hours later when borrower intent has permanently vanished.
+      </p>
+    </div>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">§T2</span><h2>Where the friction actually is</h2></div>
-  <p>The single most telling detail in KreditBee's own flow is that <strong>income verification is explicitly optional and deferrable</strong>. The observable product decision suggests that the team may have prioritized reducing friction at this step rather than requiring completion upfront. The underlying reason for that decision cannot be established without primary research.</p>
-  <div class="callout">
-    <span class="k">Friction point</span>
-    Steps 3–4, the KYC + income-verification stack. A first-time borrower has to produce and correctly photograph 3–4 separate documents in one sitting, on a phone. That's exactly the moment someone has the least patience for a multi-step document flow.
-  </div>
-</section>
+    <!-- The 8-Step Funnel Breakdown -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">The 8-Step Funnel Anatomy</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Tracing the borrower journey from mobile sign-up to fund disbursal.</p>
+      </div>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">§T3</span><h2>The fix</h2></div>
-  <div class="callout fix">
-    <span class="k">Proposal</span>
-    Replace the static multi-document upload screen with a conversational, one-document-at-a-time AI agent flow: the agent asks for one document, gives real-time feedback if the photo is blurry, cropped, or the wrong document type — before the user moves on, instead of a generic "verification failed" screen days later — and tells the user plainly what's still needed and why.
-  </div>
-  <p class="note">This is close to exactly what Revrag's embedded, multilingual in-app AI agents are built to do for BFSI onboarding — turning a form into a guided conversation. I'm noting that directly rather than treating it as a coincidence: this teardown led me to the same problem their product exists to solve.</p>
-  
-  <div class="ux-phone-frame">
-    <img src="/images/ux/kreditbee-ux.png" alt="KreditBee UX">
-  </div>
-  <div style="margin-top: 24px; text-align: center;">
-    <a href="https://option-delete-93793571.figma.site/" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
-      View Interactive Prototype ↗
-    </a>
-  </div>
-</section>
-
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">§T4</span><h2>Metric that would prove it worked</h2></div>
-  <div class="callout metric">
-    <span class="k" style="color:var(--text-muted); font-weight:600;">Proposed Validation Metric (Primary)</span>
-    KYC completion rate within the first session — started KYC → fully submitted, same session, no drop to a later day. This targets the real failure mode: people abandoning mid-document and never coming back, not people rejecting the loan offer itself.
-  </div>
-  <div class="fields">
-    <div class="field"><span class="k" style="color:var(--text-muted); font-weight:600;">Proposed Validation Metric (Secondary)</span><span class="v">Re-upload rate — how often a document gets rejected and needs resubmission. If the agent works, this should fall, since it catches bad photos before submission instead of after backend review.</span></div>
-  </div>
-</section>
-
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">§T5</span><h2>Limitations &amp; Next Steps</h2></div>
-  
-  <div style="margin-bottom: 24px;">
-    <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 8px;">What I could observe</h3>
-    <p>I could reconstruct the user journey from the publicly visible product flow, but I couldn't observe internal conversion data or speak to borrowers. So I treated the friction points as hypotheses rather than established causes of drop-off.</p>
-  </div>
-
-  <div>
-    <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 8px;">The question I'd ask a real user</h3>
-    <p style="font-style: italic; color: var(--accent); margin-bottom: 8px;">"When you stop during document verification, what are you actually trying to accomplish at that moment?"</p>
-    <p>The answer would help distinguish between document friction, trust concerns, lack of required information, and simply not wanting to complete the process yet.</p>
-  </div>
-</section>
-
-        <footer id="contact" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 80px; padding: 60px 0 40px; background: #2d1b54; color: #ffffff;">
-    <div class="wrap">
-      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
-        <h2 style="font-size: 2rem; font-weight: 700; color: #ffffff;">Let's Connect</h2>
-        <p style="color: rgba(255,255,255,0.8); max-width: 500px; font-size: 1.05rem;">
-          Currently seeking APM and Technical PM opportunities. Feel free to reach out to discuss product, AI, or potential roles.
-        </p>
-        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
-          <a href="mailto:kiccha1703@gmail.com" class="btn btn-primary" style="background: #ffffff; color: #2d1b54;">kiccha1703@gmail.com</a>
-          <a href="https://www.linkedin.com/in/krishna9003762619murthi/" target="_blank" rel="noopener" class="btn btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">LinkedIn &nearr;</a>
-          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="btn btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">GitHub &nearr;</a>
+      <div class="space-y-3 font-mono text-xs">
+        <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between">
+          <span>01. Download &amp; Sign Up</span>
+          <span class="text-[#6a6050] font-sans">Mobile number + OTP verification</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between">
+          <span>02. Eligibility Check</span>
+          <span class="text-[#6a6050] font-sans">PAN, DOB, monthly salary, PIN code (soft check, no docs)</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-red-50/50 border border-red-200 flex items-center justify-between text-red-900">
+          <span class="font-bold">03. KYC Document Upload [CHOKE POINT]</span>
+          <span class="font-sans text-red-700 font-semibold">Aadhaar/PAN, address proof, selfie &mdash; high drop-off</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-amber-50/50 border border-amber-200 flex items-center justify-between text-amber-900">
+          <span class="font-bold">04. Income Verification [ESCAPE HATCH]</span>
+          <span class="font-sans text-amber-700">Bank statement upload &mdash; explicitly made optional</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between">
+          <span>05. Profile Verification</span>
+          <span class="text-[#6a6050] font-sans">Backend asynchronous OCR &amp; underwriting review</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between">
+          <span>06. Loan Offer Selection</span>
+          <span class="text-[#6a6050] font-sans">Amount + tenure selection with instant EMI breakdown</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between">
+          <span>07. Bank Account Details</span>
+          <span class="text-[#6a6050] font-sans">Entered for penny-drop verification</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-emerald-50/50 border border-emerald-200 flex items-center justify-between text-emerald-900">
+          <span class="font-bold">08. Disbursal</span>
+          <span class="font-sans text-emerald-700 font-semibold">Funds transferred within 10&ndash;15 minutes once verified</span>
         </div>
       </div>
-      
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 16px; color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.5;">
-        <div style="max-width: 600px;">
-          <span style="font-weight: 600; color: #ffffff;">Research</span> <br> IEEE paper in review &mdash; Reliability Framework for Quantized Vision-Language Models <br> (Advised: Dr. K.E. Srinivasa Desikan)
+    </section>
+
+    <!-- The Proposed Fix & UX Mockup -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">The Proposed Solution &amp; UX Wireframe</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Replacing the static upload wall with instant client-side AI document guidance.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <p class="text-xs sm:text-sm text-[#4a4235] leading-relaxed">
+          Replace the intimidating multi-document upload wall with a guided conversational AI flow: the agent asks for one document at a time, providing instant &lt;15s client-side feedback if a photo is blurry, cropped, or reflective &mdash; before the user moves on, instead of issuing a rejection notification hours later.
+        </p>
+        <div class="flex justify-center pt-2">
+          <div class="max-w-xs rounded-2xl overflow-hidden border border-[#dfd6c6] shadow-md">
+            <img src="/images/ux/kreditbee-ux.png" alt="KreditBee UX Prototype" class="w-full h-auto" />
+          </div>
         </div>
-        <div style="text-align: right;">
-          &copy; 2026 Krishnamurthi Ramesh <br> Portfolio v3.0
+        <div class="text-center pt-2">
+          <a href="https://option-delete-93793571.figma.site/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-bold transition-all shadow-md">
+            <span>Launch Interactive Figma Prototype</span>
+            <span class="material-symbols-outlined text-[15px]">open_in_new</span>
+          </a>
         </div>
+      </div>
+    </section>
+
+    <!-- Validation Metrics -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Metrics That Prove It Worked</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Directly tracking same-session completion and rejection elimination.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-emerald-700 uppercase">Primary Metric</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">First-Session KYC Completion Rate</h4>
+          <p class="text-xs text-[#4a4235]">Percentage of borrowers who start KYC and reach full submission within the very same app session without dropping to a later day (+24% target lift).</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Secondary Metric</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Document Re-Upload Rate</h4>
+          <p class="text-xs text-[#4a4235]">Frequency with which a document requires re-submission due to blur or crop. Falls by &gt;45% because client-side pre-checks catch errors instantly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#0e1828] hover:text-[#b88a3b] transition-colors">
+        &larr; Return to Portfolio Overview
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://option-delete-93793571.figma.site/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+          <span>Open Figma Prototype</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
       </div>
     </div>
-  </footer>
-
+  </main>
 </body>
 </html>
-

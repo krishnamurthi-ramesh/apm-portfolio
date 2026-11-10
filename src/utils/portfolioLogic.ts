@@ -5,7 +5,11 @@ export type CaseStudyKey =
   | 'lending'
   | 'flowlens'
   | 'costoptimizer'
-  | 'evalharness';
+  | 'evalharness'
+  | 'rag'
+  | 'vlm'
+  | 'karam'
+  | 'treacle';
 
 export type SimulatorOptionKey = 'A' | 'B';
 
@@ -43,6 +47,10 @@ export const STUDY_KEYS: CaseStudyKey[] = [
   'flowlens',
   'costoptimizer',
   'evalharness',
+  'rag',
+  'vlm',
+  'karam',
+  'treacle',
 ];
 
 export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
@@ -129,6 +137,7 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
       'Reverse-engineered Comet’s conversational AI "Finder" discovery flow to diagnose drop-off friction between recommendation generation and PDP conversion. Proposed a context-aware conversational memory solution carrying size/fit parameters across sessions to reduce cart abandonment.',
     category: 'teardown',
     standaloneUrl: '/teardowns/comet.html',
+    prototypeUrl: 'https://relay-define-38337038.figma.site/',
     metrics: [
       {
         label: 'TARGET LIFT',
@@ -163,6 +172,7 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
       'Comparative analysis of structurally distinct conversion bottlenecks across two live digital lending funnels: client-side document OCR failures on KreditBee vs. marketplace trust-continuity breaks during external NBFC partner handoffs on PhonePe.',
     category: 'teardown',
     standaloneUrl: '/teardowns/lending-funnels.html',
+    prototypeUrl: 'https://option-delete-93793571.figma.site/',
     metrics: [
       {
         label: 'KYC COMPLETION',
@@ -290,6 +300,146 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
         value: 'P0 Gate',
         description: 'Blocks deploys on >2% citation drop',
         colorScheme: 'emerald',
+      },
+    ],
+  },
+  rag: {
+    key: 'rag',
+    tag: '08 / ENTERPRISE AI ARCHITECTURE',
+    meta: 'Local Inference & Statistical Evals • 2026',
+    badgeText: 'ENTERPRISE RAG SYSTEM',
+    badgeTone: 'navy',
+    dateRange: '2026',
+    domainSubtitle: 'Private Knowledge Retrieval & Quality Bounds',
+    headline: 'Enterprise RAG System with Quantitative Evaluation Harness',
+    roleDescription:
+      'Production-grade local RAG pipeline with statistical evaluation harness (Ragas, Recall@K, Context Precision) and sub-second P99 latency within containerized Docker clusters, guaranteeing zero sensitive customer data leaves network boundaries.',
+    category: 'project',
+    standaloneUrl: '/projects/enterprise-rag.html',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/enterprise-rag-system',
+    metrics: [
+      {
+        label: 'P99 LATENCY',
+        value: '380ms',
+        description: 'Local Docker containerized inference',
+        colorScheme: 'emerald',
+      },
+      {
+        label: 'FAITHFULNESS',
+        value: '0.91',
+        description: 'Ragas statistical ground-truth adherence',
+        colorScheme: 'gold',
+      },
+      {
+        label: 'RECALL@K',
+        value: '0.88',
+        description: 'Top-5 retrieval hit rate across enterprise docs',
+        colorScheme: 'navy',
+      },
+    ],
+  },
+  vlm: {
+    key: 'vlm',
+    tag: '09 / AI RESEARCH & STATISTICAL SAFETY',
+    meta: 'IEEE Paper in Review • IIITDM Kurnool • 2026',
+    badgeText: 'ACTIVE CONFORMAL CONTROL',
+    badgeTone: 'gold',
+    dateRange: '2026',
+    domainSubtitle: 'Quantized Multimodal Systems & Safety Bounds',
+    headline: 'Hardware-Aware Safety & Conformal Control for Edge Vision-Language Models',
+    roleDescription:
+      'Designing non-parametric density-drift estimators (ppDRE) and a two-tier GPU-student / CPU-teacher inference cascade with formal conformal prediction thresholds, balancing latency, accuracy, and unit cost on edge hardware.',
+    category: 'project',
+    standaloneUrl: '/projects/active-conformal-control.html',
+    githubUrl:
+      'https://github.com/krishnamurthi-ramesh/Active-Conformal-Control-Navigating-Density-Chasms-in-Quantized-Vision-Language-Systems',
+    metrics: [
+      {
+        label: 'DEFECT PRECISION',
+        value: '94.2%',
+        description: 'Structural defect detection accuracy',
+        colorScheme: 'emerald',
+      },
+      {
+        label: 'EDGE LATENCY',
+        value: '480ms',
+        description: 'P99 latency cycle on edge hardware',
+        colorScheme: 'navy',
+      },
+      {
+        label: 'TOKEN SAVINGS',
+        value: '~60%',
+        description: 'Reduction in cloud API compute spend',
+        colorScheme: 'gold',
+      },
+    ],
+  },
+  karam: {
+    key: 'karam',
+    tag: '10 / B2B SAAS PRODUCT SPEC',
+    meta: 'Meraqui Ventures (karam.ai) • Pune, India • 2025',
+    badgeText: 'AI CANDIDATE MATCHING & ERP',
+    badgeTone: 'emerald',
+    dateRange: '2025',
+    domainSubtitle: 'Enterprise Recruitment & Deterministic Integrations',
+    headline: 'AI Candidate Matching Engine & Deterministic ERP Sync Contracts',
+    roleDescription:
+      'Owned the requirements-to-shipping loop for candidate matching feature (+15% precision lift). Shadowed recruiters to replace conversational bot with deterministic REST API contracts for ERP sync, saving 15 recruiter hours weekly.',
+    category: 'project',
+    standaloneUrl: '/projects/meraqui-karam.html',
+    prototypeUrl: '/artifact-meraqui.html',
+    metrics: [
+      {
+        label: 'MATCH PRECISION',
+        value: '+15%',
+        description: 'Precision@10 lift via hybrid retrieval',
+        colorScheme: 'emerald',
+      },
+      {
+        label: 'TIME SAVINGS',
+        value: '15h / wk',
+        description: 'Saved per recruiter in manual profile entry',
+        colorScheme: 'gold',
+      },
+      {
+        label: 'DATA DRIFT',
+        value: '-12% to -15%',
+        description: 'Reduction in downstream ERP sync errors',
+        colorScheme: 'navy',
+      },
+    ],
+  },
+  treacle: {
+    key: 'treacle',
+    tag: '11 / DISTRIBUTED TELEMETRY & SYSTEMS',
+    meta: 'Treacle Technologies • IIT Kanpur Incubation • 2024',
+    badgeText: 'INCIDENT MONITORING & PIPELINES',
+    badgeTone: 'navy',
+    dateRange: '2024',
+    domainSubtitle: 'High-Throughput Observability & Incident Detection',
+    headline: 'Distributed Incident Monitoring & Real-Time Log Pipeline',
+    roleDescription:
+      'Specified and built monitoring dashboards (Grafana, Elasticsearch) that cut incident detection time by 40%. Scaled real-time data pipelines processing 100k+ logs/day with custom evaluation metrics and automated Docker workflows.',
+    category: 'project',
+    standaloneUrl: '/projects/treacle-technologies.html',
+    metrics: [
+      {
+        label: 'DETECTION TIME',
+        value: '-40%',
+        description: 'Reduction in incident triage latency',
+        colorScheme: 'emerald',
+      },
+      {
+        label: 'DAILY THROUGHPUT',
+        value: '100k+',
+        description: 'Logs processed daily across clusters',
+        colorScheme: 'navy',
+      },
+      {
+        label: 'UPTIME SLA',
+        value: '99.9%',
+        description: 'Reliability across distributed nodes',
+        colorScheme: 'gold',
       },
     ],
   },

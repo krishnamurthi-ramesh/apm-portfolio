@@ -170,6 +170,73 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     githubUrl: 'https://github.com/krishnamurthi-ramesh/AgentEval-Studio',
     prototypeUrl: 'https://public.tableau.com/views/PerplexityAIQualityEvaluationHarness/PerplexityAIQualityEvaluationHarness?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
   },
+  {
+    id: 'rag',
+    tag: 'ENTERPRISE AI ARCHITECTURE',
+    badge: 'ENTERPRISE RAG SYSTEM',
+    category: 'systems',
+    title: 'Enterprise RAG System with Quantitative Evaluation Harness',
+    subtitle: 'Production-grade local RAG pipeline with statistical evaluation harness (Ragas, Recall@K, Context Precision) and sub-second P99 latency within containerized Docker clusters.',
+    problem:
+      'Enterprise customer support and internal IP require strict data privacy guarantees that third-party cloud LLM APIs cannot provide due to sovereign data retention policies and unpredictable latency.',
+    judgmentCalls:
+      'Chose zero-leak local inference (Ollama + FAISS) in private Docker clusters over cloud APIs. Designed statistical eval suites (Context Precision, Recall@K, Ragas Faithfulness) and enforced source citation markers before generation.',
+    outcome:
+      'Validated 380ms P99 retrieval latency, 0.91 Ragas faithfulness, and 0.88 Recall@K across enterprise doc corpuses with zero sensitive customer data leaving network boundaries.',
+    techTags: ['Local LLMs', 'Docker', 'FAISS', 'Ollama', 'Ragas Framework', 'Enterprise Privacy'],
+    standaloneUrl: '/projects/enterprise-rag.html',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/enterprise-rag-system',
+  },
+  {
+    id: 'vlm',
+    tag: 'AI RESEARCH & STATISTICAL SAFETY',
+    badge: 'ACTIVE CONFORMAL CONTROL',
+    category: 'systems',
+    title: 'Hardware-Aware Safety & Conformal Control for Edge Vision-Language Models',
+    subtitle: 'Non-parametric density-drift estimators (ppDRE) and two-tier student/teacher inference cascade with formal conformal prediction thresholds on edge hardware.',
+    problem:
+      'Quantized multimodal models deployed on resource-constrained robotics and edge cameras suffer from catastrophic distribution shift and out-of-distribution hallucinations under varying environmental conditions.',
+    judgmentCalls:
+      'Formulated an active density-ratio estimation metric (ppDRE) to flag low-confidence frames pre-inference. Designed a two-tier GPU-student / CPU-teacher inference cascade with statistical conformal prediction guarantees.',
+    outcome:
+      'Achieved 94.2% structural defect precision on edge hardware, cutting cloud token compute spend by ~60% while maintaining formal statistical coverage bounds.',
+    techTags: ['Conformal Prediction', 'Vision-Language Models', 'Density Ratio Estimation', 'Edge AI', 'Statistical Safety', 'IEEE Review'],
+    standaloneUrl: '/projects/active-conformal-control.html',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/Active-Conformal-Control-Navigating-Density-Chasms-in-Quantized-Vision-Language-Systems',
+  },
+  {
+    id: 'karam',
+    tag: 'B2B SAAS PRODUCT SPEC',
+    badge: 'MERAQUI (KARAM.AI)',
+    category: 'systems',
+    title: 'AI Candidate Matching Engine & Deterministic ERP Sync Contracts',
+    subtitle: 'Owned the requirements-to-shipping loop for candidate matching feature (+15% precision lift) and replaced conversational bot with deterministic REST API contracts for ERP sync.',
+    problem:
+      'Recruiters spent 15+ hours weekly dealing with asynchronous conversational bot drop-offs and manual candidate entry, causing high error rates and CRM sync inconsistencies.',
+    judgmentCalls:
+      'Shadowed 10+ enterprise recruiters to identify failure points. Replaced ambiguous conversational bot with deterministic REST API contracts with schema validation and hybrid vector-keyword candidate scoring.',
+    outcome:
+      'Delivered +15% precision lift in candidate matching, saved 15 recruiter hours weekly, and reduced downstream ERP data inconsistencies by 12–15%.',
+    techTags: ['B2B SaaS', 'API Contracts', 'Candidate Matching', 'ERP Sync', 'Recruiter Shadowing', 'Hybrid Search'],
+    standaloneUrl: '/projects/meraqui-karam.html',
+    prototypeUrl: '/artifact-meraqui.html',
+  },
+  {
+    id: 'treacle',
+    tag: 'DISTRIBUTED TELEMETRY & PIPELINES',
+    badge: 'TREACLE TECHNOLOGIES',
+    category: 'systems',
+    title: 'Distributed Incident Monitoring & Real-Time Log Pipeline',
+    subtitle: 'Specified and built monitoring dashboards (Grafana, Elasticsearch) that cut incident detection time by 40% and scaled data pipelines processing 100k+ logs/day.',
+    problem:
+      'Operations teams struggled with delayed incident detection and fragmented observability across microservices, averaging 45+ minutes to diagnose critical service disruptions.',
+    judgmentCalls:
+      'Consolidated log ingestion into automated Dockerized pipelines feeding an Elasticsearch cluster. Engineered Grafana dashboards with dynamic alerting thresholds based on moving average baselines.',
+    outcome:
+      'Cut incident detection time by 40%, supported 100k+ daily logs with zero pipeline backpressure, and achieved 99.9% telemetry uptime.',
+    techTags: ['Grafana', 'Elasticsearch', 'Docker', 'Log Pipelines', 'Incident Detection', 'Distributed Telemetry'],
+    standaloneUrl: '/projects/treacle-technologies.html',
+  },
 ];
 
 const EXPERIENCES = [
@@ -343,6 +410,10 @@ export default function App() {
       else if (hash === 'flowlens' || hash === 'shopify-flow-lens') setActiveCaseStudy('flowlens');
       else if (hash === 'costoptimizer' || hash === 'ai-cost-optimizer') setActiveCaseStudy('costoptimizer');
       else if (hash === 'evalharness' || hash === 'eval-harness') setActiveCaseStudy('evalharness');
+      else if (hash === 'rag' || hash === 'enterprise-rag') setActiveCaseStudy('rag');
+      else if (hash === 'vlm' || hash === 'active-conformal-control') setActiveCaseStudy('vlm');
+      else if (hash === 'karam' || hash === 'meraqui-karam') setActiveCaseStudy('karam');
+      else if (hash === 'treacle' || hash === 'treacle-technologies') setActiveCaseStudy('treacle');
     };
     handleHash();
     window.addEventListener('hashchange', handleHash);
@@ -1377,7 +1448,7 @@ export default function App() {
                       : 'text-[#554d42] hover:text-[#0e1828]'
                   }`}
                 >
-                  Product Teardowns (4)
+                  Product Teardowns ({PROJECTS_WORK.filter((p) => p.category === 'teardowns').length})
                 </button>
                 <button
                   type="button"
@@ -1389,7 +1460,7 @@ export default function App() {
                       : 'text-[#554d42] hover:text-[#0e1828]'
                   }`}
                 >
-                  AI Product Systems &amp; Projects (3)
+                  AI Product Systems &amp; Projects ({PROJECTS_WORK.filter((p) => p.category === 'systems').length})
                 </button>
               </div>
             </div>

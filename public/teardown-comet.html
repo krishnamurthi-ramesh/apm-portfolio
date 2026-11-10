@@ -1,158 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teardown - Krishnamurthi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comet E-Commerce AI Search Teardown | Krishnamurthi</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0e1828',
+              surface: '#faf7f2',
+              card: '#ffffff',
+              gold: '#b88a3b',
+              goldLight: '#f5d07f',
+              border: '#dfd6c6',
+              text: '#121820',
+              muted: '#6a6050',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-
-
-          <header class="site-nav" id="top">
-    <div class="nav-inner">
-      <a href="/" class="brand" style="text-decoration:none;">Krishnamurthi<span class="brand-accent">.</span></a>
-      <nav class="nav-links" aria-label="Site navigation">
-        <a href="/#work">Work</a>
-        <a href="/#simulator">Simulator</a>
-        <a href="/#skills">Skills</a>
-        <a href="/resume.pdf?v=3" target="_blank">R&eacute;sum&eacute;</a>
-      </nav>
-      <button class="nav-mobile-toggle" aria-label="Toggle navigation" id="mobileToggle">
-        <span></span><span></span><span></span>
-      </button>
+<body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
+        <span>← Back to Portfolio</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://relay-define-38337038.figma.site/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>Interactive Prototype</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
+      </div>
     </div>
   </header>
 
-<section class="doc-hero wrap">
-  <div class="eyebrow">Product Teardown</div>
-  <h1>Comet — From "Which Sneaker?" to "Which Comet Is Me?"</h1>
-  <p class="sub">A product discovery teardown: reducing decision friction without taking away the brand's sense of discovery.</p>
-</section>
+  <!-- Hero Header -->
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+        E-COMMERCE PRODUCT DISCOVERY TEARDOWN
+      </span>
+      <span class="text-xs text-[#6a6050] font-mono">2026 Workspace Edition</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
+      Comet: From &ldquo;Which Sneaker?&rdquo; to &ldquo;Which Comet Is Me?&rdquo;
+    </h1>
+    <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
+      A product discovery teardown: reducing cognitive decision friction without stripping away the brand&rsquo;s emotional sense of discovery.
+    </p>
+    <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
+      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi (AI PM)</div>
+      <div><span class="font-bold text-[#0e1828]">Product Focus:</span> Silhouette Finder 2.0</div>
+      <div><span class="font-bold text-[#0e1828]">Prototype:</span> <a href="https://relay-define-38337038.figma.site/" target="_blank" class="text-[#b88a3b] underline font-mono">Figma Site Prototype</a></div>
+    </div>
+  </section>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">01</span><h2>Problem: "Which sneaker is right for me?"</h2></div>
-  <p>Comet already has a "Find Your Silhouette" experience covering X Lows, Aeres, Aeon v2, ASTRA, and Apex, with attributes such as cushioning, styling, weight, and fit. The foundation exists. Here's how I would make the discovery journey more decision-oriented.</p>
-</section>
+  <!-- Main Content Body -->
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+    <!-- Executive Thesis Banner -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">Core Friction Hypothesis</span>
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
+        &ldquo;Users are provided technical footwear attributes, but the cognitive translation from attribute &rarr; personal lifestyle need &rarr; product choice creates high drop-off before checkout.&rdquo;
+      </h2>
+      <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
+        Comet offers multiple silhouettes (X Lows, Aeres, Aeon v2, ASTRA, Apex) with comparison attributes. However, first-time shoppers struggle to translate these specs into personal fit and style, causing conversational amnesia and cart abandonment.
+      </p>
+    </div>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">02</span><h2>What I observed</h2></div>
-  <ul class="check-list">
-    <li>Comet offers multiple silhouettes.</li>
-    <li>Its Silhouette Finder already compares cushioning, styling, weight and fit.</li>
-    <li>The site provides size selection and product-level information.</li>
-    <li>Customer testimonials repeatedly discuss comfort, fit and everyday use.</li>
-  </ul>
-</section>
+    <!-- The 4 High-Signal Questions -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Solution: Silhouette Finder 2.0</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">A use-case-first discovery flow: asking 4 high-signal questions, then delivering ranked recommendations with clear reasoning.</p>
+      </div>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">03</span><h2>Friction</h2></div>
-  <div class="callout">
-    <span class="k">Hypothesis</span>
-    Users are given product attributes, but the translation from attribute → personal need → product choice still requires cognitive work. First-time customers may still struggle to translate those attributes into a personal choice.
-  </div>
-</section>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-1.5">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Q1 &bull; Use Case</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">What will you use them for?</h3>
+          <p class="text-xs text-[#4a4235]">Everyday commute, Long walks &amp; travel, Night out, or Style-first statement.</p>
+        </div>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">04</span><h2>Solution: Silhouette Finder 2.0</h2></div>
-  <p>A use-case-first Silhouette Finder: ask 3–4 high-signal questions, then return a ranked recommendation with a short "Why this pair" explanation.</p>
-  
-    <ul class="check-list">
-    <li><strong>Q1. What will you use them for?</strong> Everyday, Long walks/travel, Going out, Style-first.</li>
-    <li><strong>Q2. How do you like your fit?</strong> Roomy, Balanced, Snug.</li>
-    <li><strong>Q3. What's your style?</strong> Minimal, Street, Retro, Runner.</li>
-    <li><strong>Q4. What matters most?</strong> Comfort, Weight, Style, Versatility.</li>
-  </ul>
-  
-  <div class="ux-slideshow">
-    <img src="/images/ux/comet-1.png" alt="Comet UX 1">
-    <img src="/images/ux/comet-2.png" alt="Comet UX 2">
-    <img src="/images/ux/comet-3.png" alt="Comet UX 3">
-    <img src="/images/ux/comet-4.png" alt="Comet UX 4">
-  </div>
-  <div style="margin-top: 24px; text-align: center;">
-    <a href="https://relay-define-38337038.figma.site/" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
-      View Interactive Prototype ↗
-    </a>
-  </div>
-</section>
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-1.5">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Q2 &bull; Fit Preference</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">How do you like your fit?</h3>
+          <p class="text-xs text-[#4a4235]">Roomy &amp; relaxed, Balanced standard, or Snug locked-in athletic feel.</p>
+        </div>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">05</span><h2>Recommendation &amp; Trade-off</h2></div>
-  <p>More guidance vs less discovery. Too much recommendation can make Comet feel like a generic footwear catalogue. Too little guidance creates decision friction. So, don't recommend one shoe immediately. Recommend 2–3 candidates and explain the trade-off.</p>
-  
-  <div class="callout fix">
-    <span class="k">Your Match</span>
-    <strong>1. X LOWS</strong> — Best for: Street + everyday wear, Roomier fit.<br>
-    <strong>2. AERES</strong> — Best for: Lightweight everyday wear, Narrower fit.<br>
-    <strong>3. APEX</strong> — Best for: More cushioning, Relaxed casual styling.
-  </div>
-</section>
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-1.5">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Q3 &bull; Aesthetic Style</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">What is your style profile?</h3>
+          <p class="text-xs text-[#4a4235]">Minimalist clean, Streetwear bold, Retro court, or Chunky runner.</p>
+        </div>
 
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">06</span><h2>Metrics</h2></div>
-  <div class="callout metric">
-    <span class="k" style="color:var(--text-muted); font-weight:600;">Proposed Validation Metric (Primary)</span>
-    Finder-assisted add-to-cart rate
-  </div>
-  <div class="fields">
-    <div class="field"><span class="k" style="color:var(--text-muted); font-weight:600;">Proposed Validation Metric (Secondary)</span><span class="v">Finder completion rate, Recommendation → PDP CTR, PDP → cart conversion, Cart → purchase conversion, Size/fit exchange rate, 30/90-day repeat purchase</span></div>
-    <div class="field"><span class="k">Guardrails</span><span class="v">Return rate, Customer support contacts, Recommendation abandonment</span></div>
-  </div>
-</section>
-
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">07</span><h2>Experiment</h2></div>
-  <p><strong>A/B test:</strong></p>
-  <ul class="check-list">
-    <li><strong>Control:</strong> Current product detail page flow with static attribute filters.</li>
-    <li><strong>Variant:</strong> "Use-case first" recommendation quiz intercepting first-time visitors before the catalogue.</li>
-  </ul>
-  <p>Success would require a statistically credible improvement in the primary metric without deterioration in return/exchange rate. If users can translate their own needs into a recommended silhouette earlier, Comet may reduce decision friction and improve downstream conversion without changing the catalogue itself.</p>
-</section>
-
-<section class="doc-sec wrap">
-  <div class="sec-head"><span class="sec-num">08</span><h2>Limitations &amp; Next Steps</h2></div>
-  
-  <div style="margin-bottom: 24px;">
-    <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 8px;">What I couldn't know</h3>
-    <p>This is a public-product teardown, so I don't have access to Comet's internal conversion funnel, recommendation logic, or user research. The use-case-first recommendation is therefore a hypothesis, not a claim about what Comet should definitely build.</p>
-  </div>
-
-  <div>
-    <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 8px;">What I'd test first</h3>
-    <p>Before building an AI recommendation layer, I'd test a lightweight rule-based version with a small set of use cases and measure whether users actually engage with the recommendations.</p>
-  </div>
-</section>
-
-        <footer id="contact" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 80px; padding: 60px 0 40px; background: #2d1b54; color: #ffffff;">
-    <div class="wrap">
-      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
-        <h2 style="font-size: 2rem; font-weight: 700; color: #ffffff;">Let's Connect</h2>
-        <p style="color: rgba(255,255,255,0.8); max-width: 500px; font-size: 1.05rem;">
-          Currently seeking APM and Technical PM opportunities. Feel free to reach out to discuss product, AI, or potential roles.
-        </p>
-        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
-          <a href="mailto:kiccha1703@gmail.com" class="btn btn-primary" style="background: #ffffff; color: #2d1b54;">kiccha1703@gmail.com</a>
-          <a href="https://www.linkedin.com/in/krishna9003762619murthi/" target="_blank" rel="noopener" class="btn btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">LinkedIn &nearr;</a>
-          <a href="https://github.com/krishnamurthi-ramesh" target="_blank" rel="noopener" class="btn btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">GitHub &nearr;</a>
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-1.5">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Q4 &bull; Priority Vector</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">What matters most to you?</h3>
+          <p class="text-xs text-[#4a4235]">All-day underfoot comfort, Lightweight agility, Bold styling, or Universal versatility.</p>
         </div>
       </div>
-      
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 16px; color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.5;">
-        <div style="max-width: 600px;">
-          <span style="font-weight: 600; color: #ffffff;">Research</span> <br> IEEE paper in review &mdash; Reliability Framework for Quantized Vision-Language Models <br> (Advised: Dr. K.E. Srinivasa Desikan)
+    </section>
+
+    <!-- UX Screenshots & Prototype Walkthrough -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">UX Flow &amp; Prototype</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Figma-crafted interactive prototype intercepting first-time visitors before catalogue bounce.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="rounded-2xl overflow-hidden border border-[#dfd6c6] bg-white shadow-xs">
+          <img src="/images/ux/comet-1.png" alt="Comet UX Step 1" class="w-full h-auto object-cover" />
         </div>
-        <div style="text-align: right;">
-          &copy; 2026 Krishnamurthi Ramesh <br> Portfolio v3.0
+        <div class="rounded-2xl overflow-hidden border border-[#dfd6c6] bg-white shadow-xs">
+          <img src="/images/ux/comet-2.png" alt="Comet UX Step 2" class="w-full h-auto object-cover" />
         </div>
+        <div class="rounded-2xl overflow-hidden border border-[#dfd6c6] bg-white shadow-xs">
+          <img src="/images/ux/comet-3.png" alt="Comet UX Step 3" class="w-full h-auto object-cover" />
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-[#dfd6c6] bg-white shadow-xs">
+          <img src="/images/ux/comet-4.png" alt="Comet UX Step 4" class="w-full h-auto object-cover" />
+        </div>
+      </div>
+
+      <div class="text-center pt-2">
+        <a href="https://relay-define-38337038.figma.site/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-bold transition-all shadow-md">
+          <span>Launch Interactive Figma Prototype</span>
+          <span class="material-symbols-outlined text-[15px]">open_in_new</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- PM Recommendation & Tradeoff -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">PM Judgment Call: Recommendation vs. Discovery</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Balancing prescriptive AI guidance against organic brand serendipity.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <p class="text-xs sm:text-sm text-[#4a4235] leading-relaxed">
+          Too much recommendation makes Comet feel like an impersonal, medical footwear catalog. Too little guidance creates paralyzing decision friction. The PM resolution: <strong>never recommend just one shoe immediately</strong>. Instead, surface 2&ndash;3 curated candidates and explain the distinct trade-offs between them:
+        </p>
+        <div class="space-y-2 font-mono text-xs">
+          <div class="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <span class="font-bold text-[#0e1828]">1. X LOWS</span> &mdash; Best for: Street + everyday wear, Roomier fit.
+          </div>
+          <div class="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <span class="font-bold text-[#0e1828]">2. AERES</span> &mdash; Best for: Lightweight everyday wear, Narrower streamlined fit.
+          </div>
+          <div class="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <span class="font-bold text-[#0e1828]">3. APEX</span> &mdash; Best for: Maximum cushioning, Relaxed casual weekend styling.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics & Experimentation Grid -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Success Metrics &amp; A/B Experiment</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Validating conversion lift without deteriorating return and exchange rates.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-emerald-700 uppercase">Primary North Star</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Finder-Assisted Add-to-Cart</h4>
+          <p class="text-xs text-[#4a4235]">Conversion rate from Silhouette Finder completion to PDP add-to-cart within the same browsing session.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Secondary Lift</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Zero-Repeat-Filter Sessions</h4>
+          <p class="text-xs text-[#4a4235]">Percentage of shoppers who reach checkout without manually resetting or retyping size/fit parameters.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-amber-700 uppercase">Guardrail Metric</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Return &amp; Exchange Rate</h4>
+          <p class="text-xs text-[#4a4235]">30-day post-purchase return rate must not increase, confirming recommendation accuracy matches physical fit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-[#dfd6c6]">
+      <a href="/" class="text-xs font-semibold text-[#0e1828] hover:text-[#b88a3b] transition-colors">
+        &larr; Return to Portfolio Overview
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="https://relay-define-38337038.figma.site/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+          <span>Open Figma Prototype</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
       </div>
     </div>
-  </footer>
-
+  </main>
 </body>
 </html>
-
