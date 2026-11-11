@@ -14,6 +14,7 @@
   --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-signature: "Cormorant Garamond", Georgia, serif;
   --font-editorial: "Playfair Display", Georgia, serif;
+  --font-brand: "Dancing Script", cursive;
 }
 
 @layer base {

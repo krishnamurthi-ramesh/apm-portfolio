@@ -679,7 +679,7 @@ export default function App() {
             <span className="w-7 h-7 rounded-full bg-[#0e1828] text-[#b88a3b] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40 shadow-xs group-hover:rotate-12 transition-transform duration-300">
               K
             </span>
-            <span className="hidden min-[420px]:block font-bold tracking-tight text-[#0e1828] text-sm leading-none font-serif">
+            <span className="hidden min-[420px]:block font-[family-name:var(--font-brand)] font-bold text-[21px] sm:text-[23px] leading-[1.15] tracking-[0.01em] bg-gradient-to-r from-[#0e1828] via-[#1a2942] to-[#8a6421] bg-clip-text text-transparent py-0.5 pr-0.5">
               Krishnamurthi
             </span>
           </a>
@@ -708,16 +708,6 @@ export default function App() {
                 </a>
               );
             })}
-
-            {/* Direct Resume Action in Navbar */}
-            <button
-              type="button"
-              data-cursor="View Resume"
-              onClick={() => setShowResumeModal(true)}
-              className="nav-link-animated text-[#554d42] hover:text-[#0e1828] transition-colors py-1 px-2 sm:px-2.5 rounded-full cursor-pointer font-medium"
-            >
-              Résumé
-            </button>
           </div>
 
           {/* Let's Connect CTA Button */}
