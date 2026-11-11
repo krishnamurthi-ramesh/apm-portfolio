@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KreditBee & PhonePe Lending Teardown | Krishnamurthi</title>
+  <title>KreditBee &amp; PhonePe Lending Teardown | Krishnamurthi</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,19 +38,21 @@
 <body class="bg-[#faf7f2] text-[#121820] font-sans antialiased selection:bg-[#0e1828] selection:text-[#faf7f2]">
   <!-- Top Bar -->
   <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
-    <div class="max-w-5xl mx-auto flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+    <div class="max-w-5xl mx-auto flex items-center justify-between gap-3">
+      <a href="/#work" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
         <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
-        <span>← Back to Portfolio</span>
+        <span>&larr; Back to Portfolio</span>
       </a>
       <div class="flex items-center gap-2">
-        <a href="/teardown-kreditbee.html" class="px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] text-xs font-semibold flex items-center gap-1 transition-all">
-          <span>KreditBee View</span>
-          <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+        <a href="#kreditbee" class="hidden sm:inline-flex px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] text-xs font-semibold transition-all">
+          KreditBee
         </a>
-        <a href="/teardown-phonepe.html" class="px-3.5 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1 transition-all shadow-sm">
-          <span>PhonePe View</span>
-          <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+        <a href="#phonepe" class="hidden sm:inline-flex px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] text-xs font-semibold transition-all">
+          PhonePe
+        </a>
+        <a href="https://option-delete-93793571.figma.site/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+          <span>Interactive Prototype</span>
+          <span class="material-symbols-outlined text-[14px]">rocket_launch</span>
         </a>
       </div>
     </div>
@@ -59,13 +61,13 @@
   <!-- Hero Header -->
   <section class="max-w-4xl mx-auto px-6 pt-12 pb-8">
     <div class="mb-6 rounded-2xl overflow-hidden border border-[#dfd6c6] shadow-md bg-[#0c1424]">
-      <img src="/assets/thumbnails/thumb-lending.jpg" alt="KreditBee & PhonePe Lending Funnels" class="w-full h-auto object-cover" />
+      <img src="/assets/thumbnails/thumb-lending.jpg" alt="KreditBee &amp; PhonePe Lending Funnels" class="w-full h-auto object-cover" />
     </div>
     <div class="flex items-center gap-2 mb-4">
       <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
         FINTECH COMPARATIVE FUNNEL TEARDOWN
       </span>
-      <span class="text-xs text-[#6a6050] font-mono">2026 Analysis</span>
+      <span class="text-xs text-[#6a6050] font-mono">2026 Full Comparative Study</span>
     </div>
     <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
       KreditBee &amp; PhonePe Lending: Same Category, Two Failure Modes
@@ -74,75 +76,242 @@
       Diagnosing structurally distinct friction points across two live digital lending funnels in the Indian fintech ecosystem.
     </p>
     <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
-      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi</div>
+      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi (AI PM)</div>
       <div><span class="font-bold text-[#0e1828]">Methodology:</span> User Funnel Diagnostics &amp; Drop-off Tracing</div>
-      <div><span class="font-bold text-[#0e1828]">Primary Metric:</span> First-Session KYC Completion Rate</div>
+      <div><span class="font-bold text-[#0e1828]">Primary Metric:</span> First-Session KYC Completion (+24% Target)</div>
     </div>
   </section>
 
   <!-- Main Analysis -->
-  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-14">
     <!-- Key Thesis Banner -->
     <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
       <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
       <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">Diagnostic Summary</span>
       <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
-        “Two products in the identical customer loan segment experience high drop-offs due to diametrically opposite funnel failure modes: technical friction (KreditBee) vs. institutional trust rupture (PhonePe).”
+        &ldquo;Two products in the identical customer loan segment experience high drop-offs due to diametrically opposite funnel failure modes: technical OCR upload friction (KreditBee) vs. institutional trust rupture during NBFC handoffs (PhonePe).&rdquo;
       </h2>
     </div>
 
-    <!-- Comparative Breakdown -->
+    <!-- Quick Comparative Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- KreditBee Card -->
-      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-3 shadow-xs">
         <div class="flex items-center justify-between pb-3 border-b border-[#dfd6c6]">
-          <h3 class="font-bold text-lg text-[#0e1828]">1. KreditBee: The Document Bottleneck</h3>
+          <h3 class="font-bold text-lg text-[#0e1828]">1. KreditBee: Document Bottleneck</h3>
           <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-800">EXECUTION FRICTION</span>
         </div>
         <div class="space-y-2 text-xs text-[#4a4235]">
-          <p><strong>Observed Failure:</strong> Users drop out during the mandatory Aadhaar/PAN upload and salary slip verification step due to client-side camera blur and delayed async OCR verification failures.</p>
-          <p><strong>Proposed Solution:</strong> On-device edge computer vision providing instant real-time document quality feedback before upload submission.</p>
-          <p><strong>Validation Metric:</strong> First-attempt document acceptance rate (+18% target).</p>
+          <p><strong>Observed Failure:</strong> Borrowers abandon during Aadhaar/PAN &amp; salary slip uploads due to camera blur and silent asynchronous OCR rejections hours later.</p>
+          <p><strong>Proposed Solution:</strong> On-device edge computer vision providing &lt;15s client-side document quality feedback before submission.</p>
+          <p><strong>Validation Metric:</strong> First-session KYC completion rate (+24% lift target).</p>
         </div>
-        <a href="/teardown-kreditbee.html" class="inline-flex items-center gap-1 text-xs font-semibold text-[#806b47] hover:text-[#0e1828]">
-          <span>Read KreditBee Deep-Dive</span>
-          <span class="material-symbols-outlined text-[13px]">north_east</span>
+        <a href="#kreditbee" class="inline-flex items-center gap-1 text-xs font-semibold text-[#806b47] hover:text-[#0e1828]">
+          <span>Jump to KreditBee Deep-Dive</span>
+          <span class="material-symbols-outlined text-[13px]">arrow_downward</span>
         </a>
       </div>
 
-      <!-- PhonePe Card -->
-      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-3 shadow-xs">
         <div class="flex items-center justify-between pb-3 border-b border-[#dfd6c6]">
-          <h3 class="font-bold text-lg text-[#0e1828]">2. PhonePe: The Trust-Continuity Break</h3>
+          <h3 class="font-bold text-lg text-[#0e1828]">2. PhonePe: Trust-Continuity Break</h3>
           <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">TRUST RUPTURE</span>
         </div>
         <div class="space-y-2 text-xs text-[#4a4235]">
-          <p><strong>Observed Failure:</strong> High-intent users browse loan offers on PhonePe, but abandon upon sudden redirect to third-party lending partners (NBFCs) with foreign UI, unpopulated forms, and unexpected verification calls.</p>
-          <p><strong>Proposed Solution:</strong> Context carry-over SDK with persistent co-branded trust banner and zero-re-entry form pre-fill.</p>
-          <p><strong>Validation Metric:</strong> Cross-partner funnel completion velocity.</p>
+          <p><strong>Observed Failure:</strong> High-intent UPI users drop out when suddenly kicked out to unfamiliar NBFC partner webviews requiring repeated manual data entry.</p>
+          <p><strong>Proposed Solution:</strong> Co-branded in-app native bridge carrying verified PhonePe PAN/income context seamlessly.</p>
+          <p><strong>Validation Metric:</strong> Partner handoff completion rate (-35% drop-off reduction).</p>
         </div>
-        <a href="/teardown-phonepe.html" class="inline-flex items-center gap-1 text-xs font-semibold text-[#806b47] hover:text-[#0e1828]">
-          <span>Read PhonePe Deep-Dive</span>
-          <span class="material-symbols-outlined text-[13px]">north_east</span>
+        <a href="#phonepe" class="inline-flex items-center gap-1 text-xs font-semibold text-[#806b47] hover:text-[#0e1828]">
+          <span>Jump to PhonePe Deep-Dive</span>
+          <span class="material-symbols-outlined text-[13px]">arrow_downward</span>
         </a>
       </div>
     </div>
 
+    <!-- PART 1: KREDITBEE DEEP DIVE -->
+    <section id="kreditbee" class="scroll-mt-24 pt-6 border-t border-[#dfd6c6] space-y-8">
+      <div class="space-y-2">
+        <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-[11px] font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+          PART 01 &bull; DIRECT LENDER TEARDOWN
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-serif text-[#0e1828]">
+          KreditBee: The KYC Stack Nobody Fixed, Just Made Skippable
+        </h2>
+        <p class="text-sm text-[#554d42]">
+          A single-lender app&rsquo;s product escape hatches reveal precisely where first-time borrowers abandon checkout.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-2">
+        <span class="text-xs font-mono font-bold text-[#806b47] uppercase">Observational Insight</span>
+        <p class="text-sm text-[#0e1828] font-medium leading-relaxed">
+          The single most telling detail in KreditBee&rsquo;s flow is that <strong>income verification was made explicitly optional and deferrable</strong> &mdash; a tactical escape hatch acknowledging mid-funnel abandonment at the 3&ndash;4 document camera upload wall.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold font-serif text-[#0e1828]">The 8-Step Funnel Anatomy</h3>
+        <div class="space-y-2.5 font-mono text-xs">
+          <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between gap-4">
+            <span>01. Download &amp; Sign Up</span>
+            <span class="text-[#6a6050] font-sans text-right">Mobile number + OTP verification</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between gap-4">
+            <span>02. Eligibility Check</span>
+            <span class="text-[#6a6050] font-sans text-right">PAN, DOB, salary, PIN code (soft check, zero docs)</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-red-50/70 border border-red-200 flex items-center justify-between gap-4 text-red-900">
+            <span class="font-bold">03. KYC Document Upload [CHOKE POINT]</span>
+            <span class="font-sans text-red-700 font-semibold text-right">Aadhaar/PAN, address proof, selfie &mdash; high blur &amp; drop-off</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200 flex items-center justify-between gap-4 text-amber-900">
+            <span class="font-bold">04. Income Verification [ESCAPE HATCH]</span>
+            <span class="font-sans text-amber-700 text-right">Bank statement upload &mdash; explicitly made optional</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between gap-4">
+            <span>05. Profile Verification</span>
+            <span class="text-[#6a6050] font-sans text-right">Delayed asynchronous OCR &amp; underwriting queue</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between gap-4">
+            <span>06. Loan Offer Selection</span>
+            <span class="text-[#6a6050] font-sans text-right">Amount + tenure selection with EMI breakdown</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between gap-4">
+            <span>07. Bank Account Details</span>
+            <span class="text-[#6a6050] font-sans text-right">Penny-drop verification</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200 flex items-center justify-between gap-4 text-emerald-900">
+            <span class="font-bold">08. Disbursal</span>
+            <span class="font-sans text-emerald-700 font-semibold text-right">Funds credited in 10&ndash;15 mins post-approval</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-5 shadow-xs">
+        <div>
+          <h3 class="text-lg font-bold text-[#0e1828]">Proposed AI Intervention &amp; Wireframe</h3>
+          <p class="text-xs sm:text-sm text-[#4a4235] mt-1 leading-relaxed">
+            Replace the intimidating static upload wall with a guided conversational AI assistant: verify one document at a time using edge vision heuristics to flag glare, crop, or low contrast in &lt;15s synchronously instead of rejecting asynchronously hours later.
+          </p>
+        </div>
+        <div class="flex justify-center">
+          <div class="max-w-xs rounded-2xl overflow-hidden border border-[#dfd6c6] shadow-md">
+            <img src="/images/ux/kreditbee-ux.png" alt="KreditBee UX Prototype" class="w-full h-auto" />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+            <span class="text-xs font-mono font-bold text-emerald-700 uppercase">Primary North Star</span>
+            <h4 class="font-bold text-sm text-[#0e1828]">First-Session KYC Completion (+24%)</h4>
+            <p class="text-xs text-[#4a4235]">Share of borrowers completing KYC cleanly in their initial session without dropping off.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+            <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Secondary Metric</span>
+            <h4 class="font-bold text-sm text-[#0e1828]">Document Re-Upload Rate (-45%)</h4>
+            <p class="text-xs text-[#4a4235]">Eliminates post-submission rejections caught pre-flight on the user&rsquo;s camera.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PART 2: PHONEPE DEEP DIVE -->
+    <section id="phonepe" class="scroll-mt-24 pt-8 border-t border-[#dfd6c6] space-y-8">
+      <div class="space-y-2">
+        <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-[11px] font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
+          PART 02 &bull; MARKETPLACE TRUST TEARDOWN
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-serif text-[#0e1828]">
+          PhonePe: What Breaks When Lending Is a Marketplace, Not a Lender
+        </h2>
+        <p class="text-sm text-[#554d42]">
+          When high-trust UPI users get routed into external NBFC webviews with disconnected repayment steps, conversion ruptures.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-2">
+        <span class="text-xs font-mono font-bold text-[#806b47] uppercase">The Structural Trust Chasm</span>
+        <p class="text-sm text-[#0e1828] font-medium leading-relaxed">
+          The borrower begins inside PhonePe &mdash; trusted every single day for payments &mdash; then gets abruptly dumped into an unbranded third-party lender webview asking them to re-type PAN and salary data they already provided. Meanwhile, Autopay mandate setup happens post-disbursal as an isolated second task.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold font-serif text-[#0e1828]">The 8-Step Marketplace Funnel</h3>
+        <div class="space-y-2.5 font-mono text-xs">
+          <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between gap-4">
+            <span>01. Discover</span>
+            <span class="text-[#6a6050] font-sans text-right">Opens &ldquo;Loans&rdquo; tab inside PhonePe (high initial trust)</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between gap-4">
+            <span>02. Choose Offer</span>
+            <span class="text-[#6a6050] font-sans text-right">Selects pre-approved NBFC offer (e.g., DMI Finance)</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-red-50/70 border border-red-200 flex items-center justify-between gap-4 text-red-900">
+            <span class="font-bold">03. Partner Handoff [TRUST RUPTURE]</span>
+            <span class="font-sans text-red-700 font-semibold text-right">Redirected to foreign third-party partner webview</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-red-50/70 border border-red-200 flex items-center justify-between gap-4 text-red-900">
+            <span class="font-bold">04. Re-Enter Details [FRICTION]</span>
+            <span class="font-sans text-red-700 text-right">Forced to re-type PAN, employment &amp; income fields</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-white border border-[#dfd6c6] flex items-center justify-between gap-4">
+            <span>05. OTP-Based e-KYC &amp; 06. E-Sign</span>
+            <span class="text-[#6a6050] font-sans text-right">Aadhaar OTP verification &amp; digital loan agreement</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200 flex items-center justify-between gap-4 text-emerald-900">
+            <span class="font-bold">07. Disbursal</span>
+            <span class="font-sans text-emerald-700 font-semibold text-right">Funds credited to borrower&rsquo;s bank account</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200 flex items-center justify-between gap-4 text-amber-900">
+            <span class="font-bold">08. Decoupled Autopay Mandate</span>
+            <span class="font-sans text-amber-700 text-right">Separate detached task post-disbursal &rarr; silent abandonment</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Proposal 1 &bull; Highest Leverage</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Co-Branded Native In-App Bridge</h4>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Keep verification within PhonePe&rsquo;s native trust shell. Pre-fill known user attributes (name, PAN, inferred income) via a context carry-over agent so users simply confirm instead of re-entering forms.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Proposal 2 &bull; Collections Guard</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Integrated Disbursal Autopay Mandate</h4>
+          <p class="text-xs text-[#4a4235] leading-relaxed">
+            Embed Autopay mandate authorization directly into the approval-to-disbursal gate (&ldquo;One quick step to activate disbursal transfer&rdquo;) instead of treating it as a disconnected post-loan chore.
+          </p>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4 shadow-xs">
+        <div class="flex justify-center">
+          <div class="max-w-xs rounded-2xl overflow-hidden border border-[#dfd6c6] shadow-md">
+            <img src="/images/ux/phonepe-ux.png" alt="PhonePe UX Prototype" class="w-full h-auto" />
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="https://www.figma.com/community/file/1683941915370258862" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#f0e8dc] text-[#0e1828] hover:bg-[#e6dcce] border border-[#dfd6c6] text-xs font-bold transition-all">
+            <span>Inspect PhonePe Figma Community File</span>
+            <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Bottom CTA Bar -->
     <div class="pt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#dfd6c6]">
-      <a href="/" class="text-xs font-semibold text-[#806b47] hover:text-[#0e1828] transition-colors">
-        ← Return to Portfolio Overview
+      <a href="/#work" class="text-xs font-semibold text-[#806b47] hover:text-[#0e1828] transition-colors">
+        &larr; Return to Portfolio Overview
       </a>
-      <div class="flex gap-3">
-        <a href="/teardown-kreditbee.html" class="px-4 py-2 rounded-full bg-[#f0e8dc] text-[#0e1828] text-xs font-semibold hover:bg-[#e6dcce] transition-colors">
-          KreditBee Interactive
-        </a>
-        <a href="/teardown-phonepe.html" class="px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] text-xs font-semibold hover:bg-[#1a2942] transition-colors shadow-sm">
-          PhonePe Interactive
-        </a>
-      </div>
+      <a href="https://option-delete-93793571.figma.site/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+        <span>Interactive Prototype</span>
+        <span class="material-symbols-outlined text-[14px]">rocket_launch</span>
+      </a>
     </div>
   </main>
 </body>
 </html>
-

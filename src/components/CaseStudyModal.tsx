@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import {
   CaseStudyKey,
   CASE_STUDIES,
+  STUDY_KEYS,
   getNextCaseStudyKey,
 } from '../utils/portfolioLogic';
 
@@ -86,12 +87,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
           <div className="flex items-center gap-2">
             <a
               href={study.standaloneUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white hover:bg-[#0e1828] text-[#0e1828] hover:text-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors shadow-2xs"
             >
-              <span>Full Page</span>
-              <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+              <span>{study.category === 'teardown' ? 'Read Full Teardown' : 'Read Full Case Study'}</span>
+              <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
             </a>
             <button
               type="button"
@@ -205,12 +204,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a
                       href="/teardowns/openai-data-agent.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Open Dedicated Teardown Page</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                      <span>Read Full Teardown</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                     <a
                       href="/teardowns/openai-data-agent-case-study.pdf"
@@ -264,12 +261,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a
                       href="/teardowns/notion-agents.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Open Dedicated Teardown Page</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                      <span>Read Full Teardown</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                     <a
                       href="/teardowns/notion-agents-teardown.pdf"
@@ -327,21 +322,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a
                       href="/teardowns/comet.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Open Dedicated Teardown Page</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
-                    </a>
-                    <a
-                      href="/teardown-comet.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
-                    >
-                      <span>Interactive Workspace</span>
-                      <span className="material-symbols-outlined text-[13px]">north_east</span>
+                      <span>Read Full Teardown</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                     <a
                       href="https://relay-define-38337038.figma.site/"
@@ -349,7 +333,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold transition-colors shadow-2xs"
                     >
-                      <span>Launch Figma Prototype</span>
+                      <span>Interactive Prototype</span>
                       <span className="material-symbols-outlined text-[13px]">rocket_launch</span>
                     </a>
                   </div>
@@ -411,30 +395,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a
                       href="/teardowns/lending-funnels.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Open Dedicated Teardown Page</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
-                    </a>
-                    <a
-                      href="/teardown-kreditbee.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
-                    >
-                      <span>KreditBee Workspace</span>
-                      <span className="material-symbols-outlined text-[13px]">north_east</span>
-                    </a>
-                    <a
-                      href="/teardown-phonepe.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
-                    >
-                      <span>PhonePe Workspace</span>
-                      <span className="material-symbols-outlined text-[13px]">north_east</span>
+                      <span>Read Full Teardown</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                     <a
                       href="https://option-delete-93793571.figma.site/"
@@ -442,17 +406,8 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#f0e8dc] hover:bg-[#e6dcce] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold transition-colors shadow-2xs"
                     >
-                      <span>KreditBee Prototype</span>
+                      <span>Interactive Prototype</span>
                       <span className="material-symbols-outlined text-[13px]">rocket_launch</span>
-                    </a>
-                    <a
-                      href="https://www.figma.com/community/file/1683941915370258862"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors shadow-2xs"
-                    >
-                      <span>PhonePe Figma File</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
                     </a>
                   </div>
                 </div>
@@ -502,12 +457,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a
                       href="/projects/shopify-flow-lens.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Open Dedicated Case Study Page</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                      <span>Read Full Case Study</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                     <a
                       href="https://shopify-flowlens.vercel.app"
@@ -575,12 +528,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a
                       href="/projects/ai-cost-optimizer.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Open Dedicated Case Study Page</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                      <span>Read Full Case Study</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                     <a
                       href="https://ai-cost-optimizer-iota.vercel.app"
@@ -657,12 +608,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <div className="pt-2 flex flex-wrap gap-2.5">
                     <a
                       href="/projects/eval-harness.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Open Dedicated Case Study Page</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                      <span>Read Full Case Study</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                     <a
                       href="https://public.tableau.com/views/PerplexityAIQualityEvaluationHarness/PerplexityAIQualityEvaluationHarness?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
@@ -730,12 +679,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a
                       href="/projects/enterprise-rag.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Open Dedicated Project Page</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                      <span>Read Full Case Study</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                     <a
                       href="https://github.com/krishnamurthi-ramesh/enterprise-rag-system"
@@ -794,12 +741,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a
                       href="/projects/active-conformal-control.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Open Research Breakdown</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                      <span>Read Full Case Study</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                     <a
                       href="https://github.com/krishnamurthi-ramesh/Active-Conformal-Control-Navigating-Density-Chasms-in-Quantized-Vision-Language-Systems"
@@ -858,21 +803,17 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a
                       href="/projects/meraqui-karam.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Open Dedicated Case Study Page</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                      <span>Read Full Case Study</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                     <a
                       href="/artifact-meraqui.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
                     >
                       <span>Product Spec Document</span>
-                      <span className="material-symbols-outlined text-[13px]">north_east</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                   </div>
                 </div>
@@ -922,12 +863,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   <div className="flex flex-wrap gap-3 pt-1">
                     <a
                       href="/projects/treacle-technologies.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
                     >
-                      <span>Open Dedicated Case Study Page</span>
-                      <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                      <span>Read Full Case Study</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                     </a>
                   </div>
                 </div>

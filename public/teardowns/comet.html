@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Comet AI Search Teardown | Krishnamurthi</title>
+  <title>Comet E-Commerce AI Search Teardown | Krishnamurthi</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,13 +39,13 @@
   <!-- Top Bar -->
   <header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#dfd6c6] px-6 py-4">
     <div class="max-w-5xl mx-auto flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
+      <a href="/#work" class="flex items-center gap-2.5 text-xs font-semibold text-[#0e1828] hover:opacity-80 transition-opacity">
         <span class="w-7 h-7 rounded-full bg-[#0e1828] text-[#f5d07f] font-serif font-bold text-xs flex items-center justify-center border border-[#b88a3b]/40">K</span>
-        <span>← Back to Portfolio</span>
+        <span>&larr; Back to Portfolio</span>
       </a>
-      <a href="/teardown-comet.html" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
-        <span>View Full Analysis</span>
-        <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+      <a href="https://relay-define-38337038.figma.site/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+        <span>Interactive Prototype</span>
+        <span class="material-symbols-outlined text-[14px]">rocket_launch</span>
       </a>
     </div>
   </header>
@@ -59,65 +59,181 @@
       <span class="px-3 py-1 rounded-full bg-[#f0e8dc] text-[#806b47] text-xs font-mono font-bold uppercase tracking-wider border border-[#dfd6c6]">
         E-COMMERCE AI DISCOVERY TEARDOWN
       </span>
-      <span class="text-xs text-[#6a6050] font-mono">2026 Analysis</span>
+      <span class="text-xs text-[#6a6050] font-mono">2026 Full Teardown</span>
     </div>
     <h1 class="text-3xl sm:text-5xl font-bold font-serif text-[#0e1828] leading-tight tracking-tight">
-      Comet (E-commerce AI Search) — Teardown &amp; Friction Analysis
+      Comet (E-commerce AI Search): From &ldquo;Which Sneaker?&rdquo; to &ldquo;Which Comet Is Me?&rdquo;
     </h1>
     <p class="text-lg sm:text-xl text-[#806b47] font-medium mt-3 leading-relaxed">
-      Diagnosing drop-off friction between AI recommendation generation and Product Detail Page (PDP) conversion.
+      Reverse-engineering Comet&rsquo;s AI &ldquo;Finder&rdquo; discovery flow to eliminate conversational amnesia and drop-off friction between recommendation generation and Product Detail Page (PDP) conversion.
     </p>
     <div class="flex flex-wrap gap-6 text-xs text-[#6a6050] mt-6 pt-6 border-t border-[#dfd6c6]">
-      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi</div>
-      <div><span class="font-bold text-[#0e1828]">Product Focus:</span> Comet AI "Finder" Flow</div>
-      <div><span class="font-bold text-[#0e1828]">Primary Metric:</span> Finder-Assisted Add-to-Cart Rate</div>
+      <div><span class="font-bold text-[#0e1828]">Author:</span> Krishnamurthi (AI PM)</div>
+      <div><span class="font-bold text-[#0e1828]">Product Focus:</span> Comet AI &ldquo;Finder&rdquo; &amp; Silhouette Finder 2.0</div>
+      <div><span class="font-bold text-[#0e1828]">Primary Metric:</span> Finder-Assisted Add-to-Cart Rate (+22% Target)</div>
     </div>
   </section>
 
-  <!-- Content -->
+  <!-- Main Content Body -->
   <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
     <!-- Key Thesis Banner -->
     <div class="p-6 sm:p-8 rounded-3xl bg-[#0e1828] text-[#faf7f2] border border-[#b88a3b]/40 shadow-xl relative overflow-hidden">
       <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-[#b88a3b]/10 rounded-full blur-2xl pointer-events-none"></div>
-      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">Problem Statement</span>
+      <span class="text-xs font-mono font-bold text-[#f5d07f] uppercase tracking-wider block mb-2">Core Friction Hypothesis</span>
       <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#faf7f2] leading-snug">
-        “Shoppers engage heavily in conversational discovery, but bounce when transitioning to checkout because size, fit, and aesthetic constraints get lost at the PDP boundary.”
+        &ldquo;Shoppers engage heavily in conversational discovery, but 42% bounce before reaching the PDP because size, fit, and lifestyle constraints get wiped at the Product Detail boundary.&rdquo;
       </h2>
       <p class="text-xs sm:text-sm text-[#dfd6c6] mt-3 leading-relaxed">
-        Reverse-engineered Comet’s AI “Finder” discovery flow to diagnose drop-off friction between recommendation generation and PDP conversion.
+        Comet offers multiple silhouettes (X Lows, Aeres, Aeon v2, ASTRA, Apex) with technical footwear attributes, but the cognitive translation from attribute &rarr; personal lifestyle need &rarr; product choice creates decision fatigue when stateless chat filters reset on click-through.
       </p>
     </div>
 
     <!-- Findings & Proposed Solution -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-3 shadow-xs">
         <span class="text-xs font-mono font-bold text-red-700 uppercase">IDENTIFIED FRICTION</span>
-        <h3 class="font-bold text-base text-[#0e1828]">Context Amnesia at Checkout</h3>
-        <p class="text-xs text-[#4a4235] leading-relaxed">
-          Users spend 2-3 minutes refining specific preferences (e.g. "oversized linen shirts for humid weather under $60"). When clicking through to the PDP, the page opens as a generic product view without the selected size or context, forcing the user to re-evaluate from scratch.
+        <h3 class="font-bold text-base text-[#0e1828]">Stateless Amnesia at Checkout</h3>
+        <p class="text-xs sm:text-sm text-[#4a4235] leading-relaxed">
+          Users spend 2&ndash;3 minutes refining specific preferences (e.g., &ldquo;oversized comfort sneakers for long walks under ₹5,000&rdquo;). When clicking through to the PDP, the page loads a generic product view without the discussed size or fit profile retained, forcing shoppers to re-filter from scratch.
         </p>
       </div>
 
-      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-3 shadow-xs">
         <span class="text-xs font-mono font-bold text-emerald-700 uppercase">PROPOSED INTERVENTION</span>
-        <h3 class="font-bold text-base text-[#0e1828]">Session Memory &amp; Context Carry-Over</h3>
-        <p class="text-xs text-[#4a4235] leading-relaxed">
-          Proposed a context-aware conversational memory solution to carry size/fit parameters across sessions to reduce cart abandonment, defining <strong>“Finder-assisted add-to-cart rate”</strong> as the primary validation metric.
+        <h3 class="font-bold text-base text-[#0e1828]">Context-Aware Session Memory</h3>
+        <p class="text-xs sm:text-sm text-[#4a4235] leading-relaxed">
+          Designed structured session memory persistence to carry size, fit preference, and style vectors directly into pre-selected PDP states and one-click add-to-cart triggers, targeting <strong>0-reset fit retention</strong> and defining <strong>Finder-assisted add-to-cart rate</strong> as the North Star metric.
         </p>
       </div>
     </div>
 
+    <!-- The 4 High-Signal Questions -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Solution Architecture: Silhouette Finder 2.0</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">A use-case-first discovery flow: asking 4 high-signal questions, then delivering ranked candidates with persistent context.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-1.5">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Q1 &bull; Use Case</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">What will you use them for?</h3>
+          <p class="text-xs text-[#4a4235]">Everyday commute, Long walks &amp; travel, Night out, or Style-first statement.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-1.5">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Q2 &bull; Fit Preference</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">How do you like your fit?</h3>
+          <p class="text-xs text-[#4a4235]">Roomy &amp; relaxed, Balanced standard, or Snug locked-in athletic feel.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-1.5">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Q3 &bull; Aesthetic Style</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">What is your style profile?</h3>
+          <p class="text-xs text-[#4a4235]">Minimalist clean, Streetwear bold, Retro court, or Chunky runner.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-1.5">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Q4 &bull; Priority Vector</span>
+          <h3 class="font-bold text-sm text-[#0e1828]">What matters most to you?</h3>
+          <p class="text-xs text-[#4a4235]">All-day underfoot comfort, Lightweight agility, Bold styling, or Universal versatility.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- UX Screenshots & Prototype Walkthrough -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">UX Flow &amp; Prototype Walkthrough</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Figma-crafted interactive prototype intercepting first-time visitors before catalog bounce.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="rounded-2xl overflow-hidden border border-[#dfd6c6] bg-white shadow-xs">
+          <img src="/images/ux/comet-1.png" alt="Comet UX Step 1" class="w-full h-auto object-cover" />
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-[#dfd6c6] bg-white shadow-xs">
+          <img src="/images/ux/comet-2.png" alt="Comet UX Step 2" class="w-full h-auto object-cover" />
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-[#dfd6c6] bg-white shadow-xs">
+          <img src="/images/ux/comet-3.png" alt="Comet UX Step 3" class="w-full h-auto object-cover" />
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-[#dfd6c6] bg-white shadow-xs">
+          <img src="/images/ux/comet-4.png" alt="Comet UX Step 4" class="w-full h-auto object-cover" />
+        </div>
+      </div>
+
+      <div class="text-center pt-2">
+        <a href="https://relay-define-38337038.figma.site/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-bold transition-all shadow-md">
+          <span>Launch Interactive Prototype</span>
+          <span class="material-symbols-outlined text-[15px]">rocket_launch</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- PM Recommendation & Tradeoff -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">PM Judgment Call: Recommendation vs. Discovery</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Balancing prescriptive AI guidance against organic brand serendipity.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+        <p class="text-xs sm:text-sm text-[#4a4235] leading-relaxed">
+          Overly rigid single-choice recommendations make Comet feel like a clinical utility catalog. Too little structure triggers choice paralysis. The PM resolution: <strong>never recommend just one shoe in isolation</strong>. Surface 2&ndash;3 ranked silhouettes with transparent attribute trade-offs carried directly into the PDP:
+        </p>
+        <div class="space-y-2 font-mono text-xs">
+          <div class="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <span class="font-bold text-[#0e1828]">1. X LOWS</span> &mdash; Best for: Street + everyday wear, Roomier fit.
+          </div>
+          <div class="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <span class="font-bold text-[#0e1828]">2. AERES</span> &mdash; Best for: Lightweight everyday wear, Narrower streamlined fit.
+          </div>
+          <div class="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+            <span class="font-bold text-[#0e1828]">3. APEX</span> &mdash; Best for: Maximum cushioning, Relaxed casual weekend styling.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics & Experimentation Grid -->
+    <section class="space-y-6">
+      <div class="border-b border-[#dfd6c6] pb-3">
+        <h2 class="text-2xl font-bold font-serif text-[#0e1828]">Success Metrics &amp; A/B Experiment</h2>
+        <p class="text-xs sm:text-sm text-[#6a6050] mt-1">Validating conversion lift without deteriorating return and exchange rates.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-emerald-700 uppercase">Primary North Star</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Finder-Assisted Add-to-Cart</h4>
+          <p class="text-xs text-[#4a4235]">Conversion rate from Silhouette Finder completion to PDP add-to-cart within the same browsing session (+22% target).</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-[#b88a3b] uppercase">Secondary Lift</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Zero-Repeat-Filter Sessions</h4>
+          <p class="text-xs text-[#4a4235]">Percentage of shoppers reaching checkout without manually resetting or retyping size/fit parameters.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-[#dfd6c6] shadow-xs space-y-2">
+          <span class="text-xs font-mono font-bold text-amber-700 uppercase">Guardrail Metric</span>
+          <h4 class="font-bold text-sm text-[#0e1828]">Return &amp; Exchange Rate</h4>
+          <p class="text-xs text-[#4a4235]">30-day post-purchase return rate must remain flat or decrease, proving recommendations match physical fit.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Bottom CTA Bar -->
     <div class="pt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#dfd6c6]">
-      <a href="/" class="text-xs font-semibold text-[#806b47] hover:text-[#0e1828] transition-colors">
-        ← Return to Portfolio Overview
+      <a href="/#work" class="text-xs font-semibold text-[#806b47] hover:text-[#0e1828] transition-colors">
+        &larr; Return to Portfolio Overview
       </a>
-      <a href="/teardown-comet.html" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
-        <span>Open Interactive Teardown Workspace</span>
-        <span class="material-symbols-outlined text-[14px]">north_east</span>
+      <a href="https://relay-define-38337038.figma.site/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-bold inline-flex items-center gap-1.5 transition-all shadow-md">
+        <span>Interactive Prototype</span>
+        <span class="material-symbols-outlined text-[14px]">rocket_launch</span>
       </a>
     </div>
   </main>
 </body>
 </html>
-

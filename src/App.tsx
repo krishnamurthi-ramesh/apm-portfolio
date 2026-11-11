@@ -43,7 +43,6 @@ interface ProjectWorkItem {
   techTags: string[];
   standaloneUrl: string;
   pdfUrl?: string;
-  workspaceUrl?: string;
   githubUrl?: string;
   prototypeUrl?: string;
 }
@@ -101,7 +100,6 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
       'Projected +22% conversion lift and eliminated repetitive filter resets, bridging open-ended natural language directly into high-intent purchase checkout funnels.',
     techTags: ['Product Discovery', 'Friction Analysis', 'Figma', 'Prompt Engineering', 'Conversion Metrics', 'E-Commerce Funnels'],
     standaloneUrl: '/teardowns/comet.html',
-    workspaceUrl: '/teardown-comet.html',
     prototypeUrl: 'https://relay-define-38337038.figma.site/',
   },
   {
@@ -120,7 +118,6 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
       'Targeted a 24% lift in first-session KYC completion and a 35% reduction in partner handoff drop-off with unified in-app verification continuity.',
     techTags: ['Funnel Optimization', 'KYC & OCR', 'AARRR Funnel', 'Fintech UX', 'User Friction', 'Disbursal Velocity'],
     standaloneUrl: '/teardowns/lending-funnels.html',
-    workspaceUrl: '/teardown-kreditbee.html',
     prototypeUrl: 'https://option-delete-93793571.figma.site/',
   },
   {
@@ -336,6 +333,18 @@ export default function App() {
       else if (hash === 'vlm' || hash === 'active-conformal-control') setActiveCaseStudy('vlm');
       else if (hash === 'karam' || hash === 'meraqui-karam') setActiveCaseStudy('karam');
       else if (hash === 'treacle' || hash === 'treacle-technologies') setActiveCaseStudy('treacle');
+      else if (hash) {
+        requestAnimationFrame(() => {
+          const targetEl = document.getElementById(hash);
+          if (targetEl) {
+            targetEl.classList.add('is-revealed');
+            targetEl.querySelectorAll('.reveal-scale, .reveal-glow, .reveal-on-scroll').forEach((child) => {
+              child.classList.add('is-revealed');
+            });
+            targetEl.scrollIntoView({ behavior: 'auto' });
+          }
+        });
+      }
     };
     handleHash();
     window.addEventListener('hashchange', handleHash);
@@ -1486,13 +1495,11 @@ export default function App() {
                             <div className="flex flex-wrap items-center gap-2.5">
                               <a
                                 href={item.standaloneUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
                                 className="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold inline-flex items-center gap-1.5 transition-colors shadow-xs"
                               >
-                                <span>Full Page</span>
-                                <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                                <span>Read Full Teardown</span>
+                                <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                               </a>
                               {item.pdfUrl && (
                                 <a
@@ -1503,18 +1510,6 @@ export default function App() {
                                 >
                                   <span>Report PDF</span>
                                   <span className="material-symbols-outlined text-[13px]">download</span>
-                                </a>
-                              )}
-                              {item.workspaceUrl && (
-                                <a
-                                  href={item.workspaceUrl}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  onClick={(e) => e.stopPropagation()}
-                                  className="px-3.5 py-2 rounded-full bg-white hover:bg-[#f0e8dc] text-[#806b47] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
-                                >
-                                  <span>Interactive Workspace</span>
-                                  <span className="material-symbols-outlined text-[13px]">open_in_new</span>
                                 </a>
                               )}
                               {item.prototypeUrl && (
@@ -1637,13 +1632,11 @@ export default function App() {
                             <div className="flex flex-wrap items-center gap-2.5">
                               <a
                                 href={item.standaloneUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
                                 className="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold inline-flex items-center gap-1.5 transition-colors shadow-xs"
                               >
-                                <span>Full Page</span>
-                                <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                                <span>Read Full Case Study</span>
+                                <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                               </a>
                               {item.githubUrl && (
                                 <a
