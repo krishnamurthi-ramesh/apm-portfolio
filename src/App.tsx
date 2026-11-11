@@ -364,7 +364,7 @@ export default function App() {
     ).matches;
     if (!isFinePointer || prefersReducedMotion) return;
 
-    document.body.classList.add('has-custom-cursor');
+    document.documentElement.classList.add('has-custom-cursor');
 
     let targetX = window.innerWidth * 0.5;
     let targetY = window.innerHeight * 0.35;
@@ -372,55 +372,75 @@ export default function App() {
     let currentY = targetY;
     let cursorRafId = 0;
     let isMoving = false;
+    let hasMoved = false;
 
-    if (cursorLensRef.current) {
-      cursorLensRef.current.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) translate(-5px, -4px)`;
-    }
+    const INTERACTIVE_SELECTOR =
+      'a, button, [role="button"], summary, input, select, textarea, label, [data-cursor], .project-card-interactive, .pm-artifact-card, .cursor-pointer';
+
+    const updateInteractiveState = (target: EventTarget | null) => {
+      const el =
+        target instanceof Element
+          ? target
+          : document.elementFromPoint(targetX, targetY);
+      if (el && el.closest(INTERACTIVE_SELECTOR)) {
+        cursorLensRef.current?.classList.add('is-active');
+      } else {
+        cursorLensRef.current?.classList.remove('is-active');
+      }
+    };
 
     const tickCursor = () => {
       const dx = targetX - currentX;
       const dy = targetY - currentY;
-      currentX += dx * 0.45;
-      currentY += dy * 0.45;
+
+      if (Math.abs(dx) < 0.4 && Math.abs(dy) < 0.4) {
+        currentX = targetX;
+        currentY = targetY;
+        if (cursorLensRef.current) {
+          cursorLensRef.current.style.transform = `translate3d(${currentX.toFixed(1)}px, ${currentY.toFixed(1)}px, 0) translate(-4.7px, -4.7px)`;
+        }
+        isMoving = false;
+        return;
+      }
+
+      currentX += dx * 0.72;
+      currentY += dy * 0.72;
 
       if (cursorLensRef.current) {
-        cursorLensRef.current.style.transform = `translate3d(${currentX.toFixed(1)}px, ${currentY.toFixed(1)}px, 0) translate(-5px, -4px)`;
+        cursorLensRef.current.style.transform = `translate3d(${currentX.toFixed(1)}px, ${currentY.toFixed(1)}px, 0) translate(-4.7px, -4.7px)`;
       }
 
-      if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
-        cursorRafId = window.requestAnimationFrame(tickCursor);
-      } else {
-        isMoving = false;
-      }
-    };
-
-    const isInteractiveTarget = (target: EventTarget | null): boolean => {
-      if (!(target instanceof HTMLElement)) return false;
-      return Boolean(
-        target.closest(
-          'a, button, [role="button"], [data-cursor], .project-card-interactive, .pm-artifact-card'
-        )
-      );
+      cursorRafId = window.requestAnimationFrame(tickCursor);
     };
 
     const onPointerMove = (e: MouseEvent) => {
       targetX = e.clientX;
       targetY = e.clientY;
+      if (!hasMoved) {
+        currentX = targetX;
+        currentY = targetY;
+        hasMoved = true;
+      }
+
+      if (e.target instanceof HTMLIFrameElement) {
+        if (cursorLensRef.current) cursorLensRef.current.style.opacity = '0';
+        return;
+      }
 
       if (cursorLensRef.current) {
         cursorLensRef.current.style.opacity = '1';
       }
 
-      if (isInteractiveTarget(e.target)) {
-        cursorLensRef.current?.classList.add('is-active');
-      } else {
-        cursorLensRef.current?.classList.remove('is-active');
-      }
+      updateInteractiveState(e.target);
 
       if (!isMoving) {
         isMoving = true;
         cursorRafId = window.requestAnimationFrame(tickCursor);
       }
+    };
+
+    const onWindowScroll = () => {
+      if (hasMoved) updateInteractiveState(null);
     };
 
     const onPointerDown = () => {
@@ -431,21 +451,30 @@ export default function App() {
       cursorLensRef.current?.classList.remove('is-pressed');
     };
 
+    const onWindowBlur = () => {
+      cursorLensRef.current?.classList.remove('is-pressed');
+      if (cursorLensRef.current) cursorLensRef.current.style.opacity = '0';
+    };
+
     const onPointerLeave = () => {
       if (cursorLensRef.current) cursorLensRef.current.style.opacity = '0';
     };
 
     window.addEventListener('mousemove', onPointerMove, { passive: true });
+    window.addEventListener('scroll', onWindowScroll, { passive: true });
     window.addEventListener('mousedown', onPointerDown, { passive: true });
     window.addEventListener('mouseup', onPointerUp, { passive: true });
+    window.addEventListener('blur', onWindowBlur);
     document.addEventListener('mouseleave', onPointerLeave, { passive: true });
 
     return () => {
-      document.body.classList.remove('has-custom-cursor');
+      document.documentElement.classList.remove('has-custom-cursor');
       if (cursorRafId) window.cancelAnimationFrame(cursorRafId);
       window.removeEventListener('mousemove', onPointerMove);
+      window.removeEventListener('scroll', onWindowScroll);
       window.removeEventListener('mousedown', onPointerDown);
       window.removeEventListener('mouseup', onPointerUp);
+      window.removeEventListener('blur', onWindowBlur);
       document.removeEventListener('mouseleave', onPointerLeave);
     };
   }, []);
@@ -770,17 +799,6 @@ export default function App() {
               ref={parallaxTextRef}
               className="parallax-item lg:col-span-5 flex flex-col justify-center items-start text-left lg:-mt-4"
             >
-              {/* Identity & Pedigree Pill */}
-              <div
-                style={{ '--entrance-delay': '0.04s' } as React.CSSProperties}
-                className="hero-entrance-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#faf7f2]/10 backdrop-blur-md border border-[#b88a3b]/40 text-[#f0c46c] text-[11px] font-mono tracking-wider font-semibold uppercase mb-3.5 shadow-[0_4px_16px_rgba(4,8,16,0.5)]"
-              >
-                <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
-                <span>APM × AI Systems</span>
-                <span className="text-[#b88a3b]/60">•</span>
-                <span className="text-[#faf7f2]/90">IIMV (MBA) × IIITDMK (CSE)</span>
-              </div>
-
               <h1
                 aria-label={`I turn fuzzy problems into ${HERO_ROTATING_WORDS[heroWordIndex]}`}
                 className="w-full text-5xl sm:text-6xl lg:text-[76px] xl:text-[86px] font-extrabold text-[#faf7f2] tracking-[-0.025em] leading-[1.16] font-[family-name:var(--font-editorial)] drop-shadow-[0_8px_32px_rgba(4,8,16,0.92)]"

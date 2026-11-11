@@ -84,12 +84,10 @@
 
 /* Custom Rounded Dart Pointer Cursor (Portfolio Old Money Burnished Gold & Oxford Navy Palette) */
 @media (pointer: fine) {
-  body.has-custom-cursor,
-  body.has-custom-cursor a,
-  body.has-custom-cursor button,
-  body.has-custom-cursor [role="button"],
-  body.has-custom-cursor article,
-  body.has-custom-cursor .project-card-interactive {
+  html.has-custom-cursor,
+  html.has-custom-cursor *,
+  html.has-custom-cursor *::before,
+  html.has-custom-cursor *::after {
     cursor: none !important;
   }
 
@@ -100,9 +98,10 @@
     width: 30px;
     height: 30px;
     pointer-events: none;
-    z-index: 10000;
+    z-index: 99999;
+    opacity: 0;
     will-change: transform, opacity;
-    transition: opacity 0.18s ease;
+    transition: opacity 0.16s ease;
   }
 
   .custom-cursor-dart-svg {

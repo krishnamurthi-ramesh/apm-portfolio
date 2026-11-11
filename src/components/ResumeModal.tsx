@@ -103,11 +103,12 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   <span className="material-symbols-outlined text-[13px]">open_in_new</span>
                 </a>
               </div>
-              <div className="flex-1 min-h-[68vh] rounded-2xl overflow-hidden border border-[#dfd6c6] bg-white shadow-inner">
-                <iframe
-                  src={`${pdfUrl}#toolbar=0&navpanes=0`}
-                  title="Krishnamurthi Resume PDF"
-                  className="w-full h-full min-h-[68vh] border-0"
+              <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden border border-[#dfd6c6] bg-white shadow-md">
+                <img
+                  src="/resume-preview.svg"
+                  alt="Krishnamurthi 1-Page Executive Resume"
+                  draggable={false}
+                  className="w-full h-auto block select-none"
                 />
               </div>
             </div>
