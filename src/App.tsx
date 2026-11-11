@@ -152,7 +152,7 @@ const EXPERIENCES = [
   {
     period: 'Jan 2026–Jul 2026',
     logoUrl: '/assets/logos/iiitdmk.png',
-    role: 'Research Intern — Classical Epistemology & Logic',
+    role: 'Research Intern — Classical Epistemology',
     institution: 'IIITDM Kurnool • Kurnool, India',
     description:
       '“Nyaya Shastra for Computer Science Engineers”: Applied classical Indian Nyaya dialectical reasoning and epistemology to modern computer science algorithms and formal system verification.',
@@ -160,7 +160,7 @@ const EXPERIENCES = [
   {
     period: 'Apr 2025–Jul 2025',
     logoUrl: '/assets/logos/meraqui.png',
-    role: 'Data Science & Technical Product Intern',
+    role: 'Data Science Intern',
     institution: 'Meraqui Ventures Pvt. Ltd. (karam.ai) • Pune, India',
     description:
       'Owned the requirements-to-shipping loop for candidate matching feature (+15% precision lift). Shadowed recruiters to replace conversational bot with deterministic REST API contracts for ERP sync, saving 15 recruiter hours weekly and cutting data inconsistencies by 12–15%.',

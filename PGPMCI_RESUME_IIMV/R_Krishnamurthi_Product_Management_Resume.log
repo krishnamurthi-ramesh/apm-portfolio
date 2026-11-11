@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.18)  12 NOV 2026 01:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.18)  12 NOV 2026 01:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -362,15 +362,15 @@ LaTeX Font Info:    ... okay on input line 35.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(28.90755pt, 539.69278pt, 28.90755pt)
-* v-part:(T,H,B)=(14.45377pt, 817.58502pt, 13.00806pt)
+* h-part:(L,W,R)=(30.35326pt, 536.80136pt, 30.35326pt)
+* v-part:(T,H,B)=(17.34518pt, 813.2479pt, 14.45377pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=539.69278pt
-* \textheight=817.58502pt
-* \oddsidemargin=-43.36244pt
-* \evensidemargin=-43.36244pt
-* \topmargin=-94.81622pt
+* \textwidth=536.80136pt
+* \textheight=813.2479pt
+* \oddsidemargin=-41.91673pt
+* \evensidemargin=-41.91673pt
+* \topmargin=-91.9248pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -457,24 +457,15 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 File: iimv-logo.png Graphic file (type png)
 <use iimv-logo.png>
 Package pdftex.def Info: iimv-logo.png  used on input line 49.
-(pdftex.def)             Requested size: 54.6171pt x 74.21286pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--64
-
- []
-
+(pdftex.def)             Requested size: 54.32448pt x 73.8166pt.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
 4.
 (C:\Users\KRISHNA MURTHI\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 75--77
-
+Underfull \hbox (badness 2980) in paragraph at lines 87--88
+[]\T1/lmr/bx/n/10 Comet AI Search & Lend-ing Fun-nels []\T1/lmr/m/n/10 : De-fin
+ed North Star con-ver-sion KPIs
  []
 
 [1
@@ -495,13 +486,13 @@ t' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 10410 strings out of 467871
- 164284 string characters out of 5413984
- 603807 words of memory out of 5000000
- 39152 multiletter control sequences out of 15000+600000
+ 10411 strings out of 467871
+ 164314 string characters out of 5413984
+ 602793 words of memory out of 5000000
+ 39153 multiletter control sequences out of 15000+600000
  676561 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,544b,436s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,545b,436s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
 lmbx10.pfb><C:/Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/lm/lmbx12.pfb><C:/Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX/font
@@ -515,7 +506,7 @@ RISHNA MURTHI/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri9.pfb><C:
 /Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy1
 0.pfb><C:/Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /lm/lmsy9.pfb>
-Output written on R_Krishnamurthi_Product_Management_Resume.pdf (1 page, 254283
+Output written on R_Krishnamurthi_Product_Management_Resume.pdf (1 page, 254612
  bytes).
 PDF statistics:
  88 PDF objects out of 1000 (max. 8388607)
