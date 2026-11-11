@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.18)  12 NOV 2026 01:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.18)  12 NOV 2026 02:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -362,15 +362,15 @@ LaTeX Font Info:    ... okay on input line 35.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(30.35326pt, 536.80136pt, 30.35326pt)
-* v-part:(T,H,B)=(17.34518pt, 813.2479pt, 14.45377pt)
+* h-part:(L,W,R)=(28.90755pt, 539.69278pt, 28.90755pt)
+* v-part:(T,H,B)=(13.00806pt, 820.47533pt, 11.56346pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=536.80136pt
-* \textheight=813.2479pt
-* \oddsidemargin=-41.91673pt
-* \evensidemargin=-41.91673pt
-* \topmargin=-91.9248pt
+* \textwidth=539.69278pt
+* \textheight=820.47533pt
+* \oddsidemargin=-43.36244pt
+* \evensidemargin=-43.36244pt
+* \topmargin=-96.26193pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -421,53 +421,48 @@ pdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-7.
+8.
 
 (C:\Users\KRISHNA MURTHI\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-7.
+8.
 
 (C:\Users\KRISHNA MURTHI\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-37.
+38.
 
 (C:\Users\KRISHNA MURTHI\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-37.
+38.
 (C:\Users\KRISHNA MURTHI\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 37.
+(Font)              <10> on input line 38.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 37.
+(Font)              <7> on input line 38.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 37.
+(Font)              <5> on input line 38.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 45.
+(Font)              <9> on input line 46.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 45.
+(Font)              <6> on input line 46.
 <iimv-logo.png, id=7, 170.6375pt x 231.86626pt>
 File: iimv-logo.png Graphic file (type png)
 <use iimv-logo.png>
-Package pdftex.def Info: iimv-logo.png  used on input line 49.
-(pdftex.def)             Requested size: 54.32448pt x 73.8166pt.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
-4.
+Package pdftex.def Info: iimv-logo.png  used on input line 54.
+(pdftex.def)             Requested size: 49.65465pt x 67.46945pt.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
+1.
 (C:\Users\KRISHNA MURTHI\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 2980) in paragraph at lines 87--88
-[]\T1/lmr/bx/n/10 Comet AI Search & Lend-ing Fun-nels []\T1/lmr/m/n/10 : De-fin
-ed North Star con-ver-sion KPIs
- []
-
 [1
 
 {C:/Users/KRISHNA MURTHI/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/U
@@ -488,11 +483,11 @@ t' has not changed.
 Here is how much of TeX's memory you used:
  10411 strings out of 467871
  164314 string characters out of 5413984
- 602793 words of memory out of 5000000
+ 608065 words of memory out of 5000000
  39153 multiletter control sequences out of 15000+600000
  676561 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,545b,436s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,583b,436s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
 lmbx10.pfb><C:/Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/lm/lmbx12.pfb><C:/Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX/font
@@ -506,10 +501,10 @@ RISHNA MURTHI/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri9.pfb><C:
 /Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy1
 0.pfb><C:/Users/KRISHNA MURTHI/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /lm/lmsy9.pfb>
-Output written on R_Krishnamurthi_Product_Management_Resume.pdf (1 page, 254612
+Output written on R_Krishnamurthi_Product_Management_Resume.pdf (1 page, 258797
  bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
+ 91 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

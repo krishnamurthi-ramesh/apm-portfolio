@@ -141,10 +141,75 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 </a>
               </div>
 
-              {/* Core Teardowns Grid */}
+              {/* Skills Strip */}
+              <div className="space-y-2.5">
+                <h5 className="text-xs uppercase font-bold text-[#7d7363] tracking-wider">
+                  Skills
+                </h5>
+                <div className="p-4 rounded-xl bg-white border border-[#dfd6c6] text-xs space-y-1.5 text-[#554d42]">
+                  <p>
+                    <strong className="text-[#0e1828]">Product Management:</strong> Product Discovery, Problem Framing, PRDs, User Research, Funnel Analysis, RICE Prioritization, North Star Metrics, A/B Testing, SaaS Unit Economics, Stakeholder Management
+                  </p>
+                  <p>
+                    <strong className="text-[#0e1828]">AI / ML:</strong> Generative AI, LLM Evaluation (Ragas, Recall@K), RAG, Model Routing, Quantization, NLP, PyTorch, FAISS
+                  </p>
+                  <p>
+                    <strong className="text-[#0e1828]">Engineering &amp; Tools:</strong> Python, SQL, REST APIs, FastAPI, Kafka, Docker, Elasticsearch, Grafana, PostgreSQL, Figma, Git, GitHub
+                  </p>
+                </div>
+              </div>
+
+              {/* Experience */}
               <div className="space-y-3">
                 <h5 className="text-xs uppercase font-bold text-[#7d7363] tracking-wider">
-                  Featured Product Teardowns &amp; Case Studies
+                  Experience
+                </h5>
+                <div className="space-y-2.5 text-xs">
+                  <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
+                    <div className="flex justify-between items-baseline gap-2">
+                      <span className="font-bold text-[#0e1828]">
+                        Research Intern — Classical Epistemology
+                      </span>
+                      <span className="text-[#7d7363] font-mono shrink-0">Jan 2026 – Jul 2026</span>
+                    </div>
+                    <p className="text-[#806b47] font-medium">IIITDM Kurnool • Kurnool, India</p>
+                    <p className="text-[#554d42]">
+                      Formulated deterministic verification rules from classical Nyaya Shastra dialectical logic and mapped out-of-distribution failure bounds to inform edge AI hallucination guardrails.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
+                    <div className="flex justify-between items-baseline gap-2">
+                      <span className="font-bold text-[#0e1828]">
+                        Data Science Intern — Meraqui Ventures Pvt. Ltd. (karam.ai)
+                      </span>
+                      <span className="text-[#7d7363] font-mono shrink-0">Apr 2025 – Jul 2025</span>
+                    </div>
+                    <p className="text-[#806b47] font-medium">Remote / Pune, India</p>
+                    <p className="text-[#554d42]">
+                      Lifted candidate-matching precision by 15%, cut manual ERP entry by 15% (15+ hrs/wk saved) and data errors by 12–15% via REST/webhook ERP syncs, and delivered JSON-to-XML ETL pipelines.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
+                    <div className="flex justify-between items-baseline gap-2">
+                      <span className="font-bold text-[#0e1828]">
+                        Development Intern — Data Systems &amp; Infrastructure, Treacle Technologies
+                      </span>
+                      <span className="text-[#7d7363] font-mono shrink-0">Jun 2024 – Aug 2024</span>
+                    </div>
+                    <p className="text-[#806b47] font-medium">Incubated at SIIC, IIT Kanpur • Remote</p>
+                    <p className="text-[#554d42]">
+                      Slashed incident detection latency by 40% via Wazuh, Elasticsearch &amp; Grafana dashboards; processed 100k+ logs/day across VMs with a Kafka streaming pipeline and automated telemetry scripts.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Selected Product & AI Projects (Product First) */}
+              <div className="space-y-3">
+                <h5 className="text-xs uppercase font-bold text-[#7d7363] tracking-wider">
+                  Selected Product &amp; AI Projects (Product First)
                 </h5>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -153,25 +218,25 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                       Inside OpenAI’s In-House Data Agent
                     </span>
                     <p className="text-[#554d42]">
-                      Context-first design across 70,000 datasets and 600 PB; 6-layer context pipeline and golden question eval harness.
+                      Audited 6-layer context engineering (Git crawling, Slack/Docs memory, RBAC) and 200+ golden-question evals driving 17× speedup across 70k datasets (600 PB).
                     </p>
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
                     <span className="font-bold text-[#0e1828] block">
-                      Notion Agents: Doing More for Less
+                      Notion Agents: Pricing, Routing &amp; Cost Control
                     </span>
                     <p className="text-[#554d42]">
-                      Pricing, dynamic model routing (Sonnet/Haiku), and run-level budget envelopes for autonomous agent spend.
+                      Evaluated 5/10/20 credit economics and Sonnet-to-Haiku routing; scoped P0 run-level budget envelopes ($10/1k) for autonomous runs.
                     </p>
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
                     <span className="font-bold text-[#0e1828] block">
-                      Comet AI Search Teardown
+                      Comet AI Search — Funnel &amp; Friction Teardown
                     </span>
                     <p className="text-[#554d42]">
-                      Reverse-engineered AI "Finder" discovery flow to diagnose conversational recommendation drop-offs before PDP cart checkout.
+                      Isolated stateless &ldquo;Finder&rdquo; resets causing 42% pre-PDP drop-off; scoped persistent fit memory targeting +22% lift via Finder-assisted add-to-cart KPI.
                     </p>
                   </div>
 
@@ -180,16 +245,34 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                       KreditBee &amp; PhonePe Lending Funnels
                     </span>
                     <p className="text-[#554d42]">
-                      Diagnosed document-upload OCR failure bottlenecks vs. marketplace trust breaks across live digital lending funnels.
+                      Contrasted KYC OCR upload failures vs. NBFC handoff trust breaks; scoped inline doc pre-checks targeting +24% KYC completion and -35% handoff drop-off.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                    <span className="font-bold text-[#0e1828] block">
+                      Active Conformal Control — Edge VLM Safety (Research)
+                    </span>
+                    <p className="text-[#554d42]">
+                      Built density-drift monitor (ppDRE) &amp; student/teacher cascade reaching 94.2% precision and ~60% token cut (IEEE peer review).
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
+                    <span className="font-bold text-[#0e1828] block">
+                      Hymba-1.5B-Eigen-Hybrid-4bit (AI Systems)
+                    </span>
+                    <p className="text-[#554d42]">
+                      Cut edge VRAM by 65% (2.91 GB → 1.01 GB) with &lt;1% perplexity loss via selective FP16/4-bit CUDA quantization.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Education & Achievements */}
+              {/* Education, Positions of Responsibility & Certifications */}
               <div className="space-y-3">
                 <h5 className="text-xs uppercase font-bold text-[#7d7363] tracking-wider">
-                  Education, Roles &amp; Certifications
+                  Education, Positions of Responsibility &amp; Certifications
                 </h5>
                 <div className="p-4 rounded-xl bg-white border border-[#dfd6c6] text-xs space-y-2.5">
                   <div className="flex justify-between items-baseline gap-2">
@@ -206,7 +289,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   </div>
                   <div className="pt-2 border-t border-[#dfd6c6]/60 text-[#554d42] space-y-1">
                     <p>
-                      <strong className="text-[#0e1828]">Roles &amp; Responsibility:</strong> Student Representative, CPAC (IIMV) • Co-Speaker &amp; ML Mentor, Google Developer Club (Intro to Intermediate ML) • Event Management Lead, Solasta 2025 (150+ participants &amp; organizers)
+                      <strong className="text-[#0e1828]">Positions of Responsibility:</strong> Student Representative, CPAC (IIMV) • Co-Speaker &amp; ML Mentor, Google Developer Club (Intro to Intermediate ML) • Event Management Lead, Solasta 2025 (150+ participants &amp; organizers)
                     </p>
                   </div>
                   <div className="pt-2 border-t border-[#dfd6c6]/60 text-[#554d42] flex flex-wrap gap-x-4 gap-y-1.5">
