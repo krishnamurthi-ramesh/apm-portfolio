@@ -143,6 +143,7 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
 const EXPERIENCES = [
   {
     period: '2025–2027',
+    logoUrl: '/assets/logos/iimv.png',
     role: 'MBA Candidate',
     institution: 'Indian Institute of Management Visakhapatnam',
     description:
@@ -150,6 +151,7 @@ const EXPERIENCES = [
   },
   {
     period: 'Jan 2026–Jul 2026',
+    logoUrl: '/assets/logos/iiitdmk.png',
     role: 'Research Intern — Classical Epistemology & Logic',
     institution: 'IIITDM Kurnool • Kurnool, India',
     description:
@@ -157,6 +159,7 @@ const EXPERIENCES = [
   },
   {
     period: 'Apr 2025–Jul 2025',
+    logoUrl: '/assets/logos/meraqui.png',
     role: 'Data Science & Technical Product Intern',
     institution: 'Meraqui Ventures Pvt. Ltd. (karam.ai) • Pune, India',
     description:
@@ -164,6 +167,7 @@ const EXPERIENCES = [
   },
   {
     period: 'Jun 2024–Aug 2024',
+    logoUrl: '/assets/logos/treacle.png',
     role: 'Development Engineering Intern',
     institution: 'Treacle Technologies (Incubated at IIT Kanpur) • Kanpur, India',
     description:
@@ -171,6 +175,7 @@ const EXPERIENCES = [
   },
   {
     period: '2022–2026',
+    logoUrl: '/assets/logos/iiitdmk.png',
     role: 'B.Tech, Computer Science & Engineering',
     institution: 'IIITDM Kurnool • Kurnool, India',
     description:
@@ -1673,7 +1678,17 @@ export default function App() {
                     idx % 2 === 0 ? 'reveal-slide-left' : 'reveal-slide-right'
                   }`}
                 >
-                  <div className="md:w-52 shrink-0">
+                  <div className="md:w-52 shrink-0 flex flex-col items-start gap-3">
+                    {exp.logoUrl && (
+                      <div className="w-28 h-20 rounded-2xl bg-white border border-[#dfd6c6]/80 p-2 flex items-center justify-center shadow-2xs overflow-hidden">
+                        <img
+                          src={exp.logoUrl}
+                          alt={exp.institution}
+                          loading="lazy"
+                          className="max-w-full max-h-full w-auto h-auto object-contain"
+                        />
+                      </div>
+                    )}
                     <span className="text-xs font-mono font-bold text-[#806b47] uppercase bg-[#f0e8dc] px-3.5 py-1.5 rounded-full inline-block group-hover:bg-[#0e1828] group-hover:text-[#faf7f2] transition-colors">
                       {exp.period}
                     </span>
