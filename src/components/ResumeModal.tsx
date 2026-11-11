@@ -206,91 +206,37 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 </div>
               </div>
 
-              {/* Selected Product & AI Projects (Product First) */}
+              {/* Selected AI Product Projects (Teardown-First, Top 3) */}
               <div className="space-y-3">
                 <h5 className="text-xs uppercase font-bold text-[#7d7363] tracking-wider">
-                  Selected Product &amp; AI Projects (Product First)
+                  Selected AI Product Projects (Teardown-First • Top 3)
                 </h5>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div className="grid grid-cols-1 gap-3 text-xs">
                   <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
                     <span className="font-bold text-[#0e1828] block">
-                      Inside OpenAI’s In-House Data Agent
+                      Inside OpenAI’s In-House Data Agent — Enterprise AI Teardown
                     </span>
                     <p className="text-[#554d42]">
-                      Audited 6-layer context engineering (Git crawling, Slack/Docs memory, RBAC) and 200+ golden-question evals driving 17× speedup across 70k datasets (600 PB).
-                    </p>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
-                    <span className="font-bold text-[#0e1828] block">
-                      Notion Agents: Pricing, Routing &amp; Cost Control
-                    </span>
-                    <p className="text-[#554d42]">
-                      Evaluated 5/10/20 credit economics and Sonnet-to-Haiku routing; scoped P0 run-level budget envelopes ($10/1k) for autonomous runs.
+                      Reverse-engineered OpenAI&apos;s internal NL-to-SQL Data Agent serving 3,500+ users across 70k datasets (600 PB); mapped its 6-layer context pipeline and 200+ golden-question evals driving a 17× speedup (~6m → &lt;20s).
                     </p>
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
                     <span className="font-bold text-[#0e1828] block">
-                      Comet AI Search — Funnel &amp; Friction Teardown
+                      Shopify FlowLens — AI Workflow Safety Validator &amp; Dry-Run Sandbox
                     </span>
                     <p className="text-[#554d42]">
-                      Isolated stateless &ldquo;Finder&rdquo; resets causing 42% pre-PDP drop-off; scoped persistent fit memory targeting +22% lift via Finder-assisted add-to-cart KPI.
+                      Diagnosed a -35% merchant workflow activation gap in Sidekick Qwen-32B; shipped a zero-mutation client-side AST validator (5 rules, &lt;100ms parse), dry-run payload sandbox, and HITL approval gate.
                     </p>
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
                     <span className="font-bold text-[#0e1828] block">
-                      KreditBee &amp; PhonePe Lending Funnels
+                      AI Cost Optimizer — Cascading SLM Router &amp; Margin Engine
                     </span>
                     <p className="text-[#554d42]">
-                      Contrasted KYC OCR upload failures vs. NBFC handoff trust breaks; scoped inline doc pre-checks targeting +24% KYC completion and -35% handoff drop-off.
-                    </p>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
-                    <span className="font-bold text-[#0e1828] block">
-                      Shopify FlowLens — AST Safety Validator
-                    </span>
-                    <p className="text-[#554d42]">
-                      Built pre-flight AI workflow AST gatekeeper (&lt;100ms parse, 5 rules) &amp; zero-mutation dry-run sandbox closing Shopify&apos;s -35% Sidekick activation gap.
-                    </p>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
-                    <span className="font-bold text-[#0e1828] block">
-                      AI Cost Optimizer — Margin &amp; Routing Engine
-                    </span>
-                    <p className="text-[#554d42]">
-                      Modeled semantic cache &amp; 60/40 SLM router at 100k DAU cutting COGS by 66.8% (-$91.5k/mo) and raising gross margin +30.5% to 84.8% (1.20s P95).
-                    </p>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
-                    <span className="font-bold text-[#0e1828] block">
-                      StudyTube — Intent-Aware Bandwidth Governor
-                    </span>
-                    <p className="text-[#554d42]">
-                      Shipped 26.1 KB Chrome MV3 extension with 4 subject modes &amp; W3C telemetry saving 4,548.7 MB (63.2% avg / 91.0% peak) for hotspot learners.
-                    </p>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
-                    <span className="font-bold text-[#0e1828] block">
-                      Active Conformal Control — Edge VLM Safety (Research)
-                    </span>
-                    <p className="text-[#554d42]">
-                      Built density-drift monitor (ppDRE) &amp; student/teacher cascade reaching 94.2% precision and ~60% token cut (IEEE peer review).
-                    </p>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
-                    <span className="font-bold text-[#0e1828] block">
-                      Hymba-1.5B-Eigen-Hybrid-4bit (AI Systems)
-                    </span>
-                    <p className="text-[#554d42]">
-                      Cut edge VRAM by 65% (2.91 GB → 1.01 GB) with &lt;1% perplexity loss via selective FP16/4-bit CUDA quantization.
+                      Modeled 100k-DAU token COGS ($137,116/mo baseline, 54.3% margin); built a semantic cache + 60/40 SLM router cutting spend by 66.8% (-$91,564/mo), lifting gross margin to 84.8% (+30.5%) at 1.20s P95.
                     </p>
                   </div>
                 </div>
@@ -326,7 +272,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                         <strong className="text-[#0e1828]">Co-Speaker &amp; ML Mentor — Google Developer Club (GDC):</strong> Delivered sessions from Intro to Intermediate ML to 50+ junior students, mentoring live ML project builds pushed to GitHub with starter CI/CD pipelines.
                       </li>
                       <li>
-                        <strong className="text-[#0e1828]">Event Management Lead — Solasta 2025, IIITDM Kurnool:</strong> Orchestrated end-to-end operations, stage run-of-show, and parallel track coordination across 150+ organizers and volunteers.
+                        <strong className="text-[#0e1828]">Event Management Lead — Solasta 2025, IIITDM Kurnool:</strong> Directed end-to-end event operations, stage schedules, and sponsor deliverable execution for 150+ student participants, aligning organizing committees and partner sponsors.
                       </li>
                     </ul>
                   </div>

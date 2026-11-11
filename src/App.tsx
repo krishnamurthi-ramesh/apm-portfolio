@@ -1975,7 +1975,7 @@ export default function App() {
                     Event Management Lead — Solasta 2025
                   </h4>
                   <p className="text-xs text-[#4a4235] leading-relaxed">
-                    Orchestrated end-to-end operations, stage run-of-show, and parallel track coordination across 150+ volunteers and student organizers for IIITDMK&apos;s flagship techno-cultural fest.
+                    Directed end-to-end event operations, stage schedules, and sponsor deliverable execution for 150+ student participants across IIITDMK&apos;s annual techno-cultural fest, aligning organizing committees and partner sponsors.
                   </p>
                 </div>
               </div>
