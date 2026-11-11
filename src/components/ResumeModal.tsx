@@ -314,10 +314,21 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                     </span>
                     <span className="text-[#7d7363] font-mono shrink-0">Nov 2022 – Apr 2026</span>
                   </div>
-                  <div className="pt-2 border-t border-[#dfd6c6]/60 text-[#554d42] space-y-1">
-                    <p>
-                      <strong className="text-[#0e1828]">Positions of Responsibility:</strong> Student Representative, CPAC (IIMV) • Co-Speaker &amp; ML Mentor, Google Developer Club (Intro to Intermediate ML) • Event Management Lead, Solasta 2025 (150+ participants &amp; organizers)
-                    </p>
+                  <div className="pt-2 border-t border-[#dfd6c6]/60 text-[#554d42] space-y-1.5">
+                    <span className="font-bold text-[#0e1828] block">
+                      Positions of Responsibility
+                    </span>
+                    <ul className="list-disc pl-4 space-y-1">
+                      <li>
+                        <strong className="text-[#0e1828]">Student Representative — CPAC, IIM Visakhapatnam:</strong> Represented the 60-student PGPMCI batch with IIMV leadership and placement bodies to unblock placement logistics and streamline interview readiness.
+                      </li>
+                      <li>
+                        <strong className="text-[#0e1828]">Co-Speaker &amp; ML Mentor — Google Developer Club (GDC):</strong> Delivered sessions from Intro to Intermediate ML to 50+ junior students, mentoring live ML project builds pushed to GitHub with starter CI/CD pipelines.
+                      </li>
+                      <li>
+                        <strong className="text-[#0e1828]">Event Management Lead — Solasta 2025, IIITDM Kurnool:</strong> Orchestrated end-to-end operations, stage run-of-show, and parallel track coordination across 150+ organizers and volunteers.
+                      </li>
+                    </ul>
                   </div>
                   <div className="pt-2 border-t border-[#dfd6c6]/60 text-[#554d42] flex flex-wrap gap-x-4 gap-y-1.5">
                     <a

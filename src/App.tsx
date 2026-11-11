@@ -200,10 +200,10 @@ const EXPERIENCES = [
   {
     period: '2025–2027',
     logoUrl: '/assets/logos/iimv.png',
-    role: 'MBA Candidate',
+    role: 'PGPMCI Candidate & CPAC Student Representative',
     institution: 'Indian Institute of Management Visakhapatnam',
     description:
-      'Specializing in Product Strategy, Technology Commercialization, Operations Analytics, and Quantitative Decision Sciences. Conducting case research on AI product telemetry and SaaS unit economics.',
+      'Pursuing the Post-Graduate Program in Management (PGPMCI). Elected Student Representative on CPAC for the 60-student cohort while shipping AI product teardowns, live validation prototypes, and unit-economics models.',
   },
   {
     period: 'Jan 2026–Jul 2026',
@@ -1924,6 +1924,61 @@ export default function App() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Positions of Responsibility on Portfolio */}
+            <div className="pt-8 border-t border-[#dfd6c6] space-y-5">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#806b47] font-mono">
+                  <span>03.1</span>
+                  <span>/</span>
+                  <span>Positions of Responsibility</span>
+                </div>
+                <h3 className="text-2xl font-extrabold text-[#0e1828] font-[family-name:var(--font-editorial)]">
+                  Leadership &amp; Community Ownership
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="reveal-scale p-6 rounded-3xl bg-white border border-[#dfd6c6] shadow-2xs space-y-2.5">
+                  <div className="flex items-center justify-between gap-2 text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#806b47]">
+                    <span>IIM Visakhapatnam</span>
+                    <span>Sep 2026–Present</span>
+                  </div>
+                  <h4 className="text-base font-bold text-[#0e1828] font-[family-name:var(--font-editorial)]">
+                    Student Representative — CPAC
+                  </h4>
+                  <p className="text-xs text-[#4a4235] leading-relaxed">
+                    Represented the 60-student PGPMCI batch, partnering with IIMV faculty leadership and placement bodies to surface cohort feedback, unblock placement logistics, and streamline interview readiness.
+                  </p>
+                </div>
+
+                <div className="reveal-scale p-6 rounded-3xl bg-white border border-[#dfd6c6] shadow-2xs space-y-2.5">
+                  <div className="flex items-center justify-between gap-2 text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#806b47]">
+                    <span>IIITDM Kurnool</span>
+                    <span>2024–2025</span>
+                  </div>
+                  <h4 className="text-base font-bold text-[#0e1828] font-[family-name:var(--font-editorial)]">
+                    Co-Speaker &amp; ML Mentor — GDC
+                  </h4>
+                  <p className="text-xs text-[#4a4235] leading-relaxed">
+                    Delivered structured cohorts taking 50+ junior students from Intro to Intermediate ML, mentoring teams to ship live ML projects to GitHub with starter CI/CD pipelines.
+                  </p>
+                </div>
+
+                <div className="reveal-scale p-6 rounded-3xl bg-white border border-[#dfd6c6] shadow-2xs space-y-2.5">
+                  <div className="flex items-center justify-between gap-2 text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#806b47]">
+                    <span>IIITDM Kurnool</span>
+                    <span>2025</span>
+                  </div>
+                  <h4 className="text-base font-bold text-[#0e1828] font-[family-name:var(--font-editorial)]">
+                    Event Management Lead — Solasta 2025
+                  </h4>
+                  <p className="text-xs text-[#4a4235] leading-relaxed">
+                    Orchestrated end-to-end operations, stage run-of-show, and parallel track coordination across 150+ volunteers and student organizers for IIITDMK&apos;s flagship techno-cultural fest.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
