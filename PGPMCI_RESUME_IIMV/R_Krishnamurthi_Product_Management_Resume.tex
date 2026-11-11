@@ -1,97 +1,111 @@
 \documentclass[10pt,a4paper]{article}
-\usepackage[margin=0.5in,top=0.22in,bottom=0.18in]{geometry}
+\usepackage[margin=0.40in,top=0.20in,bottom=0.18in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[none]{hyphenat}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{titlesec}
 \usepackage{xcolor}
 \usepackage{graphicx}
-\definecolor{accent}{HTML}{1A3E6F}
-\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent}
-\pagestyle{empty}
-\linespread{0.88}
-\titleformat{\section}{\normalsize\bfseries\color{accent}}{}{0em}{}[\vspace{0.5pt}\titlerule\vspace{1.5pt}]
-\titlespacing*{\section}{0pt}{2.5pt}{1.5pt}
-\setlist[itemize]{leftmargin=13pt, itemsep=0pt, topsep=0.5pt, parsep=0pt}
-\setlength{\parindent}{0pt}
-\newcommand{\role}[4]{%
-  \textbf{#1} \hfill #2\\
-  \textit{#3} \hfill \textit{#4}\\[1pt]
+\definecolor{accent}{HTML}{14345E}
+\definecolor{ink}{HTML}{121820}
+\definecolor{muted}{HTML}{4A5568}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent,
+  pdftitle={Krishnamurthi - Associate Product Manager Resume},
+  pdfauthor={Krishnamurthi}
 }
+\pagestyle{empty}
+\linespread{0.90}
+\sloppy
+\color{ink}
+\titleformat{\section}{\normalsize\bfseries\color{accent}}{}{0em}{\MakeUppercase}[\vspace{0.5pt}\titlerule\vspace{1.8pt}]
+\titlespacing*{\section}{0pt}{4.5pt}{2pt}
+\setlist[itemize]{leftmargin=11pt, itemsep=1pt, topsep=1pt, parsep=0pt}
+\setlength{\parindent}{0pt}
+
+\newcommand{\role}[4]{%
+  \textbf{#1} \hfill \textcolor{muted}{\small\mbox{#2}}\\
+  \textit{\small #3} \hfill \textit{\small\textcolor{muted}{#4}}\\[-2pt]
+}
+
 \begin{document}
-\begin{minipage}[c]{0.83\textwidth}
-{\LARGE \textbf{Krishnamurthi}}\\[3pt]
-\textit{Associate Product Manager $\times$ AI Products}\\[4pt]
-\href{mailto:kiccha1703@gmail.com}{kiccha1703@gmail.com} \quad $\vert$ \quad
-\href{https://github.com/krishnamurthi-ramesh}{github.com/krishnamurthi-ramesh} \quad $\vert$ \quad
-+91-90037-62619\\[1pt]
-\href{https://www.linkedin.com/in/krishna9003762619murthi/}{linkedin.com/in/krishna9003762619murthi/} \quad $\vert$ \quad
-\href{https://krishnamurthi-apm-portfolio.vercel.app}{Portfolio: krishnamurthi-apm-portfolio.vercel.app}
+\begin{minipage}[c]{0.86\textwidth}
+{\LARGE\textbf{Krishnamurthi}} \quad {\small\textit{\textcolor{accent}{Associate Product Manager $\times$ AI Products}}}\\[3pt]
+{\small
+\href{mailto:kiccha1703@gmail.com}{kiccha1703@gmail.com} \;\textbar\;
++91-90037-62619 \;\textbar\;
+\href{https://www.linkedin.com/in/krishna9003762619murthi/}{\textbf{LinkedIn}\,$\nearrow$} \;\textbar\;
+\href{https://github.com/krishnamurthi-ramesh}{\textbf{GitHub}\,$\nearrow$} \;\textbar\;
+\href{https://krishnamurthi-apm-portfolio.vercel.app}{\textbf{Portfolio}\,$\nearrow$}
+}
 \end{minipage}%
 \hfill
-\begin{minipage}[c]{0.14\textwidth}
+\begin{minipage}[c]{0.11\textwidth}
 \raggedleft
-\includegraphics[width=0.95\linewidth]{iimv-logo.png}
+\includegraphics[width=0.92\linewidth]{iimv-logo.png}
 \end{minipage}
-\vspace{4pt}
-{\color{accent}\hrule height 0.8pt}
+\vspace{2pt}
+{\color{accent}\hrule height 0.9pt}
 \vspace{1pt}
 
 \section*{Education}
-\role{Indian Institute of Management Visakhapatnam}{2025 -- 2027}{Post-Graduate Program in Management (PGPMCI)}{}
-\role{IIITDM Kurnool}{2022 -- 2026}{B.Tech, Computer Science and Engineering}{}
+\textbf{Indian Institute of Management Visakhapatnam} \hfill \textcolor{muted}{\small\mbox{Mar 2025 -- Mar 2027}}\\
+{\small Post-Graduate Program in Management (PGPMCI) \;\textbar\; Product Strategy, Platform Ecosystems, Analytics}\\[2pt]
+\textbf{IIITDM Kurnool (Institute of National Importance)} \hfill \textcolor{muted}{\small\mbox{Nov 2022 -- Apr 2026}}\\
+{\small B.Tech, Computer Science and Engineering}
 
 \section*{Experience}
-\role{Research Intern --- Classical Epistemology \& Logic (IIITDM Kurnool)}{Jan 2026 -- Jul 2026}{Kurnool, India}{}
+\role{Research Intern --- Classical Epistemology \& Formal Verification (IIITDM Kurnool)}{Jan 2026 -- Jul 2026}{Kurnool, India}{}
 \begin{itemize}
-\item Led research on ``Nyaya Shastra for Computer Science Engineers'', mapping formal Indian dialectical logic and epistemology onto modern computer science algorithms and automated verification systems.
+\item Translated formal Indian dialectical logic (\textit{Nyaya Shastra}) into structured inference rules for automated verification pipelines, mapping epistemic soundness checks onto deterministic validation workflows.
+\item Modeled out-of-distribution failure modes and bounded reliability thresholds across structured algorithms, informing edge AI hallucination guardrails.
 \end{itemize}
-\vspace{1pt}
-\role{Data Science Intern --- Meraqui Ventures Pvt. Ltd. (karam.ai)}{Apr 2025 -- Jul 2025}{Pune, India}{}
+\vspace{2pt}
+\role{Data Science \& Technical Product Intern --- Meraqui Ventures Pvt. Ltd. (karam.ai)}{Apr 2025 -- Jul 2025}{Remote / Pune, India}{}
 \begin{itemize}
-\item Owned the requirements-to-shipping loop for candidate-matching feature, defining success metrics and improving matching precision by \textbf{15\%} via feature engineering and LLM fine-tuning.
-\item Integrated AI platform with client ERP systems via REST APIs, eliminating manual data entry by \textbf{15\%} and reducing data inconsistencies by \textbf{12--15\%} with schema-validated ETL pipelines.
+\item Owned discovery, PRD specs, and launch metrics for an AI candidate-matching engine with engineering teams, lifting matching precision by \textbf{15\%} via feature engineering and LLM fine-tuning.
+\item Shadowed recruiters to replace brittle chat flows with deterministic REST API and webhook ERP syncs, cutting manual entry by \textbf{15\%} (\textbf{15+ hrs/wk} saved) and data errors by \textbf{12--15\%}.
+\item Delivered schema-validated JSON-to-XML ETL pipelines, automated API test harnesses, and developer onboarding docs, standardizing external client ERP rollouts.
 \end{itemize}
-\vspace{1pt}
-\role{Development Engineering Intern --- Treacle Technologies (Incubated at IIT Kanpur)}{Jun 2024 -- Aug 2024}{Kanpur, India}{}
+\vspace{2pt}
+\role{Development Intern (Data Systems \& Infrastructure) --- Treacle Technologies}{Jun 2024 -- Aug 2024}{Incubated at SIIC, IIT Kanpur \textbar\ Remote}{}
 \begin{itemize}
-\item Specified and built monitoring dashboards (Grafana, Elasticsearch) that cut incident detection time by \textbf{40\%}; scaled real-time data pipelines to process \textbf{100k+ logs/day} across distributed clusters.
-\end{itemize}
-
-\section*{Product Case Studies \& Teardowns}
-\textbf{Inside OpenAI's In-House Data Agent --- Context-First Design across 70k Datasets} \hfill 2026
-\begin{itemize}
-\item Analyzed 6-tier layered context pipeline (codebase table knowledge, Slack/Docs/Notion institutional memory, pass-through RBAC) powering 3.5k users across 600 PB; diagnosed evaluation harness and golden question validation loops.
-\end{itemize}
-\vspace{1pt}
-\textbf{Notion Agents: Doing More for Less --- Pricing, Routing \& Cost Control} \hfill 2026
-\begin{itemize}
-\item Evaluated dynamic multi-tier credit routing (5/10/20 credits) shifting model choice from user to vendor; modeled runaway cost vulnerabilities on unattended 24-hour agent runs and proposed run-level budget envelopes.
-\end{itemize}
-\vspace{1pt}
-\textbf{Comet (E-commerce AI Search) --- Teardown \& Friction Analysis} \hfill 2026
-\begin{itemize}
-\item Reverse-engineered Comet's AI ``Finder'' discovery flow to diagnose drop-off friction between recommendation generation and PDP conversion; proposed conversational memory to cut cart abandonment, defining ``Finder-assisted add-to-cart rate'' as primary metric.
-\end{itemize}
-\vspace{1pt}
-\textbf{KreditBee \& PhonePe Lending --- Same Category, Two Failure Modes} \hfill 2026
-\begin{itemize}
-\item Diagnosed structurally distinct friction points across live lending funnels: document-upload bottleneck (KreditBee) vs. marketplace trust-continuity break (PhonePe); proposed AI-assisted KYC feedback and cross-partner context carry-over.
+\item Engineered a real-time \textbf{Kafka} streaming pipeline across Linux and Windows VMs processing \textbf{100k+ logs/day}, building a custom web dashboard to surface live attack patterns.
+\item Integrated \textbf{Wazuh}, \textbf{Elasticsearch}, and dynamic \textbf{Grafana} observability dashboards with file-access alerting, slashing anomaly and incident detection latency by \textbf{40\%}.
+\item Automated cross-platform infrastructure monitoring and incident alert dispatch via Python/Bash scripts and a hardened Postfix/Dovecot mail service.
 \end{itemize}
 
-\section*{Independent Research --- Product-Relevant AI Systems Work}
-\textbf{Reliability Framework for Quantized Vision-Language Models} \hfill 2026
+\section*{Product Case Studies \& AI Systems}
 \begin{itemize}
-\item Designed non-parametric density-drift detector and two-tier inference cascade (GPU + CPU) balancing latency, cost, and reliability on edge hardware; revised paper through external peer review for IEEE publication.
+\item \textbf{Hymba-1.5B-Eigen-Hybrid-4bit} (\href{https://huggingface.co/krishhx/Hymba-1.5B-Eigen-Hybrid-4bit}{Hugging Face\,$\nearrow$}): Built a selective FP16/4-bit CUDA quantization pipeline for NVIDIA's Mamba/MoE SSM, cutting VRAM by \textbf{65\%} (\textbf{2.91 GB $\to$ 1.01 GB}) with \textbf{$<$1\%} perplexity loss (6.43 WikiText-2).
+\item \textbf{Edge VLM Conformal Safety Research} (\href{https://krishnamurthi-apm-portfolio.vercel.app/projects/active-conformal-control}{Case Study\,$\nearrow$}): Designed a density-drift detector (\textit{ppDRE}) and GPU-student/CPU-teacher cascade reaching \textbf{94.2\%} defect precision and \textbf{$\sim$60\%} token cost savings (IEEE peer review).
+\item \textbf{OpenAI Data Agent \& Notion Agents} (\href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/openai-data-agent}{OpenAI\,$\nearrow$} \textbar\ \href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/notion-agents}{Notion\,$\nearrow$}): Audited OpenAI's 6-tier context pipeline (\textbf{70k} datasets, \textbf{600 PB}, \textbf{17$\times$} speedup) and Notion's \textbf{5/10/20} credit router to scope P0 budget envelopes (\textbf{\$10/1k}).
+\item \textbf{Comet AI Search \& Lending Funnels} (\href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/comet}{Comet\,$\nearrow$} \textbar\ \href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/lending-funnels}{Lending\,$\nearrow$}): Scoped persistent memory to cut PDP friction (\textbf{Finder-assisted add-to-cart} KPI) and diagnosed KreditBee KYC OCR vs. PhonePe trust leaks.
 \end{itemize}
 
-\section*{Product \& Technical Skills}
-\textbf{Product:} Problem Framing, Product Discovery, Success Metrics, Funnel \& Friction Analysis, Prioritization, PRDs, Experimentation Fundamentals, Stakeholder Management \\
-\textbf{AI/LLM \& Data:} Prompt Design \& Evals, RAG, Model Selection, Latency/Cost Trade-offs, SQL, Precision, Recall@K, Ragas \\
-\textbf{Technical Stack:} Figma, Python, REST APIs, FastAPI, Docker, PostgreSQL, LLMs, LangChain, FAISS
-
-\section*{Business Coursework \& Distinctions}
+\section*{Roles \& Responsibility}
 \begin{itemize}
-\item Coursework: Advanced Analytics, Platform \& Ecosystem Strategy, Automation for Managers, Project Management, Finance.
-\item Distinctions: Oracle Cloud AI Certified (92.5\%) $\vert$ 2\textsuperscript{nd}, GDG Hackathon $\vert$ 2\textsuperscript{nd}, DataWorks Hackathon $\vert$ Nyaya Shastra Research Certificate
+\item \textbf{Student Representative --- CPAC, IIM Visakhapatnam} \hfill \textcolor{muted}{\small\mbox{Sep 2026 -- Present}}\\
+Serve as liaison between PGPMCI Batch 2, IIMV leadership, and The Career Company (TCC) to coordinate cohort career readiness, stakeholder feedback loops, and placement execution.
+\item \textbf{Co-Speaker \& ML Mentor --- Google Developer Club (GDC), IIITDM Kurnool} \hfill \textcolor{muted}{\small\mbox{2024 -- 2025}}\\
+Co-delivered technical sessions progressing cohorts from \textit{Intro to Machine Learning} through intermediate supervised and unsupervised modeling, feature engineering, evaluation metrics, and Python pipelines.
+\item \textbf{Event Management Lead --- Solasta 2025 (Annual Techno-Cultural Fest, IIITDM Kurnool)} \hfill \textcolor{muted}{\small\mbox{2025}}\\
+Directed event operations, scheduling, and cross-functional team coordination for \textbf{150+ participants and organizers}, ensuring seamless multi-track technical and cultural execution.
 \end{itemize}
+
+\section*{Skills, Certifications \& Honors}
+{\small
+\textbf{Product:} Product Discovery, Problem Framing, PRDs, Funnel \& Friction Analysis, Prioritization (RICE), North Star Metrics, A/B Experimentation, SaaS Unit Economics, Stakeholder Management\\[1pt]
+\textbf{AI \& Engineering:} LLM Evals (Ragas, Recall@K), RAG, Model Routing, Quantization, Python, SQL, REST APIs, FastAPI, Kafka, Docker, Elasticsearch, Grafana, PostgreSQL, FAISS, PyTorch, Figma\\[1pt]
+\textbf{Certifications \& Honors:}
+\href{https://www.coursera.org/account/accomplishments/verify/YT9Z5U2YJAJX}{Supervised ML (Stanford Online)\,$\nearrow$} \;\textbar\;
+\href{https://www.coursera.org/account/accomplishments/verify/3X1M09A4GTGI}{Unsupervised Learning, Recommenders \& RL (Stanford Online)\,$\nearrow$} \;\textbar\;
+Oracle Cloud GenAI Certified (92.5\%) \;\textbar\;
+2\textsuperscript{nd} Place, GDG Hackathon \;\textbar\;
+2\textsuperscript{nd} Place, DataWorks Hackathon
+}
 \end{document}

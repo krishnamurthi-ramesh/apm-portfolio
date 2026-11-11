@@ -189,22 +189,45 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               {/* Education & Achievements */}
               <div className="space-y-3">
                 <h5 className="text-xs uppercase font-bold text-[#7d7363] tracking-wider">
-                  Education &amp; Distinctions
+                  Education, Roles &amp; Certifications
                 </h5>
-                <div className="p-4 rounded-xl bg-white border border-[#dfd6c6] text-xs space-y-2">
-                  <div className="flex justify-between items-baseline">
+                <div className="p-4 rounded-xl bg-white border border-[#dfd6c6] text-xs space-y-2.5">
+                  <div className="flex justify-between items-baseline gap-2">
                     <span className="font-bold text-[#0e1828]">
-                      IIM Visakhapatnam — Master of Business Administration (MBA)
+                      IIM Visakhapatnam — Post-Graduate Program in Management (PGPMCI)
                     </span>
-                    <span className="text-[#7d7363] font-mono">2025 – 2027</span>
+                    <span className="text-[#7d7363] font-mono shrink-0">Mar 2025 – Mar 2027</span>
                   </div>
-                  <div className="flex justify-between items-baseline">
+                  <div className="flex justify-between items-baseline gap-2">
                     <span className="font-bold text-[#0e1828]">
                       IIITDM Kurnool — B.Tech in Computer Science &amp; Engineering
                     </span>
-                    <span className="text-[#7d7363] font-mono">2022 – 2026</span>
+                    <span className="text-[#7d7363] font-mono shrink-0">Nov 2022 – Apr 2026</span>
+                  </div>
+                  <div className="pt-2 border-t border-[#dfd6c6]/60 text-[#554d42] space-y-1">
+                    <p>
+                      <strong className="text-[#0e1828]">Roles &amp; Responsibility:</strong> Student Representative, CPAC (IIMV) • Co-Speaker &amp; ML Mentor, Google Developer Club (Intro to Intermediate ML) • Event Management Lead, Solasta 2025 (150+ participants &amp; organizers)
+                    </p>
                   </div>
                   <div className="pt-2 border-t border-[#dfd6c6]/60 text-[#554d42] flex flex-wrap gap-x-4 gap-y-1.5">
+                    <a
+                      href="https://www.coursera.org/account/accomplishments/verify/YT9Z5U2YJAJX"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#0e1828] hover:underline transition-colors inline-flex items-center gap-1"
+                    >
+                      <span>✦ Supervised ML (Stanford Online)</span>
+                      <span className="material-symbols-outlined text-[12px]">open_in_new</span>
+                    </a>
+                    <a
+                      href="https://www.coursera.org/account/accomplishments/verify/3X1M09A4GTGI"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#0e1828] hover:underline transition-colors inline-flex items-center gap-1"
+                    >
+                      <span>✦ Unsupervised Learning, Recommenders &amp; RL (Stanford Online)</span>
+                      <span className="material-symbols-outlined text-[12px]">open_in_new</span>
+                    </a>
                     <a
                       href="https://drive.google.com/file/d/1g6X2YPjZxRs4j8CIz_G60PFAHmy4-Fz5/view?usp=sharing"
                       target="_blank"
@@ -220,7 +243,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                       rel="noopener noreferrer"
                       className="hover:text-[#0e1828] hover:underline transition-colors inline-flex items-center gap-1"
                     >
-                      <span>✦ 2nd Place – GDG Hackathon</span>
+                      <span>✦ 2nd Place – GDG Hackathon &amp; DataWorks Hackathon</span>
                       <span className="material-symbols-outlined text-[12px]">open_in_new</span>
                     </a>
                   </div>
