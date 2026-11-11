@@ -5,6 +5,7 @@ export type CaseStudyKey =
   | 'lending'
   | 'flowlens'
   | 'costoptimizer'
+  | 'studytube'
   | 'evalharness'
   | 'vlm'
   | 'karam'
@@ -44,6 +45,9 @@ export const STUDY_KEYS: CaseStudyKey[] = [
   'notion',
   'comet',
   'lending',
+  'flowlens',
+  'costoptimizer',
+  'studytube',
   'vlm',
 ];
 
@@ -194,8 +198,8 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
   },
   flowlens: {
     key: 'flowlens',
-    tag: '05 / AI WORKFLOW ENGINE CASE STUDY',
-    meta: 'Preflight Validator & AST Engine • Nov 2026',
+    tag: '05 / AI PRODUCT BUILD • WORKFLOW SAFETY',
+    meta: 'Preflight Validator & AST Engine • 2026',
     badgeText: 'SHOPIFY FLOWLENS',
     badgeTone: 'emerald',
     dateRange: '2026',
@@ -204,6 +208,7 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
     roleDescription:
       'Read-only preflight analyzer inspecting .flow schemas to flag ISO-2 country code mismatches, pre-Wait data loss hazards, and self-triggering update loops before automations touch live customer orders.',
     category: 'project',
+    thumbnailUrl: '/assets/thumbnails/thumb-flowlens.jpg',
     standaloneUrl: '/projects/shopify-flow-lens.html',
     githubUrl: 'https://github.com/krishnamurthi-ramesh/Shopify-Flow-Lens',
     prototypeUrl: 'https://shopify-flowlens.vercel.app',
@@ -230,8 +235,8 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
   },
   costoptimizer: {
     key: 'costoptimizer',
-    tag: '06 / AI INFERENCE UNIT ECONOMICS',
-    meta: 'PRD & Financial Architecture Memo • Nov 2026',
+    tag: '06 / AI PRODUCT BUILD • UNIT ECONOMICS',
+    meta: 'PRD & Financial Architecture Memo • 2026',
     badgeText: 'AI COST OPTIMIZER',
     badgeTone: 'navy',
     dateRange: '2026',
@@ -240,6 +245,7 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
     roleDescription:
       'Intelligent model tiering proxy (<80ms classifier) routing 78% of queries to SLMs and reserving frontier models for high-entropy multi-step reasoning, protecting SaaS margins from token COGS bleed.',
     category: 'project',
+    thumbnailUrl: '/assets/thumbnails/thumb-cost-optimizer.jpg',
     standaloneUrl: '/projects/ai-cost-optimizer.html',
     githubUrl: 'https://github.com/krishnamurthi-ramesh/AI-Cost-Optimizer',
     prototypeUrl: 'https://ai-cost-optimizer-iota.vercel.app',
@@ -260,6 +266,42 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
         label: 'LATENCY P95',
         value: '1.20s',
         description: '57.1% faster response time vs. Frontier',
+        colorScheme: 'navy',
+      },
+    ],
+  },
+  studytube: {
+    key: 'studytube',
+    tag: '07 / CONSUMER PRODUCT BUILD • CHROME MV3',
+    meta: 'Global Bandwidth Intelligence & Distraction Shield • 2026',
+    badgeText: 'STUDYTUBE',
+    badgeTone: 'emerald',
+    dateRange: '2026',
+    domainSubtitle: 'EdTech Accessibility & Capped Mobile Data Optimization',
+    headline: 'StudyTube: Global Bandwidth Intelligence & Distraction Shield',
+    roleDescription:
+      'Chrome Manifest V3 extension solving the mobile-hotspot learning penalty for 350M+ capped-data learners via 4 subject-aware bitrate modes (Talk/Board/Code/Audio), zero-prefetch distraction blocking, and W3C socket-level telemetry.',
+    category: 'project',
+    thumbnailUrl: '/assets/thumbnails/thumb-studytube.jpg',
+    standaloneUrl: '/projects/study-tube.html',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/Study-Tube',
+    metrics: [
+      {
+        label: 'AVG DATA SAVED',
+        value: '63.2%',
+        description: 'Measured across live Jio/Airtel 4G cellular sessions',
+        colorScheme: 'emerald',
+      },
+      {
+        label: 'DATA CONSERVED',
+        value: '4.55 GB',
+        description: '4,548.7 MB saved vs. 2,649.1 MB streamed (W3C API)',
+        colorScheme: 'gold',
+      },
+      {
+        label: 'PEAK SESSION',
+        value: '91.0%',
+        description: 'Saved on 3.5h course with <0.2% CPU overhead',
         colorScheme: 'navy',
       },
     ],
@@ -303,7 +345,7 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
   },
   vlm: {
     key: 'vlm',
-    tag: '05 / RESEARCH PROJECT • STATISTICAL SAFETY',
+    tag: '08 / RESEARCH PROJECT • STATISTICAL SAFETY',
     meta: 'IEEE Paper in Review • IIITDM Kurnool • 2026',
     badgeText: 'ACTIVE CONFORMAL CONTROL',
     badgeTone: 'gold',

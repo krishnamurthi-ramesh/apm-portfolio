@@ -1,5 +1,5 @@
 \documentclass[10pt,a4paper]{article}
-\usepackage[left=0.40in,right=0.40in,top=0.18in,bottom=0.16in]{geometry}
+\usepackage[left=0.36in,right=0.36in,top=0.15in,bottom=0.14in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[none]{hyphenat}
@@ -19,17 +19,17 @@
   pdfauthor={Krishnamurthi}
 }
 \pagestyle{empty}
-\linespread{0.89}
+\linespread{0.85}
 \sloppy
 \color{ink}
-\titleformat{\section}{\small\bfseries\color{accent}}{}{0em}{\MakeUppercase}[\vspace{0.4pt}\titlerule\vspace{1.5pt}]
-\titlespacing*{\section}{0pt}{4.2pt}{1.5pt}
-\setlist[itemize]{leftmargin=10pt, itemsep=1.0pt, topsep=1.0pt, parsep=0pt}
+\titleformat{\section}{\small\bfseries\color{accent}}{}{0em}{\MakeUppercase}[\vspace{0.3pt}\titlerule\vspace{1.2pt}]
+\titlespacing*{\section}{0pt}{3.2pt}{1.1pt}
+\setlist[itemize]{leftmargin=9pt, itemsep=0.5pt, topsep=0.5pt, parsep=0pt}
 \setlength{\parindent}{0pt}
 
 \newcommand{\role}[3]{%
-  \par\noindent\textbf{#1} \hfill \textcolor{muted}{\small\mbox{#2}}\\
-  \textit{\small #3}\par\vspace{0.8pt}%
+  \par\noindent\textbf{\small #1} \hfill \textcolor{muted}{\footnotesize\mbox{#2}}\\
+  \textit{\footnotesize #3}\par\vspace{0.4pt}%
 }
 
 \begin{document}
@@ -59,56 +59,60 @@
 
 \section*{Skills}
 {\small
-\textbf{Product Management:} Product Discovery, Problem Framing, PRDs, User Research, Funnel Analysis, RICE Prioritization, North Star Metrics, A/B Testing, SaaS Unit Economics, Stakeholder Management\\[1pt]
-\textbf{AI / ML:} Generative AI, LLM Evaluation (Ragas, Recall@K), Retrieval-Augmented Generation (RAG), Model Routing, Quantization, NLP, PyTorch, FAISS\\[1pt]
-\textbf{Engineering \& Data:} Python, SQL, REST APIs, FastAPI, Kafka, Docker, Elasticsearch, Grafana, PostgreSQL\\[1pt]
-\textbf{Product / Developer Tools:} Figma, Git, GitHub
+\textbf{Product Management:} Product Discovery, Problem Framing, PRDs, User Research, Funnel Analysis, RICE Prioritization, North Star Metrics, A/B Testing, SaaS Unit Economics, Stakeholder Management\\[0.6pt]
+\textbf{AI / ML:} Generative AI, LLM Evaluation (Ragas, Recall@K), Retrieval-Augmented Generation (RAG), Model Routing, Quantization, NLP, PyTorch, FAISS\\[0.6pt]
+\textbf{Engineering \& Tools:} Python, TypeScript, React, SQL, REST APIs, FastAPI, Chrome MV3, Kafka, Docker, Elasticsearch, Grafana, PostgreSQL, Figma, Git
 }
 
 \section*{Experience}
 \role{Research Intern --- Classical Epistemology}{Jan 2026 -- Jul 2026}{IIITDM Kurnool \textbar\ Kurnool, India}
-\begin{itemize}
-\item Formulated deterministic software verification rules grounded in classical \textit{Nyaya Shastra} dialectical logic to validate algorithmic inference pipelines.
-\item Mapped epistemic soundness checks and out-of-distribution failure bounds onto automated validation workflows, informing edge AI hallucination guardrails.
+\begin{itemize}\small
+\item Formulated deterministic verification rules grounded in classical \textit{Nyaya Shastra} logic to validate algorithmic inference pipelines.
+\item Mapped epistemic soundness \& out-of-distribution failure bounds onto automated validation workflows for edge AI hallucination guardrails.
 \end{itemize}
-\vspace{2.5pt}
+\vspace{1.2pt}
 \role{Data Science Intern --- Meraqui Ventures Pvt. Ltd. (karam.ai)}{Apr 2025 -- Jul 2025}{Remote / Pune, India}
-\begin{itemize}
-\item Lifted candidate-matching precision by \textbf{15\%} by owning discovery, launch success metrics, feature engineering, and LLM fine-tuning with engineering teams.
-\item Cut manual ERP entry by \textbf{15\%} (\textbf{15+ hrs/wk} saved) and data errors by \textbf{12--15\%} by shadowing recruiters and replacing brittle chat flows with REST API and webhook syncs.
-\item Accelerated multi-client ERP onboarding by delivering schema-validated JSON-to-XML ETL pipelines, automated API test harnesses, and developer integration specs.
+\begin{itemize}\small
+\item Lifted candidate-matching precision by \textbf{15\%} by owning discovery, launch success metrics, feature engineering, and LLM fine-tuning.
+\item Cut manual ERP entry by \textbf{15\%} (\textbf{15+ hrs/wk}) and data errors by \textbf{12--15\%} by shadowing recruiters and shipping REST API \& webhook syncs.
+\item Accelerated multi-client ERP onboarding via schema-validated JSON-to-XML ETL pipelines, automated API harnesses, and integration specs.
 \end{itemize}
-\vspace{2.5pt}
+\vspace{1.2pt}
 \role{Development Intern --- Data Systems \& Infrastructure, Treacle Technologies}{Jun 2024 -- Aug 2024}{Incubated at SIIC, IIT Kanpur \textbar\ Remote}
-\begin{itemize}
-\item Slashed anomaly and incident detection latency by \textbf{40\%} by integrating \textbf{Wazuh}, \textbf{Elasticsearch}, and \textbf{Grafana} dashboards with real-time file-access alerting.
-\item Processed \textbf{100k+ logs/day} across Linux and Windows VMs by engineering a real-time \textbf{Kafka} streaming pipeline and custom web dashboard for live attack analysis.
-\item Automated cross-platform infrastructure monitoring and alert dispatch using Python/Bash telemetry scripts and a hardened Postfix/Dovecot mail service.
+\begin{itemize}\small
+\item Slashed incident detection latency by \textbf{40\%} via \textbf{Wazuh}, \textbf{Elasticsearch}, and \textbf{Grafana} dashboards with real-time file alerting.
+\item Processed \textbf{100k+ logs/day} across Linux/Windows VMs using a \textbf{Kafka} streaming pipeline and custom live-attack web dashboard.
+\item Automated infrastructure monitoring and alert dispatch with Python/Bash telemetry scripts and a hardened Postfix/Dovecot mail service.
 \end{itemize}
 
 \section*{Selected Product \& AI Projects}
-\begin{itemize}
-\item \textbf{Inside OpenAI's In-House Data Agent} (\href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/openai-data-agent}{Case Study\,$\nearrow$}): Audited 6-layer context engineering (Git crawling, Slack/Docs memory, RBAC) and 200+ golden-question evals driving \textbf{17$\times$} speedup across \textbf{70k} datasets (\textbf{600 PB}).
-\item \textbf{Notion Agents: Pricing, Routing \& Cost Control} (\href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/notion-agents}{Teardown\,$\nearrow$}): Evaluated \textbf{5/10/20} credit economics and Sonnet-to-Haiku dynamic routing; authored P0 run-level budget envelope specs (\textbf{\$10/1k}) to bound autonomous spend.
-\item \textbf{Comet AI Search --- Funnel \& Friction Teardown} \mbox{(\href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/comet}{Case Study\,$\nearrow$} \textbar\ \href{https://relay-define-38337038.figma.site/}{Prototype\,$\nearrow$})}: Isolated stateless ``Finder'' session resets causing \textbf{42\%} pre-PDP drop-off; scoped persistent fit memory targeting \textbf{+22\%} conversion via \textbf{Finder-assisted add-to-cart} KPI.
-\item \textbf{KreditBee \& PhonePe Lending Funnels} \mbox{(\href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/lending-funnels}{Case Study\,$\nearrow$} \textbar\ \href{https://option-delete-93793571.figma.site/}{Prototype\,$\nearrow$})}: Contrasted KYC OCR upload failures vs. NBFC handoff trust leaks; designed inline doc pre-checks targeting \textbf{+24\%} KYC completion and \textbf{-35\%} handoff drop-off.
-\item \textbf{Active Conformal Control --- Edge VLM Safety} \mbox{(\href{https://krishnamurthi-apm-portfolio.vercel.app/projects/active-conformal-control}{Research\,$\nearrow$} \textbar\ \href{https://github.com/krishnamurthi-ramesh/Active-Conformal-Control-Navigating-Density-Chasms-in-Quantized-Vision-Language-Systems}{GitHub\,$\nearrow$})}: Built density-drift monitor (\textit{ppDRE}) \& student/teacher cascade reaching \textbf{94.2\%} precision and \textbf{$\sim$60\%} token cut (IEEE peer review).
-\item \textbf{Hymba-1.5B-Eigen-Hybrid-4bit} (\href{https://huggingface.co/krishhx/Hymba-1.5B-Eigen-Hybrid-4bit}{Hugging Face\,$\nearrow$}): Cut edge VRAM by \textbf{65\%} (\textbf{2.91 GB $\to$ 1.01 GB}) with \textbf{$<$1\%} perplexity loss (6.43 WikiText-2) via selective FP16/4-bit CUDA quantization for Mamba/MoE SSMs.
+\begin{itemize}\small
+\item \textbf{Shopify FlowLens --- AST Safety Validator} \mbox{(\href{https://krishnamurthi-apm-portfolio.vercel.app/projects/shopify-flow-lens}{Case Study\,$\nearrow$} \textbar\ \href{https://shopify-flowlens.vercel.app}{Prototype\,$\nearrow$} \textbar\ \href{https://github.com/krishnamurthi-ramesh/Shopify-Flow-Lens}{GitHub\,$\nearrow$})}: Built AST validator (\textbf{5 rules, $<$100ms}) \& zero-mutation dry-run sandbox closing Sidekick Qwen-32B's \textbf{-35\%} activation gap.
+\item \textbf{AI Cost Optimizer --- Margin \& Routing Engine} \mbox{(\href{https://krishnamurthi-apm-portfolio.vercel.app/projects/ai-cost-optimizer}{Case Study\,$\nearrow$} \textbar\ \href{https://ai-cost-optimizer-iota.vercel.app}{Prototype\,$\nearrow$} \textbar\ \href{https://github.com/krishnamurthi-ramesh/AI-Cost-Optimizer}{GitHub\,$\nearrow$})}: Modeled semantic cache + 60/40 SLM router at \textbf{100k DAU}, cutting COGS \textbf{66.8\%} (\textbf{-\$91.6k/mo}) \& lifting margin \textbf{+30.5\%} to \textbf{84.8\%} (\textbf{1.20s P95}).
+\item \textbf{StudyTube --- Bandwidth \& Quality Governor} \mbox{(\href{https://krishnamurthi-apm-portfolio.vercel.app/projects/study-tube}{Case Study\,$\nearrow$} \textbar\ \href{https://github.com/krishnamurthi-ramesh/Study-Tube}{GitHub\,$\nearrow$})}: Shipped \textbf{26.1 KB} Chrome MV3 extension with 4 subject modes \& W3C telemetry saving \textbf{4.55 GB} (\textbf{63.2\% avg / 91.0\% peak}).
+\item \textbf{OpenAI In-House Data Agent} (\href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/openai-data-agent}{Case Study\,$\nearrow$}): Audited 6-layer context pipeline (Git/Slack/RBAC) \& 200+ golden-question evals driving \textbf{17$\times$} speedup across \textbf{70k} datasets (\textbf{600 PB}).
+\item \textbf{Notion Agents: Pricing \& Cost Control} (\href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/notion-agents}{Teardown\,$\nearrow$}): Evaluated \textbf{5/10/20} credit economics \& Sonnet-to-Haiku routing; scoped P0 run-level budget caps (\textbf{\$10/1k}) for spend safety.
+\item \textbf{Comet AI Search --- Funnel Teardown} \mbox{(\href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/comet}{Case Study\,$\nearrow$} \textbar\ \href{https://relay-define-38337038.figma.site/}{Prototype\,$\nearrow$})}: Isolated stateless Finder resets driving \textbf{42\%} drop-off; scoped persistent fit memory targeting \textbf{+22\%} conversion KPI.
+\item \textbf{KreditBee \& PhonePe Lending Funnels} \mbox{(\href{https://krishnamurthi-apm-portfolio.vercel.app/teardowns/lending-funnels}{Case Study\,$\nearrow$} \textbar\ \href{https://option-delete-93793571.figma.site/}{Prototype\,$\nearrow$})}: Diagnosed KYC OCR failures vs. NBFC handoff leaks; designed pre-checks targeting \textbf{+24\%} KYC \& \textbf{-35\%} drop-off.
+\item \textbf{Active Conformal Control --- Edge VLM Safety} \mbox{(\href{https://krishnamurthi-apm-portfolio.vercel.app/projects/active-conformal-control}{Research\,$\nearrow$} \textbar\ \href{https://github.com/krishnamurthi-ramesh/Active-Conformal-Control-Navigating-Density-Chasms-in-Quantized-Vision-Language-Systems}{GitHub\,$\nearrow$})}: Built density-drift monitor (\textit{ppDRE}) \& cascade hitting \textbf{94.2\%} precision and \textbf{$\sim$60\%} token cut (IEEE peer review).
+\item \textbf{Hymba-1.5B-Eigen-Hybrid-4bit} (\href{https://huggingface.co/krishhx/Hymba-1.5B-Eigen-Hybrid-4bit}{Hugging Face\,$\nearrow$}): Cut edge VRAM \textbf{65\%} (\textbf{2.91 $\to$ 1.01 GB}) at \textbf{$<$1\%} perplexity loss (6.43 WikiText-2) via selective FP16/4-bit CUDA quantization.
 \end{itemize}
 
 \section*{Education}
-\textbf{Indian Institute of Management Visakhapatnam} \hfill \textcolor{muted}{\small\mbox{Mar 2025 -- Mar 2027}}\\
-{\small Post-Graduate Program in Management (PGPMCI) ~|~ Product Strategy, Platform Ecosystems, Analytics}\\[2.5pt]
-\textbf{IIITDM Kurnool (Institute of National Importance)} \hfill \textcolor{muted}{\small\mbox{Nov 2022 -- Apr 2026}}\\
-{\small B.Tech, Computer Science and Engineering}
+{\small
+\textbf{Indian Institute of Management Visakhapatnam} \hfill \textcolor{muted}{\mbox{Mar 2025 -- Mar 2027}}\\
+Post-Graduate Program in Management (PGPMCI) ~|~ Product Strategy, Platform Ecosystems, Analytics\\[1.5pt]
+\textbf{IIITDM Kurnool (Institute of National Importance)} \hfill \textcolor{muted}{\mbox{Nov 2022 -- Apr 2026}}\\
+B.Tech, Computer Science and Engineering
+}
 
 \section*{Positions of Responsibility}
-\begin{itemize}[itemsep=1.4pt]
-\item \textbf{Student Representative --- CPAC, IIM Visakhapatnam} \hfill \textcolor{muted}{\small\mbox{Sep 2026 -- Present}}\\
-Serve as liaison across PGPMCI Batch 2, IIMV leadership, and The Career Company (TCC) to coordinate cohort career readiness, stakeholder feedback, and placement execution.
-\item \textbf{Co-Speaker \& ML Mentor --- Google Developer Club (GDC), IIITDM Kurnool} \hfill \textcolor{muted}{\small\mbox{2024 -- 2025}}\\
-Co-led technical cohorts progressing students from \textit{Intro to Machine Learning} to intermediate supervised/unsupervised modeling, feature engineering, and Python evaluation pipelines.
-\item \textbf{Event Management Lead --- Solasta 2025, IIITDM Kurnool} \hfill \textcolor{muted}{\small\mbox{2025}}\\
+\begin{itemize}[itemsep=0.6pt]\small
+\item \textbf{Student Representative --- CPAC, IIM Visakhapatnam} \hfill \textcolor{muted}{\mbox{Sep 2026 -- Present}}\\
+Liaison across PGPMCI Batch 2, IIMV leadership, and The Career Company (TCC) coordinating cohort career readiness and placement execution.
+\item \textbf{Co-Speaker \& ML Mentor --- Google Developer Club (GDC), IIITDM Kurnool} \hfill \textcolor{muted}{\mbox{2024 -- 2025}}\\
+Co-led cohorts from \textit{Intro to Machine Learning} through intermediate supervised/unsupervised modeling, feature engineering, and Python evals.
+\item \textbf{Event Management Lead --- Solasta 2025, IIITDM Kurnool} \hfill \textcolor{muted}{\mbox{2025}}\\
 Directed event operations, stage scheduling, and cross-functional teams for \textbf{150+ participants and organizers} across technical and cultural tracks.
 \end{itemize}
 
@@ -116,7 +120,7 @@ Directed event operations, stage scheduling, and cross-functional teams for \tex
 {\small
 \textbf{Certifications:}
 \href{https://www.coursera.org/account/accomplishments/verify/YT9Z5U2YJAJX}{Supervised ML (Stanford Online)\,$\nearrow$} ~|~ 
-\href{https://www.coursera.org/account/accomplishments/verify/3X1M09A4GTGI}{Unsupervised Learning, Recommenders \& RL (Stanford Online)\,$\nearrow$}\\[1pt]
+\href{https://www.coursera.org/account/accomplishments/verify/3X1M09A4GTGI}{Unsupervised Learning, Recommenders \& RL (Stanford Online)\,$\nearrow$}\\[0.5pt]
 \textbf{Honors:}
 Oracle Cloud GenAI Certified (92.5\%) ~|~ 
 2\textsuperscript{nd} Place, GDG Hackathon (AI/ML) \& DataWorks Hackathon (LLM Apps)

@@ -249,6 +249,33 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                     </p>
                   </div>
 
+                  <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
+                    <span className="font-bold text-[#0e1828] block">
+                      Shopify FlowLens — AST Safety Validator
+                    </span>
+                    <p className="text-[#554d42]">
+                      Built pre-flight AI workflow AST gatekeeper (&lt;100ms parse, 5 rules) &amp; zero-mutation dry-run sandbox closing Shopify&apos;s -35% Sidekick activation gap.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
+                    <span className="font-bold text-[#0e1828] block">
+                      AI Cost Optimizer — Margin &amp; Routing Engine
+                    </span>
+                    <p className="text-[#554d42]">
+                      Modeled semantic cache &amp; 60/40 SLM router at 100k DAU cutting COGS by 66.8% (-$91.5k/mo) and raising gross margin +30.5% to 84.8% (1.20s P95).
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-white border border-[#dfd6c6] space-y-1">
+                    <span className="font-bold text-[#0e1828] block">
+                      StudyTube — Intent-Aware Bandwidth Governor
+                    </span>
+                    <p className="text-[#554d42]">
+                      Shipped 26.1 KB Chrome MV3 extension with 4 subject modes &amp; W3C telemetry saving 4,548.7 MB (63.2% avg / 91.0% peak) for hotspot learners.
+                    </p>
+                  </div>
+
                   <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
                     <span className="font-bold text-[#0e1828] block">
                       Active Conformal Control — Edge VLM Safety (Research)

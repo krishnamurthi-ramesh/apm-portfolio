@@ -557,6 +557,69 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             </div>
           )}
 
+          {/* STUDYTUBE DEEP DIVE */}
+          {activeKey === 'studytube' && (
+            <div className="space-y-6 text-sm">
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  01 / Problem Framing &amp; Stream Governor Architecture
+                </h3>
+                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-4">
+                  <p className="text-[#4a4235] leading-relaxed">
+                    Over 350M learners studying on daily capped cellular hotspots (1.5–2.0 GB/day) exhaust their quota in under an hour because auto-bitrate treats static whiteboard or slide lectures like 1080p60 cinema (~25–35 MB/min) while sidebar hover previews waste ~150–250 MB/hr.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+                      <span className="font-bold text-[#0e1828] block mb-1">
+                        4 Subject-Matched Bitrate Modes
+                      </span>
+                      <p className="text-[#554d42]">
+                        Talk Mode (480p SD, ~65% saved), Board Mode (720p HD for handwriting/math, ~45% saved), Code Mode (720p/1080p for 12pt syntax, ~35% saved), and Audio-First (144p + mask, ~85% saved).
+                      </p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6]">
+                      <span className="font-bold text-[#0e1828] block mb-1">
+                        Triple-Layer Quality &amp; W3C Telemetry
+                      </span>
+                      <p className="text-[#554d42]">
+                        Combines HTML5 state seeding, window Player API bridging, and &lt;80ms DOM gear fallback; verifies exact googlevideo.com transferSize via W3C PerformanceObserver (&lt;0.2% CPU overhead, zero PII).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
+                  02 / SDLC Artifacts &amp; GitHub Release
+                </h3>
+                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
+                  <p className="text-[#4a4235] leading-relaxed text-xs">
+                    Includes full PRD, MRD, STRIDE ToS security audit, 15 QA test cases, student comprehension benchmarks, and automated Chrome Web Store MV3 packaging (26.13 KB zip with SHA-256 checksum).
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    <a
+                      href="/projects/study-tube.html"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
+                    >
+                      <span>Read Full Case Study</span>
+                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
+                    </a>
+                    <a
+                      href="https://github.com/krishnamurthi-ramesh/Study-Tube"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
+                    >
+                      <span>GitHub Repository</span>
+                      <span className="material-symbols-outlined text-[13px]">code</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* PERPLEXITY EVAL HARNESS DEEP DIVE */}
           {activeKey === 'evalharness' && (
             <div className="space-y-6 text-sm">

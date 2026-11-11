@@ -33,7 +33,7 @@ interface ProjectWorkItem {
   id: CaseStudyKey;
   tag: string;
   badge: string;
-  category: 'teardowns' | 'systems';
+  category: 'teardowns' | 'productBuilds' | 'systems';
   thumbnailUrl: string;
   title: string;
   subtitle: string;
@@ -119,6 +119,62 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     techTags: ['Funnel Optimization', 'KYC & OCR', 'AARRR Funnel', 'Fintech UX', 'User Friction', 'Disbursal Velocity'],
     standaloneUrl: '/teardowns/lending-funnels.html',
     prototypeUrl: 'https://option-delete-93793571.figma.site/',
+  },
+  {
+    id: 'flowlens',
+    tag: 'PM PROTOTYPE • AGENTIC SAAS',
+    badge: 'SHOPIFY FLOWLENS',
+    category: 'productBuilds',
+    thumbnailUrl: '/assets/thumbnails/thumb-flowlens.jpg',
+    title: 'Shopify FlowLens — AST Safety Validator & Dry-Run Sandbox',
+    subtitle: 'Pre-flight safety gatekeeper catching silent logic regressions, infinite loops, and unauthenticated API calls before AI-generated workflows execute in production.',
+    problem:
+      'While Shopify Sidekick Qwen-32B generates Flow workflows rapidly, merchant trust anxiety around silent logic breaks created a -35% activation gap before live execution.',
+    judgmentCalls:
+      'Built a zero-mutation client-side AST linting engine (<100ms parse across 5 strict safety rules), interactive dry-run payload sandbox, and Human-in-the-Loop approval gate.',
+    outcome:
+      '100% deterministic AST rule coverage across 5 critical safety checks with <100ms validation latency, zero live store mutations, and downloadable Markdown audit reports.',
+    techTags: ['AI Safety & HITL', 'React 18', 'TypeScript', 'AST Static Analysis', 'Dry-Run Sandbox', 'PRD & Metrics'],
+    standaloneUrl: '/projects/shopify-flow-lens.html',
+    prototypeUrl: 'https://shopify-flowlens.vercel.app',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/Shopify-Flow-Lens',
+  },
+  {
+    id: 'costoptimizer',
+    tag: 'AI UNIT ECONOMICS • FINOPS',
+    badge: 'AI COST OPTIMIZER',
+    category: 'productBuilds',
+    thumbnailUrl: '/assets/thumbnails/thumb-cost-optimizer.jpg',
+    title: 'AI Cost Optimizer — Semantic Cache & Cascading SLM Router',
+    subtitle: 'Unit-economics simulator and cascading model router built to protect B2B SaaS gross margins against unthrottled frontier LLM spend.',
+    problem:
+      'Routing 100% of queries directly to frontier LLMs creates an unsustainable $137,116/mo COGS burden at 100k DAU, compressing SaaS gross margins to 54.3%.',
+    judgmentCalls:
+      'Designed a semantic similarity cache paired with a 60/40 SLM-vs-frontier complexity router and live margin-simulation levers to enforce cost-SLA guardrails.',
+    outcome:
+      'Projected -$91,564/mo savings (-66.8% COGS from $137,116 to $45,553/mo), +30.5% gross margin expansion (84.8%), 1.20s P95 latency (57.1% faster), and 99.2% quality retention.',
+    techTags: ['LLM Unit Economics', 'Semantic Caching', 'Cascading Routing', 'COGS Modeling', 'React + TypeScript', 'SLA Guardrails'],
+    standaloneUrl: '/projects/ai-cost-optimizer.html',
+    prototypeUrl: 'https://ai-cost-optimizer-iota.vercel.app',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/AI-Cost-Optimizer',
+  },
+  {
+    id: 'studytube',
+    tag: '0→1 CONSUMER EXTENSION • EDTECH',
+    badge: 'STUDYTUBE CHROME MV3',
+    category: 'productBuilds',
+    thumbnailUrl: '/assets/thumbnails/thumb-studytube.jpg',
+    title: 'StudyTube — Intent-Driven Bandwidth & Quality Governor',
+    subtitle: 'Zero-dependency Chrome MV3 extension rescuing mobile-hotspot learners from silent 1080p bitrate drain via 4 subject-aware quality modes.',
+    problem:
+      '350M+ students learning on 1.5–2.0 GB/day mobile hotspots burn data in under 45 minutes when default players silently stream 1080p audio-heavy lectures.',
+    judgmentCalls:
+      'Shipped a 26.13 KB MV3 extension with 4 subject modes (Talk 480p, Board 720p, Code HD, Audio 144p), a Triple-Layer Player Quality Engine (<80ms fallback), and zero-PII W3C telemetry.',
+    outcome:
+      'Verified in dogfooding: 4,548.7 MB (4.55 GB) saved vs. 2,649.1 MB streamed (63.2% avg savings, 91.0% peak across a 3.5h AI PM course) at <0.2% CPU overhead.',
+    techTags: ['0→1 Product Build', 'Chrome MV3', 'W3C PerformanceObserver', 'SDLC Strategy', 'EdTech Access', 'JavaScript'],
+    standaloneUrl: '/projects/study-tube.html',
+    githubUrl: 'https://github.com/krishnamurthi-ramesh/Study-Tube',
   },
   {
     id: 'vlm',
@@ -298,12 +354,12 @@ export default function App() {
   const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudyKey | null>(
     null
   );
-  const [activeFilter, setActiveFilter] = useState<'all' | 'teardowns' | 'systems'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'teardowns' | 'productBuilds' | 'systems'>('all');
   const [showCopyToast, setShowCopyToast] = useState(false);
   const [showResumeModal, setShowResumeModal] = useState(false);
   const [heroWordIndex, setHeroWordIndex] = useState(0);
 
-  // Hash listener for direct teardown links (#openai, #notion, #comet, #lending, #flowlens, #costoptimizer, #evalharness)
+  // Hash listener for direct teardown & project links (#openai, #notion, #comet, #lending, #flowlens, #costoptimizer, #studytube, #vlm)
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
@@ -313,6 +369,7 @@ export default function App() {
       else if (hash === 'lending' || hash === 'teardown-lending') setActiveCaseStudy('lending');
       else if (hash === 'flowlens' || hash === 'shopify-flow-lens') setActiveCaseStudy('flowlens');
       else if (hash === 'costoptimizer' || hash === 'ai-cost-optimizer') setActiveCaseStudy('costoptimizer');
+      else if (hash === 'studytube' || hash === 'study-tube') setActiveCaseStudy('studytube');
       else if (hash === 'evalharness' || hash === 'eval-harness') setActiveCaseStudy('evalharness');
       else if (hash === 'vlm' || hash === 'active-conformal-control') setActiveCaseStudy('vlm');
       else if (hash === 'karam' || hash === 'meraqui-karam') setActiveCaseStudy('karam');
@@ -1337,13 +1394,13 @@ export default function App() {
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#806b47] font-mono">
                   <span>02</span>
                   <span>/</span>
-                  <span>Product Teardowns &amp; Research Projects</span>
+                  <span>Product Teardowns, Builds &amp; Research</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0e1828] tracking-tight font-[family-name:var(--font-editorial)]">
-                  Teardowns &amp; Research Projects
+                  Product Work &amp; Research
                 </h2>
                 <p className="text-sm sm:text-base text-[#554d42] max-w-xl">
-                  Deep reverse engineering, funnel friction diagnostics, AI unit economics, and formal statistical safety research — structured by problem framing, judgment calls, and measurable outcomes.
+                  Product teardowns, shipped AI &amp; consumer builds, unit-economics engines, and statistical safety research — structured by problem framing, judgment calls, and measurable outcomes.
                 </p>
               </div>
 
@@ -1372,6 +1429,18 @@ export default function App() {
                   }`}
                 >
                   Product Teardowns ({PROJECTS_WORK.filter((p) => p.category === 'teardowns').length})
+                </button>
+                <button
+                  type="button"
+                  data-cursor="Filter Product Builds"
+                  onClick={() => setActiveFilter('productBuilds')}
+                  className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
+                    activeFilter === 'productBuilds'
+                      ? 'bg-[#0e1828] text-[#faf7f2] shadow-xs'
+                      : 'text-[#554d42] hover:text-[#0e1828]'
+                  }`}
+                >
+                  Product Builds ({PROJECTS_WORK.filter((p) => p.category === 'productBuilds').length})
                 </button>
                 <button
                   type="button"
@@ -1525,13 +1594,152 @@ export default function App() {
               </div>
             )}
 
+            {/* AI Product & Consumer Builds Showcase (02.2 - Ranked ahead of Research) */}
+            {(activeFilter === 'all' || activeFilter === 'productBuilds') && (
+              <div className="space-y-8 pt-6">
+                {activeFilter === 'all' && (
+                  <div className="pt-8 border-t border-[#dfd6c6] space-y-2">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#806b47] font-mono">
+                      <span>02.2</span>
+                      <span>/</span>
+                      <span>AI Product &amp; Consumer Builds</span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0e1828] font-[family-name:var(--font-editorial)]">
+                      0→1 Product Prototypes &amp; Unit Economics Engines
+                    </h3>
+                    <p className="text-sm text-[#554d42] max-w-xl">
+                      Shipped end-to-end PM tools, AST validation sandboxes, cascading LLM margin simulators, and browser extensions solving concrete user &amp; COGS bottlenecks.
+                    </p>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-8 items-stretch">
+                  {filteredProjects
+                    .filter((p) => p.category === 'productBuilds')
+                    .map((item) => (
+                      <article
+                        key={item.id}
+                        data-cursor="View Case Study"
+                        onClick={() => setActiveCaseStudy(item.id)}
+                        className="reveal-scale reveal-glow rounded-3xl bg-[#ffffff] border border-[#dfd6c6] shadow-[0_6px_28px_rgba(14,24,40,0.05)] overflow-hidden flex flex-col justify-between group hover:border-[#b88a3b]/50 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      >
+                        {/* Visual Thumbnail Banner */}
+                        <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#0c1424] border-b border-[#dfd6c6]/60">
+                          <img
+                            src={item.thumbnailUrl}
+                            alt={item.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover object-center group-hover:scale-[1.025] transition-transform duration-500 ease-out"
+                          />
+                          <div className="absolute inset-0 ring-1 ring-inset ring-black/10 pointer-events-none" />
+                        </div>
+
+                        {/* Card Content */}
+                        <div className="p-6 sm:p-8 space-y-5 flex-1 flex flex-col justify-between">
+                          <div className="space-y-4">
+                            <div className="space-y-1.5">
+                              <h3 className="text-2xl sm:text-[26px] font-bold text-[#0e1828] font-[family-name:var(--font-editorial)] tracking-tight group-hover:text-[#b88a3b] transition-colors leading-snug">
+                                {item.title}
+                              </h3>
+                              <p className="text-xs sm:text-sm text-[#554d42] leading-relaxed">
+                                {item.subtitle}
+                              </p>
+                            </div>
+
+                            {/* PROBLEM */}
+                            <div className="space-y-1 pt-1">
+                              <h4 className="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#806b47]">
+                                Problem
+                              </h4>
+                              <p className="text-xs sm:text-[13px] text-[#4a4235] leading-relaxed">
+                                {item.problem}
+                              </p>
+                            </div>
+
+                            {/* PM JUDGMENT & EXECUTION */}
+                            <div className="space-y-1">
+                              <h4 className="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#0e1828]">
+                                PM Judgment &amp; Execution
+                              </h4>
+                              <p className="text-xs sm:text-[13px] text-[#4a4235] leading-relaxed">
+                                {item.judgmentCalls}
+                              </p>
+                            </div>
+
+                            {/* QUANTITATIVE OUTCOME */}
+                            <div className="p-4 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-1">
+                              <h4 className="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#0e1828]">
+                                Quantitative Outcome
+                              </h4>
+                              <p className="text-xs sm:text-[13px] font-medium text-[#4a4235] leading-relaxed">
+                                {item.outcome}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Tech stack tags & Strictly 2-Button Action Row */}
+                          <div className="space-y-4 pt-3 border-t border-[#dfd6c6]/50">
+                            <div className="flex flex-wrap items-center gap-1.5">
+                              {item.techTags.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="card-tech-tag px-2.5 py-0.5 rounded-full bg-[#f0e8dc] text-[10.5px] font-semibold text-[#554d42]"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+
+                            <div className="flex flex-wrap items-center gap-2.5">
+                              <a
+                                href={item.standaloneUrl}
+                                onClick={(e) => e.stopPropagation()}
+                                className="px-4 py-2 rounded-full bg-[#0e1828] hover:bg-[#1a2942] text-[#faf7f2] text-xs font-semibold inline-flex items-center gap-1.5 transition-colors shadow-xs"
+                              >
+                                <span>Read Full Case Study</span>
+                                <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
+                              </a>
+                              {item.prototypeUrl ? (
+                                <a
+                                  href={item.prototypeUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="px-3.5 py-2 rounded-full bg-[#faf7f2] hover:bg-[#f0e8dc] text-[#0e1828] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
+                                >
+                                  <span>Interactive Prototype</span>
+                                  <span className="material-symbols-outlined text-[13px]">rocket_launch</span>
+                                </a>
+                              ) : (
+                                item.githubUrl && (
+                                  <a
+                                    href={item.githubUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="px-3.5 py-2 rounded-full bg-white hover:bg-[#0e1828] text-[#0e1828] hover:text-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold inline-flex items-center gap-1 transition-colors shadow-2xs"
+                                  >
+                                    <span>GitHub Repo</span>
+                                    <span className="material-symbols-outlined text-[13px]">code</span>
+                                  </a>
+                                )
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
+                </div>
+              </div>
+            )}
+
             {/* Research Projects Showcase */}
             {(activeFilter === 'all' || activeFilter === 'systems') && (
               <div className="space-y-8 pt-6">
                 {activeFilter === 'all' && (
                   <div className="pt-8 border-t border-[#dfd6c6] space-y-2">
                     <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#806b47] font-mono">
-                      <span>02.2</span>
+                      <span>02.3</span>
                       <span>/</span>
                       <span>Research Projects</span>
                     </div>
