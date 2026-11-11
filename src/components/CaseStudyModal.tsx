@@ -637,68 +637,6 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             </div>
           )}
 
-          {/* ENTERPRISE RAG SYSTEM DEEP DIVE */}
-          {activeKey === 'rag' && (
-            <div className="space-y-6 text-sm">
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
-                  01 / System Architecture &amp; Privacy Boundaries
-                </h3>
-                <div className="p-5 rounded-2xl bg-white border border-[#dfd6c6] space-y-3">
-                  <h4 className="font-bold text-[#0e1828] text-base">
-                    Zero-Leak Local Inference with Statistical Quality Harness
-                  </h4>
-                  <p className="text-[#554d42] leading-relaxed">
-                    Enterprise legal and financial documents contain sensitive IP that cannot be exposed to third-party cloud APIs. Deployed a containerized local inference stack using Ollama + FAISS with strict sliding-window semantic chunking.
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
-                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
-                      <span className="font-bold text-[#0e1828] block">Ragas Evaluation Suite</span>
-                      <p className="text-[#554d42]">
-                        Continuous statistical measurement of Context Precision, Recall@K (0.88), and Faithfulness (0.91) to guarantee generated answers are strictly grounded in retrieved source chunks.
-                      </p>
-                    </div>
-                    <div className="p-3.5 rounded-xl bg-[#faf7f2] border border-[#dfd6c6] space-y-1">
-                      <span className="font-bold text-[#0e1828] block">Private Docker Clusters</span>
-                      <p className="text-[#554d42]">
-                        Achieved 380ms P99 inference latency while guaranteeing zero sensitive customer data ever traverses public internet backbones.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#b88a3b]">
-                  02 / Codebase &amp; Dedicated Case Study
-                </h3>
-                <div className="p-5 rounded-2xl bg-[#f0e8dc] border border-[#dfd6c6] space-y-3">
-                  <p className="text-[#4a4235] leading-relaxed text-xs">
-                    Inspect the complete evaluation pipeline and Docker deployment workflows on GitHub, or open the dedicated project breakdown page.
-                  </p>
-                  <div className="flex flex-wrap gap-3 pt-1">
-                    <a
-                      href="/projects/enterprise-rag.html"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0e1828] text-[#faf7f2] hover:bg-[#1a2942] text-xs font-semibold transition-colors"
-                    >
-                      <span>Read Full Case Study</span>
-                      <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
-                    </a>
-                    <a
-                      href="https://github.com/krishnamurthi-ramesh/enterprise-rag-system"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#0e1828] hover:bg-[#faf7f2] border border-[#dfd6c6] text-xs font-semibold transition-colors"
-                    >
-                      <span>GitHub Repository</span>
-                      <span className="material-symbols-outlined text-[13px]">code</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
           {/* ACTIVE CONFORMAL CONTROL DEEP DIVE */}
           {activeKey === 'vlm' && (
             <div className="space-y-6 text-sm">

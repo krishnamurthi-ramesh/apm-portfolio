@@ -6,7 +6,6 @@ export type CaseStudyKey =
   | 'flowlens'
   | 'costoptimizer'
   | 'evalharness'
-  | 'rag'
   | 'vlm'
   | 'karam'
   | 'treacle';
@@ -45,7 +44,6 @@ export const STUDY_KEYS: CaseStudyKey[] = [
   'notion',
   'comet',
   'lending',
-  'rag',
   'vlm',
 ];
 
@@ -303,45 +301,9 @@ export const CASE_STUDIES: Record<CaseStudyKey, CaseStudyRecord> = {
       },
     ],
   },
-  rag: {
-    key: 'rag',
-    tag: '08 / ENTERPRISE AI ARCHITECTURE',
-    meta: 'Local Inference & Statistical Evals • 2026',
-    badgeText: 'ENTERPRISE RAG SYSTEM',
-    badgeTone: 'navy',
-    dateRange: '2026',
-    domainSubtitle: 'Private Knowledge Retrieval & Quality Bounds',
-    headline: 'Enterprise RAG System with Quantitative Evaluation Harness',
-    roleDescription:
-      'Production-grade local RAG pipeline with statistical evaluation harness (Ragas, Recall@K, Context Precision) and sub-second P99 latency within containerized Docker clusters, guaranteeing zero sensitive customer data leaves network boundaries.',
-    category: 'project',
-    thumbnailUrl: '/assets/thumbnails/thumb-rag.jpg',
-    standaloneUrl: '/projects/enterprise-rag.html',
-    githubUrl: 'https://github.com/krishnamurthi-ramesh/enterprise-rag-system',
-    metrics: [
-      {
-        label: 'P99 LATENCY',
-        value: '380ms',
-        description: 'Local Docker containerized inference',
-        colorScheme: 'emerald',
-      },
-      {
-        label: 'FAITHFULNESS',
-        value: '0.91',
-        description: 'Ragas statistical ground-truth adherence',
-        colorScheme: 'gold',
-      },
-      {
-        label: 'RECALL@K',
-        value: '0.88',
-        description: 'Top-5 retrieval hit rate across enterprise docs',
-        colorScheme: 'navy',
-      },
-    ],
-  },
   vlm: {
     key: 'vlm',
-    tag: '09 / AI RESEARCH & STATISTICAL SAFETY',
+    tag: '05 / RESEARCH PROJECT • STATISTICAL SAFETY',
     meta: 'IEEE Paper in Review • IIITDM Kurnool • 2026',
     badgeText: 'ACTIVE CONFORMAL CONTROL',
     badgeTone: 'gold',

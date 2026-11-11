@@ -121,26 +121,8 @@ const PROJECTS_WORK: ProjectWorkItem[] = [
     prototypeUrl: 'https://option-delete-93793571.figma.site/',
   },
   {
-    id: 'rag',
-    tag: 'ENTERPRISE AI ARCHITECTURE',
-    badge: 'SYSTEM ARCHITECTURE',
-    category: 'systems',
-    thumbnailUrl: '/assets/thumbnails/thumb-rag.jpg',
-    title: 'Enterprise RAG System with Quantitative Evaluation Harness',
-    subtitle: 'Production-grade local RAG pipeline with statistical evaluation harness (Ragas, Recall@K, Context Precision) and sub-second P99 latency within containerized Docker clusters.',
-    problem:
-      'Enterprise customer support and internal IP require strict data privacy guarantees that third-party cloud LLM APIs cannot provide due to sovereign data retention policies and unpredictable latency.',
-    judgmentCalls:
-      'Chose zero-leak local inference (Ollama + FAISS) in private Docker clusters over cloud APIs. Designed statistical eval suites (Context Precision, Recall@K, Ragas Faithfulness) and enforced source citation markers before generation.',
-    outcome:
-      'Validated 380ms P99 retrieval latency, 0.91 Ragas faithfulness, and 0.88 Recall@K across enterprise doc corpuses with zero sensitive customer data leaving network boundaries.',
-    techTags: ['Local LLMs', 'Docker', 'FAISS', 'Ollama', 'Ragas Framework', 'Enterprise Privacy'],
-    standaloneUrl: '/projects/enterprise-rag.html',
-    githubUrl: 'https://github.com/krishnamurthi-ramesh/enterprise-rag-system',
-  },
-  {
     id: 'vlm',
-    tag: 'AI RESEARCH & STATISTICAL SAFETY',
+    tag: 'RESEARCH PROJECT',
     badge: 'IEEE RESEARCH PAPER',
     category: 'systems',
     thumbnailUrl: '/assets/thumbnails/thumb-vlm.jpg',
@@ -172,8 +154,6 @@ const EXPERIENCES = [
     institution: 'IIITDM Kurnool • Kurnool, India',
     description:
       '“Nyaya Shastra for Computer Science Engineers”: Applied classical Indian Nyaya dialectical reasoning and epistemology to modern computer science algorithms and formal system verification.',
-    certificateUrl: '/nyaya-internship-certificate.pdf',
-    certificateLabel: 'Verified Certificate',
   },
   {
     period: 'Apr 2025–Jul 2025',
@@ -329,7 +309,6 @@ export default function App() {
       else if (hash === 'flowlens' || hash === 'shopify-flow-lens') setActiveCaseStudy('flowlens');
       else if (hash === 'costoptimizer' || hash === 'ai-cost-optimizer') setActiveCaseStudy('costoptimizer');
       else if (hash === 'evalharness' || hash === 'eval-harness') setActiveCaseStudy('evalharness');
-      else if (hash === 'rag' || hash === 'enterprise-rag') setActiveCaseStudy('rag');
       else if (hash === 'vlm' || hash === 'active-conformal-control') setActiveCaseStudy('vlm');
       else if (hash === 'karam' || hash === 'meraqui-karam') setActiveCaseStudy('karam');
       else if (hash === 'treacle' || hash === 'treacle-technologies') setActiveCaseStudy('treacle');
@@ -1345,13 +1324,13 @@ export default function App() {
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#806b47] font-mono">
                   <span>02</span>
                   <span>/</span>
-                  <span>Product Teardowns &amp; AI Systems</span>
+                  <span>Product Teardowns &amp; Research Projects</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0e1828] tracking-tight font-[family-name:var(--font-editorial)]">
-                  Teardowns &amp; Flagship Projects
+                  Teardowns &amp; Research Projects
                 </h2>
                 <p className="text-sm sm:text-base text-[#554d42] max-w-xl">
-                  Deep reverse engineering, funnel friction diagnostics, and AI unit economics — structured by core problem framing, PM judgment calls, and measurable outcomes.
+                  Deep reverse engineering, funnel friction diagnostics, AI unit economics, and formal statistical safety research — structured by problem framing, judgment calls, and measurable outcomes.
                 </p>
               </div>
 
@@ -1383,7 +1362,7 @@ export default function App() {
                 </button>
                 <button
                   type="button"
-                  data-cursor="Filter AI Systems"
+                  data-cursor="Filter Research Projects"
                   onClick={() => setActiveFilter('systems')}
                   className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
                     activeFilter === 'systems'
@@ -1391,7 +1370,7 @@ export default function App() {
                       : 'text-[#554d42] hover:text-[#0e1828]'
                   }`}
                 >
-                  AI Systems &amp; Research ({PROJECTS_WORK.filter((p) => p.category === 'systems').length})
+                  Research Projects ({PROJECTS_WORK.filter((p) => p.category === 'systems').length})
                 </button>
               </div>
             </div>
@@ -1533,7 +1512,7 @@ export default function App() {
               </div>
             )}
 
-            {/* AI Systems & Research Projects (Image 2 - 2-Column Visual Card Style) */}
+            {/* Research Projects Showcase */}
             {(activeFilter === 'all' || activeFilter === 'systems') && (
               <div className="space-y-8 pt-6">
                 {activeFilter === 'all' && (
@@ -1541,18 +1520,18 @@ export default function App() {
                     <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#806b47] font-mono">
                       <span>02.2</span>
                       <span>/</span>
-                      <span>Flagship Systems &amp; AI Research</span>
+                      <span>Research Projects</span>
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0e1828] font-[family-name:var(--font-editorial)]">
-                      Architectural Systems &amp; Epistemic Research
+                      Research Projects
                     </h3>
                     <p className="text-sm text-[#554d42] max-w-xl">
-                      Local containerized inference pipelines and formal statistical conformal prediction systems with reproducible benchmarks.
+                      Formal statistical conformal prediction and density-drift detection for hardware-aware edge vision-language models.
                     </p>
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-8 items-stretch">
+                <div className="grid grid-cols-1 max-w-2xl gap-7 sm:gap-8 items-stretch">
                   {filteredProjects
                     .filter((p) => p.category === 'systems')
                     .map((item) => (
@@ -1711,21 +1690,6 @@ export default function App() {
                     <p className="text-xs sm:text-sm text-[#4a4235] leading-relaxed pt-1">
                       {exp.description}
                     </p>
-                    {exp.certificateUrl && (
-                      <div className="pt-2">
-                        <a
-                          href={exp.certificateUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          data-cursor="Certificate"
-                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#f0e8dc] hover:bg-[#0e1828] text-[#806b47] hover:text-[#faf7f2] transition-colors text-xs font-semibold border border-[#dfd6c6] shadow-2xs"
-                        >
-                          <span className="material-symbols-outlined text-[14px] text-[#b88a3b]">verified</span>
-                          <span>{exp.certificateLabel || 'View Certificate'}</span>
-                          <span className="material-symbols-outlined text-[13px]">open_in_new</span>
-                        </a>
-                      </div>
-                    )}
                   </div>
                 </div>
               ))}
