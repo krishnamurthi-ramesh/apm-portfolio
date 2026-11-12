@@ -185,9 +185,9 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                       </span>
                       <span className="text-[#7d7363] font-mono shrink-0">Apr 2025 – Jul 2025</span>
                     </div>
-                    <p className="text-[#806b47] font-medium">Remote / Pune, India</p>
+                    <p className="text-[#806b47] font-medium">Remote</p>
                     <p className="text-[#554d42]">
-                      Lifted candidate-matching precision by 15%, cut manual ERP entry by 15% (15+ hrs/wk saved) and data errors by 12–15% via REST/webhook ERP syncs, and delivered JSON-to-XML ETL pipelines.
+                      Integrated karam.ai with ERP systems via REST APIs &amp; webhooks reducing manual load; built schema-validated ETL pipelines &amp; JSON→XML converters cutting data errors; enhanced candidate-matching via EDA, feature engineering &amp; LLM fine-tuning; delivered API adapters, test harnesses &amp; onboarding docs.
                     </p>
                   </div>
 

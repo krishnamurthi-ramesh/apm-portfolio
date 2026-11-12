@@ -217,9 +217,9 @@ const EXPERIENCES = [
     period: 'Apr 2025–Jul 2025',
     logoUrl: '/assets/logos/meraqui.png',
     role: 'Data Science Intern',
-    institution: 'Meraqui Ventures Pvt. Ltd. (karam.ai) • Pune, India',
+    institution: 'Meraqui Ventures Pvt. Ltd. (karam.ai) • Remote',
     description:
-      'Owned the requirements-to-shipping loop for candidate matching feature (+15% precision lift). Shadowed recruiters to replace conversational bot with deterministic REST API contracts for ERP sync, saving 15 recruiter hours weekly and cutting data inconsistencies by 12–15%.',
+      'Integrated karam.ai with ERP systems via REST APIs and webhooks to reduce manual load; built schema-validated ETL pipelines and JSON→XML converters cutting data errors; enhanced candidate-matching precision via EDA, feature engineering, and LLM fine-tuning; delivered API adapters, test harnesses, and onboarding docs.',
   },
   {
     period: 'Jun 2024–Aug 2024',
